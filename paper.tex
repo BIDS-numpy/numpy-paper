@@ -1,0 +1,110 @@
+\documentclass[fleqn,10pt]{wlscirep}
+
+% Packages
+\usepackage{pifont}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+% \usepackage[multiple]{footmisc}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{listings, textcomp}
+
+\lstset{ %
+  basicstyle=\ttfamily\footnotesize,  % size of fonts used for the code
+  breaklines=true,   % automatic line breaking only at whitespace
+  captionpos=b,   % sets the caption-position to bottom
+  commentstyle=\color{gray},  % comment style
+  keywordstyle=\color{blue},  % keyword style
+  stringstyle=\color{red},  % string literal style
+  upquote=true  %straight single quotes (requires textcomp)
+}
+
+% New Commands
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\fixme}[1]{\textcolor{red}{{#1}}}
+\newcommand{\inlinecite}[1]{\footnotesize\citen{#1}}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}
+ {\noindent
+{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\color{color1}\large\sffamily\textbf{ABSTRACT}}}}
+ {\noindent
+{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\color{color1}\large\sffamily\textbf{ABSTRACT}}}}
+ {}{}
+\makeatother
+
+\title{NumPy---Array Computation for Python}
+
+\input{authors}
+
+\keywords{Scientific computing, Python, Mathematics}
+
+\begin{abstract}
+  NumPy is the fundamental array computing library for Python.
+\end{abstract}
+
+\begin{document}
+
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+
+\section*{Introduction}
+
+\section*{Project organization and community}
+
+\subsection*{Governance}
+
+\subsection*{Maintainers and contributors}
+
+\subsection*{Funding}
+
+\section*{Discussion}
+
+% The Discussion should be succinct and must not contain subheadings.
+
+
+\section*{Data Availability}
+% The statement should be provided as a separate section (titled 'Data Availability') at the end of the main text, before the 'References' section.
+All NumPy source code and most data generated for the current study are available in the NumPy GitHub repository, \url{https://github.com/numpy}. Some supporting code and data have also been stored in other public repositories cited by this manuscript.
+
+\bibliography{references}
+
+\section*{Acknowledgements}
+
+
+\section*{Author Contributions Statement}
+
+
+
+%Must include all authors, identified by initials, for example: A.A.
+%conceived the experiment(s),  A.A. and B.A. conducted the experiment(s), C.A.
+%and D.A. analysed the results.  All authors reviewed the manuscript.
+
+\section*{Competing Interests}
+
+The authors declare no competing interests.
+
+
+%To include, in this order: \textbf{Accession codes} (where applicable);
+%\textbf{Competing financial interests} (mandatory statement).
+
+%The corresponding author is responsible for submitting a
+%\href{http://www.nature.com/srep/policies/index.html#competing}{competing
+%financial interests statement} on behalf of all authors of the paper. This
+%statement must be included in the submitted article file.
+
+\section*{Consortium}
+\subsection*{NumPy Contributors}
+\input{consortium}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
