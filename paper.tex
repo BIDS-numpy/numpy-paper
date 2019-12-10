@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{csquotes}
 \usepackage{listings, textcomp}
+\lstset{language=Python}
 
 \lstset{ %
   basicstyle=\ttfamily\footnotesize,  % size of fonts used for the code
@@ -167,6 +168,42 @@ We highlight a few of the implemented NEPs below.
 \subsection*{Maintainers and contributors}
 
 \subsection*{Funding}
+
+\subsection*{Conclusion}
+
+\subsubsection*{Impact Now}
+
+NumPy, while having been wildly successful as a library and array
+exchange project, has now also become a standard language for expressing array
+and tensor computations.  For example, the NumPy API is implemented by
+several popular tensor computation libraries including CuPy
+(https://cupy.chainer.org/), Jax
+(https://jax.readthedocs.io/en/latest/jax.numpy.html), PyTorch
+(https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html),
+and Apache MXNet
+(https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html),
+and to a lesser extent TensorFlow
+(https://www.tensorflow.org/api\_docs/python/tf/Tensor).
+
+Another notable example is Dask, a library for parallel computing in
+Python.  Dask adopts the NumPy API and therefore presents a familiar
+interface to existing NumPy users, while adding powerful abilities to
+parallelize and distribute tasks.
+
+In order to aid better interaction between NumPy and these libraries,
+an ``array function'' protocol was added to NumPy in 2018 (see Section
+X). The new protocol allows for external array objects (sometimes
+called ``duck arrays'') to pass through NumPy:
+
+\begin{lstlisting}
+  import numpy as np
+  import cupy as cp
+
+  x_gpu = cp.array([1, 2, 3])
+  y = np.sum(x_gpu)  # This works, and returns a GPU array
+\end{lstlisting}
+
+\subsubsection*{Future Development}
 
 \section*{Discussion}
 
