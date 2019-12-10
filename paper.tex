@@ -64,7 +64,69 @@
 
 \section*{Introduction}
 
+NumPy is the fundamental array computation library for the Python
+ecosystem.  It underpins almost every library that does numerical
+computation, including SciPy.  NumPy consists of the `ndarray`-object
+along with utility functions to operate on such arrays.  Because of
+its inherent simplicity—being a pointer to memory with some
+associated meta-data about shape, data-type, and so forth—the NumPy
+array has become the {\it de facto} exchange format for array data in
+Python.  That said, NumPy has now seen such widespread adoption that
+not only the array object but also its {\it Application Programming
+  Interface} (API) has become ubiquitous, and is imitated by, e.g.,
+popular tensor computation libraries.
 
+Over the past few years, with external financial support, NumPy has
+seen renewed developer interest.  It is actively developed to meet the
+needs of its community, including the addition of some fairly large
+changes as outlined in Section XXX.
+
+\section*{History}
+
+NumPy was, at its inception, the unifier of the Python array
+processing world.  Before NumPy, two packages—Numeric and
+numarray—existed.  The first was developed by Paul DuBois and
+colleagues at [the lab], and was aimed at fast manipulation of many
+small arrays.  In contrast, to handle large astronomical images,
+NumArray was developed [by STSCI?]. In other words, these array
+objects had different strengths and weaknesses, and therefore tended
+to divide the already small user community.  In 200x, Travis Oliphant
+wrote NumPy, a ``best of both worlds'' unification of the two
+projects, based on Numeric.  The arrival of stable version 1.0 in 200x unified the scientific Python
+community, and heralded the era of popular scientific computing in
+Python that has led to formidable successes such as [cite some impacts here].
+
+While, by 2006, NumPy was already eminently usable, it lacked good
+documentation. In order to use NumPy in his classes, Joe Harrington
+from the University of South Florida sponsored several rounds of the
+NumPy Documentation Marathon [citations].  During these intensive
+documentation improvement sessions, a Wikipedia-like system was
+developed to allow community members to contribute so-called
+``docstrings''—text describing each NumPy function. A community
+documentation standard was published so that these pieces of
+documentation would all provide similar information, and conform to a
+basic standard of quality. Experienced community members reviewed and
+integrated contributed docstrings, and soon NumPy had thorough
+documentation coverage.
+
+For many years, NumPy operated without external funding, development
+time mostly being contributed freely by students and researchers in
+their spare time.  In-person meetings were sponsored off of
+individual's research grants, and while industry sponsored
+contributions were made, notably those by Mark Wiebe when he was
+sponsored by Travis Oliphant at X, mostly the package had rapid growth
+and adoption without external investment.  In 2014, NumPy received its
+first large grants from the Moore and Sloan foundations, totaling 1.3M
+dollars.  This allowed for hiring several full time programmers and,
+with the support of community members, mobilized a project that had
+become stagnant for the several years prior.
+
+NumPy is now actively developed, with weekly online developer
+meetings, a formalized NumPy enhancement proposal process, and
+multiple active grants (but still almost no industry support).
+
+For a more detailed history of the scientific Python ecosystem, please
+refer to [SciPy arxiv / nature paper].
 
 \section*{Project organization and community}
 
