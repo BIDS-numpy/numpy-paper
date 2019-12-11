@@ -134,6 +134,95 @@ in Python'' \cite{virtanen2019scipy}.
 \section*{Architecture and implementation choices}
 
 \subsection*{Library organisation}
+Broadly, the NumPy library consists of the following parts:
+the NumPy array data structure; the so-called \emph{universal functions};
+a set of library functions for manipulating arrays and doing scientific
+computation; infrastructure libraries for unit tests and Python package
+building; and the program \code{f2py} for wrapping Fortran code in Python.
+The \code{ndarray} and the universal functions are generally considered
+the core of the library.
+In the following, we give a brief summary of these components of the
+library.
+
+\paragraph{\emph{Core.}}  The \code{ndarray} data structure and the
+universal functions make up the core of NumPy.
+
+The \code{ndarray} is the data structure at the heart of NumPy.
+The data structure stores regularly strided homogeneous data types
+in a contiguous block memory, allowing for the efficient representation
+of $n$-dimensional data. \fixme{[How much detail do we want here?]}
+More details about the data structure are given in ``The NumPy array:
+a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
+
+The \emph{universal functions}, or more concisely, \emph{ufuncs},
+are functions written in C that implement efficient looping over
+NumPy arrays. An important feature of ufuncs is the built-in
+implementation of \emph{broadcasting}.  For example, the function
+\code{arctan2(x, y)} is a ufunc that accepts two values and computes
+$\tan^{-1}(y/x)$.  When arrays are passed in as the arguments,
+the ufunc will take care of looping over the dimensions of the inputs
+in such a way that if, say, \code{x} is a 1-d array with length 3, and
+\code{y} is a 2-d array with shape $2 \times 1$, the output will be
+an array with shape $2 \times 3$.  The ufunc machinery takes care
+of calling the function with all the appropriate combinations of
+input array elements to complete the output array.
+The elementary arithmetic operations of addition, multiplication, etc.,
+are implemented as ufuncs, so broadcasting applies even in expressions
+such as \code{x + y * z}.
+
+\paragraph{\emph{Computing libraries.}}
+NumPy provides a large library of functions for array manipulation
+and scientific computing, including functions for: creating, reshaping,
+concatenating, and padding arrays; searching, sorting and counting data
+in arrays; computing elementary statistics, such as the mean, median,
+variance, and standard deviation; file I/O; and more.
+
+A suite of functions for computing the \emph{fast Fourier transform (FFT)}
+and its inverse is provided.
+
+NumPy's linear algebra library includes functions for: solving linear
+systems of equations; computing various functions of a matrix, including
+the determinant, the norm, the inverse, and the pseudo-inverse;
+computing the Cholesky, eigenvalue, and singular value decompositions of a matrix;
+and more.
+
+The random number generator library in NumPy provides several alternative
+\emph{bit stream generators} that provide the core function of generating
+random integers.
+A higher-level generator class that implements an assortment of
+probability distributions is provided. It includes the beta, gamma
+and Weibull distributions, the univariate and multivariate normal
+distributions, and more.
+
+A \emph{masked array} class, built on top of the \code{ndarray}, is
+provided.  This class allows elements of an array to be masked,
+indicating that the data is missing or unknown.
+
+There is also a \code{matrix} class the implements 2-d arrays with
+specialized behavior.  We mention it here for completeness, but the
+use of \code{matrix} is discouraged.  The quirks of the \code{matrix}
+class have proven to be troublesome, and with the addition of the
+infix \code{@} operator to Python for matrix multiplication, there was no
+longer a need for a separate \code{matrix} class, since one can
+use a 2-d array instead.
+
+\paragraph{\emph{Infrastructure libraries.}} NumPy provides utilities
+for writing unit tests and for building Python packages.
+
+The \code{testing} subpackage provides functions such as
+\code{assert\_allclose(actual, desired)} that may be used in unit
+test suites for code that uses NumPy arrays.
+
+NumPy provides a subpackage includes functions and classes
+that can be used by libraries that have NumPy as dependency,
+to be used in the library's configuration code that installs the
+library and that builds a package that can be used, for example,
+on the PyPI web site.
+
+\paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
+building NumPy-aware Python wrappers of Fortran functions.
+NumPy itself does not use any Fortran code;  F2PY is part of NumPy
+for historical reasons.
 
 \subsection*{Common infrastructure}
 
