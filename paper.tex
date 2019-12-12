@@ -65,7 +65,7 @@
 
 \section*{Introduction}
 
-NumPy\cite{vanderwalt2011numpy} is the fundamental array computation library for the Python
+NumPy is the fundamental array computation library for the Python
 ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
 It underpins almost every library that does numerical
 computation, including SciPy.  NumPy consists of the `ndarray`-object
@@ -81,20 +81,22 @@ popular tensor computation libraries.
 Over the past few years, with external financial support, NumPy has
 seen renewed developer interest.  It is actively developed to meet the
 needs of its community, including the addition of some fairly large
-changes as outlined in Section XXX.
+changes as outlined in Section~\ref{improvements}.
 
-\section*{History}
+\subsection*{History}
 
 NumPy was, at its inception, the unifier of the Python array
 processing world.  Before NumPy, two packages—Numeric and
-numarray—existed.  The first was developed by Paul DuBois and
-colleagues at [the lab], and was aimed at fast manipulation of many
+numarray—existed.  The first was developed by Jim Fulton, Jim Hugunin, Paul Dubois, Konrad
+Hinsen, Travis Oliphant, and others, and was aimed at fast manipulation of many
 small arrays.  In contrast, to handle large astronomical images,
-NumArray was developed [by STSCI?]. In other words, these array
+NumArray was developed at the Space Telescope Science Institute (STScI).
+In other words, these array
 objects had different strengths and weaknesses, and therefore tended
-to divide the already small user community.  In 200x, Travis Oliphant
-wrote NumPy, a ``best of both worlds'' unification of the two
-projects, based on Numeric.  The arrival of stable version 1.0 in 200x unified the scientific Python
+to divide the already small user community.  In 2005, Travis Oliphant
+started NumPy, a ``best of both worlds'' unification of the two
+projects, based on Numeric.  The arrival of stable version 1.0 in October
+2006 unified the scientific Python
 community, and heralded the era of popular scientific computing in
 Python that has led to formidable successes such as [cite some impacts here].
 
@@ -117,7 +119,7 @@ time mostly being contributed freely by students and researchers in
 their spare time.  In-person meetings were sponsored off of
 individual's research grants, and while industry sponsored
 contributions were made, notably those by Mark Wiebe when he was
-sponsored by Travis Oliphant at X, mostly the package had rapid growth
+sponsored by Travis Oliphant at Continuum Analytics, mostly the package had rapid growth
 and adoption without external investment.  In 2014, NumPy received its
 first large grants from the Moore and Sloan foundations, totaling 1.3M
 dollars.  This allowed for hiring several full time programmers and,
@@ -132,14 +134,24 @@ For a more detailed history of the scientific Python ecosystem, please
 refer to ``SciPy 1.0---Fundamental Algorithms for Scientific Computing
 in Python'' \cite{virtanen2019scipy}.
 
+\subsection*{Project goals / scope of library}
+
+\subsection*{Current status (maturity, users)}
+
+\subsection*{Enabled ecosystem }
+
+% NEP 29 (which releases are supported in rolling window) 
+
+% NumPyDoc standard, recent improvements
+
 \section*{Architecture and implementation choices}
 
-\subsection*{Library organisation}
+\subsection*{Library organization}
 Broadly, the NumPy library consists of the following parts:
 the NumPy array data structure; the so-called \emph{universal functions};
 a set of library functions for manipulating arrays and doing scientific
 computation; infrastructure libraries for unit tests and Python package
-building; and the program \code{f2py} for wrapping Fortran code in Python.
+building; and the program \code{f2py} for wrapping Fortran code in Python \cite{peterson2009f2py}.
 The \code{ndarray} and the universal functions are generally considered
 the core of the library.
 In the following, we give a brief summary of these components of the
@@ -151,7 +163,7 @@ universal functions make up the core of NumPy.
 The \code{ndarray} is the data structure at the heart of NumPy.
 The data structure stores regularly strided homogeneous data types
 in a contiguous block memory, allowing for the efficient representation
-of $n$-dimensional data. \fixme{[How much detail do we want here?]}
+of $n$-dimensional data.
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
@@ -227,9 +239,11 @@ for historical reasons.
 
 \subsection*{Common infrastructure}
 
+% Wheels build system
+
 \subsection*{Language choices}
 
-\section*{Recent technical improvements}
+\section*{Recent technical improvements}\label{improvements}
 
 \subsection*{NEPS revived and roadmap}
 
@@ -258,21 +272,22 @@ We highlight a few of the implemented NEPs below.
 
 \subsection*{Funding}
 
-\subsection*{Conclusion}
+\section*{Discussion}
 
-\subsubsection*{Impact Now}
+% The Discussion should be succinct and must not contain subheadings.
+
+% \subsubsection*{Impact Now}
 
 NumPy, while having been wildly successful as a library and array
 exchange project, has now also become a standard language for expressing array
 and tensor computations.  For example, the NumPy API is implemented by
-several popular tensor computation libraries including CuPy
-(https://cupy.chainer.org/), Jax
-(https://jax.readthedocs.io/en/latest/jax.numpy.html), PyTorch
-(https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html),
-and Apache MXNet
-(https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html),
-and to a lesser extent TensorFlow
-(https://www.tensorflow.org/api\_docs/python/tf/Tensor).
+several popular tensor computation libraries including
+CuPy\footnote{\url{https://cupy.chainer.org/}},
+Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
+Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}},
+and to a lesser extent
+TensorFlow\footnote{\url{https://www.tensorflow.org/api\_docs/python/tf/Tensor}}.
 
 Another notable example is Dask, a library for parallel computing in
 Python.  Dask adopts the NumPy API and therefore presents a familiar
@@ -292,16 +307,17 @@ called ``duck arrays'') to pass through NumPy:
   y = np.sum(x_gpu)  # This works, and returns a GPU array
 \end{lstlisting}
 
-\subsubsection*{Future Development}
+% \subsubsection*{Future Development}
 
-\section*{Discussion}
-
-% The Discussion should be succinct and must not contain subheadings.
 
 
 \section*{Data Availability}
 % The statement should be provided as a separate section (titled 'Data Availability') at the end of the main text, before the 'References' section.
-All NumPy source code and most data generated for the current study are available in the NumPy GitHub repository, \url{https://github.com/numpy}. Some supporting code and data have also been stored in other public repositories cited by this manuscript.
+
+All NumPy source code and most data generated for the current study are
+available in the NumPy GitHub repository, \url{https://github.com/numpy}. Some
+supporting code and data have also been stored in other public repositories
+cited by this manuscript.
 
 \bibliography{references}
 
