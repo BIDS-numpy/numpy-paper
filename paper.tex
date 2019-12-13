@@ -264,6 +264,33 @@ We highlight a few of the implemented NEPs below.
 
 \subsection*{Testing on multiple architectures}
 
+At the time of writing the two fastest supercomputers in the
+world, Summit and Sierra, both have IBM POWER9 architectures
+\cite{top500nov2019}. In late 2018, Astra, the first ARM-based
+supercomputer to enter the TOP500 list, went into production\cite{
+astra-wiki}. Furthermore, over 100 billion ARM processors have been
+produced as of 2017\cite{arm-architecture}, making it the most 
+widely used instruction set architecture in the world.
+
+Clearly there are motivations for a large scientific computing
+software library to support POWER and ARM architectures. We've extended
+our continuous integration (CI) testing to include \texttt{ppc64le}
+(POWER8 on Travis CI) and ARMv8 (on Shippable service). We also test
+with the s390x architecture (IBM Z CPUs on Travis CI) so that we
+can probe the behavior of our library on a big-endian machine.
+This satisfies one of the major components of
+improved CI testing laid out in a version of our roadmap
+\cite{numpy-roadmap}---specifically, ``CI for more exotic
+platforms."
+
+PEP 599\cite{PEP599} lays out a plan for new Python binary wheel
+distribution support, \texttt{manylinux2014}, that adds
+support for a number of architectures supported by the CentOS
+Alternative Architecture Special Interest Group, including
+ARMv8, ppc64le, as well as s390x. We are thus well-positioned
+for a future where provision of binaries on these architectures
+will be expected for a library at the base of the ecosystem.
+
 \section*{Project organization and community}
 
 \subsection*{Governance}
