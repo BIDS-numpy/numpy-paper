@@ -27,6 +27,8 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\fixme}[1]{\textcolor{red}{{#1}}}
 \newcommand{\inlinecite}[1]{\footnotesize\citen{#1}}
+\newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 
 \usepackage{etoolbox}
 \makeatletter
@@ -364,9 +366,8 @@ On the other side, projects are providers of a
 \emph{NumPy-like API} and array objects targeting audiences with specialized needs beyond
 NumPy's capabilities. Some of these projects provide:
 
-% TODO: A list prints too large currently, so probably should make this
-%       text (although depends a bit on the final layout maybe)
 \begin{description}
+    \tightlist
     \item[SciPy's \code{scipy.sparse} and \code{pydata.sparse}:] Sparse arrays
     \item[CuPy:] Computation on the GPU
     \item[Dask:] Parallel, distributed computing
