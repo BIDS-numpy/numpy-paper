@@ -353,7 +353,65 @@ release planning.
 
 \subsection*{Random}
 
-\subsection*{\_\_array\_func\_\_}
+\subsection*{The \_\_array\_function\_\_ Protocol}
+
+The central position which NumPy takes within the python ecosystem with
+respect to scientific computing and numerical works,
+means that a vast number of projects are build on it.
+These projects are consumers of the NumPy API.
+
+On the other side, projects are providers of a
+\emph{NumPy-like API} and array objects targeting audiences with specialized needs beyond
+NumPy's capabilities. Some of these projects provide:
+
+% TODO: A list prints too large currently, so probably should make this
+%       text (although depends a bit on the final layout maybe)
+\begin{description}
+    \item[SciPy's \code{scipy.sparse} and \code{pydata.sparse}:] Sparse arrays
+    \item[CuPy:] Computation on the GPU
+    \item[Dask:] Parallel, distributed computing
+    \item[PyTorch and TensorFlow:] Deep learning frameworks.
+\end{description}
+
+The multitude of specialized projects creates the difficulty that consumers
+of these NumPy-like APIs write code specific to a single project and do not support
+all of the above array providers.
+This is a burden for users relying on the specialized Array-like, since
+a tool they need may not work for them.
+Additionally, a user who has the need of transitioning from NumPy to a more
+specialized array, is faced with a challenge.
+These issue can lead into a fragmentation of the user bases into consumers
+of different NumPy-like APIs.
+
+To address these issues NumPy has the goal of providing the fundamental
+API for \emph{interoperability} between the various NumPy-like APIs.
+An earlier step in this direction was the implementation of the
+\code{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
+for most mathematical functions.\cite{NEP13}
+In 2019 this was expanded more generally with the inclusion of the
+\code{\_\_array\_function\_\_} protocol into NumPy~1.17.
+These two protocols allows providers of Array-like APIs to be interoperable
+with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
+For the users relying on specialized array projects it means that even though
+much code is written specifically for NumPy arrays and uses the NumPy API as
+\code{import numpy as np}, it can nevertheless work for them.
+A brief example of such a function which is written using NumPy
+but can now be used more generally is:
+\begin{lstlisting}
+def f(x):
+    y = np.tensordot(x, x.T)
+    return np.mean(np.exp(y))
+\end{lstlisting}
+For example, a user relying on this function and normally using it with a
+NumPy array, may now use a distributed Dask array when challenged
+by a very large dataset, without any modification to \code{f(x)}.
+
+While, as of writing this, the interface is still considered experimental
+and may be modified, it has been implemented by multiple projects already
+and proven useful.
+% TODO: Should likely have citation/example if I claim it was useful (based
+%       mainly on Matt's statement).
+
 
 \subsection*{Testing on multiple architectures}
 
