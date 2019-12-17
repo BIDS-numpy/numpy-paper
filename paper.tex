@@ -439,13 +439,37 @@ called ``duck arrays'') to pass through NumPy:
 
 % Dtypes
 
+The meaning of each element within a NumPy array is described by its datatype
+(dtype). NumPy arrays can hold all common numerical datatypes, string, datetimes
+and generic Python objects, each of these is identified by a dtype.
 We are busy overhauling the datatype system to make it consistent (aligned with
-expectations), to simplify the creation of custom dtypes, and to enable much
-requested features such as units.  The new implementation should be simpler and
-more cleanly implemented.
+expectations), to simplify the creation of custom dtypes.
+While numerical dtypes make the foundation for most users, there are
+a multitude of use cases which cannot prosper due to current limitations.
+These use cases include datatypes with physical units\cite{astropy,Goldbaum2018,pint},
+% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
+geometrical objects\cite{pygeos}, automatic differentiation\cite{pyadolc}, and many more.
+Projects addressing these exist, each struggles with current
+limitations.  % TODO: I may need citations, we could link github issues.
+
+While it is currently possible to define custom dtypes within NumPy, many of the
+use cases above cannot be solved using this system.
+This is evidenced also by code within NumPy which would require changes
+in many places to add such dtypes, even when adding them within NumPy itself.
+The new implementation will be simpler and more cleanly implemented in
+this regard.
+Custom dtypes and the basic dtypes included within NumPy will be implemented
+and behave identically as much as possible.
+At the same time redesigning the API will make NumPy dtypes more flexible to grow
+to future needs should they arise.
+
+As a further step, to make dtypes more accessible and allow a faster adoption of
+custom dtypes within the community, we plan to create a Python API to
+define such custom dtypes.
 
 A \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}
 is under development in consultation with the community.
+
 
 \section*{Data Availability}
 
