@@ -307,6 +307,33 @@ for historical reasons.
 
 \subsubsection*{Wheels build system}
 
+A Python \emph{wheel}\cite{PEP427} is a standard file format for
+distributing Python libraries.  In addition to Python code, a
+wheel may include compiled C extensions and other binary data.
+This is important, because many libraries, including NumPy,
+require a C compiler and other build tools to build the software
+from the source code, making it difficult for many users to install
+the software on their own.  The introduction of wheels to the Python
+packaging system has made it much easier for users to install
+precompiled libraries.
+
+A GitHub repository containing scripts to build NumPy wheels has
+been configured so that a simple commit to the repository triggers
+an automated build system that creates NumPy wheels for several
+computer platforms, including Windows, Mac OSX and Linux.  The wheels
+are uploaded to a public server and made available for anyone to use.
+This system makes it easy for users to install precompiled versions
+of NumPy on these platforms.
+
+The technology that is used to build the wheels evolves continually.
+At the time this paper is being written, a key component is the
+\code{multibuild} suite of tools developed by Matthew Brett and
+other developers\cite{multibuild}.  Currently, scripts using
+\code{multibuild} are written for the continuous integration
+platforms Travis-CI (for Linux and Mac OSX) and Appveyor
+(for Windows).
+
+
 \subsubsection*{NEP 29}
 
 % https://numpy.org/neps/nep-0029-deprecation_policy.html
