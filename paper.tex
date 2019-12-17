@@ -114,37 +114,88 @@ basic standard of quality. Experienced community members reviewed and
 integrated contributed docstrings, and soon NumPy had thorough
 documentation coverage.
 
+For a more detailed history of the scientific Python ecosystem, please
+refer to ``SciPy 1.0---Fundamental Algorithms for Scientific Computing
+in Python'' \cite{virtanen2019scipy}.
+
+\subsection*{Funding}
+
 For many years, NumPy operated without external funding, development
 time mostly being contributed freely by students and researchers in
 their spare time.  In-person meetings were sponsored off of
 individual's research grants, and while industry sponsored
 contributions were made, notably those by Mark Wiebe when he was
 sponsored by Travis Oliphant at Continuum Analytics, mostly the package had rapid growth
-and adoption without external investment.  In 2014, NumPy received its
-first large grants from the Moore and Sloan foundations, totaling 1.3M
-dollars.  This allowed for hiring several full time programmers and,
-with the support of community members, mobilized a project that had
-become stagnant for the several years prior.
+and adoption without external investment.
+
+% In 2014, NumPy received its
+% first large grants from the Moore and Sloan foundations, totaling 1.3M
+% dollars.  This allowed for hiring several full time programmers and,
+% with the support of community members, mobilized a project that had
+% become stagnant for the several years prior.
+
+% BIDS -- UCB
+% https://www.moore.org/grant-detail?grantId=GBMF5447
+% $645,020 in 2016
+% https://sloan.org/grant-detail/8222
+% $659,359 in 2017
+% https://bids.berkeley.edu/news/bids-receives-sloan-foundation-grant-contribute-numpy-development
+
+The Berkeley Institute for Data Science (BIDS) received two grants to support
+the development of NumPy.
+At the end of 2016, the Gordon and Betty Moore Foundation awarded them
+\$645,020 for improving NumPy for better data science.
+In 2017, the Alfred P. Sloan Foundation complemented the funding with an
+additional \$659,359.
+Stéfan van der Walt, a senior research data scientist at BIDS and a member of
+the NumPy steering committee, is the PI of both grants and manages a team of
+four programmers working on the project.
+
+
+
+% how much do we say about who these developers are and
+% lessons learned?
+
+% technical focus 
+% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
+% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
+
+% CZI -- NumFOCUS/QuanSight
+% https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
+% NumPy and OpenBLAS received $195,000 in 2019
+% https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
+
+NumFOCUS received a grant for \$195,000 in 2019 for the development of NumPy
+and OpenBLAS from the Chan Zuckerberg Initiative. 
+Ralf Gommers, the Director of Quansight Labs and a member of
+the NumPy steering committee, is the PI.
+
+% focus on better serve NumPy's large number of beginner to intermediate level users
+% focusing all our time on growing the team and better serving new users and contributors
+
+% Tidelift, ...
+% https://tidelift.com/subscription/pkg/pypi-numpy
+% $10,000 over 24 months according to 
+% https://mail.python.org/pipermail/numpy-discussion/2018-September/078736.html
+
+% Intel, QuanSight, ...
+
+
+\subsection*{Current status}
 
 NumPy is now actively developed, with weekly online developer
 meetings, a formalized NumPy enhancement proposal process, and
 multiple active grants (but still almost no industry support).
+% check almost no industry
 
-For a more detailed history of the scientific Python ecosystem, please
-refer to ``SciPy 1.0---Fundamental Algorithms for Scientific Computing
-in Python'' \cite{virtanen2019scipy}.
+% (maturity, users)
+
+
+\section*{Architecture and implementation choices}
 
 \subsection*{Project goals / scope of library}
 
-\subsection*{Current status (maturity, users)}
-
-\subsection*{Enabled ecosystem }
-
-% NEP 29 (which releases are supported in rolling window) 
-
-% NumPyDoc standard, recent improvements
-
-\section*{Architecture and implementation choices}
+% https://numpy.org/neps/scope.html
 
 \subsection*{Library organization}
 Broadly, the NumPy library consists of the following parts:
@@ -241,6 +292,10 @@ for historical reasons.
 
 % Wheels build system
 
+% NEP 29 (which releases are supported in rolling window) 
+
+% NumPyDoc standard, recent improvements
+
 \subsection*{Language choices}
 
 \section*{Recent technical improvements}
@@ -257,6 +312,8 @@ Since then there have been 19 proposed NEPS---6 have been implemented,
 4 have been accepted and are being implemented, 4 are under consideration,
 3 have deferred or superseded, and 2 have been rejected or withdrawn.
 We highlight a few of the implemented NEPs below.
+
+% https://numpy.org/neps/roadmap.html
 
 \subsection*{Random}
 
@@ -295,67 +352,15 @@ will be expected for a library at the base of the ecosystem.
 
 \subsection*{Governance}
 
-\subsection*{Maintainers and contributors}
-
-\subsection*{Funding}
-
-Historically, NumPy was developed primarily by voluteers in their free time.
-% some funding at Berkeley, the documentation project, Travis funding ...
-Over the last few years, there has an increase in paid full-time developers due
-to new sources of funding.
-
-% how much do we say about who these developers are and
-% lessons learned?
-
-% BIDS -- UCB
-% https://www.moore.org/grant-detail?grantId=GBMF5447
-% $645,020 in 2016
-% https://sloan.org/grant-detail/8222
-% $659,359 in 2017
-% https://bids.berkeley.edu/news/bids-receives-sloan-foundation-grant-contribute-numpy-development
-
-The Berkeley Institute for Data Science (BIDS) received two grants to support
-the development of NumPy.
-At the end of 2016, the Gordon and Betty Moore Foundation awarded them
-\$645,020 for improving NumPy for better data science.
-In 2017, the Alfred P. Sloan Foundation complemented the funding with an
-additional \$659,359.
-Stéfan van der Walt, a senior research data scientist at BIDS and a member of
-the NumPy steering committee, is the PI of both grants and manages a team of
-four programmers working on the project.
-
-% technical focus 
-% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
-% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
-
-% CZI -- NumFOCUS/QuanSight
-% https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
-% NumPy and OpenBLAS received $195,000 in 2019
-% https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
-
-NumFOCUS received a grant for \$195,000 in 2019 for the development of NumPy
-and OpenBLAS from the Chan Zuckerberg Initiative. 
-Ralf Gommers, the Director of Quansight Labs and a member of
-the NumPy steering committee, is the PI.
-
-% focus on better serve NumPy's large number of beginner to intermediate level users
-% focusing all our time on growing the team and better serving new users and contributors
-
-% Tidelift, ...
-% https://tidelift.com/subscription/pkg/pypi-numpy
-% $10,000 over 24 months according to 
-% https://mail.python.org/pipermail/numpy-discussion/2018-September/078736.html
-
-
 \subsection*{GSoD}
 
-\subsection*{Maintainer overview}
+\subsection*{Maintainers and contributors}
 
 %  nr of core devs / commit rights) & contributors
 
-\subsection*{Industry collaboration}
-
-% Intel, QuanSight, ...
+% may be useful:
+% - https://github.com/docathon/watchtower
+% - https://github.com/machine-shop/oss_devkit/blob/master/plot_pr.py % (PR over time plot, there may be other better versions out there)
 
 \subsection*{Website}
 
