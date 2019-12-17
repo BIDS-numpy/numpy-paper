@@ -152,7 +152,6 @@ the NumPy steering committee, is the PI of both grants and manages a team of
 four programmers working on the project.
 
 
-
 % how much do we say about who these developers are and
 % lessons learned?
 
@@ -167,6 +166,7 @@ four programmers working on the project.
 
 NumFOCUS received a grant for \$195,000 in 2019 for the development of NumPy
 and OpenBLAS from the Chan Zuckerberg Initiative. 
+NumPy depends on OpenBLAS to provide its underlying accelerated linear algebra implementation.
 Ralf Gommers, the Director of Quansight Labs and a member of
 the NumPy steering committee, is the PI.
 
@@ -179,7 +179,6 @@ the NumPy steering committee, is the PI.
 % https://mail.python.org/pipermail/numpy-discussion/2018-September/078736.html
 
 % Intel, QuanSight, ...
-
 
 \subsection*{Current status}
 
@@ -310,6 +309,13 @@ for historical reasons.
 
 % NEP 29 (which releases are supported in rolling window) 
 
+% https://numpy.org/neps/nep-0029-deprecation_policy.html
+In NEP 29, we recommend, along with leaders from various other
+projects, that all projects across the Scientific Python ecosystem
+adopt a common ``time window-based'' policy for support of Python and
+NumPy versions. This standard will simplify downstream project and
+release planning.
+
 % NumPyDoc standard, recent improvements
 
 \subsection*{Language choices}
@@ -369,7 +375,7 @@ will be expected for a library at the base of the ecosystem.
 
 \section*{Discussion}
 
-% \subsubsection*{Impact Now}
+\subsubsection*{Impact Now}
 
 NumPy, while having been wildly successful as a library and array
 exchange project, has now also become a standard language for expressing array
@@ -400,12 +406,19 @@ called ``duck arrays'') to pass through NumPy:
   y = np.sum(x_gpu)  # This works, and returns a GPU array
 \end{lstlisting}
 
-% \subsubsection*{Future Development}
+\subsubsection*{Future Development}
 
+% Dtypes
 
+We are busy overhauling the datatype system to make it consistent (aligned with
+expectations), to simplify the creation of custom dtypes, and to enable much
+requested features such as units.  The new implementation should be simpler and
+more cleanly implemented.
+
+A \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}
+is under development in consultation with the community.
 
 \section*{Data Availability}
-% The statement should be provided as a separate section (titled 'Data Availability') at the end of the main text, before the 'References' section.
 
 All NumPy source code and most data generated for the current study are
 available in the NumPy GitHub repository, \url{https://github.com/numpy}. Some
@@ -419,8 +432,6 @@ cited by this manuscript.
 
 \section*{Author Contributions Statement}
 
-
-
 %Must include all authors, identified by initials, for example: A.A.
 %conceived the experiment(s),  A.A. and B.A. conducted the experiment(s), C.A.
 %and D.A. analysed the results.  All authors reviewed the manuscript.
@@ -428,15 +439,6 @@ cited by this manuscript.
 \section*{Competing Interests}
 
 The authors declare no competing interests.
-
-
-%To include, in this order: \textbf{Accession codes} (where applicable);
-%\textbf{Competing financial interests} (mandatory statement).
-
-%The corresponding author is responsible for submitting a
-%\href{http://www.nature.com/srep/policies/index.html#competing}{competing
-%financial interests statement} on behalf of all authors of the paper. This
-%statement must be included in the submitted article file.
 
 \section*{Consortium}
 \subsection*{NumPy Contributors}
