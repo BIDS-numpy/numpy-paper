@@ -357,17 +357,17 @@ release planning.
 
 The NumPy random module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
-by a \code{RandomState} object that: handles seeding and state initialization; wraps
-the core pseudorandom number generator based on a 32-bit implementation of
+by a \code{RandomState} object that: handles seeding and state initialization;
+wraps the core pseudorandom number generator based on a 32-bit implementation of
 MT19937; interfaces with the underlying code that transforms random bits into
 deviates from other distributions; and supplies a singleton instance exposed in
 the root of the random module.
 
-The \code{RandomState} object makes a compatibility guarantee so that a fixed seed and
-sequence of function calls produce the same set of values. This guarantee has
-slowed progress since improving the underlying code requires extending the API
-with additional keyword arguments. This guarantee continues to apply to
-\code{RandomState}. 
+The \code{RandomState} object makes a compatibility guarantee so that a fixed
+seed and sequence of function calls produce the same set of values. This
+guarantee has slowed progress since improving the underlying code requires
+extending the API with additional keyword arguments. This guarantee continues to
+apply to \code{RandomState}. 
 
 NumPy 1.17 introduced a new API for generating random numbers that use a more
 flexible structure that can be extended by libraries or end-users. The new API
@@ -384,38 +384,41 @@ bit generator is a 64-bit implementation of the Permuted Congruential Generator
 of the Philox generator\cite{random123} (\code{Philox}), Chris Doty-Humphrey's
 Small Fast Chaotic generator\cite{practrand} (\code{SFC64}), and the 32-bit
 Mersenne Twister\cite{mt19937} (\code{MT19937}) which has been used in older
-versions of NumPy.\footnote{The randomgen project supplies a wide range of
-alternative bit generators such as a cryptographic counter-based generators
-(\code{AESCtr}) and generators that expose hardware random number generators
-(\code{RDRAND})\cite{randomgen}.} Bit generators export a capsule containing
-pointers to functions that produce 64 bits, 32 bits, or a random double. They
-also expose CFFI and ctypes interfaces to the same three functions.
+versions of NumPy.\footnote{The
+\href{https://github.com/bashtage/randomgen}{randomgen project} supplies a wide
+range of alternative bit generators such as a cryptographic counter-based
+generators (\code{AESCtr}) and generators that expose hardware random number
+generators (\code{RDRAND})\cite{randomgen}.} Bit generators export a capsule
+containing pointers to functions that produce 64 bits, 32 bits, or a random
+double. They also expose CFFI and ctypes interfaces to the same three functions.
 
-The \code{Generator} consumes one of the bit generators and produces variates from
-complicated distributions. Many improved methods for generating random variates
-from common distributions were implemented, including the Ziggurat method for
-normal, exponential and gamma variates\cite{ziggurat}, and Lemire's method for
-bounded random integer generation\cite{lemire}. The \code{Generator} is more similar to
-the legacy \code{RandomState}, and its API is substantially the same. The key
-differences all relate to state management, which has been delegated to the bit
-generator. The \code{Generator} does not make the same stream guarantee as the
-\code{RandomState} object, and so variates may differ across versions as improved
-generation algorithms are introduced.\footnote{Despite the removal of the
-compatibility guarantee, simple reproducibility across versions is encouraged,
-and minor changes that do not produce meaningful performance gains or fix
-underlying bug are not generally adopted.}
+The \code{Generator} consumes one of the bit generators and produces variates
+from complicated distributions. Many improved methods for generating random
+variates from common distributions were implemented, including the Ziggurat
+method for normal, exponential and gamma variates\cite{ziggurat}, and Lemire's
+method for bounded random integer generation\cite{lemire}. The \code{Generator}
+is more similar to the legacy \code{RandomState}, and its API is substantially
+the same. The key differences all relate to state management, which has been
+delegated to the bit generator. The \code{Generator} does not make the same
+stream guarantee as the \code{RandomState} object, and so variates may differ
+across versions as improved generation algorithms are
+introduced.\footnote{Despite the removal of the compatibility guarantee, simple
+reproducibility across versions is encouraged, and minor changes that do not
+produce meaningful performance gains or fix underlying bug are not generally
+adopted.}
 
-Finally, a \code{SeedSequence} is used to initialize a bit generator. The seed sequence
-can be initialized with no arguments, in which case it reads entropy from a
-system-dependent provider, or with a user-provided seed. The seed sequence then
-transforms the initial set of entropy into a sequence of high-quality
-pseudorandom integers, which can be used to initialize multiple bit generators
-deterministically. A key design goal of a seed sequence was to be splittable in
-the sense that a seed sequence can be used to produce child sequences that are
-distinct from their parents or other ancestors. This capability allows a seed
-sequence to be used in large distributed applications where the number of
-workers required is not known. The sequences generated from the same initial
-entropy and the same splits are fully deterministic to ensure reproducibility.
+Finally, a \code{SeedSequence} is used to initialize a bit generator. The seed
+sequence can be initialized with no arguments, in which case it reads entropy
+from a system-dependent provider, or with a user-provided seed. The seed
+sequence then transforms the initial set of entropy into a sequence of
+high-quality pseudorandom integers, which can be used to initialize multiple bit
+generators deterministically. A key design goal of a seed sequence was to be
+splittable in the sense that a seed sequence can be used to produce child
+sequences that are distinct from their parents or other ancestors. This
+capability allows a seed sequence to be used in large distributed applications
+where the number of workers required is not known. The sequences generated from
+the same initial entropy and the same splits are fully deterministic to ensure
+reproducibility.
 
 The three components are combined to construct a complete random number
 generator.
@@ -427,8 +430,8 @@ pcg = PCG64(seq)
 gen = Generator(pcg)
 \end{lstlisting}
 
-\noindent This approach retains access to the seed sequence which can then be used to
-spawn additional generators.
+\noindent This approach retains access to the seed sequence which can then be
+used to spawn additional generators.
 
 \begin{lstlisting}
 children = seq.spawn(2)
@@ -440,8 +443,8 @@ gen_1 = Generator(PCG64(children[1]))
 \code{np.random.default\_rng} can be used to instantize a \code{Generator} when
 reproducibility is not needed.
 
-The final goal of the new API is to improve extensibility. \code{RandomState} is a
-monolithic object that obscures all of the underlying state and functions. The
+The final goal of the new API is to improve extensibility. \code{RandomState} is
+a monolithic object that obscures all of the underlying state and functions. The
 component architecture is one part of the extensibility improvements. The
 underlying functions (written in C) which transform the output of a bit
 generator to other distributions are available for use in CFFI. This allows the
