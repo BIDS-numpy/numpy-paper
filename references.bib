@@ -1,3 +1,4 @@
+% Encoding: UTF-8
 %%% SciPy Community Citations
 
 @online{NEP13,
@@ -2057,3 +2058,105 @@ year = 2019,
 url = {https://www.python.org/dev/peps/pep-0599/},
 urldate = {2019-12-12}
 }
+
+@TechReport{pcg64,
+  author      = {Melissa E. O'Neill},
+  date        = {2014-09-05},
+  institution = {Harvey Mudd College},
+  title       = {PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation},
+  number      = {HMC-CS-2014-0905},
+  address     = {Claremont, CA},
+  month       = Sep,
+  xurl        = {https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf},
+  year        = {2014},
+}
+
+@InProceedings{random123,
+  author    = {Salmon, John K. and Moraes, Mark A. and Dror, Ron O. and Shaw, David E.},
+  booktitle = {Proceedings of 2011 International Conference for High Performance Computing, Networking, Storage and Analysis},
+  date      = {2011-11-12},
+  title     = {Parallel Random Numbers: As Easy As 1, 2, 3},
+  doi       = {10.1145/2063384.2063405},
+  isbn      = {978-1-4503-0771-0},
+  location  = {Seattle, Washington},
+  pages     = {16:1--16:12},
+  publisher = {ACM},
+  series    = {SC '11},
+  url       = {http://doi.acm.org/10.1145/2063384.2063405},
+  acmid     = {2063405},
+  address   = {New York, NY, USA},
+  articleno = {16},
+  numpages  = {12},
+  year      = {2011},
+}
+
+@Article{mt19937,
+  author     = {Matsumoto, Makoto and Nishimura, Takuji},
+  title      = {Mersenne Twister: A 623-dimensionally Equidistributed Uniform Pseudo-random Number Generator},
+  doi        = {10.1145/272991.272995},
+  issn       = {1049-3301},
+  number     = {1},
+  pages      = {3--30},
+  url        = {http://doi.acm.org/10.1145/272991.272995},
+  volume     = {8},
+  acmid      = {272995},
+  address    = {New York, NY, USA},
+  issue_date = {Jan. 1998},
+  journal    = {ACM Trans. Model. Comput. Simul.},
+  keywords   = {k-distribution, m-sequences, GFSR, MT19937, Mersenne primes, Mersenne twister, TGFSR, finite fields, incomplete array, inversive-decimation method, multiple-recursive matrix method, primitive polynomials, random number generation, tempering},
+  month      = jan,
+  numpages   = {28},
+  publisher  = {ACM},
+  year       = {1998},
+}
+
+@Software{randomgen,
+  author    = {Kevin Sheppard and Bernardt Duvenhage and Pierre de Buyl and David A. Ham},
+  title     = {bashtage/randomgen: Release 1.16.2},
+  doi       = {10.5281/zenodo.2621273},
+  url       = {https://doi.org/10.5281/zenodo.2621273},
+  version   = {v1.16.2},
+  month     = apr,
+  publisher = {Zenodo},
+  year      = {2019},
+}
+
+@Article{ziggurat,
+  author   = {George Marsaglia and Wai Wan Tsang},
+  title    = {The Ziggurat Method for Generating Random Variables},
+  doi      = {10.18637/jss.v005.i08},
+  issn     = {1548-7660},
+  number   = {8},
+  pages    = {1--7},
+  url      = {https://www.jstatsoft.org/v005/i08},
+  volume   = {5},
+  abstract = {We provide a new version of our ziggurat method for generating a random variable from a given decreasing density. It is faster and simpler than the original, and will produce, for example, normal or exponential variates at the rate of 15 million per second with a C version on a 400MHz PC. It uses two tables, integers ki, and reals wi. Some 99% of the time, the required x is produced by: Generate a random 32-bit integer j and let i be the index formed from the rightmost 8 bits of j. If j < k, return x = j x wi.
+  
+We illustrate with C code that provides for inline generation of both normal and exponential variables, with a short procedure for settting up the necessary tables.},
+  journal  = {Journal of Statistical Software, Articles},
+  year     = {2000},
+}
+
+@Article{lemire,
+  author    = {Lemire, Daniel},
+  title     = {Fast Random Integer Generation in an Interval},
+  doi       = {10.1145/3230636},
+  issn      = {1049-3301},
+  number    = {1},
+  pages     = {1–12},
+  url       = {http://dx.doi.org/10.1145/3230636},
+  volume    = {29},
+  journal   = {ACM Transactions on Modeling and Computer Simulation},
+  month     = {Jan},
+  publisher = {Association for Computing Machinery (ACM)},
+  year      = {2019},
+}
+
+@Software{practrand,
+  author = {Doty-Humphrey, Chris},
+  date   = {2018-08-04},
+  title  = {PractRand, version 0.94},
+  url    = {http://pracrand.sourceforge.net/},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
