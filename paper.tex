@@ -357,17 +357,17 @@ release planning.
 
 The NumPy random module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
-by a RandomState object that: handles seeding and state initialization; wraps
+by a \code{RandomState} object that: handles seeding and state initialization; wraps
 the core pseudorandom number generator based on a 32-bit implementation of
 MT19937; interfaces with the underlying code that transforms random bits into
 deviates from other distributions; and supplies a singleton instance exposed in
 the root of the random module.
 
-The RandomState object makes a compatibility guarantee so that a fixed seed and
+The \code{RandomState} object makes a compatibility guarantee so that a fixed seed and
 sequence of function calls produce the same set of values. This guarantee has
 slowed progress since improving the underlying code requires extending the API
 with additional keyword arguments. This guarantee continues to apply to
-RandomState. 
+\code{RandomState}. 
 
 NumPy 1.17 introduced a new API for generating random numbers that use a more
 flexible structure that can be extended by libraries or end-users. The new API
@@ -391,21 +391,21 @@ alternative bit generators such as a cryptographic counter-based generators
 pointers to functions that produce 64 bits, 32 bits, or a random double. They
 also expose CFFI and ctypes interfaces to the same three functions.
 
-The Generator consumes one of the bit generators and produces variates from
+The \code{Generator} consumes one of the bit generators and produces variates from
 complicated distributions. Many improved methods for generating random variates
 from common distributions were implemented, including the Ziggurat method for
 normal, exponential and gamma variates\cite{ziggurat}, and Lemire's method for
-bounded random integer generation\cite{lemire}. The Generator is more similar to
-the legacy RandomState, and its API is substantially the same. The key
+bounded random integer generation\cite{lemire}. The \code{Generator} is more similar to
+the legacy \code{RandomState}, and its API is substantially the same. The key
 differences all relate to state management, which has been delegated to the bit
-generator. The Generator does not make the same stream guarantee as the
-RandomState object, and so variates may differ across versions as improved
+generator. The \code{Generator} does not make the same stream guarantee as the
+\code{RandomState} object, and so variates may differ across versions as improved
 generation algorithms are introduced.\footnote{Despite the removal of the
 compatibility guarantee, simple reproducibility across versions is encouraged,
 and minor changes that do not produce meaningful performance gains or fix
 underlying bug are not generally adopted.}
 
-Finally, a SeedSequence is used to initialize a bit generator. The seed sequence
+Finally, a \code{SeedSequence} is used to initialize a bit generator. The seed sequence
 can be initialized with no arguments, in which case it reads entropy from a
 system-dependent provider, or with a user-provided seed. The seed sequence then
 transforms the initial set of entropy into a sequence of high-quality
@@ -437,10 +437,10 @@ gen_1 = Generator(PCG64(children[1]))
 \end{lstlisting}
 
 \noindent While this approach retains complete flexibility, the method
-\code{np.random.default\_rng} can be used to instantize a Generator when
+\code{np.random.default\_rng} can be used to instantize a \code{Generator} when
 reproducibility is not needed.
 
-The final goal of the new API is to improve extensibility. RandomState is a
+The final goal of the new API is to improve extensibility. \code{RandomState} is a
 monolithic object that obscures all of the underlying state and functions. The
 component architecture is one part of the extensibility improvements. The
 underlying functions (written in C) which transform the output of a bit
