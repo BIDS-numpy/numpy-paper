@@ -8,6 +8,7 @@
 % \usepackage[multiple]{footmisc}
 \usepackage{booktabs}
 \usepackage{csquotes}
+\usepackage{moreverb} % for verbatim ouput (for wordcount)
 \usepackage{listings, textcomp}
 \lstset{language=Python}
 
@@ -40,6 +41,9 @@
  {}{}
 \makeatother
 
+\usepackage{lineno}
+\linenumbers
+
 \title{NumPy---Array Computation for Python}
 
 \input{authors}
@@ -59,11 +63,15 @@
   developments.
 \end{abstract}
 
+
 \begin{document}
 
 \flushbottom
 \maketitle
 \thispagestyle{empty}
+
+% Count of words
+\verbatiminput{wordcount.tex}
 
 \section*{Introduction}
 
