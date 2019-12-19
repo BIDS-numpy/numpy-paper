@@ -78,20 +78,19 @@
 NumPy is the fundamental array computation library for the Python
 ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
 It underpins almost every library that does numerical
-computation, including SciPy.  NumPy consists of the `ndarray`-object
-along with utility functions to operate on such arrays.  Because of
+computation, including SciPy.  NumPy consists of the \code{ndarray}-object
+along with utility functions to operate on it.  Because of
 its inherent simplicity—being a pointer to memory with some
 associated meta-data about shape, data-type, and so forth—the NumPy
-array has become the {\it de facto} exchange format for array data in
-Python.  That said, NumPy has now seen such widespread adoption that
-not only the array object but also its {\it Application Programming
-  Interface} (API) has become ubiquitous, and is imitated by, e.g.,
-popular tensor computation libraries.
+array is the {\it de facto} exchange format for array data in
+Python.
+NumPy, while having been wildly successful as a library and array exchange
+project, has now also become a standard language for expressing array and
+tensor computations.  
+It has such widespread adoption that not only the array object but also its
+{\it Application Programming Interface} (API) has become ubiquitous, and is
+implemented by, for example, popular tensor computation libraries.
 
-Over the past few years, with external financial support, NumPy has
-seen renewed developer interest.  It is actively developed to meet the
-needs of its community, including the addition of some fairly significant
-changes as outlined in the Recent technical improvements section below.
 
 \subsection*{History}
 
@@ -158,7 +157,7 @@ At the end of 2016, the Gordon and Betty Moore Foundation awarded them
 In 2017, the Alfred P. Sloan Foundation complemented the funding with an
 additional \$659,359.
 Stéfan van der Walt, a senior research data scientist at BIDS and a member of
-the NumPy steering committee, is the PI of both grants and manages a team of
+the NumPy steering council, is the PI of both grants and manages a team of
 four programmers working on the project.
 
 
@@ -178,7 +177,7 @@ NumFOCUS received a grant for \$195,000 in 2019 for the development of NumPy
 and OpenBLAS from the Chan Zuckerberg Initiative. 
 NumPy depends on OpenBLAS to provide its underlying accelerated linear algebra implementation.
 Ralf Gommers, the Director of Quansight Labs and a member of
-the NumPy steering committee, is the PI.
+the NumPy steering council, is the PI.
 
 % focus on better serve NumPy's large number of beginner to intermediate level users
 % focusing all our time on growing the team and better serving new users and contributors
@@ -192,18 +191,12 @@ the NumPy steering committee, is the PI.
 
 \subsection*{Current status}
 
-NumPy is now actively developed, with weekly online developer
-meetings, a formalized NumPy enhancement proposal process, and
-multiple active grants (but still almost no industry support).
-% check almost no industry
-
 % (maturity, users)
 
-% \subsubsection*{Project goals / scope of library}
-
-% https://numpy.org/neps/scope.html
-
-% \subsubsection*{NEPS revived and roadmap}
+Over the past few years, with external financial support, NumPy has seen
+renewed developer interest.
+It is actively developed, with weekly online developer
+meetings and a formalized NumPy enhancement proposal process.
 
 Following Python's practice of using Python Enhancement Proposals (PEPs) for
 ``proposing major new features, for collecting community input on an
@@ -216,39 +209,30 @@ Since then there have been 19 proposed NEPS---6 have been implemented,
 3 have deferred or superseded, and 2 have been rejected or withdrawn.
 We highlight a few of the implemented NEPs below.
 
+% https://numpy.org/neps/scope.html
 % https://numpy.org/neps/roadmap.html
-
-
-NumPy, while having been wildly successful as a library and array exchange
-project, has now also become a standard language for expressing array and
-tensor computations.  
-
 
 \section*{Library organization}
 
-Broadly, the NumPy library consists of the following parts:
-the NumPy array data structure; the so-called \emph{universal functions};
-a set of library functions for manipulating arrays and doing scientific
-computation; infrastructure libraries for unit tests and Python package
-building; and the program \code{f2py} for wrapping Fortran code in Python \cite{peterson2009f2py}.
-The \code{ndarray} and the universal functions are generally considered
-the core of the library.
-In the following, we give a brief summary of these components of the
-library.
+The NumPy array data structure and universal functions, which we describe
+below, make up the core of NumPy.
+The NumPy library also includes
+a set of library functions for manipulating arrays and doing scientific computation,
+libraries for unit tests and Python package building,
+and the program \code{f2py}\cite{peterson2009f2py} for wrapping Fortran code in Python.
 
-\subsection*{Core.}
+\subsection*{Core}
 
-The \code{ndarray} data structure and the universal functions make up the core
-of NumPy.
-
-The \code{ndarray} is the data structure at the heart of NumPy.
-The data structure stores regularly strided homogeneous data types
-in a contiguous block memory, allowing for the efficient representation
+The \code{ndarray} data structure stores regularly strided homogeneous data
+types in a contiguous block memory, allowing for the efficient representation
 of $n$-dimensional data.
+A \emph{masked array} class, built on top of the \code{ndarray}, is
+provided as well. This class allows elements of an array to be masked,
+indicating that the data is missing or unknown.
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
-The \emph{universal functions}, or more concisely, \emph{ufuncs},
+The \emph{universal functions} (or \emph{ufuncs})
 are functions written in C that implement efficient looping over
 NumPy arrays. An important feature of ufuncs is the built-in
 implementation of \emph{broadcasting}.  For example, the function
@@ -267,59 +251,61 @@ such as \code{x + y * z}.
 \subsection*{Computing libraries}
 
 NumPy provides a large library of functions for array manipulation
-and scientific computing, including functions for: creating, reshaping,
-concatenating, and padding arrays; searching, sorting and counting data
+including functions for: creating, reshaping, concatenating, and padding arrays;
+searching, sorting and counting data
 in arrays; computing elementary statistics, such as the mean, median,
 variance, and standard deviation; file I/O; and more.
+For historical reasons, NumPy also includes basic functionality for
+linear algebra,
+fast Fourier transforms and windowing,
+pseudorandom number generators,
+and polynomial fitting.
+We will keep supporting these, but we will not expand beyond them.
 
-A suite of functions for computing the \emph{fast Fourier transform (FFT)}
-and its inverse is provided.
+%A suite of functions for computing the \emph{fast Fourier transform (FFT)}
+%and its inverse is provided.
 
-NumPy's linear algebra library includes functions for: solving linear
-systems of equations; computing various functions of a matrix, including
-the determinant, the norm, the inverse, and the pseudo-inverse;
-computing the Cholesky, eigenvalue, and singular value decompositions of a matrix;
-and more.
+%NumPy's linear algebra library includes functions for: solving linear
+%systems of equations; computing various functions of a matrix, including
+%the determinant, the norm, the inverse, and the pseudo-inverse;
+%computing the Cholesky, eigenvalue, and singular value decompositions of a matrix;
+%and more.
+%
+%The random number generator library in NumPy provides several alternative
+%\emph{bit stream generators} that provide the core function of generating
+%random integers.
+%A higher-level generator class that implements an assortment of
+%probability distributions is provided. It includes the beta, gamma
+%and Weibull distributions, the univariate and multivariate normal
+%distributions, and more.
 
-The random number generator library in NumPy provides several alternative
-\emph{bit stream generators} that provide the core function of generating
-random integers.
-A higher-level generator class that implements an assortment of
-probability distributions is provided. It includes the beta, gamma
-and Weibull distributions, the univariate and multivariate normal
-distributions, and more.
-
-A \emph{masked array} class, built on top of the \code{ndarray}, is
-provided.  This class allows elements of an array to be masked,
-indicating that the data is missing or unknown.
-
-There is also a \code{matrix} class the implements 2-d arrays with
-specialized behavior.  We mention it here for completeness, but the
-use of \code{matrix} is discouraged.  The quirks of the \code{matrix}
-class have proven to be troublesome, and with the addition of the
-infix \code{@} operator to Python for matrix multiplication, there was no
-longer a need for a separate \code{matrix} class, since one can
-use a 2-d array instead.
+%For historical reasons, we provide a \code{matrix} class the implements 2-d
+%arrays with specialized behavior.
+%But we strongly recommend you use a 2-d array and use the infix \code{@} operator
+%for matrix multiplication.
+%
+%There is also a \code{matrix} class the implements 2-d arrays with
+%specialized behavior.  We mention it here for completeness, but the
+%use of \code{matrix} is discouraged.  The quirks of the \code{matrix}
+%class have proven to be troublesome, and with the addition of the
+%infix \code{@} operator to Python for matrix multiplication, there was no
+%longer a need for a separate \code{matrix} class, since one can
+%use a 2-d array instead.
 
 \subsection*{Infrastructure libraries}
 
-NumPy provides utilities for writing unit tests and for building Python
-packages.
-
-The \code{testing} subpackage provides functions such as
+Being at the base of the scientific Python stack, NumPy provides some basic
+infrastructure for other packages in the scientific Python ecosystem.
+The \code{numpy.testing} subpackage provides functions such as
 \code{assert\_allclose(actual, desired)} that may be used in unit
 test suites for code that uses NumPy arrays.
-
-NumPy provides a subpackage includes functions and classes
-that can be used by libraries that have NumPy as dependency,
-to be used in the library's configuration code that installs the
-library and that builds a package that can be used, for example,
-on the PyPI web site.
-
+The \code{numpy.distutils} subpackage provides build support for C++, Fortran,
+BLAS/LAPACK, and other relevant libraries for scientific computing.
 The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
+
 
 \section*{Common infrastructure}
 
@@ -329,13 +315,13 @@ in Python, NumPy also plays a central role in building and
 standardizing much of the community infrastructure.
 The docstring standard mentioned in the history section is now
 widely adopted.
-
+We are also using the NEP system as a way to help coordinate
+the larger scientific Python community.
 % https://numpy.org/neps/nep-0029-deprecation_policy.html
-In NEP 29, we recommend, along with leaders from various other
-projects, that all projects across the Scientific Python ecosystem
-adopt a common ``time window-based'' policy for support of Python and
-NumPy versions. This standard will simplify downstream project and
-release planning.
+For example, in NEP 29, we recommend, along with leaders from various other
+projects, that all projects across the Scientific Python ecosystem adopt a
+common ``time window-based'' policy for support of Python and NumPy versions.
+This standard will simplify downstream project and release planning.
 
 \subsection*{Wheels build system}
 
@@ -367,6 +353,76 @@ platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 
 
 \section*{Recent technical improvements}
+
+\subsection*{The Array Function Protocol}
+
+The central position which NumPy takes within the numerical and scientific
+Python ecosystem  means that a vast number of projects are built on it.
+These projects are consumers of the NumPy API.
+
+On the other side, projects are providers of a \emph{NumPy-like API} and array
+objects targeting audiences with specialized needs beyond NumPy's capabilities.
+For example, the NumPy API is implemented by
+several popular tensor computation libraries including
+CuPy\footnote{\url{https://cupy.chainer.org/}},
+Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
+Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}},
+and to a lesser extent
+TensorFlow\footnote{\url{https://www.tensorflow.org/api\_docs/python/tf/Tensor}}.
+It is also implemented in packages that support sparse arrays
+such as \code{scipy.sparse} and \code{pydata.sparse}.
+Another notable example is Dask, a library for parallel computing in
+Python.  Dask adopts the NumPy API and therefore presents a familiar
+interface to existing NumPy users, while adding powerful abilities to
+parallelize and distribute tasks.
+
+The multitude of specialized projects creates the difficulty that consumers
+of these NumPy-like APIs write code specific to a single project and do not support
+all of the above array providers.
+This is a burden for users relying on the specialized Array-like, since
+a tool they need may not work for them.
+Additionally, a user who has the need of transitioning from NumPy to a more
+specialized array, is faced with a challenge.
+These issue can lead into a fragmentation of the user bases into consumers
+of different NumPy-like APIs.
+
+To address these issues NumPy has the goal of providing the fundamental
+API for \emph{interoperability} between the various NumPy-like APIs.
+An earlier step in this direction was the implementation of the
+\code{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
+for most mathematical functions.\cite{NEP13}
+In 2019 this was expanded more generally with the inclusion of the
+\code{\_\_array\_function\_\_} protocol into NumPy~1.17.
+These two protocols allows providers of Array-like APIs to be interoperable
+with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
+For the users relying on specialized array projects it means that even though
+much code is written specifically for NumPy arrays and uses the NumPy API as
+\code{import numpy as np}, it can nevertheless work for them.
+A brief example of such a function which is written using NumPy
+but can now be used more generally is:
+\begin{lstlisting}
+def f(x):
+    y = np.tensordot(x, x.T)
+    return np.mean(np.exp(y))
+\end{lstlisting}
+For example, a user relying on this function and normally using it with a
+NumPy array, may now use a distributed Dask array when challenged
+by a very large dataset, without any modification to \code{f(x)}.
+
+%In order to aid better interaction between NumPy and these libraries,
+%an ``array function'' protocol was added to NumPy in 2018 (see Section
+%X). The new protocol allows for external array objects (sometimes
+%called ``duck arrays'') to pass through NumPy:
+%
+%\begin{lstlisting}
+%  import numpy as np
+%  import cupy as cp
+%
+%  x_gpu = cp.array([1, 2, 3])
+%  y = np.sum(x_gpu)  # This works, and returns a GPU array
+%\end{lstlisting}
+
 
 \subsection*{Random}
 
@@ -468,76 +524,6 @@ numba. Both the bit generators and the low-level functions can also be used in C
 or Cython code.\footnote{As of 1.18.0, this scenario requires access to the
 NumPy source. Alternative approaches that avoid this extra step are being
 explored.} 
-
-\subsection*{The Array Function Protocol}
-
-The central position which NumPy takes within the numerical and scientific
-Python ecosystem  means that a vast number of projects are built on it.
-These projects are consumers of the NumPy API.
-
-On the other side, projects are providers of a \emph{NumPy-like API} and array
-objects targeting audiences with specialized needs beyond NumPy's capabilities.
-For example, the NumPy API is implemented by
-several popular tensor computation libraries including
-CuPy\footnote{\url{https://cupy.chainer.org/}},
-Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
-Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}},
-and to a lesser extent
-TensorFlow\footnote{\url{https://www.tensorflow.org/api\_docs/python/tf/Tensor}}.
-It is also implemented in packages that support sparse arrays
-such as \code{scipy.sparse} and \code{pydata.sparse}.
-Another notable example is Dask, a library for parallel computing in
-Python.  Dask adopts the NumPy API and therefore presents a familiar
-interface to existing NumPy users, while adding powerful abilities to
-parallelize and distribute tasks.
-
-The multitude of specialized projects creates the difficulty that consumers
-of these NumPy-like APIs write code specific to a single project and do not support
-all of the above array providers.
-This is a burden for users relying on the specialized Array-like, since
-a tool they need may not work for them.
-Additionally, a user who has the need of transitioning from NumPy to a more
-specialized array, is faced with a challenge.
-These issue can lead into a fragmentation of the user bases into consumers
-of different NumPy-like APIs.
-
-To address these issues NumPy has the goal of providing the fundamental
-API for \emph{interoperability} between the various NumPy-like APIs.
-An earlier step in this direction was the implementation of the
-\code{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
-for most mathematical functions.\cite{NEP13}
-In 2019 this was expanded more generally with the inclusion of the
-\code{\_\_array\_function\_\_} protocol into NumPy~1.17.
-These two protocols allows providers of Array-like APIs to be interoperable
-with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
-For the users relying on specialized array projects it means that even though
-much code is written specifically for NumPy arrays and uses the NumPy API as
-\code{import numpy as np}, it can nevertheless work for them.
-A brief example of such a function which is written using NumPy
-but can now be used more generally is:
-\begin{lstlisting}
-def f(x):
-    y = np.tensordot(x, x.T)
-    return np.mean(np.exp(y))
-\end{lstlisting}
-For example, a user relying on this function and normally using it with a
-NumPy array, may now use a distributed Dask array when challenged
-by a very large dataset, without any modification to \code{f(x)}.
-
-%In order to aid better interaction between NumPy and these libraries,
-%an ``array function'' protocol was added to NumPy in 2018 (see Section
-%X). The new protocol allows for external array objects (sometimes
-%called ``duck arrays'') to pass through NumPy:
-%
-%\begin{lstlisting}
-%  import numpy as np
-%  import cupy as cp
-%
-%  x_gpu = cp.array([1, 2, 3])
-%  y = np.sum(x_gpu)  # This works, and returns a GPU array
-%\end{lstlisting}
-
 
 \subsection*{Testing on multiple architectures}
 
