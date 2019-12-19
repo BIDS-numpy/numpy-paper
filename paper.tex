@@ -209,8 +209,78 @@ Since then there have been 19 proposed NEPS---6 have been implemented,
 3 have deferred or superseded, and 2 have been rejected or withdrawn.
 We highlight a few of the implemented NEPs below.
 
+NumPy plays a central role in building and standardizing much of the scientific
+Python community infrastructure.
+The docstring standard mentioned in the history section is now widely adopted.
+We are also using the NEP system as a way to help coordinate the larger
+scientific Python community.
+% https://numpy.org/neps/nep-0029-deprecation_policy.html
+For example, in NEP 29, we recommend, along with leaders from various other
+projects, that all projects across the Scientific Python ecosystem adopt a
+common ``time window-based'' policy for support of Python and NumPy versions.
+This standard will simplify downstream project and release planning.
+
 % https://numpy.org/neps/scope.html
 % https://numpy.org/neps/roadmap.html
+
+\section*{Project organization and community}
+
+NumPy is currently maintained by a group of 23 contributors with commit rights
+to the NumPy code base. Out of these 17 maintainers were active in 2019.
+Additionally, there are a few long term developers who contributed and maintain
+specific parts of NumPy, but are not officially maintainers.
+At a release cycle of about every half year, the five recent releases in the years
+2018 and 2019 have averaged about 450~pull requests~(PR) each.\footnote{
+    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
+    All data provided here is based on the development which happened through github
+    pull requests. In some cases contributions by maintainers may not be categorized as such.}
+% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
+With each release attracting more than a hundred new contributors.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \caption{Number of pull requests merged into the NumPy master branch for each
+        quarter since 2012. The total number of PR is indicated with the
+        lower blue area showing the portion contributed by current or previous
+        maintainers.}\label{fig:prs-over-time}
+\end{figure}
+
+The stacked plot in Figure~\ref{fig:prs-over-time} shows the number of
+PR merged into the NumPy master branch.
+In this plot PR opened by current and old maintainers are indicated.
+Although the number of PRs being merged fluctuates,
+the plot indicates an increased number of contributions over the past
+years.
+Over the course of its history, NumPy has attracted PR by 823 contributors.
+However, its development still relies heavily on a relatively small number
+of active maintainers, who share more than half of the contributions among
+themselves.
+
+% https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
+% https://github.com/numpy/numpy/pull/6352
+NumPy adopted an official Governance Document on October~5,
+2015\cite{NumPyProjectGovernance}.
+Project decisions are usually made by consensus of interested contributors.
+This means for many thing everyone is entrusted with veto power.
+A Steering Council, currently composed of 12~members, facilitates this
+process and oversees daily development of the project by contributing code
+and reviewing contributions from the community.
+
+% https://mail.python.org/pipermail/numpy-discussion/2018-July/078476.html
+% https://github.com/numpy/numpy/pull/11865
+NumPy's official Code of Conduct was approved on September~1, 2018\cite{NumPyCodeofConduct}.
+In brief, we strive to:
+\emph{be open};
+\emph{be empathetic, welcoming, friendly, and patient};
+\emph{be collaborative};
+\emph{be inquisitive}; and
+\emph{be careful in the words that we choose}.
+The Code of Conduct also specifies how breaches can be reported and outlines
+the process for responding to such reports.
+
+% \subsection*{GSoD}
+
 
 \section*{Library organization}
 
@@ -307,49 +377,35 @@ NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
 
 
-\section*{Common infrastructure}
+% \section*{Common infrastructure}
 
-In addition to the testing and building packages described above,
-as the fundamental package for numerical and scientific computing
-in Python, NumPy also plays a central role in building and
-standardizing much of the community infrastructure.
-The docstring standard mentioned in the history section is now
-widely adopted.
-We are also using the NEP system as a way to help coordinate
-the larger scientific Python community.
-% https://numpy.org/neps/nep-0029-deprecation_policy.html
-For example, in NEP 29, we recommend, along with leaders from various other
-projects, that all projects across the Scientific Python ecosystem adopt a
-common ``time window-based'' policy for support of Python and NumPy versions.
-This standard will simplify downstream project and release planning.
-
-\subsection*{Wheels build system}
-
-A Python \emph{wheel}\cite{PEP427} is a standard file format for
-distributing Python libraries.  In addition to Python code, a
-wheel may include compiled C extensions and other binary data.
-This is important, because many libraries, including NumPy,
-require a C compiler and other build tools to build the software
-from the source code, making it difficult for many users to install
-the software on their own.  The introduction of wheels to the Python
-packaging system has made it much easier for users to install
-precompiled libraries.
-
-A GitHub repository containing scripts to build NumPy wheels has
-been configured so that a simple commit to the repository triggers
-an automated build system that creates NumPy wheels for several
-computer platforms, including Windows, Mac OSX and Linux.  The wheels
-are uploaded to a public server and made available for anyone to use.
-This system makes it easy for users to install precompiled versions
-of NumPy on these platforms.
-
-The technology that is used to build the wheels evolves continually.
-At the time this paper is being written, a key component is the
-\code{multibuild} suite of tools developed by Matthew Brett and
-other developers\cite{multibuild}.  Currently, scripts using
-\code{multibuild} are written for the continuous integration
-platforms Travis-CI (for Linux and Mac OSX) and Appveyor
-(for Windows).
+%\subsection*{Wheels build system}
+%
+%A Python \emph{wheel}\cite{PEP427} is a standard file format for
+%distributing Python libraries.  In addition to Python code, a
+%wheel may include compiled C extensions and other binary data.
+%This is important, because many libraries, including NumPy,
+%require a C compiler and other build tools to build the software
+%from the source code, making it difficult for many users to install
+%the software on their own.  The introduction of wheels to the Python
+%packaging system has made it much easier for users to install
+%precompiled libraries.
+%
+%A GitHub repository containing scripts to build NumPy wheels has
+%been configured so that a simple commit to the repository triggers
+%an automated build system that creates NumPy wheels for several
+%computer platforms, including Windows, Mac OSX and Linux.  The wheels
+%are uploaded to a public server and made available for anyone to use.
+%This system makes it easy for users to install precompiled versions
+%of NumPy on these platforms.
+%
+%The technology that is used to build the wheels evolves continually.
+%At the time this paper is being written, a key component is the
+%\code{multibuild} suite of tools developed by Matthew Brett and
+%other developers\cite{multibuild}.  Currently, scripts using
+%\code{multibuild} are written for the continuous integration
+%platforms Travis-CI (for Linux and Mac OSX) and Appveyor
+%(for Windows).
 
 
 \section*{Recent technical improvements}
@@ -553,64 +609,6 @@ Alternative Architecture Special Interest Group, including
 ARMv8, ppc64le, as well as s390x. We are thus well-positioned
 for a future where provision of binaries on these architectures
 will be expected for a library at the base of the ecosystem.
-
-\section*{Project organization and community}
-
-NumPy is currently maintained by a group of 23 contributors with commit rights
-to the NumPy code base. Out of these 17 maintainers were active in 2019.
-Additionally, there are a few long term developers who contributed and maintain
-specific parts of NumPy, but are not officially maintainers.
-At a release cycle of about every half year, the five recent releases in the years
-2018 and 2019 have averaged about 450~pull requests~(PR) each.\footnote{
-    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
-    All data provided here is based on the development which happened through github
-    pull requests. In some cases contributions by maintainers may not be categorized as such.}
-% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
-With each release attracting more than a hundred new contributors.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
-    \caption{Number of pull requests merged into the NumPy master branch for each
-        quarter since 2012. The total number of PR is indicated with the
-        lower blue area showing the portion contributed by current or previous
-        maintainers.}\label{fig:prs-over-time}
-\end{figure}
-
-The stacked plot in Figure~\ref{fig:prs-over-time} shows the number of
-PR merged into the NumPy master branch.
-In this plot PR opened by current and old maintainers are indicated.
-Although the number of PRs being merged fluctuates,
-the plot indicates an increased number of contributions over the past
-years.
-Over the course of its history, NumPy has attracted PR by 823 contributors.
-However, its development still relies heavily on a relatively small number
-of active maintainers, who share more than half of the contributions among
-themselves.
-
-% https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
-% https://github.com/numpy/numpy/pull/6352
-NumPy adopted an official Governance Document on October~5,
-2015\cite{NumPyProjectGovernance}.
-Project decisions are usually made by consensus of interested contributors.
-This means for many thing everyone is entrusted with veto power.
-A Steering Council, currently composed of 12~members, facilitates this
-process and oversees daily development of the project by contributing code
-and reviewing contributions from the community.
-
-% https://mail.python.org/pipermail/numpy-discussion/2018-July/078476.html
-% https://github.com/numpy/numpy/pull/11865
-NumPy's official Code of Conduct was approved on September~1, 2018\cite{NumPyCodeofConduct}.
-In brief, we strive to:
-\emph{be open};
-\emph{be empathetic, welcoming, friendly, and patient};
-\emph{be collaborative};
-\emph{be inquisitive}; and
-\emph{be careful in the words that we choose}.
-The Code of Conduct also specifies how breaches can be reported and outlines
-the process for responding to such reports.
-
-% \subsection*{GSoD}
 
 
 \section*{Discussion}
