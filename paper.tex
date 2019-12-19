@@ -199,11 +199,11 @@ multiple active grants (but still almost no industry support).
 
 % (maturity, users)
 
-\subsubsection*{Project goals / scope of library}
+% \subsubsection*{Project goals / scope of library}
 
 % https://numpy.org/neps/scope.html
 
-\subsubsection*{NEPS revived and roadmap}
+% \subsubsection*{NEPS revived and roadmap}
 
 Following Python's practice of using Python Enhancement Proposals (PEPs) for
 ``proposing major new features, for collecting community input on an
@@ -219,10 +219,13 @@ We highlight a few of the implemented NEPs below.
 % https://numpy.org/neps/roadmap.html
 
 
-\section*{Architecture and implementation choices}
+NumPy, while having been wildly successful as a library and array exchange
+project, has now also become a standard language for expressing array and
+tensor computations.  
 
 
-\subsection*{Library organization}
+\section*{Library organization}
+
 Broadly, the NumPy library consists of the following parts:
 the NumPy array data structure; the so-called \emph{universal functions};
 a set of library functions for manipulating arrays and doing scientific
@@ -233,8 +236,10 @@ the core of the library.
 In the following, we give a brief summary of these components of the
 library.
 
-\paragraph{\emph{Core.}}  The \code{ndarray} data structure and the
-universal functions make up the core of NumPy.
+\subsection*{Core.}
+
+The \code{ndarray} data structure and the universal functions make up the core
+of NumPy.
 
 The \code{ndarray} is the data structure at the heart of NumPy.
 The data structure stores regularly strided homogeneous data types
@@ -259,7 +264,8 @@ The elementary arithmetic operations of addition, multiplication, etc.,
 are implemented as ufuncs, so broadcasting applies even in expressions
 such as \code{x + y * z}.
 
-\paragraph{\emph{Computing libraries.}}
+\subsection*{Computing libraries}
+
 NumPy provides a large library of functions for array manipulation
 and scientific computing, including functions for: creating, reshaping,
 concatenating, and padding arrays; searching, sorting and counting data
@@ -295,8 +301,10 @@ infix \code{@} operator to Python for matrix multiplication, there was no
 longer a need for a separate \code{matrix} class, since one can
 use a 2-d array instead.
 
-\paragraph{\emph{Infrastructure libraries.}} NumPy provides utilities
-for writing unit tests and for building Python packages.
+\subsection*{Infrastructure libraries}
+
+NumPy provides utilities for writing unit tests and for building Python
+packages.
 
 The \code{testing} subpackage provides functions such as
 \code{assert\_allclose(actual, desired)} that may be used in unit
@@ -308,14 +316,28 @@ to be used in the library's configuration code that installs the
 library and that builds a package that can be used, for example,
 on the PyPI web site.
 
-\paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
+The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
 
-\subsection*{Common infrastructure}
+\section*{Common infrastructure}
 
-\subsubsection*{Wheels build system}
+In addition to the testing and building packages described above,
+as the fundamental package for numerical and scientific computing
+in Python, NumPy also plays a central role in building and
+standardizing much of the community infrastructure.
+The docstring standard mentioned in the history section is now
+widely adopted.
+
+% https://numpy.org/neps/nep-0029-deprecation_policy.html
+In NEP 29, we recommend, along with leaders from various other
+projects, that all projects across the Scientific Python ecosystem
+adopt a common ``time window-based'' policy for support of Python and
+NumPy versions. This standard will simplify downstream project and
+release planning.
+
+\subsection*{Wheels build system}
 
 A Python \emph{wheel}\cite{PEP427} is a standard file format for
 distributing Python libraries.  In addition to Python code, a
@@ -343,21 +365,6 @@ other developers\cite{multibuild}.  Currently, scripts using
 platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 (for Windows).
 
-
-\subsubsection*{NEP 29}
-
-% https://numpy.org/neps/nep-0029-deprecation_policy.html
-In NEP 29, we recommend, along with leaders from various other
-projects, that all projects across the Scientific Python ecosystem
-adopt a common ``time window-based'' policy for support of Python and
-NumPy versions. This standard will simplify downstream project and
-release planning.
-
-\subsubsection*{NumPyDoc standard}
-
-% recent improvements
-
-\subsection*{Language choices}
 
 \section*{Recent technical improvements}
 
@@ -462,24 +469,28 @@ or Cython code.\footnote{As of 1.18.0, this scenario requires access to the
 NumPy source. Alternative approaches that avoid this extra step are being
 explored.} 
 
-\subsection*{The \_\_array\_function\_\_ Protocol}
+\subsection*{The Array Function Protocol}
 
-The central position which NumPy takes within the python ecosystem with
-respect to scientific computing and numerical works,
-means that a vast number of projects are build on it.
+The central position which NumPy takes within the numerical and scientific
+Python ecosystem  means that a vast number of projects are built on it.
 These projects are consumers of the NumPy API.
 
-On the other side, projects are providers of a
-\emph{NumPy-like API} and array objects targeting audiences with specialized needs beyond
-NumPy's capabilities. Some of these projects provide:
-
-\begin{description}
-    \tightlist
-    \item[SciPy's \code{scipy.sparse} and \code{pydata.sparse}:] Sparse arrays
-    \item[CuPy:] Computation on the GPU
-    \item[Dask:] Parallel, distributed computing
-    \item[PyTorch and TensorFlow:] Deep learning frameworks.
-\end{description}
+On the other side, projects are providers of a \emph{NumPy-like API} and array
+objects targeting audiences with specialized needs beyond NumPy's capabilities.
+For example, the NumPy API is implemented by
+several popular tensor computation libraries including
+CuPy\footnote{\url{https://cupy.chainer.org/}},
+Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
+Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}},
+and to a lesser extent
+TensorFlow\footnote{\url{https://www.tensorflow.org/api\_docs/python/tf/Tensor}}.
+It is also implemented in packages that support sparse arrays
+such as \code{scipy.sparse} and \code{pydata.sparse}.
+Another notable example is Dask, a library for parallel computing in
+Python.  Dask adopts the NumPy API and therefore presents a familiar
+interface to existing NumPy users, while adding powerful abilities to
+parallelize and distribute tasks.
 
 The multitude of specialized projects creates the difficulty that consumers
 of these NumPy-like APIs write code specific to a single project and do not support
@@ -514,11 +525,18 @@ For example, a user relying on this function and normally using it with a
 NumPy array, may now use a distributed Dask array when challenged
 by a very large dataset, without any modification to \code{f(x)}.
 
-While, as of writing this, the interface is still considered experimental
-and may be modified, it has been implemented by multiple projects already
-and proven useful.
-% TODO: Should likely have citation/example if I claim it was useful (based
-%       mainly on Matt's statement).
+%In order to aid better interaction between NumPy and these libraries,
+%an ``array function'' protocol was added to NumPy in 2018 (see Section
+%X). The new protocol allows for external array objects (sometimes
+%called ``duck arrays'') to pass through NumPy:
+%
+%\begin{lstlisting}
+%  import numpy as np
+%  import cupy as cp
+%
+%  x_gpu = cp.array([1, 2, 3])
+%  y = np.sum(x_gpu)  # This works, and returns a GPU array
+%\end{lstlisting}
 
 
 \subsection*{Testing on multiple architectures}
@@ -597,44 +615,19 @@ themselves.
 % - https://github.com/docathon/watchtower
 % - https://github.com/machine-shop/oss_devkit/blob/master/plot_pr.py % (PR over time plot, there may be other better versions out there)
 
-\subsection*{GSoD}
+% \subsection*{GSoD}
 
-\subsection*{Website}
 
 \section*{Discussion}
 
-\subsubsection*{Impact Now}
+Most of the technical work for the Moore and Sloan grant is now complete.
+The main remaining item is an overhaul of the data type system, which is discussed
+below.  Now that years of technical debt have been addressed, the project
+is in good shape for growing the community and better addressing the needs
+of new users.  That is the main focus of the CZI grant, which we discuss
+below.
 
-NumPy, while having been wildly successful as a library and array
-exchange project, has now also become a standard language for expressing array
-and tensor computations.  For example, the NumPy API is implemented by
-several popular tensor computation libraries including
-CuPy\footnote{\url{https://cupy.chainer.org/}},
-Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
-Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}},
-and to a lesser extent
-TensorFlow\footnote{\url{https://www.tensorflow.org/api\_docs/python/tf/Tensor}}.
-
-Another notable example is Dask, a library for parallel computing in
-Python.  Dask adopts the NumPy API and therefore presents a familiar
-interface to existing NumPy users, while adding powerful abilities to
-parallelize and distribute tasks.
-
-In order to aid better interaction between NumPy and these libraries,
-an ``array function'' protocol was added to NumPy in 2018 (see Section
-X). The new protocol allows for external array objects (sometimes
-called ``duck arrays'') to pass through NumPy:
-
-\begin{lstlisting}
-  import numpy as np
-  import cupy as cp
-
-  x_gpu = cp.array([1, 2, 3])
-  y = np.sum(x_gpu)  # This works, and returns a GPU array
-\end{lstlisting}
-
-\subsubsection*{Future Development}
+% \subsubsection*{Future Development}
 
 % Dtypes
 
@@ -669,6 +662,9 @@ define such custom dtypes.
 A \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}
 is under development in consultation with the community.
 
+% outline plan for the CZI grant and an invitation to new contributors
+
+%\subsection*{Website}
 
 \section*{Data Availability}
 
