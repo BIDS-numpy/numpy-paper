@@ -91,7 +91,17 @@ It has such widespread adoption that not only the array object but also its
 {\it Application Programming Interface} (API) has become ubiquitous, and is
 implemented by, for example, popular tensor computation libraries.
 
-[physics importance, LIGO, ...]
+The arrival of a stable version of NumPy (1.0) in October 2006 unified
+the scientific Python community, and heralded the era of popular
+scientific computing in Python that has led to formidable successes
+such as [cite some impacts here].
+
+[LIGO, EHT, Higgs-Boson pipeline at CERN—double check this carefully,
+  may be root, ice cube experiment, https://arxiv.org/abs/1507.03989
+  IDL is now below Python, Pangeo <-> xarray, Earthcube,
+  https://ai.jpl.nasa.gov/public/documents/papers/hackett\_spaceops2018\_block.pdf,
+  Kepler, Mars rovers, SKA in South Africa, yt, astropy, seismo-live,
+  icesat2 \& icepyx, The Materials Project at LBNL https://github.com/materialsproject]
 
 \subsection*{History}
 
@@ -103,20 +113,20 @@ small arrays.  In contrast, to handle large astronomical images,
 NumArray was developed at the Space Telescope Science Institute (STScI).
 In other words, these array
 objects had different strengths and weaknesses, and therefore tended
-to divide the already small user community.  In 2005, Travis Oliphant
-started NumPy, a ``best of both worlds'' unification of the two
-projects, based on Numeric.  The arrival of stable version 1.0 in October
-2006 unified the scientific Python
-community, and heralded the era of popular scientific computing in
-Python that has led to formidable successes such as [cite some impacts here].
+to divide the already small user community.  Furthermore, the divide
+posed a challenge for SciPy, which built on Numeric and provided
+fundamental scientific routines \cite{virtanen2019scipy}.
+In response, the maintainer of Numeric, Travis Oliphant, started a
+major rewrite that aimed to be a ``best of both worlds'' unification
+of the two projects.  This became known as NumPy.
 
 While, by 2006, NumPy was already eminently usable, it lacked good
-documentation. In order to use NumPy in his classes, Joe Harrington
+documentation. In order to use NumPy and SciPy in his classes, Joe Harrington
 from the University of South Florida sponsored several rounds of the
 NumPy Documentation Marathon \cite{harrington2008scipy,vanderwalt2008scipy}.
 During these intensive
-documentation improvement sessions, a Wikipedia-like system was
-developed to allow community members to contribute so-called
+documentation improvement sessions, we developed a Wikipedia-like
+system for community members to contribute so-called
 ``docstrings''—text describing each NumPy function. A community
 documentation standard was published so that these pieces of
 documentation would all provide similar information, and conform to a
@@ -128,9 +138,20 @@ documentation coverage.
 % runable documentation, \cite{millman2014developing}
 % Travis steps back, no focused community effort until grant
 
-%For a more detailed history of the scientific Python ecosystem, please
-%refer to ``SciPy 1.0---Fundamental Algorithms for Scientific Computing
-%in Python'' \cite{virtanen2019scipy}.
+To coordinate work as a global community, to ensure accuracy of
+computed results, and to allow modification without breakage, the
+NumPy community pioneered best software engineering practices in the
+scientific Python community.  For example, NumPy early on adopted
+distributed revision control, unit testing, continuous integration,
+code review, standardized executable documentation, ...
+
+However, after his initial effort to build NumPy, Travis Oliphant
+stepped back from development to found a company and several projects,
+including Numba---an accelerated Python compiler that could vastly
+accelerate NumPy expressions.  By 2009, the project had entered a
+period of uncoordinated, opportunistic development, and was
+increasingly weighed down by technical debt that had accrued since the
+days of Numeric.
 
 \subsection*{Funding}
 
@@ -142,14 +163,9 @@ time mostly being contributed freely by students and researchers in
 their spare time.  In-person meetings were sponsored off of
 individual's research grants, and while industry sponsored
 contributions were made, notably those by Mark Wiebe when he was
-sponsored by Travis Oliphant at Continuum Analytics, mostly the package had rapid growth
-and adoption without external investment.
-
-% In 2014, NumPy received its
-% first large grants from the Moore and Sloan foundations, totaling 1.3M
-% dollars.  This allowed for hiring several full time programmers and,
-% with the support of community members, mobilized a project that had
-% become stagnant for the several years prior.
+sponsored by Travis Oliphant at Continuum Analytics, mostly the
+package had rapid adoption and became central to scientific computing
+without external investment.
 
 % BIDS -- UCB
 % https://www.moore.org/grant-detail?grantId=GBMF5447
@@ -158,69 +174,98 @@ and adoption without external investment.
 % $659,359 in 2017
 % https://bids.berkeley.edu/news/bids-receives-sloan-foundation-grant-contribute-numpy-development
 
-The Berkeley Institute for Data Science (BIDS) received two grants to support
-the development of NumPy.
-At the end of 2016, the Gordon and Betty Moore Foundation awarded them
-\$645,020 for improving NumPy for better data science.
-In 2017, the Alfred P. Sloan Foundation complemented the funding with an
-additional \$659,359.
-Stéfan van der Walt, a senior research data scientist at BIDS and a member of
-the NumPy steering council, is the PI of both grants and manages a team of
-four programmers working on the project.
+% From grant text/summary on Sloan website:
+%
+% to remove the technical debt and set in place standards and
+% architecture to encourage more sustainable development
 
+% In 2014, NumPy received its
+% first large grants from the Moore and Sloan foundations, totaling 1.3M
+% dollars.  This allowed for hiring several full time programmers and,
+% with the support of community members, mobilized a project that had
+% become stagnant for the several years prior.
+
+In 2017, the Berkeley Institute for Data Science
+(BIDS) received grants totaling 1.3M USD from the Gordon \& Betty
+Moore and the Alfred P. Sloan foundations to support the development
+of NumPy for better data science.
+Specifically, the aim was to address technical debt and set in place
+standards and architecture to encourage more sustainable development.
+Stéfan van der Walt, a senior research data scientist at BIDS and a
+member of the NumPy steering council, is the PI and manages four
+programmers working on the project.
 
 % how much do we say about who these developers are and
 % lessons learned?
-
-% technical focus 
-% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
-% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
 
 % CZI -- NumFOCUS/QuanSight
 % https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
 % NumPy and OpenBLAS received $195,000 in 2019
 % https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
 
-NumFOCUS received a grant for \$195,000 in 2019 for the development of NumPy
-and OpenBLAS from the Chan Zuckerberg Initiative. 
-NumPy depends on OpenBLAS to provide its underlying accelerated linear algebra implementation.
-Ralf Gommers, the Director of Quansight Labs and a member of
-the NumPy steering council, is the PI.
+In 2019, NumFOCUS received a grant for \$195,000 in 2019 for the
+development of NumPy and OpenBLAS (on which NumPy depends for
+accelerated linear algebra) from the Chan Zuckerberg Initiative.
+This grant, building on the technical work supported by the previous
+grant, will focus on better serving NumPy's large number of beginner
+to intermediate level users and on growing the community of NumPy
+contributors.
+Ralf Gommers, the Director of Quansight Labs and a member of the NumPy
+steering council, is the PI.
 
-% focus on better serve NumPy's large number of beginner to intermediate level users
-% focusing all our time on growing the team and better serving new users and contributors
+The project receives around 10K USD per year from Tidelift, which is
+used to fund documentation and website developers.
 
 % Tidelift, ...
 % https://tidelift.com/subscription/pkg/pypi-numpy
-% $10,000 over 24 months according to 
+% $10,000 over 24 months according to
 % https://mail.python.org/pipermail/numpy-discussion/2018-September/078736.html
-
-% Intel, QuanSight, ...
 
 \subsection*{Current status}
 
 % (maturity, users)
 
-Over the past few years, with external financial support, NumPy has seen
-renewed developer interest.
-It is actively developed, with weekly online developer
-meetings and a formalized NumPy enhancement proposal process.
-
-Following Python's practice of using Python Enhancement Proposals (PEPs) for
-``proposing major new features, for collecting community input on an
-issue, and for documenting the design decisions that have gone into Python,''
-we began using NumPy Enhancement Proposals (NEPs) in 2007.
-This process was informal and only occasionally used until 2017 when
-we adopted a more formal process \footnote{\url{https://numpy.org/neps/nep-0000.html}}.
+In 2007, the NumPy release manager, Jarrod Millman, adopted the notion
+of enhancement proposals---used infrequently until 2017 when, to
+facilitate work expected from funded development, he formalized the
+NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
+Python Enhancement Proposals (PEPs) for ``proposing major new
+features, for collecting community input on an issue, and for
+documenting the design decisions that have gone into
+Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
 Since then there have been 19 proposed NEPS---6 have been implemented,
-4 have been accepted and are being implemented, 4 are under consideration,
-3 have deferred or superseded, and 2 have been rejected or withdrawn.
-We highlight a few of the implemented NEPs below.
+4 have been accepted and are being implemented, 4 are under
+consideration, 3 have been deferred or superseded, and 2 have been rejected
+or withdrawn.
+
+The first activities organized for the new grant were a NEP development
+sprint, a weekly community call, and a meeting to write a draft roadmap.
+
+Since the roadmap was meant to represent community consensus on future
+development, it was presented for comment at the annual SciPy
+conference during a so-called ``Birds of a Feather'' session, attended
+by more than 100 people.  One additional meeting was held to discuss
+specific enhancements, such as the development of a new data-type
+system.  The final roadmap was vetted by the community via online
+discussion before being accepted.
+
+% technical focus
+% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
+% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
+
+% Intel, QuanSight, ...
+
+The weekly community calls alternate weekly between triage meetings and
+higher level discussion.  The calls not only involve developers from
+the community, but provide a venue for vendors and other external
+groups to provide input.  For example, after Intel produced a forked
+version of NumPy, one of their developers joined a call to discuss
+community concerns.
 
 NumPy plays a central role in building and standardizing much of the scientific
 Python community infrastructure.
 The docstring standard mentioned in the history section is now widely adopted.
-We are also using the NEP system as a way to help coordinate the larger
+We are also now using the NEP system as a way to help coordinate the larger
 scientific Python community.
 % https://numpy.org/neps/nep-0029-deprecation_policy.html
 For example, in NEP 29, we recommend, along with leaders from various other
@@ -230,6 +275,12 @@ This standard will simplify downstream project and release planning.
 
 % https://numpy.org/neps/scope.html
 % https://numpy.org/neps/roadmap.html
+
+We showed that NumPy is actively developed according to a community
+vetted plan that integrates formal enhancement proposals.  Next, we
+give a more in-depth overview of the team developing NumPy, their
+activities, as well as the governance and community structures that
+guide the collaboration.
 
 \section*{Project organization and community}
 
@@ -336,7 +387,6 @@ variance, and standard deviation; file I/O; and more.
 For historical reasons, NumPy also includes basic functionality for
 linear algebra,
 fast Fourier transforms and windowing,
-pseudorandom number generators,
 and polynomial fitting.
 We will keep supporting these, but we will not expand beyond them.
 
@@ -507,6 +557,8 @@ seed and sequence of function calls produce the same set of values. This
 guarantee has slowed progress since improving the underlying code requires
 extending the API with additional keyword arguments. This guarantee continues to
 apply to \code{RandomState}. 
+
+% Mention explicitly the NEPs involved
 
 NumPy 1.17 introduced a new API for generating random numbers that use a more
 flexible structure that can be extended by libraries or end-users. The new API
