@@ -134,16 +134,12 @@ basic standard of quality. Experienced community members reviewed and
 integrated contributed docstrings, and soon NumPy had thorough
 documentation coverage.
 
-% developed best practices, version control, unit testing, code review,
-% runable documentation, \cite{millman2014developing}
-% Travis steps back, no focused community effort until grant
-
-To coordinate work as a global community, to ensure accuracy of
-computed results, and to allow modification without breakage, the
-NumPy community pioneered best software engineering practices in the
-scientific Python community.  For example, NumPy early on adopted
-distributed revision control, unit testing, continuous integration,
-code review, standardized executable documentation, ...
+To coordinate work as a global community, to ensure accuracy of computed
+results, and to allow modification without breakage, the NumPy community
+pioneered best software engineering practices in the scientific Python
+community  \cite{millman2014developing}.
+For example, NumPy early on adopted distributed revision control, unit testing,
+continuous integration, code review, and standardized executable documentation.
 
 However, after his initial effort to build NumPy, Travis Oliphant
 stepped back from development to found a company and several projects,
@@ -154,9 +150,6 @@ increasingly weighed down by technical debt that had accrued since the
 days of Numeric.
 
 \subsection*{Funding}
-
-% built up technical debt, from a legacy of code from two projects
-% and a lack of fulltime attention left ...
 
 For many years, NumPy operated without external funding, development
 time mostly being contributed freely by students and researchers in
@@ -174,17 +167,6 @@ without external investment.
 % $659,359 in 2017
 % https://bids.berkeley.edu/news/bids-receives-sloan-foundation-grant-contribute-numpy-development
 
-% From grant text/summary on Sloan website:
-%
-% to remove the technical debt and set in place standards and
-% architecture to encourage more sustainable development
-
-% In 2014, NumPy received its
-% first large grants from the Moore and Sloan foundations, totaling 1.3M
-% dollars.  This allowed for hiring several full time programmers and,
-% with the support of community members, mobilized a project that had
-% become stagnant for the several years prior.
-
 In 2017, the Berkeley Institute for Data Science
 (BIDS) received grants totaling 1.3M USD from the Gordon \& Betty
 Moore and the Alfred P. Sloan foundations to support the development
@@ -194,9 +176,6 @@ standards and architecture to encourage more sustainable development.
 Stéfan van der Walt, a senior research data scientist at BIDS and a
 member of the NumPy steering council, is the PI and manages four
 programmers working on the project.
-
-% how much do we say about who these developers are and
-% lessons learned?
 
 % CZI -- NumFOCUS/QuanSight
 % https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
@@ -215,11 +194,6 @@ steering council, is the PI.
 
 The project receives around 10K USD per year from Tidelift, which is
 used to fund documentation and website developers.
-
-% Tidelift, ...
-% https://tidelift.com/subscription/pkg/pypi-numpy
-% $10,000 over 24 months according to
-% https://mail.python.org/pipermail/numpy-discussion/2018-September/078736.html
 
 \subsection*{Current status}
 
@@ -248,12 +222,6 @@ by more than 100 people.  One additional meeting was held to discuss
 specific enhancements, such as the development of a new data-type
 system.  The final roadmap was vetted by the community via online
 discussion before being accepted.
-
-% technical focus
-% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
-% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
-
-% Intel, QuanSight, ...
 
 The weekly community calls alternate weekly between triage meetings and
 higher level discussion.  The calls not only involve developers from
@@ -463,6 +431,13 @@ for historical reasons.
 
 
 \section*{Recent technical improvements}
+
+% technical focus
+% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
+% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
+
+% Intel, QuanSight, ...
+
 
 \subsection*{The Array Function Protocol}
 
