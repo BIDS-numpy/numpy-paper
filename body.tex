@@ -248,6 +248,16 @@ it allows for the efficient representation of $n$-dimensional arrays.
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.25\textwidth]{static/broadcasting}
+  \caption{
+    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
+    yields a $2 \times 3$ result.
+  }
+  \label{fig:broadcasting}
+\end{figure}
+
 The \emph{universal functions} (or \emph{ufuncs})
 are functions written in C that implement efficient looping over
 NumPy arrays. An important feature of ufuncs is the built-in
@@ -256,7 +266,7 @@ implementation of \emph{broadcasting}.  For example, the function
 $\tan^{-1}(y/x)$.  The ufunc loops over the dimensions of the inputs
 in such a way that if, say, \code{x} is a 1-d array with length 3, and
 \code{y} is a 2-d array with shape $2 \times 1$, the output will be
-an array with shape $2 \times 3$.  The ufunc machinery takes care
+an array with shape $2 \times 3$ (see Figure~\ref{fig:broadcasting}).  The ufunc machinery takes care
 of calling the function with all the appropriate combinations of
 input array elements to compute the output array.
 The elementary arithmetic operations of addition, multiplication, etc.,
