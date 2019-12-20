@@ -9,9 +9,15 @@ pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
 and scikit-image\cite{vanderwalt2014scikit}.
 Not surprisingly, many important scientific research projects and
 results rely on NumPy.
-It plays an essential role in many research analysis pipelines in physics,
-biology, ... % w/ citations
-In particular, LIGO, EHT, Higgs-Boson, ...
+It plays an essential role in many research analysis pipelines in
+fields as diverse as physics, biology, astronomy, neuroscience,
+material science, engineering, and chemistry.
+% w/ citations
+In particular, NumPy played a fundamental role in discovering
+gravitational waves\cite{pycbc}, imaging black
+holes\cite{eht-imaging}, and exploring the solar system (... Kepler? https://ui.adsabs.harvard.edu/abs/2012ascl.soft08004S/abstract).
+
+...
 %[LIGO, EHT, Higgs-Boson pipeline at CERN—double check this carefully,
 %  may be root, ice cube experiment, https://arxiv.org/abs/1507.03989
 %  IDL is now below Python, Pangeo <-> xarray, Earthcube,
@@ -19,18 +25,17 @@ In particular, LIGO, EHT, Higgs-Boson, ...
 %  Kepler, Mars rovers, SKA in South Africa, yt, astropy, seismo-live,
 %  icesat2 \& icepyx, The Materials Project at LBNL https://github.com/materialsproject]
 
-NumPy consists of the \code{ndarray}-object along with utility functions to
+NumPy consists of the \code{ndarray}-object along with utility functions that
 operate on it.
 Because of its inherent simplicity—being a pointer to memory with some
 associated meta-data about shape, data-type, and so forth—the NumPy array is
 the {\it de facto} exchange format for array data in Python.
-NumPy, while having been wildly successful as a library and array exchange
-project, has now also become a standard language for expressing array and
-tensor computations.  
+NumPy, having been wildly successful as a library and array exchange
+project, now also has become a standard language for expressing array and
+tensor computations.
 It has such widespread adoption that not only the array object but also its
 {\it Application Programming Interface} (API) has become ubiquitous, and is
-implemented by, for example, popular tensor computation libraries.
-
+implemented by, among others, popular tensor computation libraries\cite{pytorch}.
 
 \subsection*{History}
 
@@ -39,7 +44,7 @@ The first began in the mid-90s and was developed by Jim Fulton, Jim Hugunin,
 Paul Dubois, Konrad Hinsen, Travis Oliphant, and others, and was aimed at fast
 manipulation of many small arrays.
 By the beginning of the millennium, several libraries built on top of Numeric 
-the provided fundamental scientific routines `were combined to form SciPy.
+the provided fundamental scientific routines were combined to form SciPy.
 Due to the poor performance of Numeric on large data sets, NumArray was
 developed at the Space Telescope Science Institute (STScI) to handle
 large astronomical images such as those produced by the Hubble Space Telescope.
