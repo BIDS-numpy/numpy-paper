@@ -432,17 +432,18 @@ for historical reasons.
 
 \section*{Recent technical improvements}
 
-% technical focus
-% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
-% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
-
-% Intel, QuanSight, ...
-
+NumPy has, throughout its lifetime, seen continuous development.
+E.g., bugs fixes, minor improvements, cleanups, and releases have
+happened regularly.  However, with the NEP process in place we now
+have the flexibility to plan and implement changes of larger scope.
+We highlight two of those below, as well as changes made to our
+testing infrastructure to support hardware platforms used in large
+scale computing.
 
 \subsection*{The Array Function Protocol}
 
-The central position which NumPy takes within the numerical and scientific
-Python ecosystem  means that a vast number of projects are built on it.
+The central position of NumPy takes within the numerical and scientific
+Python ecosystem means that a vast number of projects are built on it.
 These projects are consumers of the NumPy API.
 
 On the other side, projects are providers of a \emph{NumPy-like API} and array
@@ -483,31 +484,38 @@ These two protocols allows providers of Array-like APIs to be interoperable
 with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
-\code{import numpy as np}, it can nevertheless work for them.
-A brief example of such a function which is written using NumPy
-but can now be used more generally is:
+\code{import numpy as np}, it can nevertheless work for them.  For
+example, here is how a CuPy GPU array can be passed through NumPy for
+processing, with all operations being dispatched back to CuPy:
+
 \begin{lstlisting}
-def f(x):
-    y = np.tensordot(x, x.T)
-    return np.mean(np.exp(y))
+  import numpy as np
+  import cupy as cp
+
+  x_gpu = cp.array([1, 2, 3])
+  y = np.sum(x_gpu)  # This works, and returns a GPU array
 \end{lstlisting}
-For example, a user relying on this function and normally using it with a
-NumPy array, may now use a distributed Dask array when challenged
-by a very large dataset, without any modification to \code{f(x)}.
 
-%In order to aid better interaction between NumPy and these libraries,
-%an ``array function'' protocol was added to NumPy in 2018 (see Section
-%X). The new protocol allows for external array objects (sometimes
-%called ``duck arrays'') to pass through NumPy:
-%
-%\begin{lstlisting}
-%  import numpy as np
-%  import cupy as cp
-%
-%  x_gpu = cp.array([1, 2, 3])
-%  y = np.sum(x_gpu)  # This works, and returns a GPU array
-%\end{lstlisting}
+Similarly, user defined functions composed using NumPy can now be
+applied to, e.g., multi-node distributed Dask arrays:
 
+\begin{lstlisting}
+  import numpy as np
+  import dask.array as da
+
+
+  def f(x):
+      """Function using NumPy API calls"""
+      y = np.tensordot(x, x.T)
+      return np.mean(np.log(y + 1))
+
+
+  x_local = np.random.random([10000, 10000])  # random local array
+  x_distr = da.random.random([10000, 10000])  # random distributed array
+
+  f(x_local)  # returns a NumPy array
+  f(x_distr)  # works, returns a Dask array
+\end{lstlisting}
 
 \subsection*{Random}
 
@@ -658,46 +666,56 @@ will be expected for a library at the base of the ecosystem.
 % 2nd grant starting, community growth and new user focus
 
 Most of the technical work for the Moore and Sloan grant is now complete.
-The main remaining item is an overhaul of the data type system, which is discussed
-below.  Now that years of technical debt have been addressed, the project
-is in good shape for growing the community and better addressing the needs
-of new users.  That is the main focus of the CZI grant, which we discuss
-below.
+The main remaining item is an overhaul of the data type system.
+
+The meaning of each element within a NumPy array is described by its
+datatype (dtype). NumPy arrays can hold all common numerical
+datatypes, strings, datetimes, and generic Python objects, each of
+which is identified by a dtype.  We are busy overhauling the datatype
+system to make it behave consistently and to simplify the creation of
+custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
+of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
+While numerical dtypes make the foundation for most users,
+there are a multitude of use cases which cannot prosper due to current
+limitations, such as physical units\cite{astropy,Goldbaum2018,pint},
+% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
+geometrical objects\cite{pygeos}, and automatic
+differentiation\cite{pyadolc}.
+%Projects addressing these exist, each struggles with current
+%limitations.  % TODO: I may need citations, we could link github issues.
+
+%% While it is currently possible to define custom dtypes within NumPy, many of the
+%% use cases above cannot be solved using this system.
+%% This is evidenced also by code within NumPy which would require changes
+%% in many places to add such dtypes, even when adding them within NumPy itself.
+%% The new implementation will be simpler and more cleanly implemented in
+%% this regard.
+%% Custom dtypes and the basic dtypes included within NumPy will be implemented
+%% and behave identically as much as possible.
+%% At the same time redesigning the API will make NumPy dtypes more flexible to grow
+%% to future needs should they arise.
+
+%% As a further step, to make dtypes more accessible and allow a faster adoption of
+%% custom dtypes within the community, we plan to create a Python API to
+%% define such custom dtypes.
+
+Now that we have made good progress on addressing technical debt, the project
+is ready to grow its community of contributors and to better address the needs
+of an ever-growing number of new users.  This is the main focus of the
+forthcoming CZI grant.
+
+[... CZI grant ...]
+
+[... welcome new users ...]
+
+% technical focus
+% improve various aspects of NumPy, including easier construction of custom data types (e.g., missing values, physical units, times & dates) and better integration with arrays customized for specialized domains (e.g., SciPy's sparse arrays, pandas' DataFrames, and xarray's labeled arrays). 
+% technical work, and it increased the velocity of the projects by ~25-30%, and in addition it enabled integrating some larger changes, like the numpy.random redesign.
+
 
 % \subsubsection*{Future Development}
 
 % Dtypes
-
-The meaning of each element within a NumPy array is described by its datatype
-(dtype). NumPy arrays can hold all common numerical datatypes, string, datetimes
-and generic Python objects, each of these is identified by a dtype.
-We are busy overhauling the datatype system to make it consistent (aligned with
-expectations), to simplify the creation of custom dtypes.
-While numerical dtypes make the foundation for most users, there are
-a multitude of use cases which cannot prosper due to current limitations.
-These use cases include datatypes with physical units\cite{astropy,Goldbaum2018,pint},
-% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
-geometrical objects\cite{pygeos}, automatic differentiation\cite{pyadolc}, and many more.
-Projects addressing these exist, each struggles with current
-limitations.  % TODO: I may need citations, we could link github issues.
-
-While it is currently possible to define custom dtypes within NumPy, many of the
-use cases above cannot be solved using this system.
-This is evidenced also by code within NumPy which would require changes
-in many places to add such dtypes, even when adding them within NumPy itself.
-The new implementation will be simpler and more cleanly implemented in
-this regard.
-Custom dtypes and the basic dtypes included within NumPy will be implemented
-and behave identically as much as possible.
-At the same time redesigning the API will make NumPy dtypes more flexible to grow
-to future needs should they arise.
-
-As a further step, to make dtypes more accessible and allow a faster adoption of
-custom dtypes within the community, we plan to create a Python API to
-define such custom dtypes.
-
-A \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}
-is under development in consultation with the community.
 
 % outline plan for the CZI grant and an invitation to new contributors
 
