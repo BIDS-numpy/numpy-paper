@@ -31,21 +31,26 @@ implemented by, for example, popular tensor computation libraries.
 
 \subsection*{History}
 
-Before NumPy, two different Python array packages—Numeric and
-numarray—existed.  The first was developed by Jim Fulton, Jim Hugunin, Paul Dubois, Konrad
-Hinsen, Travis Oliphant, and others, and was aimed at fast manipulation of many
-small arrays.  In contrast, to handle large astronomical images,
-NumArray was developed at the Space Telescope Science Institute (STScI).
-These array objects had different strengths and weaknesses, and therefore
-divided the already small community.  Furthermore, the divide
-posed a challenge for SciPy, which was built on Numeric and provided
-fundamental scientific routines.
-In response, the maintainer of Numeric, Travis Oliphant, started a
-major rewrite that aimed to be a ``best of both worlds'' unification
-of the two projects.  This became known as NumPy.
+Before NumPy, two different Python array packages—Numeric and NumArray—existed.
+The first began in the mid-90s and was developed by Jim Fulton, Jim Hugunin,
+Paul Dubois, Konrad Hinsen, Travis Oliphant, and others, and was aimed at fast
+manipulation of many small arrays.
+By the beginning of the millennium, several libraries built on top of Numeric 
+the provided fundamental scientific routines `were combined to form SciPy.
+Due to the poor performance of Numeric on large data sets, NumArray was
+developed at the Space Telescope Science Institute (STScI) to handle
+large astronomical images such as those produced by the Hubble Space Telescope.
+It was initially considered the successor to Numeric.
+However, it performed poorly on small arrays.
+This divide posed a challenge for SciPy as it wasn't clear how to support
+both libraries.
+Working with the NumArray and SciPy community, the maintainer of Numeric,
+Travis Oliphant, started a major rewrite that aimed to be a ``best of both
+worlds'' unification of the two projects.  This became known as NumPy.
 
-This spurred renewed development in both SciPy and NumPy and 
-heralded the current era of wide-spread use of Python for scientific computing.
+The creation of NumPy spurred renewed development in both SciPy and the larger
+scientific Python ecosystem and heralded the current era of wide-spread use of
+Python for scientific computing.
 To coordinate work as a global community, to ensure accuracy of computed
 results, and to allow modification without breakage, the NumPy (and SciPy) community
 pioneered best software engineering practices in the scientific Python
