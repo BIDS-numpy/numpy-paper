@@ -231,8 +231,6 @@ In brief, we strive to:
 The Code of Conduct also specifies how breaches can be reported and outlines
 the process for responding to such reports.
 
-% \subsection*{GSoD}
-
 
 \section*{Library organization}
 
@@ -283,32 +281,6 @@ fast Fourier transforms and windowing,
 and polynomial fitting.
 We will keep supporting these, but we will not expand beyond them.
 
-
-% use scipy for linear algebra etc...
-
-%A suite of functions for computing the \emph{fast Fourier transform (FFT)}
-%and its inverse is provided.
-
-%NumPy's linear algebra library includes functions for: solving linear
-%systems of equations; computing various functions of a matrix, including
-%the determinant, the norm, the inverse, and the pseudo-inverse;
-%computing the Cholesky, eigenvalue, and singular value decompositions of a matrix;
-%and more.
-%
-
-%For historical reasons, we provide a \code{matrix} class the implements 2-d
-%arrays with specialized behavior.
-%But we strongly recommend you use a 2-d array and use the infix \code{@} operator
-%for matrix multiplication.
-%
-%There is also a \code{matrix} class the implements 2-d arrays with
-%specialized behavior.  We mention it here for completeness, but the
-%use of \code{matrix} is discouraged.  The quirks of the \code{matrix}
-%class have proven to be troublesome, and with the addition of the
-%infix \code{@} operator to Python for matrix multiplication, there was no
-%longer a need for a separate \code{matrix} class, since one can
-%use a 2-d array instead.
-
 \subsection*{Infrastructure libraries}
 
 Being at the base of the scientific Python stack, NumPy provides some basic
@@ -322,38 +294,6 @@ The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
-
-
-% \section*{Common infrastructure}
-
-%\subsection*{Wheels build system}
-%
-%A Python \emph{wheel}\cite{PEP427} is a standard file format for
-%distributing Python libraries.  In addition to Python code, a
-%wheel may include compiled C extensions and other binary data.
-%This is important, because many libraries, including NumPy,
-%require a C compiler and other build tools to build the software
-%from the source code, making it difficult for many users to install
-%the software on their own.  The introduction of wheels to the Python
-%packaging system has made it much easier for users to install
-%precompiled libraries.
-%
-%A GitHub repository containing scripts to build NumPy wheels has
-%been configured so that a simple commit to the repository triggers
-%an automated build system that creates NumPy wheels for several
-%computer platforms, including Windows, Mac OSX and Linux.  The wheels
-%are uploaded to a public server and made available for anyone to use.
-%This system makes it easy for users to install precompiled versions
-%of NumPy on these platforms.
-%
-%The technology that is used to build the wheels evolves continually.
-%At the time this paper is being written, a key component is the
-%\code{multibuild} suite of tools developed by Matthew Brett and
-%other developers\cite{multibuild}.  Currently, scripts using
-%\code{multibuild} are written for the continuous integration
-%platforms Travis-CI (for Linux and Mac OSX) and Appveyor
-%(for Windows).
-
 
 \section*{Recent technical improvements}
 
@@ -554,8 +494,6 @@ NumPy source. Alternative approaches that avoid this extra step are being
 explored.} 
 
 \subsection*{Testing on multiple architectures}
-
-% started at as focused small matrices, class examples
 
 At the time of writing the two fastest supercomputers in the
 world, Summit and Sierra, both have IBM POWER9 architectures
