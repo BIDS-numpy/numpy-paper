@@ -2,7 +2,7 @@
 
 %NumPy is the fundamental array computation library for the Python
 %ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
-Since its first stable release in October 2006, NumPy has unified
+With its first stable release in October 2006, NumPy unified
 the scientific Python community and now underpins almost every library
 that does numerical computation, including SciPy\cite{virtanen2019scipy},
 pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
@@ -14,8 +14,9 @@ fields as diverse as physics, biology, astronomy, neuroscience,
 material science, engineering, and chemistry.
 % w/ citations
 In particular, NumPy played a fundamental role in discovering
-gravitational waves\cite{pycbc}, imaging black
-holes\cite{eht-imaging}, and exploring the solar system \cite{jenness2018lsst}.
+gravitational waves\cite{pycbc} and the first imaging of a black
+hole\cite{eht-imaging}, and lets us explore our
+universe\cite{jenness2018lsst}.
 
 %[LIGO, EHT, Higgs-Boson pipeline at CERN—double check this carefully,
 %  may be root, ice cube experiment, https://arxiv.org/abs/1507.03989
@@ -29,12 +30,10 @@ operate on it.
 Because of its inherent simplicity—being a pointer to memory with some
 associated meta-data about shape, data-type, and so forth—the NumPy array is
 the {\it de facto} exchange format for array data in Python.
-NumPy, having been wildly successful as a library and array exchange
-project, now also has become a standard language for expressing array and
-tensor computations.
-It has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become ubiquitous, and is
-implemented by, among others, popular tensor computation libraries\cite{pytorch}.
+The library has such widespread adoption that not only the array object but also its
+{\it Application Programming Interface} (API) has become ubiquitous as
+a language for tensor computation---witnessed by its use in popular
+deep learning libraries such as PyTorch\cite{pytorch}.
 
 \subsection*{History}
 
@@ -43,36 +42,37 @@ The first began in the mid-90s and was developed by Jim Fulton, Jim Hugunin,
 Paul Dubois, Konrad Hinsen, Travis Oliphant, and others, and was aimed at fast
 manipulation of many small arrays.
 By the beginning of the millennium, several libraries built on top of Numeric 
-the provided fundamental scientific routines were combined to form SciPy.
+to provide fundamental scientific routines were combined into SciPy.
 Due to the poor performance of Numeric on large data sets, NumArray was
 developed at the Space Telescope Science Institute (STScI) to handle
 large astronomical images such as those produced by the Hubble Space Telescope.
-It was initially considered the successor to Numeric.
-However, it performed poorly on small arrays.
+However, while initially considered the successor to Numeric, NumArray was no longer
+performant on multiple small arrays.
 This divide posed a challenge for SciPy as it wasn't clear how to support
 both libraries.
-Working with the NumArray and SciPy community, the maintainer of Numeric,
-Travis Oliphant, started a major rewrite that aimed to be a ``best of both
-worlds'' unification of the two projects.  %This became known as NumPy.
-This merger of Numeric and NumArray was called NumPy.
+Working with the NumArray and SciPy communities, the then maintainer of Numeric,
+Travis Oliphant, embarked upon a major rewrite that aimed to be a ``best of both
+worlds'' unification of Numeric and NumArray. This merger resulted in NumPy.
 
 The creation of NumPy spurred renewed development in both SciPy and the larger
 scientific Python ecosystem and heralded the current era of wide-spread use of
 Python for scientific computing.
 To coordinate work as a global community, to ensure accuracy of computed
-results, and to allow modification without breakage, the NumPy (and SciPy) community
+results, and to allow modification without breakage, the NumPy (and SciPy) teams
 pioneered best software engineering practices in the scientific Python
-community  \cite{millman2014developing}.
+community\cite{millman2014developing}.
 For example, NumPy early on adopted distributed revision control, unit testing,
-continuous integration, code review, and standardized executable documentation.
+continuous integration, code review, and executable documentation.
 It also developed a standard for ``docstrings''—text describing each NumPy function.
-This quickly became the standard for the larger scientific Python community. 
+This quickly became a documentation standard for the larger scientific Python community. 
 
-As the scientific Python community grew and new challenges arose, Travis Oliphant
-eventually stepped back from leading NumPy to found a company and start
-new projects including Numba---an accelerated Python compiler that could vastly
-accelerate NumPy expressions.
-Development of NumPy continued by a core group that informally operated by consensus.
+Travis Oliphant eventually stepped back from leading NumPy to found a
+company and to start new projects including Numba---an accelerated Python
+compiler that could vastly accelerate NumPy expressions.  Development
+of NumPy continued by a core group that informally operated by
+consensus.
+
+% While the scientific Python community grew and new challenges arose, 
 
 %By 2009, the project had entered a
 %period of uncoordinated, opportunistic development, and was
@@ -81,14 +81,13 @@ Development of NumPy continued by a core group that informally operated by conse
 
 \subsection*{Funding}
 
-For many years, NumPy had no dedicated funding, development
-time was mostly contributed freely by students and researchers in
-their spare time.  In-person meetings were sponsored off of
-individual's research grants, and while industry sponsored
-contributions were made, notably those by Mark Wiebe when he was
-sponsored by Travis Oliphant at Continuum Analytics, mostly the
-package had rapid adoption and became central to scientific computing
-without external investment.
+For many years, NumPy had no dedicated funding, and development time
+was mostly contributed freely by students and researchers in their
+spare time.  In-person meetings were sponsored off of individual's
+research grants, and while industry sponsored contributions were made,
+notably those by Mark Wiebe when he was sponsored by Travis Oliphant
+at Continuum Analytics, the package's rapid adoption in scientific
+computing took place without external investment.
 
 % BIDS -- UCB
 % https://www.moore.org/grant-detail?grantId=GBMF5447
@@ -109,17 +108,16 @@ on setting in place standards and architecture to encourage more sustainable dev
 % NumPy and OpenBLAS received $195,000 in 2019
 % https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
 NumPy received another grant for \$195,000 from the Chan Zuckerberg
-Initiative at the end of 2019.
-Ralf Gommers is the PI.
+Initiative at the end of 2019 with Ralf Gommers as the PI.
 This grant, building on the technical work supported by the previous
-grant, will focus on better serving NumPy's large number of beginner
+grant, will focus on better serving NumPy's large number of beginning
 to intermediate level users and on growing the community of NumPy
 contributors.
-It also will provide some support for OpenBLAS (on which NumPy depends for
-accelerated linear algebra).
+It will also provide support to OpenBLAS, on which NumPy depends for
+accelerated linear algebra.
 
-The project also receives around 10K USD per year from Tidelift, which is
-used to fund documentation and website developers.
+Finally, the project receives around 10K USD annually from Tidelift, which is
+typically used to fund documentation writers and website developers.
 
 \subsection*{Current status}
 
@@ -149,7 +147,7 @@ specific enhancements, such as the development of a new data-type
 system.  The final roadmap was vetted by the community via online
 discussion before being accepted.
 
-The weekly community calls alternate weekly between triage meetings and
+Weekly community calls alternate between triage and
 higher level discussion.  The calls not only involve developers from
 the community, but provide a venue for vendors and other external
 groups to provide input.  For example, after Intel produced a forked
@@ -179,17 +177,17 @@ This standard will simplify downstream project and release planning.
 \section*{Project organization and community}
 
 NumPy is currently maintained by a group of 23 contributors with commit rights
-to the NumPy code base. Out of these 17 maintainers were active in 2019 and 4
-of those were paid to work on the project full-time.
+to the NumPy code base. Out of these, 17 maintainers were active in
+2019, 4 of whom were paid to work on the project full-time.
 Additionally, there are a few long term developers who contributed and maintain
 specific parts of NumPy, but are not officially maintainers.
 At a release cycle of about every half year, the five recent releases in the years
-2018 and 2019 have averaged about 450~pull requests~(PRs) each.\footnote{
+2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
     Note that before mid 2011, NumPy development did not happen on \url{github.com}.
-    All data provided here is based on the development which happened through github
+    All data provided here is based on the development which happened through GitHub
     pull requests. In some cases contributions by maintainers may not be categorized as such.}
 % Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
-With each release attracting more than a hundred new contributors.
+with each release attracting more than a hundred new contributors.
 
 \begin{figure}
     \centering
@@ -199,6 +197,8 @@ With each release attracting more than a hundred new contributors.
         lower blue area showing the portion contributed by current or previous
         maintainers.}\label{fig:prs-over-time}
 \end{figure}
+
+% -- The paragraphs above and below can be tightened up a bit still --
 
 The stacked plot in Figure~\ref{fig:prs-over-time} shows the number of
 PRs merged into the NumPy master branch.
