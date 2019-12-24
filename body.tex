@@ -1,4 +1,4 @@
-\section*{Introduction}
+\section{Introduction}
 
 %NumPy is the fundamental array computation library for the Python
 %ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
@@ -35,7 +35,7 @@ The library has such widespread adoption that not only the array object but also
 a language for tensor computation---witnessed by its use in popular
 deep learning libraries such as PyTorch\cite{pytorch}.
 
-\subsection*{History}
+\subsection{History}
 
 Before NumPy, two different Python array packages—Numeric and NumArray—existed.
 The first began in the mid-90s and was developed by Jim Fulton, Jim Hugunin,
@@ -79,7 +79,7 @@ consensus.
 %increasingly weighed down by technical debt that had accrued since the
 %days of Numeric.
 
-\subsection*{Funding}
+\subsection{Funding}
 
 For many years, NumPy had no dedicated funding, and development time
 was mostly contributed freely by students and researchers in their
@@ -119,7 +119,7 @@ accelerated linear algebra.
 Finally, the project receives around 10K USD annually from Tidelift, which is
 typically used to fund documentation writers and website developers.
 
-\subsection*{Current status}
+\subsection{Current status}
 
 % (maturity, users)
 
@@ -174,7 +174,7 @@ This standard will simplify downstream project and release planning.
 %activities, as well as the governance and community structures that
 %guide the collaboration.
 
-\section*{Project organization and community}
+\section{Project organization and community}
 
 NumPy is currently maintained by a group of 23 contributors with commit rights
 to the NumPy code base. Out of these, 17 maintainers were active in
@@ -234,13 +234,13 @@ In brief, we strive to:
 The Code of Conduct also specifies how breaches can be reported and outlines
 the process for responding to such reports.
 
-\section*{Library organization}
+\section{Library organization}
 
 The NumPy library consists of core functionality (e.g., the NumPy array data structure),
 functions for manipulating arrays and doing scientific computation, and infrastructure
 libraries.
 
-\subsection*{Core}
+\subsection{Core}
 
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
@@ -273,7 +273,7 @@ The elementary arithmetic operations of addition, multiplication, etc.,
 are implemented as ufuncs, so broadcasting applies even in expressions
 such as \code{x + y * z}.
 
-\subsection*{Computing libraries}
+\subsection{Computing libraries}
 
 NumPy provides a large collection of functions for array manipulation
 including functions for: creating, reshaping, concatenating, and padding arrays;
@@ -287,7 +287,7 @@ linear algebra, fast Fourier transforms and windowing,
 and polynomial fitting.
 We will continue supporting these, but we will not expand beyond them.
 
-\subsection*{Infrastructure libraries}
+\subsection{Infrastructure libraries}
 
 NumPy also provides basic infrastructure for other packages in the scientific
 Python ecosystem.
@@ -301,7 +301,7 @@ building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
 
-\section*{Recent technical improvements}
+\section{Recent technical improvements}
 
 The NumPy codebase has been actively developed for over two decades (first as
 Numeric and NumArray).
@@ -315,7 +315,7 @@ place we have been able to tackle a number of important large scale changes.
 We highlight two of those below, as well as changes made to our testing
 infrastructure to support hardware platforms used in large scale computing.
 
-\subsection*{The Array Function Protocol}
+\subsection{The Array Function Protocol}
 
 A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
@@ -392,7 +392,7 @@ f(x_local)  # returns a NumPy array
 f(x_distr)  # works, returns a Dask array
 \end{lstlisting}
 
-\subsection*{Random}
+\subsection{Random}
 
 %The random number generator library in NumPy provides several alternative
 %\emph{bit stream generators} that provide the core function of generating
@@ -504,7 +504,7 @@ or Cython code.\footnote{As of 1.18.0, this scenario requires access to the
 NumPy source. Alternative approaches that avoid this extra step are being
 explored.} 
 
-\subsection*{Testing on multiple architectures}
+\subsection{Testing on multiple architectures}
 
 At the time of writing the two fastest supercomputers in the
 world, Summit and Sierra, both have IBM POWER9 architectures
@@ -534,7 +534,7 @@ for a future where provision of binaries on these architectures
 will be expected for a library at the base of the ecosystem.
 
 
-\section*{Discussion}
+\section{Discussion}
 
 % 1st grant done, technical cleanup finished except dtypes
 % 2nd grant starting, community growth and new user focus
