@@ -119,62 +119,17 @@ accelerated linear algebra.
 Finally, the project receives around 10K USD annually from Tidelift, which is
 typically used to fund documentation writers and website developers.
 
-\subsection{Current status}
+\section{Organization and infrastructure}
 
-% (maturity, users)
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \caption{Number of pull requests merged into the NumPy master branch for each
+        quarter since 2012. The total number of PRs is indicated with the
+        lower blue area showing the portion contributed by current or previous
+        maintainers.}\label{fig:prs-over-time}
+\end{figure}
 
-As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
-of enhancement proposals---used infrequently and informally until 2017 when,
-to facilitate work expected from funded development, he formalized the
-NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
-Python Enhancement Proposals (PEPs) for ``proposing major new
-features, for collecting community input on an issue, and for
-documenting the design decisions that have gone into
-Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
-Since then there have been 19 proposed NEPS---6 have been implemented,
-4 have been accepted and are being implemented, 4 are under
-consideration, 3 have been deferred or superseded, and 2 have been rejected
-or withdrawn.
-
-The first activities organized for the new grant were a NEP development
-sprint, a weekly community call, and a meeting to write a draft roadmap.
-
-Since the roadmap was meant to represent community consensus on future
-development, it was presented for comment at the annual SciPy
-conference during a so-called ``Birds of a Feather'' session, attended
-by more than 100 people.  One additional meeting was held to discuss
-specific enhancements, such as the development of a new data-type
-system.  The final roadmap was vetted by the community via online
-discussion before being accepted.
-
-Weekly community calls alternate between triage and
-higher level discussion.  The calls not only involve developers from
-the community, but provide a venue for vendors and other external
-groups to provide input.  For example, after Intel produced a forked
-version of NumPy, one of their developers joined a call to discuss
-community concerns.
-
-NumPy plays a central role in building and standardizing much of the scientific
-Python community infrastructure.
-The docstring standard mentioned in the history section is now widely adopted.
-We are also now using the NEP system as a way to help coordinate the larger
-scientific Python community.
-% https://numpy.org/neps/nep-0029-deprecation_policy.html
-For example, in NEP 29, we recommend, along with leaders from various other
-projects, that all projects across the Scientific Python ecosystem adopt a
-common ``time window-based'' policy for support of Python and NumPy versions.
-This standard will simplify downstream project and release planning.
-
-% https://numpy.org/neps/scope.html
-% https://numpy.org/neps/roadmap.html
-
-%We showed that NumPy is actively developed according to a community
-%vetted plan that integrates formal enhancement proposals.  Next, we
-%give a more in-depth overview of the team developing NumPy, their
-%activities, as well as the governance and community structures that
-%guide the collaboration.
-
-\section{Project organization and community}
 
 NumPy is currently maintained by a group of 23 contributors with commit rights
 to the NumPy code base. Out of these, 17 maintainers were active in
@@ -188,59 +143,17 @@ At a release cycle of about every half year, the five recent releases in the yea
     pull requests. In some cases contributions by maintainers may not be categorized as such.}
 % Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
 with each release attracting more than a hundred new contributors.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
-    \caption{Number of pull requests merged into the NumPy master branch for each
-        quarter since 2012. The total number of PRs is indicated with the
-        lower blue area showing the portion contributed by current or previous
-        maintainers.}\label{fig:prs-over-time}
-\end{figure}
-
-% -- The paragraphs above and below can be tightened up a bit still --
-
-The stacked plot in Figure~\ref{fig:prs-over-time} shows the number of
-PRs merged into the NumPy master branch.
-In this plot PRs opened by current and old maintainers are indicated.
+Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
+master branch.
 Although the number of PRs being merged fluctuates,
 the plot indicates an increased number of contributions over the past
 years.
-Over the course of its history, NumPy has attracted PRs by 823 contributors.
-However, its development relies heavily on a relatively small number
-of active maintainers, who share more than half of the contributions among
-themselves.
-
-% https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
-% https://github.com/numpy/numpy/pull/6352
-To formalize its unwritten development policy,
-NumPy adopted an official Governance Document on October~5,
-2015\cite{NumPyProjectGovernance}.
-Project decisions are usually made by consensus of interested contributors.
-This means for many thing everyone is entrusted with veto power.
-A Steering Council, currently composed of 12~members, facilitates this
-process and oversees daily development of the project by contributing code
-and reviewing contributions from the community.
-
-% https://mail.python.org/pipermail/numpy-discussion/2018-July/078476.html
-% https://github.com/numpy/numpy/pull/11865
-NumPy's official Code of Conduct was approved on September~1, 2018\cite{NumPyCodeofConduct}.
-In brief, we strive to:
-\emph{be open};
-\emph{be empathetic, welcoming, friendly, and patient};
-\emph{be collaborative};
-\emph{be inquisitive}; and
-\emph{be careful in the words that we choose}.
-The Code of Conduct also specifies how breaches can be reported and outlines
-the process for responding to such reports.
-
-\section{Library organization}
 
 The NumPy library consists of core functionality (e.g., the NumPy array data structure),
 functions for manipulating arrays and doing scientific computation, and infrastructure
 libraries.
 
-\subsection{Core}
+\subsection{Core functionality}
 
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
@@ -307,9 +220,59 @@ The NumPy codebase has been actively developed for over two decades (first as
 Numeric and NumArray).
 Given the complexity of the codebase and the massive number of projects depending
 on it, large changes require careful planning and substantial work.
-Moreover, with the now prevalent need for distributed computing and the
-emergence of specialized hardware such as GPUs, many new usecases have
-arisen, which NumPy was not originally designed for.
+As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
+of enhancement proposals---used infrequently and informally until 2017 when,
+to facilitate work expected from funded development, he formalized the
+NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
+Python Enhancement Proposals (PEPs) for ``proposing major new
+features, for collecting community input on an issue, and for
+documenting the design decisions that have gone into
+Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
+%Since then there have been 19 proposed NEPS---6 have been implemented,
+%4 have been accepted and are being implemented, 4 are under
+%consideration, 3 have been deferred or superseded, and 2 have been rejected
+%or withdrawn.
+
+The first activities organized for the new grant were a NEP development
+sprint, a weekly community call, and a meeting to write a draft roadmap.
+Since the roadmap was meant to represent community consensus on future
+development, it was presented for comment at the annual SciPy
+conference during a so-called ``Birds of a Feather'' session, attended
+by more than 100 people.  One additional meeting was held to discuss
+specific enhancements, such as the development of a new data-type
+system.  The final roadmap was vetted by the community via online
+discussion before being accepted.
+
+%Weekly community calls alternate between triage and
+%higher level discussion.  The calls not only involve developers from
+%the community, but provide a venue for vendors and other external
+%groups to provide input.  For example, after Intel produced a forked
+%version of NumPy, one of their developers joined a call to discuss
+%community concerns.
+
+%NumPy plays a central role in building and standardizing much of the scientific
+%Python community infrastructure.
+%The docstring standard mentioned in the history section is now widely adopted.
+%We are also now using the NEP system as a way to help coordinate the larger
+%scientific Python community.
+%% https://numpy.org/neps/nep-0029-deprecation_policy.html
+%For example, in NEP 29, we recommend, along with leaders from various other
+%projects, that all projects across the Scientific Python ecosystem adopt a
+%common ``time window-based'' policy for support of Python and NumPy versions.
+%This standard will simplify downstream project and release planning.
+
+% https://numpy.org/neps/scope.html
+% https://numpy.org/neps/roadmap.html
+
+%We showed that NumPy is actively developed according to a community
+%vetted plan that integrates formal enhancement proposals.  Next, we
+%give a more in-depth overview of the team developing NumPy, their
+%activities, as well as the governance and community structures that
+%guide the collaboration.
+
+%Moreover, with the now prevalent need for distributed computing and the
+%emergence of specialized hardware such as GPUs, many new usecases have
+%arisen, which NumPy was not originally designed for.
 With the recent infusion of funding and the newly formalized NEP process in
 place we have been able to tackle a number of important large scale changes.
 We highlight two of those below, as well as changes made to our testing
