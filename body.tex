@@ -119,7 +119,7 @@ accelerated linear algebra.
 Finally, the project receives around 10K USD annually from Tidelift, which is
 typically used to fund documentation writers and website developers.
 
-\section{Organization and infrastructure}
+\section{Community and library}
 
 \begin{figure}
     \centering
@@ -149,27 +149,81 @@ Although the number of PRs being merged fluctuates,
 the plot indicates an increased number of contributions over the past
 years.
 
-The NumPy library consists of core functionality (e.g., the NumPy array data structure),
-functions for manipulating arrays and doing scientific computation, and infrastructure
-libraries.
 
-\subsection{Core functionality}
+\subsection{Basic functionality}
 
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
 it allows for the efficient representation of $n$-dimensional arrays.
+\fixme{discuss Figure~\ref{fig:basic-functionality} .. vectors / matrices / and then more ...}
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
+
 \begin{figure}
-  \centering
-  \includegraphics[width=0.25\textwidth]{static/broadcasting}
-  \caption{
-    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
-    yields a $2 \times 3$ result.
-  }
-  \label{fig:broadcasting}
+\centering
+\begin{subfigure}{.5\textwidth}
+\begin{lstlisting}
+>>> import numpy as np
+>>> x = np.array([0, 1, 2, 3])
+>>> x.dtype
+dtype('int64')
+>>> x.shape
+(4,)
+
+>>> y = 2 * x
+>>> y
+array([0, 2, 4, 6])
+
+>>> x * y
+array([ 0,  2,  8, 18])
+
+>>> x @ y
+28
+\end{lstlisting}
+  \caption{Vectors (1-d arrays)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+\begin{lstlisting}
+>>> import numpy as np
+>>> x = np.array([1, 2])
+>>> A = np.array([[0.1, 0.2], [0.3, 0.2]])
+>>> A.dtype 
+dtype('float64')
+>>> A.shape
+(2, 2)
+
+>>> A * x
+array([[0.1, 0.4],
+       [0.3, 0.4]])
+
+>>> A @ x
+array([0.5, 0.7])
+>>> x @ A
+array([0.7, 0.6])
+\end{lstlisting}
+  \caption{Vectors (1-d arrays) and Matrices (2-d arrays)}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Basic functionality}
+\label{fig:basic-functionality}
 \end{figure}
+
+
+NumPy provides a large collection of functions for array manipulation
+including functions for: creating, reshaping, concatenating, and padding arrays;
+searching, sorting and counting data
+in arrays; computing elementary statistics, such as the mean, median,
+variance, and standard deviation; file I/O; and more.
+It also provides extensive support for generating pseudorandom numbers
+as well as an assortment of probability distributions.
+For historical reasons, NumPy also includes basic functionality for
+linear algebra, fast Fourier transforms and windowing,
+and polynomial fitting.
+We will continue supporting these, but we will not expand beyond them.
+
+\subsection{Advanced functionality}
 
 The \emph{universal functions} (or \emph{ufuncs})
 are functions written in C that implement efficient looping over
@@ -186,21 +240,15 @@ The elementary arithmetic operations of addition, multiplication, etc.,
 are implemented as ufuncs, so broadcasting applies even in expressions
 such as \code{x + y * z}.
 
-\subsection{Computing libraries}
-
-NumPy provides a large collection of functions for array manipulation
-including functions for: creating, reshaping, concatenating, and padding arrays;
-searching, sorting and counting data
-in arrays; computing elementary statistics, such as the mean, median,
-variance, and standard deviation; file I/O; and more.
-It also provides extensive support for generating pseudorandom numbers
-as well as an assortment of probability distributions.
-For historical reasons, NumPy also includes basic functionality for
-linear algebra, fast Fourier transforms and windowing,
-and polynomial fitting.
-We will continue supporting these, but we will not expand beyond them.
-
-\subsection{Infrastructure libraries}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.25\textwidth]{static/broadcasting}
+  \caption{
+    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
+    yields a $2 \times 3$ result.
+  }
+  \label{fig:broadcasting}
+\end{figure}
 
 NumPy also provides basic infrastructure for other packages in the scientific
 Python ecosystem.
