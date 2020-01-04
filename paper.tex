@@ -1,4 +1,4 @@
-\documentclass[fleqn,10pt]{wlscirep}
+\documentclass[fleqn,10pt,twocolumn]{wlscirep}
 
 % Packages
 \usepackage{pifont}
@@ -14,7 +14,7 @@
 
 \lstset{ %
   basicstyle=\ttfamily\footnotesize,  % size of fonts used for the code
-  xleftmargin=2\parindent,
+  xleftmargin=\parindent,
   breaklines=true,   % automatic line breaking only at whitespace
   captionpos=b,   % sets the caption-position to bottom
   commentstyle=\color{gray},  % comment style
@@ -44,7 +44,7 @@
  {}{}
 \makeatother
 
-\usepackage{lineno}
+\usepackage[switch]{lineno}
 \linenumbers
 
 \title{NumPy---Array Computation for Python}

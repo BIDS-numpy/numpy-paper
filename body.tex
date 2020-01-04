@@ -213,7 +213,7 @@ typically used to fund documentation writers and website developers.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
     \caption{Number of pull requests merged into the NumPy master branch for each
         quarter since 2012. The total number of PRs is indicated with the
         lower blue area showing the portion contributed by current or previous
@@ -246,7 +246,7 @@ The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
 it allows for the efficient representation of $n$-dimensional arrays.
 
-\fixme{discuss Figure~\ref{fig:basic-functionality} .. vectors / matrices / and then more ...
+\fixme{discuss .. vectors / matrices / and then more ...
 indexing and slicing, one-liners that would be tens or hundreds of lines of code in
 languages such as C.}
 
@@ -254,9 +254,6 @@ More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
 
-\begin{figure}
-\centering
-\begin{subfigure}{.5\textwidth}
 \begin{lstlisting}
 >>> import numpy as np
 >>> x = np.array([0, 1, 2, 3])
@@ -275,10 +272,7 @@ array([ 0,  2,  8, 18])
 >>> x @ y
 28
 \end{lstlisting}
-  \caption{Vectors (1-d arrays)}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+
 \begin{lstlisting}
 >>> import numpy as np
 >>> x = np.array([1, 2])
@@ -297,13 +291,6 @@ array([0.5, 0.7])
 >>> x @ A
 array([0.7, 0.6])
 \end{lstlisting}
-  \caption{Vectors (1-d arrays) and Matrices (2-d arrays)}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Basic functionality}
-\label{fig:basic-functionality}
-\end{figure}
-
 
 NumPy provides a large collection of functions for array manipulation
 including functions for: creating, reshaping, concatenating, and padding arrays;
@@ -336,7 +323,7 @@ such as \code{x + y * z}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.25\textwidth]{static/broadcasting}
+  \includegraphics[width=0.5\linewidth]{static/broadcasting}
   \caption{
     Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
     yields a $2 \times 3$ result.
