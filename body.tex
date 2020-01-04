@@ -25,22 +25,6 @@
 %  Kepler, Mars rovers, SKA in South Africa, yt, astropy, seismo-live,
 %  icesat2 \& icepyx, The Materials Project at LBNL https://github.com/materialsproject]
 
-With its first stable release in October 2006, NumPy unified
-the scientific Python community and now underpins almost every library
-that does numerical computation, including SciPy\cite{virtanen2019scipy},
-pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
-and scikit-image\cite{vanderwalt2014scikit}.
-NumPy consists of the \code{ndarray}-object along with utility functions that
-operate on it.
-Because of its inherent simplicity—being a pointer to memory with some
-associated meta-data about shape, data-type, and so forth—the NumPy array is
-the {\it de facto} exchange format for array data in Python.
-The library has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become ubiquitous as
-a language for tensor computation---witnessed by its use in popular
-deep learning libraries such as PyTorch\cite{pytorch}.
-
-\subsection{Background}
 
 % https://books.google.com/books?id=QQJODwAAQBAJ&pg=PA101&lpg=PA101&dq=%E2%80%9Cthe+secret+to+successful+hiring+is+this:+look+for+the+people+who+want+to+change+the+world.%E2%80%9D&source=bl&ots=D6l8JXfB20&sig=ACfU3U0x1X9Gh8k6MlNV0BqhBa_73Q0yfQ&hl=en&sa=X&ved=2ahUKEwj48pqg_oHgAhVohuAKHYlJAsc4ChDoATAAegQIChAB#v=onepage&q=%E2%80%9Cthe%20secret%20to%20successful%20hiring%20is%20this%3A%20look%20for%20the%20people%20who%20want%20to%20change%20the%20world.%E2%80%9D&f=false
 % "The secret to successful hiring is this: look for the people who want to change the world.".  Marc Benioff.
@@ -60,9 +44,11 @@ development.
 This cycle is one of several explanations for the astonishing growth of NumPy
 in scientific computing.
 
-The first incarnation of Numpy was a package called "Numeric", written in 1995
+\subsection{History}
+
+The first incarnation of NumPy was a package called "Numeric", written in 1995
 by Jim Hugunin, then completing his master's thesis at MIT on
-superconductor-semiconductor junctions.  Huginin based his package on previous
+superconductor-semiconductor junctions.  Hugunin based his package on previous
 work by Jim Fulton, then working at the US Geological Survey, and acknowledges
 many others in his initial report of the package \cite{Hugunin-whitepaper}.
 Numeric provided an array object in Python, written in C, and linking to
@@ -74,7 +60,7 @@ including Matlab and IDL.  At the time, it must have seemed a safe bet that
 Numeric would not succeed in this market.  The commercial languages were
 developed and maintained by large numbers of full-time professional programmers
 and supported by formal quality assurance, release managers and writers of
-scientific documentation.  In contrast, Numeric, and later, Numpy, would
+scientific documentation.  In contrast, Numeric, and later, NumPy, would
 continue to be developed almost entirely by scientists, including graduate
 students and faculty, without specific funding, and often to the detriment of
 the scientists' careers.
@@ -85,31 +71,59 @@ Table X2 about here: backgrounds of major committers (mainly math, physics).
 
 Around 1998, the Space Telescope Science Institute (STScI) software group began
 to use Python heavily, and, around 2000, wrote a re-implementation of much of
-Numeric, called Numarray, to support their need to work on large memory-mapped
+Numeric, called NumArray, to support their need to work on large memory-mapped
 arrays, and arrays of mixed data type records \cite{STScI-slither}.  This
-briefly caused the Numeric and Numarray communities to diverge, until 2005,
+briefly caused the Numeric and NumArray communities to diverge, until 2005,
 when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
 both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
 This merger resulted in NumPy.  At the time, Oliphant was an assistant
 professor of Electrical and Computer Engineering at Brigham Young University.
 
-The creation of NumPy spurred renewed development in the larger scientific
-Python ecosystem and heralded the current era of wide-spread use of Python for
-scientific computing.
-
-Over the next 10 years, Numpy attracted a relatively large pool of scientist
-developers (see Figure ~\ref{fig:prs-over-time}).  To benefit from these
+Over the next 10 years, NumPy attracted a relatively large pool of scientist
+developers.  To benefit from these
 user-developers, the project developed an increasingly strong culture of using
 software-engineering practice to improve collaboration and reduce error
 \cite{millman2014developing}. The NumPy team was early in adopting distributed
 revision control and code review to improved collaboration on code, and
 continuous testing so we run a large battery automated tests for every proposed
-change in Numpy. At first, Numpy had rather sparse documentation, but the project
-developed a new standard for ``docstrings'' —- text describing each NumPy
-function -- and used this standard to write comprehensive high-quality
-documention, integrated with the source code. The Numpy documentation format
+change in NumPy. At first, NumPy had rather sparse documentation, but the project
+developed a new standard for ``docstrings''---text describing each NumPy
+function---and used this standard to write comprehensive high-quality
+documentation, integrated with the source code. The NumPy documentation format
 quickly became a standard for the larger Python community.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \caption{Number of pull requests merged into the NumPy master branch for each
+        quarter since 2012. The total number of PRs is indicated with the
+        lower blue area showing the portion contributed by current or previous
+        maintainers.}\label{fig:prs-over-time}
+\end{figure}
+
+NumPy is currently maintained by a group of 23 contributors with commit rights
+to the NumPy code base. Out of these, 17 maintainers were active in
+2019, 4 of whom were paid to work on the project full-time.
+Additionally, there are a few long term developers who contributed and maintain
+specific parts of NumPy, but are not officially maintainers.
+At a release cycle of about every half year, the five recent releases in the years
+2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
+    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
+    All data provided here is based on the development which happened through GitHub
+    pull requests. In some cases contributions by maintainers may not be categorized as such.}
+% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
+with each release attracting more than a hundred new contributors.
+Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
+master branch.
+Although the number of PRs being merged fluctuates,
+the plot indicates an increased number of contributions over the past
+years.
+
+\subsection{Enabling factors}
+
+The creation of NumPy spurred renewed development in the larger scientific
+Python ecosystem and heralded the current era of wide-spread use of Python for
+scientific computing.
 As we implied above, there were several factors that allowed this rapid growth
 and successful development.
 
@@ -129,18 +143,18 @@ Python is already a good choice for many standard programming tasks such as
 cleaning data, interacting with web resources and parsing text.  It has a wide
 range of libraries for many different tasks. Adding fast array operations and
 linear algebra allows the scientist to do all their work with within the same
-language - and one that has the advantage of being famously easy to learn and
+language---and one that has the advantage of being famously easy to learn and
 teach.
 
 The second factor flows from Python's nature as an open-source language,
 embedded within the open-source community.  Python attracts developers who like
-to build and contribute.  As a result, Numpy has always been a library that was
+to build and contribute.  As a result, NumPy has always been a library that was
 developed by scientists in order to do their work.  Commercial specialist
 numerical languages can encourage consumer-users, who pick up a tool and use
-it, but do not expect to contribute to development.  In contrast, Numpy often
-attracts user-developers, who want to work with Numpy, and are prepared to fix
+it, but do not expect to contribute to development.  In contrast, NumPy often
+attracts user-developers, who want to work with NumPy, and are prepared to fix
 and extend the library as they work. User-developers have been the fundamental
-force in developing Numpy, and shaping it into a library that has been refined
+force in developing NumPy, and shaping it into a library that has been refined
 in the furnace of practical scientific work.
 
 The third factor is much like the second: a culture in Python that concentrates
@@ -151,16 +165,16 @@ control, code review, and automated testing.  These have allowed the project to
 scale safely as it attracted more users and developers, even though these
 developers rarely came to the project with training in software engineering.
 
-Lastly, we believe Numpy has benefitted greatly from a well-chosen application
+Lastly, we believe NumPy has benefited greatly from a well-chosen application
 programming interface (API).  Scientific and numerical programming needs to be
-fast, and scale to very large datasets.  The Numpy API defines a simple wrapper
+fast, and scale to very large datasets.  The NumPy API defines a simple wrapper
 for data in memory so it can be represented as a one- or multi-dimensional
 array.  The simplicity of this wrapper has made it very successful as a
 standard way of representing arrays in memory, and has made it relatively easy
 for other libraries to develop fast and memory-efficient compiled code, usually
 in C or Fortran, that can manipulate these arrays and pass them back to Python.
-This has been a large factor in the growth of numerical computing libaries
-around Numpy and Python.
+This has been a large factor in the growth of numerical computing libraries
+around NumPy and Python.
 
 % While the scientific Python community grew and new challenges arose, 
 
@@ -169,7 +183,7 @@ around Numpy and Python.
 %increasingly weighed down by technical debt that had accrued since the
 %days of Numeric.
 
-\subsection{Funding}
+\subsection{Hybrid development}
 
 For many years, NumPy had no dedicated funding, and development time
 was mostly contributed freely by students and researchers in their
@@ -209,38 +223,23 @@ accelerated linear algebra.
 Finally, the project receives around 10K USD annually from Tidelift, which is
 typically used to fund documentation writers and website developers.
 
-\section{Community and library}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
-    \caption{Number of pull requests merged into the NumPy master branch for each
-        quarter since 2012. The total number of PRs is indicated with the
-        lower blue area showing the portion contributed by current or previous
-        maintainers.}\label{fig:prs-over-time}
-\end{figure}
+\section{The \code{ndarray} data structure}
 
 
-NumPy is currently maintained by a group of 23 contributors with commit rights
-to the NumPy code base. Out of these, 17 maintainers were active in
-2019, 4 of whom were paid to work on the project full-time.
-Additionally, there are a few long term developers who contributed and maintain
-specific parts of NumPy, but are not officially maintainers.
-At a release cycle of about every half year, the five recent releases in the years
-2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
-    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
-    All data provided here is based on the development which happened through GitHub
-    pull requests. In some cases contributions by maintainers may not be categorized as such.}
-% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
-with each release attracting more than a hundred new contributors.
-Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
-master branch.
-Although the number of PRs being merged fluctuates,
-the plot indicates an increased number of contributions over the past
-years.
-
-
-\subsection{Basic functionality}
+With its first stable release in October 2006, NumPy unified
+the scientific Python community and now underpins almost every library
+that does numerical computation, including SciPy\cite{virtanen2019scipy},
+pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
+and scikit-image\cite{vanderwalt2014scikit}.
+NumPy consists of the \code{ndarray}-object along with utility functions that
+operate on it.
+Because of its inherent simplicity---being a pointer to memory with some
+associated meta-data about shape, data-type, and so forth---the NumPy array is
+the {\it de facto} exchange format for array data in Python.
+The library has such widespread adoption that not only the array object but also its
+{\it Application Programming Interface} (API) has become ubiquitous as
+a language for tensor computation---witnessed by its use in popular
+deep learning libraries such as PyTorch\cite{pytorch}.
 
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
@@ -304,49 +303,47 @@ linear algebra, fast Fourier transforms and windowing,
 and polynomial fitting.
 We will continue supporting these, but we will not expand beyond them.
 
-\subsection{Advanced functionality}
-
-The \emph{universal functions} (or \emph{ufuncs})
-are functions written in C that implement efficient looping over
-NumPy arrays. An important feature of ufuncs is the built-in
-implementation of \emph{broadcasting}.  For example, the function
-\code{arctan2(x, y)} is a ufunc that accepts two arguments and computes
-$\tan^{-1}(y/x)$.  The ufunc loops over the dimensions of the inputs
-in such a way that if, say, \code{x} is a 1-d array with length 3, and
-\code{y} is a 2-d array with shape $2 \times 1$, the output will be
-an array with shape $2 \times 3$ (see Figure~\ref{fig:broadcasting}).  The ufunc machinery takes care
-of calling the function with all the appropriate combinations of
-input array elements to compute the output array.
-The elementary arithmetic operations of addition, multiplication, etc.,
-are implemented as ufuncs, so broadcasting applies even in expressions
-such as \code{x + y * z}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{static/broadcasting}
-  \caption{
-    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
-    yields a $2 \times 3$ result.
-  }
-  \label{fig:broadcasting}
-\end{figure}
-
-NumPy also provides basic infrastructure for other packages in the scientific
-Python ecosystem.
-The \code{numpy.testing} subpackage provides functions such as
-\code{assert\_allclose(actual, desired)} that may be used in unit
-test suites for code that uses NumPy arrays.
-The \code{numpy.distutils} subpackage provides build support for C++, Fortran,
-BLAS/LAPACK, and other relevant libraries for scientific computing.
-The program \code{f2py} is a tool for
-building NumPy-aware Python wrappers of Fortran functions.
-NumPy itself does not use any Fortran code;  F2PY is part of NumPy
-for historical reasons.
+%\subsection{Advanced functionality}
+%
+%The \emph{universal functions} (or \emph{ufuncs})
+%are functions written in C that implement efficient looping over
+%NumPy arrays. An important feature of ufuncs is the built-in
+%implementation of \emph{broadcasting}.  For example, the function
+%\code{arctan2(x, y)} is a ufunc that accepts two arguments and computes
+%$\tan^{-1}(y/x)$.  The ufunc loops over the dimensions of the inputs
+%in such a way that if, say, \code{x} is a 1-d array with length 3, and
+%\code{y} is a 2-d array with shape $2 \times 1$, the output will be
+%an array with shape $2 \times 3$ (see Figure~\ref{fig:broadcasting}).  The ufunc machinery takes care
+%of calling the function with all the appropriate combinations of
+%input array elements to compute the output array.
+%The elementary arithmetic operations of addition, multiplication, etc.,
+%are implemented as ufuncs, so broadcasting applies even in expressions
+%such as \code{x + y * z}.
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.5\linewidth]{static/broadcasting}
+%  \caption{
+%    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
+%    yields a $2 \times 3$ result.
+%  }
+%  \label{fig:broadcasting}
+%\end{figure}
+%
+%NumPy also provides basic infrastructure for other packages in the scientific
+%Python ecosystem.
+%The \code{numpy.testing} subpackage provides functions such as
+%\code{assert\_allclose(actual, desired)} that may be used in unit
+%test suites for code that uses NumPy arrays.
+%The \code{numpy.distutils} subpackage provides build support for C++, Fortran,
+%BLAS/LAPACK, and other relevant libraries for scientific computing.
+%The program \code{f2py} is a tool for
+%building NumPy-aware Python wrappers of Fortran functions.
+%NumPy itself does not use any Fortran code;  F2PY is part of NumPy
+%for historical reasons.
 
 \section{Recent technical improvements}
 
-The NumPy codebase has been actively developed for over two decades (first as
-Numeric and NumArray).
 Given the complexity of the codebase and the massive number of projects depending
 on it, large changes require careful planning and substantial work.
 As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
@@ -458,30 +455,30 @@ import numpy as np
 import cupy as cp
 
 x_gpu = cp.array([1, 2, 3])
-y = np.sum(x_gpu)  # This works, and returns a GPU array
+y = np.sum(x_gpu)  # Returns a GPU array
 \end{lstlisting}
 
-
-Similarly, user defined functions composed using NumPy can now be
-applied to, e.g., multi-node distributed Dask arrays:
-
-\begin{lstlisting}
-import numpy as np
-import dask.array as da
-
-
-def f(x):
-    """Function using NumPy API calls"""
-    y = np.tensordot(x, x.T)
-    return np.mean(np.log(y + 1))
-
-
-x_local = np.random.random([10000, 10000])  # random local array
-x_distr = da.random.random([10000, 10000])  # random distributed array
-
-f(x_local)  # returns a NumPy array
-f(x_distr)  # works, returns a Dask array
-\end{lstlisting}
+%
+%Similarly, user defined functions composed using NumPy can now be
+%applied to, e.g., multi-node distributed Dask arrays:
+%
+%\begin{lstlisting}
+%import numpy as np
+%import dask.array as da
+%
+%
+%def f(x):
+%    """Function using NumPy API calls"""
+%    y = np.tensordot(x, x.T)
+%    return np.mean(np.log(y + 1))
+%
+%
+%x_local = np.random.random([10000, 10000])  # random local array
+%x_distr = da.random.random([10000, 10000])  # random distributed array
+%
+%f(x_local)  # returns a NumPy array
+%f(x_distr)  # works, returns a Dask array
+%\end{lstlisting}
 
 \subsection{Random}
 
@@ -564,9 +561,13 @@ The three components are combined to construct a complete random number
 generator.
 
 \begin{lstlisting}
-from numpy.random import Generator, PCG64, SeedSequence
+from numpy.random import (
+    Generator,
+    PCG64,
+    SeedSequence,
+)
 
-seq = SeedSequence(10304245474441179933310169597522947680)
+seq = SeedSequence(1030424547444117993331016959)
 pcg = PCG64(seq)
 gen = Generator(pcg)
 \end{lstlisting}
