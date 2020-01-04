@@ -2,21 +2,21 @@
 
 %NumPy is the fundamental array computation library for the Python
 %ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
-With its first stable release in October 2006, NumPy unified
-the scientific Python community and now underpins almost every library
-that does numerical computation, including SciPy\cite{virtanen2019scipy},
-pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
-and scikit-image\cite{vanderwalt2014scikit}.
-Not surprisingly, many important scientific research projects and
-results crucially rely on NumPy.
-It plays an essential role in many research analysis pipelines in
-fields as diverse as physics, biology, astronomy, neuroscience,
-material science, engineering, and chemistry.
-% w/ citations
-In particular, NumPy played a fundamental role in discovering
-gravitational waves\cite{pycbc} and the first imaging of a black
-hole\cite{eht-imaging}, and lets us explore our
-universe\cite{jenness2018lsst}.
+%With its first stable release in October 2006, NumPy unified
+%the scientific Python community and now underpins almost every library
+%that does numerical computation, including SciPy\cite{virtanen2019scipy},
+%pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
+%and scikit-image\cite{vanderwalt2014scikit}.
+%Not surprisingly, many important scientific research projects and
+%results crucially rely on NumPy.
+%It plays an essential role in many research analysis pipelines in
+%fields as diverse as physics, biology, astronomy, neuroscience,
+%material science, engineering, and chemistry.
+%% w/ citations
+%In particular, NumPy played a fundamental role in discovering
+%gravitational waves\cite{pycbc} and the first imaging of a black
+%hole\cite{eht-imaging}, and lets us explore our
+%universe\cite{jenness2018lsst}.
 
 %[LIGO, EHT, Higgs-Boson pipeline at CERN—double check this carefully,
 %  may be root, ice cube experiment, https://arxiv.org/abs/1507.03989
@@ -25,6 +25,11 @@ universe\cite{jenness2018lsst}.
 %  Kepler, Mars rovers, SKA in South Africa, yt, astropy, seismo-live,
 %  icesat2 \& icepyx, The Materials Project at LBNL https://github.com/materialsproject]
 
+With its first stable release in October 2006, NumPy unified
+the scientific Python community and now underpins almost every library
+that does numerical computation, including SciPy\cite{virtanen2019scipy},
+pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
+and scikit-image\cite{vanderwalt2014scikit}.
 NumPy consists of the \code{ndarray}-object along with utility functions that
 operate on it.
 Because of its inherent simplicity—being a pointer to memory with some
@@ -155,7 +160,10 @@ years.
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
 it allows for the efficient representation of $n$-dimensional arrays.
-\fixme{discuss Figure~\ref{fig:basic-functionality} .. vectors / matrices / and then more ...}
+
+\fixme{discuss Figure~\ref{fig:basic-functionality} .. vectors / matrices / and then more ...
+indexing and slicing}
+
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
 
