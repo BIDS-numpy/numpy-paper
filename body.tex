@@ -199,29 +199,33 @@ computing took place without external investment.
 % https://sloan.org/grant-detail/8222
 % $659,359 in 2017
 % https://bids.berkeley.edu/news/bids-receives-sloan-foundation-grant-contribute-numpy-development
-In 2017, NumPy received its first large grants totaling 1.3M USD from the
-Gordon \& Betty Moore and the Alfred P. Sloan foundations.
-Stéfan van der Walt is the PI and manages four programmers working on the project.
-These two grants focus on addressing the technical debt accrued over the years and
-on setting in place standards and architecture to encourage more sustainable development.
 % http://doi.org/10.5281/zenodo.3585761
 % http://doi.org/10.5281/zenodo.3585767
-
+In 2017, NumPy received its first large grants totaling 1.3M USD from the
+Gordon \& Betty Moore and the Alfred P. Sloan foundations.
+These two grants focus on addressing the technical debt accrued over the years and
+on setting in place standards and architecture to encourage more sustainable development.
 % CZI -- NumFOCUS/QuanSight
 % https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
 % NumPy and OpenBLAS received $195,000 in 2019
 % https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
-NumPy received another grant for \$195,000 from the Chan Zuckerberg
-Initiative at the end of 2019 with Ralf Gommers as the PI.
-This grant, building on the technical work supported by the previous
-grant, will focus on better serving NumPy's large number of beginning
+NumPy received a third grant for 200K USD from the Chan Zuckerberg
+Initiative at the end of 2019.
+This grant focuses on better serving NumPy's large number of beginning
 to intermediate level users and on growing the community of NumPy
 contributors.
-It will also provide support to OpenBLAS, on which NumPy depends for
-accelerated linear algebra.
-
 Finally, the project receives around 10K USD annually from Tidelift, which is
 typically used to fund documentation writers and website developers.
+
+The first activities organized for the new grants were a development planning
+sprint, a weekly community call, and a meeting to write a draft roadmap.
+Since the roadmap was meant to represent community consensus on future
+development, it was presented for comment at the annual SciPy
+conference during a so-called ``Birds of a Feather'' session, attended
+by more than 100 people.  One additional meeting was held to discuss
+specific enhancements, such as the development of a new data-type
+system.  The final roadmap was vetted by the community via online
+discussion before being accepted.
 
 \section{The \code{ndarray} data structure}
 
@@ -344,30 +348,6 @@ We will continue supporting these, but we will not expand beyond them.
 
 \section{Recent technical improvements}
 
-Given the complexity of the codebase and the massive number of projects depending
-on it, large changes require careful planning and substantial work.
-As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
-of enhancement proposals---used infrequently and informally until 2017 when,
-to facilitate work expected from funded development, he formalized the
-NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
-Python Enhancement Proposals (PEPs) for ``proposing major new
-features, for collecting community input on an issue, and for
-documenting the design decisions that have gone into
-Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
-%Since then there have been 19 proposed NEPS---6 have been implemented,
-%4 have been accepted and are being implemented, 4 are under
-%consideration, 3 have been deferred or superseded, and 2 have been rejected
-%or withdrawn.
-
-The first activities organized for the new grant were a NEP development
-sprint, a weekly community call, and a meeting to write a draft roadmap.
-Since the roadmap was meant to represent community consensus on future
-development, it was presented for comment at the annual SciPy
-conference during a so-called ``Birds of a Feather'' session, attended
-by more than 100 people.  One additional meeting was held to discuss
-specific enhancements, such as the development of a new data-type
-system.  The final roadmap was vetted by the community via online
-discussion before being accepted.
 
 %Weekly community calls alternate between triage and
 %higher level discussion.  The calls not only involve developers from
@@ -399,8 +379,10 @@ discussion before being accepted.
 %Moreover, with the now prevalent need for distributed computing and the
 %emergence of specialized hardware such as GPUs, many new usecases have
 %arisen, which NumPy was not originally designed for.
-With the recent infusion of funding and the newly formalized NEP process in
-place we have been able to tackle a number of important large scale changes.
+
+With the recent infusion of funding and a clear process for coordinating with
+the developer community, we have been able to tackle a number of important
+large scale changes.
 We highlight two of those below.
 
 \subsection{The Array Function Protocol}
