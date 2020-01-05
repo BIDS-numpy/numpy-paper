@@ -2,10 +2,10 @@ TEX = $(wildcard *.tex)
 
 .PHONY: paper
 paper: $(TEX)
-	echo -n "Words in abstract: " > summarycount.tex
-	-texcount -total -brief -sum=1 summary.tex >> summarycount.tex
-	touch wordcount.tex
-	-texcount -total -sum=1 body.tex | tail -n 8 > wordcount.tex
+	echo -n "Words in abstract: " > wordcount.tex
+	-texcount -total -brief -sum=1 summary.tex >> wordcount.tex
+	echo -n "Words in text: " >> wordcount.tex
+	-texcount -total -brief -sum=1 body.tex >> wordcount.tex
 	TEXINPUTS=.//: latexmk -pdf -use-make paper.tex
 
 .PHONY: clean

@@ -1,5 +1,3 @@
-\section{Introduction}
-
 % https://books.google.com/books?id=QQJODwAAQBAJ&pg=PA101&lpg=PA101&dq=%E2%80%9Cthe+secret+to+successful+hiring+is+this:+look+for+the+people+who+want+to+change+the+world.%E2%80%9D&source=bl&ots=D6l8JXfB20&sig=ACfU3U0x1X9Gh8k6MlNV0BqhBa_73Q0yfQ&hl=en&sa=X&ved=2ahUKEwj48pqg_oHgAhVohuAKHYlJAsc4ChDoATAAegQIChAB#v=onepage&q=%E2%80%9Cthe%20secret%20to%20successful%20hiring%20is%20this%3A%20look%20for%20the%20people%20who%20want%20to%20change%20the%20world.%E2%80%9D&f=false
 % "The secret to successful hiring is this: look for the people who want to change the world.".  Marc Benioff.
 
@@ -18,7 +16,7 @@ development.
 This cycle is one of several explanations for the astonishing growth of NumPy
 in scientific computing.
 
-\subsection{History}
+\section*{History}
 
 The first incarnation of NumPy was a package called Numeric, written in 1995
 by Jim Hugunin, then completing his master's thesis at MIT on
@@ -93,7 +91,7 @@ Although the number of PRs being merged fluctuates,
 the plot indicates an increased number of contributions over the past
 years.
 
-\subsection{Enabling factors}
+\section*{Enabling factors}
 
 The creation of NumPy spurred renewed development in the larger scientific
 Python ecosystem and heralded the current era of wide-spread use of Python for
@@ -150,7 +148,7 @@ in C or Fortran, that can manipulate these arrays and pass them back to Python.
 This has been a large factor in the growth of numerical computing libraries
 around NumPy and Python.
 
-\subsection{Hybrid development}
+\section*{Hybrid development}
 
 For many years, NumPy had no dedicated funding, and development time
 was mostly contributed freely by students and researchers in their
@@ -176,7 +174,7 @@ on setting in place standards and architecture to encourage more sustainable dev
 % https://chanzuckerberg.com/eoss/proposals/strengthening-numpys-foundations-growing-beyond-code/
 % NumPy and OpenBLAS received $195,000 in 2019
 % https://labs.quansight.org/blog/2019/11/numpy-openblas-CZI-grant/
-NumPy received a third grant for 200K USD from the Chan Zuckerberg
+NumPy received a third grant for 195K USD from the Chan Zuckerberg
 Initiative at the end of 2019.
 This grant focuses on better serving NumPy's large number of beginning
 to intermediate level users and on growing the community of NumPy
@@ -194,7 +192,7 @@ specific enhancements, such as the development of a new data-type
 system.  The final roadmap was vetted by the community via online
 discussion before being accepted.
 
-\section{NumPy arrays}
+\section*{NumPy arrays}
 
 
 With its first stable release in October 2006, NumPy unified
@@ -214,18 +212,15 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
-it allows for the efficient representation of $n$-dimensional arrays.
-More details about the \code{ndarray} data structure are given in ``The NumPy array:
-a structure for efficient numerical computation''\cite{vanderwalt2011numpy}
-and our online documentation.
-
+it allows for the efficient representation of $n$-dimensional arrays \cite{vanderwalt2011numpy}.
 The need for such a data structure arises often in science.
 For instance, they may store measurements from an experiment or simulation
 at discrete time points.
-Data analysis frequently involves operations $(+, -, \times, /, \log, \arctan, \dots)$ on
+
+Data analysis frequently involves operations $(+, -, \times, /, \log, \sin, \dots)$ on
 the individual measurements.
-In programming languages such as C, this would involve looping over every element
-to perform these operations.
+In programming languages such as C or Java, this would involve looping over
+every element to perform these operations.
 Array computations generalize these element-wise operations on scalars to
 vectors (1-d arrays), matrices (2-d arrays), and higher dimensional arrays (n-d
 arrays).
@@ -256,15 +251,12 @@ linear algebra, fast Fourier transforms and windowing,
 and polynomial fitting.
 We will continue supporting these, but we will not expand beyond them.
 
-
-\section{Recent technical improvements}
-
 With the recent infusion of funding and a clear process for coordinating with
 the developer community, we have been able to tackle a number of important
 large scale changes.
 We highlight two of those below.
 
-\subsection{Array Function Protocol}
+\section*{Array function protocol}
 
 A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
@@ -316,7 +308,7 @@ x_gpu = cp.array([1, 2, 3])
 y = np.sum(x_gpu)  # Returns a GPU array
 \end{lstlisting}
 
-\subsection{Random}
+\section*{Random}
 
 The NumPy random module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
@@ -422,7 +414,7 @@ or Cython code.\footnote{As of 1.18.0, this scenario requires access to the
 NumPy source. Alternative approaches that avoid this extra step are being
 explored.} 
 
-\section{Discussion}
+\section*{Discussion}
 
 % 1st grant done, technical cleanup finished except dtypes
 % 2nd grant starting, community growth and new user focus
