@@ -215,54 +215,36 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 The \code{ndarray} data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
 it allows for the efficient representation of $n$-dimensional arrays.
+More details about the \code{ndarray} data structure are given in ``The NumPy array:
+a structure for efficient numerical computation''\cite{vanderwalt2011numpy}
+and our online documentation.
 
-\fixme{discuss .. vectors / matrices / and then more ...
-indexing and slicing, one-liners that would be tens or hundreds of lines of code in
-languages such as C.}
+The need for such a data structure arises often in science.
+For instance, they may store measurements from an experiment or simulation
+at discrete time points.
+Data analysis frequently involves operations $(+, -, \times, /, \log, \arctan, \dots)$ on
+the individual measurements.
+In programming languages such as C, this would involve looping over every element
+to perform these operations.
+Array computations generalize these element-wise operations on scalars to
+vectors (1-d arrays), matrices (2-d arrays), and higher dimensional arrays (n-d
+arrays).
+For instance, if \code{x} is an \code{ndarray}, then \code{2 * x} produces
+an \code{ndarray} whose values are twice those in \code{x}.
+Similarly, if \code{x} and \code{y} have the same shape, then
+\code{x * y} produces an \code{ndarray} whose values are the products of
+the corresponding entries of \code{x} and \code{y}.
+These \emph{vectorized} operations often produce one-liners that would tens
+or hundreds of lines of code in languages such as C.
 
-More details about the data structure are given in ``The NumPy array:
-a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
+Element-wise operations are not always desired.
+Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is 1-d array.
+Then \code{A @ x} computes the matrix-vector product $Ax$ and
+\code{x @ A} computes the vector-matrix product $x^\top A$.
+This matrix multiplication operation extends to higher-dimensions by
+treating the array as a stack of matrices.
 
-
-\begin{lstlisting}
->>> import numpy as np
->>> x = np.array([0, 1, 2, 3])
->>> x.dtype
-dtype('int64')
->>> x.shape
-(4,)
-
->>> y = 2 * x
->>> y
-array([0, 2, 4, 6])
-
->>> x * y
-array([ 0,  2,  8, 18])
-
->>> x @ y
-28
-\end{lstlisting}
-
-\begin{lstlisting}
->>> import numpy as np
->>> x = np.array([1, 2])
->>> A = np.array([[0.1, 0.2], [0.3, 0.2]])
->>> A.dtype 
-dtype('float64')
->>> A.shape
-(2, 2)
-
->>> A * x
-array([[0.1, 0.4],
-       [0.3, 0.4]])
-
->>> A @ x
-array([0.5, 0.7])
->>> x @ A
-array([0.7, 0.6])
-\end{lstlisting}
-
-NumPy provides a large collection of functions for array manipulation
+NumPy also provides a large collection of functions for array manipulation
 including functions for: creating, reshaping, concatenating, and padding arrays;
 searching, sorting and counting data
 in arrays; computing elementary statistics, such as the mean, median,
@@ -273,6 +255,7 @@ For historical reasons, NumPy also includes basic functionality for
 linear algebra, fast Fourier transforms and windowing,
 and polynomial fitting.
 We will continue supporting these, but we will not expand beyond them.
+
 
 \section{Recent technical improvements}
 
