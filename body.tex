@@ -1,31 +1,5 @@
 \section{Introduction}
 
-%NumPy is the fundamental array computation library for the Python
-%ecosystem \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}.
-%With its first stable release in October 2006, NumPy unified
-%the scientific Python community and now underpins almost every library
-%that does numerical computation, including SciPy\cite{virtanen2019scipy},
-%pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
-%and scikit-image\cite{vanderwalt2014scikit}.
-%Not surprisingly, many important scientific research projects and
-%results crucially rely on NumPy.
-%It plays an essential role in many research analysis pipelines in
-%fields as diverse as physics, biology, astronomy, neuroscience,
-%material science, engineering, and chemistry.
-%% w/ citations
-%In particular, NumPy played a fundamental role in discovering
-%gravitational waves\cite{pycbc} and the first imaging of a black
-%hole\cite{eht-imaging}, and lets us explore our
-%universe\cite{jenness2018lsst}.
-
-%[LIGO, EHT, Higgs-Boson pipeline at CERN—double check this carefully,
-%  may be root, ice cube experiment, https://arxiv.org/abs/1507.03989
-%  IDL is now below Python, Pangeo <-> xarray, Earthcube,
-%  https://ai.jpl.nasa.gov/public/documents/papers/hackett\_spaceops2018\_block.pdf,
-%  Kepler, Mars rovers, SKA in South Africa, yt, astropy, seismo-live,
-%  icesat2 \& icepyx, The Materials Project at LBNL https://github.com/materialsproject]
-
-
 % https://books.google.com/books?id=QQJODwAAQBAJ&pg=PA101&lpg=PA101&dq=%E2%80%9Cthe+secret+to+successful+hiring+is+this:+look+for+the+people+who+want+to+change+the+world.%E2%80%9D&source=bl&ots=D6l8JXfB20&sig=ACfU3U0x1X9Gh8k6MlNV0BqhBa_73Q0yfQ&hl=en&sa=X&ved=2ahUKEwj48pqg_oHgAhVohuAKHYlJAsc4ChDoATAAegQIChAB#v=onepage&q=%E2%80%9Cthe%20secret%20to%20successful%20hiring%20is%20this%3A%20look%20for%20the%20people%20who%20want%20to%20change%20the%20world.%E2%80%9D&f=false
 % "The secret to successful hiring is this: look for the people who want to change the world.".  Marc Benioff.
 
@@ -46,7 +20,7 @@ in scientific computing.
 
 \subsection{History}
 
-The first incarnation of NumPy was a package called "Numeric", written in 1995
+The first incarnation of NumPy was a package called Numeric, written in 1995
 by Jim Hugunin, then completing his master's thesis at MIT on
 superconductor-semiconductor junctions.  Hugunin based his package on previous
 work by Jim Fulton, then working at the US Geological Survey, and acknowledges
@@ -176,13 +150,6 @@ in C or Fortran, that can manipulate these arrays and pass them back to Python.
 This has been a large factor in the growth of numerical computing libraries
 around NumPy and Python.
 
-% While the scientific Python community grew and new challenges arose, 
-
-%By 2009, the project had entered a
-%period of uncoordinated, opportunistic development, and was
-%increasingly weighed down by technical debt that had accrued since the
-%days of Numeric.
-
 \subsection{Hybrid development}
 
 For many years, NumPy had no dedicated funding, and development time
@@ -307,78 +274,7 @@ linear algebra, fast Fourier transforms and windowing,
 and polynomial fitting.
 We will continue supporting these, but we will not expand beyond them.
 
-%\subsection{Advanced functionality}
-%
-%The \emph{universal functions} (or \emph{ufuncs})
-%are functions written in C that implement efficient looping over
-%NumPy arrays. An important feature of ufuncs is the built-in
-%implementation of \emph{broadcasting}.  For example, the function
-%\code{arctan2(x, y)} is a ufunc that accepts two arguments and computes
-%$\tan^{-1}(y/x)$.  The ufunc loops over the dimensions of the inputs
-%in such a way that if, say, \code{x} is a 1-d array with length 3, and
-%\code{y} is a 2-d array with shape $2 \times 1$, the output will be
-%an array with shape $2 \times 3$ (see Figure~\ref{fig:broadcasting}).  The ufunc machinery takes care
-%of calling the function with all the appropriate combinations of
-%input array elements to compute the output array.
-%The elementary arithmetic operations of addition, multiplication, etc.,
-%are implemented as ufuncs, so broadcasting applies even in expressions
-%such as \code{x + y * z}.
-%
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=0.5\linewidth]{static/broadcasting}
-%  \caption{
-%    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
-%    yields a $2 \times 3$ result.
-%  }
-%  \label{fig:broadcasting}
-%\end{figure}
-%
-%NumPy also provides basic infrastructure for other packages in the scientific
-%Python ecosystem.
-%The \code{numpy.testing} subpackage provides functions such as
-%\code{assert\_allclose(actual, desired)} that may be used in unit
-%test suites for code that uses NumPy arrays.
-%The \code{numpy.distutils} subpackage provides build support for C++, Fortran,
-%BLAS/LAPACK, and other relevant libraries for scientific computing.
-%The program \code{f2py} is a tool for
-%building NumPy-aware Python wrappers of Fortran functions.
-%NumPy itself does not use any Fortran code;  F2PY is part of NumPy
-%for historical reasons.
-
 \section{Recent technical improvements}
-
-
-%Weekly community calls alternate between triage and
-%higher level discussion.  The calls not only involve developers from
-%the community, but provide a venue for vendors and other external
-%groups to provide input.  For example, after Intel produced a forked
-%version of NumPy, one of their developers joined a call to discuss
-%community concerns.
-
-%NumPy plays a central role in building and standardizing much of the scientific
-%Python community infrastructure.
-%The docstring standard mentioned in the history section is now widely adopted.
-%We are also now using the NEP system as a way to help coordinate the larger
-%scientific Python community.
-%% https://numpy.org/neps/nep-0029-deprecation_policy.html
-%For example, in NEP 29, we recommend, along with leaders from various other
-%projects, that all projects across the Scientific Python ecosystem adopt a
-%common ``time window-based'' policy for support of Python and NumPy versions.
-%This standard will simplify downstream project and release planning.
-
-% https://numpy.org/neps/scope.html
-% https://numpy.org/neps/roadmap.html
-
-%We showed that NumPy is actively developed according to a community
-%vetted plan that integrates formal enhancement proposals.  Next, we
-%give a more in-depth overview of the team developing NumPy, their
-%activities, as well as the governance and community structures that
-%guide the collaboration.
-
-%Moreover, with the now prevalent need for distributed computing and the
-%emergence of specialized hardware such as GPUs, many new usecases have
-%arisen, which NumPy was not originally designed for.
 
 With the recent infusion of funding and a clear process for coordinating with
 the developer community, we have been able to tackle a number of important
@@ -389,9 +285,6 @@ We highlight two of those below.
 
 A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
-%The central position of NumPy takes within the numerical and scientific
-%Python ecosystem means that a vast number of projects are built on it.
-%These projects are consumers of the NumPy API.
 Over the last several years, a growing number of projects are providers of
 a \emph{NumPy-like API} and array objects targeting audiences with specialized
 needs beyond NumPy's capabilities.
@@ -440,37 +333,7 @@ x_gpu = cp.array([1, 2, 3])
 y = np.sum(x_gpu)  # Returns a GPU array
 \end{lstlisting}
 
-%
-%Similarly, user defined functions composed using NumPy can now be
-%applied to, e.g., multi-node distributed Dask arrays:
-%
-%\begin{lstlisting}
-%import numpy as np
-%import dask.array as da
-%
-%
-%def f(x):
-%    """Function using NumPy API calls"""
-%    y = np.tensordot(x, x.T)
-%    return np.mean(np.log(y + 1))
-%
-%
-%x_local = np.random.random([10000, 10000])  # random local array
-%x_distr = da.random.random([10000, 10000])  # random distributed array
-%
-%f(x_local)  # returns a NumPy array
-%f(x_distr)  # works, returns a Dask array
-%\end{lstlisting}
-
 \subsection{Random}
-
-%The random number generator library in NumPy provides several alternative
-%\emph{bit stream generators} that provide the core function of generating
-%random integers.
-%A higher-level generator class that implements an assortment of
-%probability distributions is provided. It includes the beta, gamma
-%and Weibull distributions, the univariate and multivariate normal
-%distributions, and more.
 
 The NumPy random module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
@@ -485,8 +348,6 @@ seed and sequence of function calls produce the same set of values. This
 guarantee has slowed progress since improving the underlying code requires
 extending the API with additional keyword arguments. This guarantee continues to
 apply to \code{RandomState}. 
-
-% Mention explicitly the NEPs involved
 
 NumPy 1.17 introduced a new API for generating random numbers that use a more
 flexible structure that can be extended by libraries or end-users. The new API
@@ -585,7 +446,7 @@ explored.}
 
 Most of the technical work for the Moore and Sloan grant is now complete.
 The main remaining item is an overhaul of the data type system, which
-we are currently working on \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
+we are currently working on.
 The meaning of each element within a NumPy array is described by its
 datatype (dtype). NumPy arrays can hold all common numerical
 datatypes, strings, datetimes, and generic Python objects, each of
