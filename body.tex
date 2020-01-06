@@ -2,13 +2,12 @@
 % "The secret to successful hiring is this: look for the people who want to change the world.".  Marc Benioff.
 
 NumPy is both a cause and an effect of a striking shift in the nature of
-scientific computing.  The traditional model of scientific software has been of
-the user as {\it consumer}.  Writing software is a task for specialists and
-professionals, supported by income from selling the software to scientists to
-use.  The new model is of the user as {\it owner}.  The Python language, with
-the NumPy library, provides a framework that scientists can consume, but has
-also been successful in encouraging scientists to develop as programmers, and
-to write code for the library, and the system of packages around it.  This has
+scientific computing.  In the traditional scientific software model, the user is a {\it consumer}.  Writing software is a task for specialists and
+professionals, supported by income from selling the software to
+scientists.  In the new model, the user is an {\it owner}.  The Python language, with
+the NumPy library, provides a framework that scientists can consume,
+but also encourages scientists to participate as programmers---to
+write code for the library and the ecosystem of packages around it.  This has
 fostered a new culture of contribution and collaboration in scientific
 computing that resulted in a virtuous cycle of increasing use, and increasing
 development.
@@ -25,26 +24,30 @@ work by Jim Fulton, then working at the US Geological Survey, and acknowledges
 many others in his initial report of the package \cite{Hugunin-whitepaper}.
 Numeric provided an array object in Python, written in C, and linking to
 standard fast implementations of linear algebra.
+% https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
+% https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
+% May want to mention Yorick here (origin of broadcasting idea)
 
 As Hugunin points out, at the time he wrote Numeric, commercial languages for
 interactive computing with numerical arrays were already well-established,
-including Matlab and IDL.  At the time, it must have seemed a safe bet that
+including Matlab and IDL.  Back then, it must have seemed a safe bet that
 Numeric would not succeed in this market.  The commercial languages were
-developed and maintained by large numbers of full-time professional programmers
-and supported by formal quality assurance, release managers and writers of
-scientific documentation.  In contrast, Numeric, and later, NumPy, would
+developed and maintained by large groups of full-time professional programmers,
+supported by formal quality assurance, release managers, and writers of
+scientific documentation.  In contrast, Numeric, and later NumPy, would
 continue to be developed almost entirely by scientists, including graduate
-students and faculty, without specific funding, and often to the detriment of
-the scientists' careers.
+students and faculty, without specific funding and often to the detriment of their careers.
+% S: The "Back then" sentence sets up an expectation.  Later in this section, we then explain that Numeric/NumPy *was* successful, but we never explicitly close the loop: "despite the odds, great success".
 
 %Table X1 about here: backgrounds of initial designers (mainly math, physics).
 
 %Table X2 about here: backgrounds of major committers (mainly math, physics).
 
+% S TODO: the first sentence below could flow a bit better
 Around 1998, the Space Telescope Science Institute (STScI) software group began
-to use Python heavily, and, around 2000, wrote a re-implementation of much of
+to use Python heavily and, around 2000, wrote a re-implementation of much of
 Numeric, called NumArray, to support their need to work on large memory-mapped
-arrays, and arrays of mixed data type records \cite{STScI-slither}.  This
+arrays and arrays of mixed data type records \cite{STScI-slither}.  This
 briefly caused the Numeric and NumArray communities to diverge, until 2005,
 when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
 both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
@@ -56,12 +59,12 @@ developers.  To benefit from these
 user-developers, the project developed an increasingly strong culture of using
 software-engineering practice to improve collaboration and reduce error
 \cite{millman2014developing}. The NumPy team was early in adopting distributed
-revision control and code review to improved collaboration on code, and
-continuous testing so we run a large battery automated tests for every proposed
-change in NumPy. At first, NumPy had rather sparse documentation, but the project
+revision control and code review to improve collaboration on code, and
+continuous testing that runs a large battery of automated tests for every proposed
+change to NumPy. At first, NumPy had rather sparse documentation, but the project
 developed a new standard for ``docstrings''---text describing each NumPy
-function---and used this standard to write comprehensive high-quality
-documentation, integrated with the source code. The NumPy documentation format
+function---and used this standard to write comprehensive, high-quality
+documentation, integrated with the source code\cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. The NumPy documentation format
 quickly became a standard for the larger Python community.
 
 NumPy now underpins almost every Python library that does scientific or
@@ -89,7 +92,7 @@ and successful development.
 
 Hugunin identified the first factor in his initial description of the Numeric
 package \cite{Hugunin-whitepaper}.  Numerical computing is usually one
-component of a larger programming task.  Therefore:
+component of a larger programming task, therefore:
 
 \begin{quote}
     Rather than trying to retrofit an existing numerical language to support
@@ -111,7 +114,8 @@ embedded within the open-source community.  Python attracts developers who like
 to build and contribute.  As a result, NumPy has always been a library that was
 developed by scientists in order to do their work.  Commercial specialist
 numerical languages can encourage consumer-users, who pick up a tool and use
-it, but do not expect to contribute to development.  In contrast, NumPy often
+it, but do not expect to contribute to development%<-sentence a bit tough to parse.
+In contrast, NumPy often
 attracts user-developers, who want to work with NumPy, and are prepared to fix
 and extend the library as they work. User-developers have been the fundamental
 force in developing NumPy, and shaping it into a library that has been refined
@@ -136,6 +140,22 @@ in C or Fortran, that can manipulate these arrays and pass them back to Python.
 This has been a large factor in the growth of numerical computing libraries
 around NumPy and Python.
 
+% S: I think two issues are conflated here: the simple underlying memory model, and the API.  The API has developed organically, while the underlying memory model is a design decision that shapes much of how the rest of the library was built.
+
+% S:
+%
+% Thinking about enabling factors, I'd characterize them into three categories:
+%
+% - Practical
+% - Philosophical
+% - Social
+%
+% E.g., practical: reason why we use Python (learn one language for everything); students don't have money, so want to avoid impracticalities of license dongles/servers, etc.
+%
+% Philosophical: science should be open, transparent; our software should be controlled by scientists, not designers that we don't have access to
+%
+% Social: joy of building these things together, friendly welcome into the community for many of us---appreciation of our work and hours
+%
 
 \section*{NumPy arrays}
 
