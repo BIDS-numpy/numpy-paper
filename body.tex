@@ -362,12 +362,9 @@ versions of NumPy.\footnote{The
 \href{https://github.com/bashtage/randomgen}{randomgen project} supplies a wide
 range of alternative bit generators such as a cryptographic counter-based
 generators (\code{AESCtr}) and generators that expose hardware random number
-generators (\code{RDRAND})\cite{randomgen}.} Bit generators export a capsule
-containing pointers to functions that produce
-FIXME this doesn't make sense (it's the uniform stream of numbers that matters
-rather that "capsule of pointers", also what's "a random double"?):
-64 bits, 32 bits, or a random double.
-They also expose CFFI and ctypes interfaces to the same three functions.
+generators (\code{RDRAND})\cite{randomgen}.} Bit generators provide
+functions, exposed both in Python and C, for generating random integer
+and floating point numbers.
 
 The \code{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
