@@ -37,9 +37,9 @@ continue to be developed almost entirely by scientists, including graduate
 students and faculty, without specific funding, and often to the detriment of
 the scientists' careers.
 
-Table X1 about here: backgrounds of initial designers (mainly math, physics).
+%Table X1 about here: backgrounds of initial designers (mainly math, physics).
 
-Table X2 about here: backgrounds of major committers (mainly math, physics).
+%Table X2 about here: backgrounds of major committers (mainly math, physics).
 
 Around 1998, the Space Telescope Science Institute (STScI) software group began
 to use Python heavily, and, around 2000, wrote a re-implementation of much of
@@ -64,32 +64,20 @@ function---and used this standard to write comprehensive high-quality
 documentation, integrated with the source code. The NumPy documentation format
 quickly became a standard for the larger Python community.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
-    \caption{Number of pull requests merged into the NumPy master branch for each
-        quarter since 2012. The total number of PRs is indicated with the
-        lower blue area showing the portion contributed by current or previous
-        maintainers.}\label{fig:prs-over-time}
-\end{figure}
-
-NumPy is currently maintained by a group of 23 contributors with commit rights
-to the NumPy code base. Out of these, 17 maintainers were active in
-2019, 4 of whom were paid to work on the project full-time.
-Additionally, there are a few long term developers who contributed and maintain
-specific parts of NumPy, but are not officially maintainers.
-At a release cycle of about every half year, the five recent releases in the years
-2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
-    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
-    All data provided here is based on the development which happened through GitHub
-    pull requests. In some cases contributions by maintainers may not be categorized as such.}
-% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
-with each release attracting more than a hundred new contributors.
-Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
-master branch.
-Although the number of PRs being merged fluctuates,
-the plot indicates an increased number of contributions over the past
-years.
+NumPy now underpins almost every Python library that does scientific or
+numerical computation, including SciPy\cite{virtanen2019scipy},
+matplotlib\cite{hunter2007matplotlib}, pandas\cite{mckinney-proc-scipy-2010},
+scikit-learn\cite{pedregosa2011scikit}, and
+scikit-image\cite{vanderwalt2014scikit}.
+NumPy consists of the $n$-dimensional array object along with utility functions
+that operate on it.
+Because of its inherent simplicity---being a pointer to memory with some
+associated meta-data about shape, data-type, and so forth---the NumPy array is
+the {\it de facto} exchange format for array data in Python.
+The library has such widespread adoption that not only the array object but also its
+{\it Application Programming Interface} (API) has become ubiquitous as
+a language for tensor computation---witnessed by its use in popular
+deep learning libraries such as PyTorch\cite{pytorch}.
 
 \section*{Enabling factors}
 
@@ -151,23 +139,7 @@ around NumPy and Python.
 
 \section*{NumPy arrays}
 
-
-With its first stable release in October 2006, NumPy unified
-the scientific Python community and now underpins almost every library
-that does numerical computation, including SciPy\cite{virtanen2019scipy},
-pandas\cite{mckinney-proc-scipy-2010}, scikit-learn\cite{pedregosa2011scikit},
-and scikit-image\cite{vanderwalt2014scikit}.
-NumPy consists of the \code{ndarray}-object along with utility functions that
-operate on it.
-Because of its inherent simplicity---being a pointer to memory with some
-associated meta-data about shape, data-type, and so forth---the NumPy array is
-the {\it de facto} exchange format for array data in Python.
-The library has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become ubiquitous as
-a language for tensor computation---witnessed by its use in popular
-deep learning libraries such as PyTorch\cite{pytorch}.
-
-The \code{ndarray} data structure stores regularly spaced elements of a single
+The NumPy array data structure stores regularly spaced elements of a single
 data type in a contiguous block of memory; along with meta-data such as shape,
 it allows for the efficient representation of $n$-dimensional arrays \cite{vanderwalt2011numpy}.
 The need for such a data structure arises often in science.
@@ -181,13 +153,15 @@ every element to perform these operations.
 Array computations generalize these element-wise operations on scalars to
 vectors (1-d arrays), matrices (2-d arrays), and higher dimensional arrays (n-d
 arrays).
-For instance, if \code{x} is an \code{ndarray}, then \code{2 * x} produces
-an \code{ndarray} whose values are twice those in \code{x}.
+For instance, if \code{x} is an array, then \code{2 * x} produces
+an array whose values are twice those in \code{x}.
 Similarly, if \code{x} and \code{y} have the same shape, then
-\code{x * y} produces an \code{ndarray} whose values are the products of
+\code{x * y} produces an array whose values are the products of
 the corresponding entries of \code{x} and \code{y}.
-These \emph{vectorized} operations often produce one-liners that would be tens
-or hundreds of lines of code in languages such as C.
+When \code{x} and \code{y} have different shapes, the smaller array is \emph{broadcast}
+across the larger array to a common shape when sensible.
+These vectorized operations often produce one-liners that would be many tens
+of lines of code in languages such as C.
 
 Element-wise operations are not always desired.
 Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is 1-d array.
@@ -197,10 +171,12 @@ This matrix multiplication operation extends to higher-dimensions by
 treating the array as a stack of matrices.
 
 NumPy also provides a large collection of functions for array manipulation
-including functions for: creating, reshaping, concatenating, and padding arrays;
-searching, sorting and counting data
-in arrays; computing elementary statistics, such as the mean, median,
-variance, and standard deviation; file I/O; and more.
+including functions for:
+creating, reshaping, concatenating, and padding arrays;
+searching, sorting and counting data in arrays;
+computing elementary statistics, such as the mean, median, variance, and standard deviation;
+reading and writing files;
+and more.
 It also provides extensive support for generating pseudorandom numbers
 as well as an assortment of probability distributions.
 For historical reasons, NumPy also includes basic functionality for
@@ -252,10 +228,34 @@ specific enhancements, such as the development of a new data-type
 system.  The final roadmap was vetted by the community via online
 discussion before being accepted.
 
-With the recent infusion of funding and a clear process for coordinating with
-the developer community, we have been able to tackle a number of important
-large scale changes.
-We highlight two of those below.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \caption{Number of pull requests merged into the NumPy master branch for each
+        quarter since 2012. The total number of PRs is indicated with the
+        lower blue area showing the portion contributed by current or previous
+        maintainers.}\label{fig:prs-over-time}
+\end{figure}
+
+NumPy is currently maintained by a group of 23 contributors with commit rights
+to the NumPy code base. Out of these, 17 maintainers were active in
+2019, 4 of whom were paid to work on the project full-time.
+Additionally, there are a few long term developers who contributed and maintain
+specific parts of NumPy, but are not officially maintainers.
+At a release cycle of about every half year, the five recent releases in the years
+2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
+    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
+    All data provided here is based on the development which happened through GitHub
+    pull requests. In some cases contributions by maintainers may not be categorized as such.}
+% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
+with each release attracting more than a hundred new contributors.
+Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
+master branch.
+Although the number of PRs being merged fluctuates,
+the plot indicates an increased number of contributions over the past
+years.
+
+We briefly highlight two of those below.
 
 \section*{Array function protocol}
 
@@ -297,17 +297,17 @@ These two protocols allows providers of array-like APIs to be interoperable
 with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
-\code{import numpy as np}, it can nevertheless work for them.  For
-example, here is how a CuPy GPU array can be passed through NumPy for
-processing, with all operations being dispatched back to CuPy:
-
-\begin{lstlisting}
-import numpy as np
-import cupy as cp
-
-x_gpu = cp.array([1, 2, 3])
-y = np.sum(x_gpu)  # Returns a GPU array
-\end{lstlisting}
+\code{import numpy as np}, it can nevertheless work for them.
+%For example, here is how a CuPy GPU array can be passed through NumPy for
+%processing, with all operations being dispatched back to CuPy:
+%
+%\begin{lstlisting}
+%import numpy as np
+%import cupy as cp
+%
+%x_gpu = cp.array([1, 2, 3])
+%y = np.sum(x_gpu)  # Returns a GPU array
+%\end{lstlisting}
 
 \section*{Random}
 
@@ -378,29 +378,29 @@ reproducibility.
 
 The three components are combined to construct a complete random number
 generator.
-
-\begin{lstlisting}
-from numpy.random import (
-    Generator,
-    PCG64,
-    SeedSequence,
-)
-
-seq = SeedSequence(1030424547444117993331016959)
-pcg = PCG64(seq)
-gen = Generator(pcg)
-\end{lstlisting}
-
-\noindent This approach retains access to the seed sequence which can then be
+%
+%\begin{lstlisting}
+%from numpy.random import (
+%    Generator,
+%    PCG64,
+%    SeedSequence,
+%)
+%
+%seq = SeedSequence(1030424547444117993331016959)
+%pcg = PCG64(seq)
+%gen = Generator(pcg)
+%\end{lstlisting}
+%
+This approach retains access to the seed sequence which can then be
 used to spawn additional generators.
-
-\begin{lstlisting}
-children = seq.spawn(2)
-gen_0 = Generator(PCG64(children[0]))
-gen_1 = Generator(PCG64(children[1]))
-\end{lstlisting}
-
-\noindent While this approach retains complete flexibility, the method
+%
+%\begin{lstlisting}
+%children = seq.spawn(2)
+%gen_0 = Generator(PCG64(children[0]))
+%gen_1 = Generator(PCG64(children[1]))
+%\end{lstlisting}
+%
+While this approach retains complete flexibility, the method
 \code{np.random.default\_rng} can be used to instantiate a \code{Generator} when
 reproducibility is not needed.
 
