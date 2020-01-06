@@ -1172,10 +1172,10 @@ FUNCTION {article}
       format.pages output
     }
   if$
-  new.block
-  format.url output
-  new.block
-  format.doi output
+%  new.block
+%  format.url output
+%  new.block
+%  format.doi output
   new.block
   format.note output
   format.eprint output
@@ -1210,8 +1210,8 @@ FUNCTION {book}
     }
   if$
   format.edition output
-  new.block
-  format.url output
+%  new.block
+%  format.url output
   new.block
   format.note output
   format.eprint output
@@ -1265,8 +1265,8 @@ FUNCTION {inbook}
     }
   if$
   format.edition output
-  new.block
-  format.url output
+%  new.block
+%  format.url output
   new.block
   format.note output
   format.eprint output
@@ -1292,10 +1292,10 @@ FUNCTION {incollection}
       format.chapter.pages output
     }
   if$
-  new.block
-  format.url output
-  new.block
-  format.doi output
+%  new.block
+%  format.url output
+%  new.block
+%  format.doi output
   new.block 
   format.note output
   format.eprint output
@@ -1324,10 +1324,10 @@ FUNCTION {inproceedings}
       format.pages output
     }
   if$
-  new.block
-  format.url output
-  new.block
-  format.doi output
+%  new.block
+%  format.url output
+%  new.block
+%  format.doi output
   new.block 
   format.note output
   format.eprint output
