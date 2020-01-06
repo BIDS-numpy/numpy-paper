@@ -205,7 +205,7 @@ was mostly contributed freely by students and researchers in their
 spare time.  In-person meetings were sponsored off of individual's
 research grants, and while industry sponsored contributions were made,
 notably those by Mark Wiebe when he was sponsored by Travis Oliphant
-at Continuum Analytics, the package's rapid adoption in scientific
+at Enthought, the package's rapid adoption in scientific
 computing took place without external investment.
 
 % BIDS -- UCB
@@ -229,8 +229,9 @@ Initiative at the end of 2019.
 This grant focuses on better serving NumPy's large number of beginning
 to intermediate level users and on growing the community of NumPy
 contributors.
-Finally, the project receives around 10K USD annually from Tidelift, which is
-typically used to fund documentation writers and website developers.
+Finally, since May 2019 the project receives around 10K USD annually from
+Tidelift, which is typically used to fund documentation and website
+improvements.
 
 The first activities organized for the new grants were a development planning
 sprint, a weekly community call, and a meeting to write a draft roadmap.
@@ -280,9 +281,11 @@ a \emph{NumPy-like API} and array objects targeting audiences with specialized
 needs beyond NumPy's capabilities.
 For example, the NumPy API is implemented by several popular tensor computation
 libraries including CuPy\footnote{\url{https://cupy.chainer.org/}},
-Jax\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}, and
-and Apache MXNet\footnote{\url{https://mxnet.incubator.apache.org/api/python/docs/api/ndarray/index.html}}.
+JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}. 
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+provide tensor APIs with NumPy-inspired semantics.
 It is also implemented in packages that support sparse arrays
 such as \code{scipy.sparse} and \code{pydata.sparse}.
 Another notable example is Dask, a library for parallel computing in
@@ -323,13 +326,14 @@ much code is written specifically for NumPy arrays and uses the NumPy API as
 %y = np.sum(x_gpu)  # Returns a GPU array
 %\end{lstlisting}
 
-\section*{Random}
+\section*{Random number generation}
 
-The NumPy random module provides pseudorandom numbers from a wide range of
+The NumPy \code{random} module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
 by a \code{RandomState} object that: handles seeding and state initialization;
-wraps the core pseudorandom number generator based on a 32-bit implementation of
-MT19937; interfaces with the underlying code that transforms random bits into
+wraps the core pseudorandom number generator based on a Mersenne Twister
+implementation\footnote{to be precise, the standard 32-bit version of MT19937};
+interfaces with the underlying code that transforms random bits into
 deviates from other distributions; and supplies a singleton instance exposed in
 the root of the random module.
 
@@ -359,8 +363,11 @@ versions of NumPy.\footnote{The
 range of alternative bit generators such as a cryptographic counter-based
 generators (\code{AESCtr}) and generators that expose hardware random number
 generators (\code{RDRAND})\cite{randomgen}.} Bit generators export a capsule
-containing pointers to functions that produce 64 bits, 32 bits, or a random
-double. They also expose CFFI and ctypes interfaces to the same three functions.
+containing pointers to functions that produce
+FIXME this doesn't make sense (it's the uniform stream of numbers that matters
+rather that "capsule of pointers", also what's "a random double"?):
+64 bits, 32 bits, or a random double.
+They also expose CFFI and ctypes interfaces to the same three functions.
 
 The \code{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
