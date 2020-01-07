@@ -159,30 +159,13 @@ around NumPy and Python.
 
 \section*{NumPy arrays}
 
-The NumPy array data structure stores regularly spaced elements of a single
-data type in a contiguous block of memory; along with meta-data such as shape,
-it allows for the efficient representation of $n$-dimensional arrays \cite{vanderwalt2011numpy}.
-The need for such a data structure arises often in science.
-For instance, they may store measurements from an experiment or simulation
-at discrete time points.
+The NumPy array is a structure that efficiently stores and accesses $n$-dimensional array data\cite{vanderwalt2011numpy}.  The need for such a data structure arises often in science.  For instance, it may be used to store experimental measurements made at discrete time intervals (1-D arrays), gray-level photographs (2-D arrays), spectral measurement on a regular grid (3-D arrays), or color videos (4-D arrays).
 
-Data analysis frequently involves operations $(+, -, \times, /, \log, \sin, \dots)$ on
-the individual measurements.
-In programming languages such as C or Java, this would involve looping over
-every element to perform these operations.
-Array computations generalize these element-wise operations on scalars to
-vectors (1-d arrays), matrices (2-d arrays), and higher dimensional arrays (n-d
-arrays).
-For instance, if \code{x} is an array, then \code{2 * x} produces
-an array whose values are twice those in \code{x}.
-Similarly, if \code{x} and \code{y} have the same shape, then
-\code{x * y} produces an array whose values are the products of
-the corresponding entries of \code{x} and \code{y}.
-When \code{x} and \code{y} have different shapes, the smaller array is \emph{broadcast}
-across the larger array to a common shape when sensible.
-For example, if \code{x} is a 1-d array with length 3, and \code{y} is a 2-d
-array with shape $2 \times 1$, the output will be an array with shape $2 \times 3$
-(see Figure~\ref{fig:broadcasting}).
+The NumPy array consists of a pointer to memory, along with meta-data used to interpret the data stored there.  For example, while computer memory stores elements linearly and has no notion of higher-dimensions, we can interpret it as $n$-dimensional arrays by also providing its shape, strides (the number of bytes to advance in memory to skip along rows, columns, etc.), and data-type.
+
+Once data is viewed as an $n$-dimensional array, more abstract operations such as reductions (e.g., summation across columns), products, and so forth, are defined. Users predominantly interact with NumPy arrays using these operators and associated utility functions through an easily readable high-level API (Application Programming Interface).
+
+Sometimes, it is desirable to combine arrays of different dimensions.  One may, for example, want to add a scalar to a vector, or scale each column of an array by a specific scalar value.  This is done through {\em broadcasting}, where one of the arrays is virtually duplicated (i.e., without copying any data in memory), so that the shapes of the operands match.  Broadcasting is illustrated in \ref{fig:broadcasting}.
 
 \begin{figure}
   \centering
@@ -194,29 +177,14 @@ array with shape $2 \times 1$, the output will be an array with shape $2 \times 
   \label{fig:broadcasting}
 \end{figure}
 
-These vectorized operations often produce one-liners that would be many tens
-of lines of code in languages such as C.
+NumPy include numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally (taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory), and implement broadcasting.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
 
-Element-wise operations are not always desired.
-Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is 1-d array.
-Then \code{A @ x} computes the matrix-vector product $Ax$ and
+NumPy also provides support for accelerated linear algebra, and supports several established backends such as OpenBLAS and Intel MKL.  Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes the matrix-vector product $Ax$ and
 \code{x @ A} computes the vector-matrix product $x^\top A$.
 This matrix multiplication operation extends to higher-dimensions by
 treating the array as a stack of matrices.
 
-NumPy also provides a large collection of functions for array manipulation
-including functions for:
-creating, reshaping, concatenating, and padding arrays;
-searching, sorting and counting data in arrays;
-computing elementary statistics, such as the mean, median, variance, and standard deviation;
-reading and writing files;
-and more.
-It also provides extensive support for generating pseudorandom numbers
-as well as an assortment of probability distributions.
-For historical reasons, NumPy also includes basic functionality for
-linear algebra, fast Fourier transforms and windowing,
-and polynomial fitting.
-We will continue supporting these, but we will not expand beyond them.
+In addition, NumPy provides a large collection of utility functions for creating, reshaping, concatenating, and padding arrays; for searching, sorting and counting data in arrays; and for reading and writing files.  It provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions.  For historical reasons, NumPy also includes basic functionality for linear algebra, fast Fourier transforms and windowing, and polynomial fitting.  We will continue supporting these, but we will not expand beyond them.
 
 \section*{Hybrid development}
 
