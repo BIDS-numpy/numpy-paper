@@ -258,4 +258,23 @@ Ongoing work
 
 - dtype
 
+The meaning of each element within a NumPy array is described by its
+datatype (dtype). NumPy arrays can hold all common numerical
+datatypes, strings, datetimes, and generic Python objects, each of
+which is identified by a dtype.
+%We are busy overhauling the datatype
+%system to make it behave consistently and to simplify the creation of
+%custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
+%of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
+While numerical dtypes make the foundation for most users,
+there are a multitude of use cases which cannot prosper due to current
+limitations, such as physical units\cite{astropy,Goldbaum2018,pint},
+% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
+geometrical objects\cite{pygeos}, and automatic
+differentiation\cite{pyadolc}.
+%Projects addressing these exist, each struggles with current
+%limitations.  % TODO: I may need citations, we could link github issues.
+The proposed overhaul of the datatype system will make it behave consistently and
+to simplify the creation of custom dtypes, both in C and in Python.
+
 \section*{Discussion}

@@ -1,13 +1,22 @@
 \section*{Methods}
 
-Over the course of its history, NumPy has attracted PRs by 823 contributors.
-However, its development relies heavily on a relatively small number
-of active maintainers, who share more than half of the contributions among
-themselves.
+We use Git for version control and GitHub as the public hosting service for our
+official \emph{upstream} repository (\url{https://github.com/numpy/numpy}).
+We each work in our own copy (or fork) of the project and use the
+upstream repository as our integration point.
+To get new code into the upstream repository, we use GitHub's
+pull request (PR) mechanism.
+This allows us to review code before integrating it as well as to run a
+large number of tests on the modificatied code to ensure that it does not
+break things.
+
+We also use GitHub's issue tracking system to collect and triage bugs.
+
+
+\subsection*{Governance}
 
 % https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
 % https://github.com/numpy/numpy/pull/6352
-To formalize its unwritten development policy,
 NumPy adopted an official Governance Document on October~5,
 2015\cite{NumPyProjectGovernance}.
 Project decisions are usually made by consensus of interested contributors.
@@ -27,35 +36,6 @@ In brief, we strive to:
 \emph{be careful in the words that we choose}.
 The Code of Conduct also specifies how breaches can be reported and outlines
 the process for responding to such reports.
-
-NumPy is currently maintained by a group of 23 contributors with commit rights
-to the NumPy code base. Out of these, 17 maintainers were active in
-2019, 4 of whom were paid to work on the project full-time.
-Additionally, there are a few long term developers who contributed and maintain
-specific parts of NumPy, but are not officially maintainers.
-
-
-At a release cycle of about every half year, the five recent releases in the years
-2018 and 2019 have averaged about 450~pull requests~(PRs) each,\footnote{
-    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
-    All data provided here is based on the development which happened through GitHub
-    pull requests. In some cases contributions by maintainers may not be categorized as such.}
-% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
-with each release attracting more than a hundred new contributors.
-Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
-master branch.
-Although the number of PRs being merged fluctuates,
-the plot indicates an increased number of contributions over the past
-years.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
-    \caption{Number of pull requests merged into the NumPy master branch for each
-        quarter since 2012. The total number of PRs is indicated with the
-        lower blue area showing the portion contributed by current or previous
-        maintainers.}\label{fig:prs-over-time}
-\end{figure}
 
 \subsection*{Funding}
 
@@ -89,8 +69,44 @@ Finally, since May 2019 the project receives around 10K USD annually from
 Tidelift, which is typically used to fund documentation and website
 improvements.
 
-The first activities organized for the new grant were a NEP development
-sprint, a weekly community call, and a meeting to write a draft roadmap.
+\subsection*{Developers}
+
+NumPy is currently maintained by a group of 23 contributors with commit rights
+to the NumPy code base. Out of these, 17 maintainers were active in
+2019, 4 of whom were paid to work on the project full-time.
+Additionally, there are a few long term developers who contributed and maintain
+specific parts of NumPy, but are not officially maintainers.
+
+Over the course of its history, NumPy has attracted PRs by 823 contributors.
+However, its development relies heavily on a relatively small number
+of active maintainers, who share more than half of the contributions among
+themselves.
+
+At a release cycle of about every half year, the five recent releases in the years
+2018 and 2019 have averaged about 450~PRs each,\footnote{
+    Note that before mid 2011, NumPy development did not happen on \url{github.com}.
+    All data provided here is based on the development which happened through GitHub
+    PRs. In some cases contributions by maintainers may not be categorized as such.}
+% Since 1.14.0 (based on changelog): 381 + 438 + 490 + 531 + 402; last is preliminary
+with each release attracting more than a hundred new contributors.
+Figure~\ref{fig:prs-over-time} shows the number of PRs merged into the NumPy
+master branch.
+Although the number of PRs being merged fluctuates,
+the plot indicates an increased number of contributions over the past
+years.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{scripts/PRs-using-CURRENT_MAINTAINERS.pdf}
+    \caption{Number of pull requests merged into the NumPy master branch for each
+        quarter since 2012. The total number of PRs is indicated with the
+        lower blue area showing the portion contributed by current or previous
+        maintainers.}\label{fig:prs-over-time}
+\end{figure}
+
+
+
+\subsection*{Community calls}
 
 Weekly community calls alternate between triage and
 higher level discussion.  The calls not only involve developers from
@@ -99,16 +115,34 @@ groups to provide input.  For example, after Intel produced a forked
 version of NumPy, one of their developers joined a call to discuss
 community concerns.
 
-NumPy plays a central role in building and standardizing much of the scientific
-Python community infrastructure.
-The docstring standard mentioned in the history section is now widely adopted.
-We are also now using the NEP system as a way to help coordinate the larger
-scientific Python community.
-% https://numpy.org/neps/nep-0029-deprecation_policy.html
-For example, in NEP 29, we recommend, along with leaders from various other
-projects, that all projects across the Scientific Python ecosystem adopt a
-common ``time window-based'' policy for support of Python and NumPy versions.
-This standard will simplify downstream project and release planning.
+\subsection*{NumPy enhancement proposals}
+
+Given the complexity of the codebase and the massive number of projects depending
+on it, large changes require careful planning and substantial work.
+As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
+of enhancement proposals---used infrequently and informally until 2017 when,
+to facilitate work expected from funded development, he formalized the
+NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
+Python Enhancement Proposals (PEPs) for ``proposing major new
+features, for collecting community input on an issue, and for
+documenting the design decisions that have gone into
+Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
+Since then there have been 19 proposed NEPS---6 have been implemented,
+4 have been accepted and are being implemented, 4 are under
+consideration, 3 have been deferred or superseded, and 2 have been rejected
+or withdrawn.
+
+
+%NumPy plays a central role in building and standardizing much of the scientific
+%Python community infrastructure.
+%The docstring standard mentioned in the history section is now widely adopted.
+%We are also now using the NEP system as a way to help coordinate the larger
+%scientific Python community.
+%% https://numpy.org/neps/nep-0029-deprecation_policy.html
+%For example, in NEP 29, we recommend, along with leaders from various other
+%projects, that all projects across the Scientific Python ecosystem adopt a
+%common ``time window-based'' policy for support of Python and NumPy versions.
+%This standard will simplify downstream project and release planning.
 
 \subsection*{Wheels build system}
 
@@ -139,21 +173,6 @@ platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 (for Windows).
 
 \subsection*{Recent technical improvements}
-
-Given the complexity of the codebase and the massive number of projects depending
-on it, large changes require careful planning and substantial work.
-As the NumPy release manager in 2007, Jarrod Millman, adopted the notion
-of enhancement proposals---used infrequently and informally until 2017 when,
-to facilitate work expected from funded development, he formalized the
-NumPy Enhancement Proposal (NEP) process.  NEPs are modeled after
-Python Enhancement Proposals (PEPs) for ``proposing major new
-features, for collecting community input on an issue, and for
-documenting the design decisions that have gone into
-Python''\footnote{\url{https://numpy.org/neps/nep-0000.html}}.
-Since then there have been 19 proposed NEPS---6 have been implemented,
-4 have been accepted and are being implemented, 4 are under
-consideration, 3 have been deferred or superseded, and 2 have been rejected
-or withdrawn.
 
 With the recent infusion of funding and a clear process for coordinating with
 the developer community, we have been able to tackle a number of important
@@ -371,25 +390,3 @@ Alternative Architecture Special Interest Group, including
 ARMv8, ppc64le, as well as s390x. We are thus well-positioned
 for a future where provision of binaries on these architectures
 will be expected for a library at the base of the ecosystem.
-
-\subsection*{Dtype}
-
-The meaning of each element within a NumPy array is described by its
-datatype (dtype). NumPy arrays can hold all common numerical
-datatypes, strings, datetimes, and generic Python objects, each of
-which is identified by a dtype.
-%We are busy overhauling the datatype
-%system to make it behave consistently and to simplify the creation of
-%custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
-%of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
-While numerical dtypes make the foundation for most users,
-there are a multitude of use cases which cannot prosper due to current
-limitations, such as physical units\cite{astropy,Goldbaum2018,pint},
-% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
-geometrical objects\cite{pygeos}, and automatic
-differentiation\cite{pyadolc}.
-%Projects addressing these exist, each struggles with current
-%limitations.  % TODO: I may need citations, we could link github issues.
-The proposed overhaul of the datatype system will make it behave consistently and
-to simplify the creation of custom dtypes, both in C and in Python
-
