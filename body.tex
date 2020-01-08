@@ -3,9 +3,9 @@
 
 
 The first incarnation of NumPy was a package called Numeric, written in 1995
-by Jim Hugunin, then completing his master's thesis at MIT on
-superconductor-semiconductor junctions.  Hugunin based his package on previous
-work by Jim Fulton, then working at the US Geological Survey, and acknowledges
+by Jim Hugunin, then completing his master's thesis at MIT.
+Hugunin based his package on previous work by Jim Fulton,
+then working at the US Geological Survey, and acknowledges
 many others in his initial report of the package \cite{Hugunin-whitepaper}.
 Numeric provided an array object in Python, written in C, and linking to
 standard fast implementations of linear algebra.
@@ -31,11 +31,11 @@ standard fast implementations of linear algebra.
 %Table X2 about here: backgrounds of major committers (mainly math, physics).
 
 % S TODO: the first sentence below could flow a bit better
-Around 1998, the Space Telescope Science Institute (STScI) software group began
-to use Python heavily and, around 2000, wrote a re-implementation of much of
-Numeric, called NumArray, to support their need to work on large memory-mapped
-arrays and arrays of mixed data type records \cite{STScI-slither}.  This
-briefly caused the Numeric and NumArray communities to diverge, until 2005,
+Around 200, the Space Telescope Science Institute (STScI) software group wrote
+a re-implementation of much of Numeric, called NumArray, to support their
+need to work on large memory-mapped arrays and arrays of mixed data type
+records \cite{STScI-slither}.
+This briefly caused the Numeric and NumArray communities to diverge, until 2005,
 when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
 both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
 This merger resulted in NumPy.
@@ -46,11 +46,10 @@ software-engineering practice to improve collaboration and reduce error
 \cite{millman2014developing}. The NumPy team was early in adopting distributed
 revision control and code review to improve collaboration on code, and
 continuous testing that runs a large battery of automated tests for every proposed
-change to NumPy. At first, NumPy had rather sparse documentation, but the project
-developed a new standard for ``docstrings''---text describing each NumPy
-function---and used this standard to write comprehensive, high-quality
-documentation, integrated with the source code\cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. The NumPy documentation format
-quickly became a standard for the larger Python community.
+change to NumPy.
+The project has comprehensive, high-quality documentation,
+integrated with the source
+code\cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
 
 NumPy now underpins almost every Python library that does scientific or
 numerical computation, including SciPy\cite{virtanen2019scipy},
@@ -69,7 +68,123 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 
 % S: Maybe we want to emphasize Jax, which has rapidly become very popular
 
-\section*{Enabling factors}
+
+
+\section*{NumPy arrays}
+
+The NumPy array is a structure that efficiently stores and accesses $n$-dimensional array data\cite{vanderwalt2011numpy}.  The need for such a data structure arises often in science.  For instance, it may be used to store experimental measurements made at discrete time intervals (1-D arrays), gray-level photographs (2-D arrays), spectral measurement on a regular grid (3-D arrays), or color videos (4-D arrays).
+
+The NumPy array consists of a pointer to memory, along with meta-data used to interpret the data stored there.  For example, while computer memory stores elements linearly and has no notion of higher-dimensions, we can interpret it as $n$-dimensional arrays by also providing its shape, strides (the number of bytes to advance in memory to skip along rows, columns, etc.), and data-type.
+
+Once data is viewed as an $n$-dimensional array, more abstract operations such as reductions (e.g., summation across columns), products, and so forth, are defined. Users predominantly interact with NumPy arrays using these operators and associated utility functions through an easily readable high-level API (Application Programming Interface).
+
+Sometimes, it is desirable to combine arrays of different dimensions.  One may, for example, want to add a scalar to a vector, or scale each column of an array by a specific scalar value.  This is done through {\em broadcasting}, where one of the arrays is virtually duplicated (i.e., without copying any data in memory), so that the shapes of the operands match.  Broadcasting is illustrated in \ref{fig:broadcasting}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{static/broadcasting}
+  \caption{\fixme{PLACEHOLDER: Stefan is working on some new figures to illustrate arrays, broadcasting, etc.}
+   }
+  \label{fig:broadcasting}
+\end{figure}
+
+NumPy include numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally (taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory), and implement broadcasting.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+
+NumPy also provides support for accelerated linear algebra, and supports several established backends such as OpenBLAS and Intel MKL.  Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes the matrix-vector product $Ax$ and
+\code{x @ A} computes the vector-matrix product $x^\top A$.
+This matrix multiplication operation extends to higher-dimensions by
+treating the array as a stack of matrices.
+
+In addition, NumPy provides a large collection of utility functions for creating, reshaping, concatenating, and padding arrays; for searching, sorting and counting data in arrays; and for reading and writing files.  It provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions.
+
+
+\section*{Recent development}
+
+%For many years, NumPy had no dedicated funding, and development time
+%was mostly contributed freely by students and researchers in their
+%spare time.  In-person meetings were sponsored off of individual's
+%research grants, and while industry sponsored contributions were made,
+%notably those by Mark Wiebe when he was sponsored by Travis Oliphant
+%at Enthought, the package's rapid adoption in scientific
+%computing took place without external investment.
+
+NumPy was initially developed by students, faculty, and researchers in their
+spare time to provide a modern array computation library for Python.
+They were influenced by their experiences with powerful interactive programming
+languages for scientific computing like Yorick \cite{munro1995using} as well
+as commercial languages like IDL and Matlab.
+Often they developed code to solve their own or their colleagues' problems.
+
+As Python's popularity for scientific computing, data science, and machine
+learning increased, many new use cases arose.
+At the same time, the massive number of scientific Python packages that
+built on NumPy meant that it had an unusually high need for stability.
+So to guide our development we formalized the feature proposal process, and
+constructed a development roadmap with extensive input and feedback from the
+community.
+
+In 2018, we hired two (and later four) full-time developers.
+This enabled us, with the benefit of several years' worth of experience,
+to redesign core parts of the library.
+
+One example of redesigning core parts of the library is the rewrite of NumPy's
+random number generation facilities.
+These have been maintained but unchanged for many years to preserve bit-by-bit
+compatibility of random number streams.  A rewrite that allowed for the
+underlying pseudorandom algorithms to be exchanged and extended was completed
+by a volunteer contributor and integrated by a paid developer.
+
+Another ongoing example is a redesign of the data type system.  Data types
+(dtypes for short) tell us more about the elements stored in a NumPy array.
+Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
+datetimes, or Python objects, each identified by its own dtype.
+
+%We are busy overhauling the datatype
+%system to make it behave consistently and to simplify the creation of
+%custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
+%of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
+While the majority of users rely only on numerical dtypes,
+there are a multitude of use cases for which the current implementation is unsuited, such as physical units\cite{astropy,Goldbaum2018,pint},
+% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
+geometrical objects\cite{pygeos}, and automatic
+differentiation\cite{pyadolc}.
+%Projects addressing these exist, each struggles with current
+%limitations.  % TODO: I may need citations, we could link github issues.
+The proposed overhaul of the datatype system will make it behave consistently and will simplify the creation of custom dtypes, both in C and in Python.
+
+\section*{Array protocol ??}
+
+We are increasingly focused on improving the library's interaction with external
+packages.
+
+For example, a new array protocol was implemented that allows NumPy to consume
+array-like objects produced by libraries outside of NumPy.  When asking NumPy
+to, e.g., sum such an array, instead of attempting that operation itself, NumPy
+requests the original array to complete the computation.  This means that the
+NumPy API---the syntax for interacting with arrays---can still be used, but now
+with a library that supports GPUs, does distributed computation processing, or
+stores data in the cloud.
+
+%"""
+%NumPy’s high level ndarray API has been implemented several times outside of
+%NumPy itself for different architectures, such as for GPU arrays (CuPy), Sparse
+%arrays (scipy.sparse, pydata/sparse) and parallel arrays (Dask array) as well
+%as various NumPy-like implementations in the deep learning frameworks, like
+%TensorFlow and PyTorch.
+%
+%Similarly there are many projects that build on top of the NumPy API for
+%labeled and indexed arrays (XArray), automatic differentiation (Autograd,
+%Tangent), masked arrays (numpy.ma), physical units (astropy.units, pint, unyt),
+%etc. that add additional functionality on top of the NumPy API. Most of these
+%project also implement a close variation of NumPy’s level high API.
+%
+%We would like to be able to use these libraries together, for example we would
+%like to be able to place a CuPy array within XArray, or perform automatic
+%differentiation on Dask array code. This would be easier to accomplish if code
+%written for NumPy ndarrays could also be used by other NumPy-like projects.
+%"""
+
+\section*{Discussion}
 
 The creation of NumPy spurred renewed development in the larger scientific
 Python ecosystem and heralded the current era of wide-spread use of Python for
@@ -143,107 +258,4 @@ around NumPy and Python.
 %
 % Social: joy of building these things together, friendly welcome into the community for many of us---appreciation of our work and hours
 %
-
-\section*{NumPy arrays}
-
-The NumPy array is a structure that efficiently stores and accesses $n$-dimensional array data\cite{vanderwalt2011numpy}.  The need for such a data structure arises often in science.  For instance, it may be used to store experimental measurements made at discrete time intervals (1-D arrays), gray-level photographs (2-D arrays), spectral measurement on a regular grid (3-D arrays), or color videos (4-D arrays).
-
-The NumPy array consists of a pointer to memory, along with meta-data used to interpret the data stored there.  For example, while computer memory stores elements linearly and has no notion of higher-dimensions, we can interpret it as $n$-dimensional arrays by also providing its shape, strides (the number of bytes to advance in memory to skip along rows, columns, etc.), and data-type.
-
-Once data is viewed as an $n$-dimensional array, more abstract operations such as reductions (e.g., summation across columns), products, and so forth, are defined. Users predominantly interact with NumPy arrays using these operators and associated utility functions through an easily readable high-level API (Application Programming Interface).
-
-Sometimes, it is desirable to combine arrays of different dimensions.  One may, for example, want to add a scalar to a vector, or scale each column of an array by a specific scalar value.  This is done through {\em broadcasting}, where one of the arrays is virtually duplicated (i.e., without copying any data in memory), so that the shapes of the operands match.  Broadcasting is illustrated in \ref{fig:broadcasting}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{static/broadcasting}
-  \caption{\fixme{PLACEHOLDER: Stefan is working on some new figures to illustrate arrays, broadcasting, etc.}
-   }
-  \label{fig:broadcasting}
-\end{figure}
-
-NumPy include numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally (taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory), and implement broadcasting.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
-
-NumPy also provides support for accelerated linear algebra, and supports several established backends such as OpenBLAS and Intel MKL.  Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes the matrix-vector product $Ax$ and
-\code{x @ A} computes the vector-matrix product $x^\top A$.
-This matrix multiplication operation extends to higher-dimensions by
-treating the array as a stack of matrices.
-
-In addition, NumPy provides a large collection of utility functions for creating, reshaping, concatenating, and padding arrays; for searching, sorting and counting data in arrays; and for reading and writing files.  It provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions.
-
-
-\section*{Recent development}
-
-%For many years, NumPy had no dedicated funding, and development time
-%was mostly contributed freely by students and researchers in their
-%spare time.  In-person meetings were sponsored off of individual's
-%research grants, and while industry sponsored contributions were made,
-%notably those by Mark Wiebe when he was sponsored by Travis Oliphant
-%at Enthought, the package's rapid adoption in scientific
-%computing took place without external investment.
-
-NumPy was initially developed by students, faculty, and researchers in their
-spare time to provide a modern array computation library for Python.
-They were influenced by their experiences with powerful interactive programming
-languages for scientific computing like Yorick \cite{munro1995using} as well
-as commercial languages like IDL and Matlab.
-Often they developed code to solve their own or their colleagues' problems.
-
-As Python's popularity for scientific computing, data science, and machine
-learning increased, many new use cases arose.
-At the same time, the massive number of scientific Python packages that
-built on NumPy meant that it had an unusually high need for stability.
-
-In 2018, we hired two (and later four) full-time developers.
-This enabled us to implement several bigger features,
-which required a sizeable amount of time, conversations with multiple
-stakeholders, as well as longer term focus, and were therefore difficult to
-accomplish by volunteer effort alone.
-To ensure that this paid effort did not disrupt our community owned character
-we formalized the feature proposal process, and constructed a development
-roadmap with extensive input and feedback from the community.   In addition,
-we hired people who were already active in NumPy and its surrounding communities:
-they already shared the project's norms and values.
-Funded developers also regularly reviewed other people's code as a part of
-their job, thereby supporting the work done by volunteers.
-
-Much of the recent work falls into two categories: improving the library's
-interaction with external packages, and, with the benefit of several years'
-worth of experience, redesigning core parts of the library.
-
-For example, a new array protocol was implemented that allows NumPy to consume
-array-like objects produced by libraries outside of NumPy.  When asking NumPy
-to, e.g., sum such an array, instead of attempting that operation itself, NumPy
-requests the original array to complete the computation.  This means that the
-NumPy API---the syntax for interacting with arrays---can still be used, but now
-with a library that supports GPUs, does distributed computation processing, or
-stores data in the cloud.
-
-A second example is the rewrite of NumPy's random number generation facilities.
-These have been maintained but unchanged for many years to preserve bit-by-bit
-compatibility of random number streams.  A rewrite that allowed for the
-underlying pseudorandom algorithms to be exchanged and extended was completed
-by a volunteer contributor and integrated by a paid developer.
-
-An example of ongoing work is a redesign of the data type system.  Data types
-(dtypes for short) tell us more about the elements stored in a NumPy array.
-Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
-datetimes, or Python objects, each identified by its own dtype.
-
-%We are busy overhauling the datatype
-%system to make it behave consistently and to simplify the creation of
-%custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
-%of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
-While the majority of users rely only on numerical dtypes,
-there are a multitude of use cases for which the current implementation is unsuited, such as physical units\cite{astropy,Goldbaum2018,pint},
-% pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
-geometrical objects\cite{pygeos}, and automatic
-differentiation\cite{pyadolc}.
-%Projects addressing these exist, each struggles with current
-%limitations.  % TODO: I may need citations, we could link github issues.
-The proposed overhaul of the datatype system will make it behave consistently and will simplify the creation of custom dtypes, both in C and in Python.
-
-\section*{Discussion}
-
-\fixme{To be written.}
 
