@@ -172,10 +172,8 @@ Sometimes, it is desirable to combine arrays of different dimensions.  One may, 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{static/broadcasting}
-  \caption{
-    Broadcasting a $1 \times 3$ array against a $2 \times 1$ array
-    yields a $2 \times 3$ result.
-  }
+  \caption{\fixme{PLACEHOLDER: Stefan is working on some new figures to illustrate arrays, broadcasting, etc.}
+   }
   \label{fig:broadcasting}
 \end{figure}
 
@@ -190,27 +188,61 @@ In addition, NumPy provides a large collection of utility functions for creating
 
 \section*{Recent development}
 
-For many years, NumPy had no dedicated funding, and development time
-was mostly contributed freely by students and researchers in their
-spare time.  In-person meetings were sponsored off of individual's
-research grants, and while industry sponsored contributions were made,
-notably those by Mark Wiebe when he was sponsored by Travis Oliphant
-at Enthought, the package's rapid adoption in scientific
-computing took place without external investment.
+%For many years, NumPy had no dedicated funding, and development time
+%was mostly contributed freely by students and researchers in their
+%spare time.  In-person meetings were sponsored off of individual's
+%research grants, and while industry sponsored contributions were made,
+%notably those by Mark Wiebe when he was sponsored by Travis Oliphant
+%at Enthought, the package's rapid adoption in scientific
+%computing took place without external investment.
 
-The project entered a new phase of development in 2018 with the hiring of two (and later four) full-time developers.  With this new resource, NumPy was able to address long-outstanding technical debt, review more volunteer work, and implement several larger features.
+NumPy was initially developed by students, faculty, and researchers in their
+spare time to provide a modern array computation library for Python.
+They were influenced by their experiences with powerful interactive programming
+languages for scientific computing like Yurik \cite{munro1995using} as well
+as commercial languages like IDL and Matlab.
+Often they developed code to solve their own or their colleagues problems.
 
-In an open source project that has relied on volunteer effort for so many years, the introduction of paid work can be disruptive. In such communities, decision making power is often tied to contributed effort, and when some individuals are paid it skews the balance. To guard against this, the project set up an explicit governance structure, formalized the feature proposal process, and constructed a development roadmap with extensive feedback from the community.   In addition, individuals were hired that were already active in NumPy and its surrounding communities: they already shared the project's norms and values.  Funded developers were also expected to review code as a part of their job, thereby supporting the work done by volunteers.
+As Python's popularity for scientific computing, data science, and machine
+learning increased, many new use cases arose.
+At the same time, the massive number of scientific Python packages that
+build on NumPy mean that it has an unusually high need for stability. 
 
-Still, funded development allowed for the implementation of several bigger features, which required a sizeable amount of time, conversations with multiple stakeholders, as well as longer term focus, and were therefore difficult to accomplish by volunteer effort alone.
+In 2018, we hired two (and later four) full-time developers.
+This enabled us to implement several bigger features,
+which required a sizeable amount of time, conversations with multiple
+stakeholders, as well as longer term focus, and were therefore difficult to
+accomplish by volunteer effort alone.
+To ensure that this paid effort did not disrupt our community owned character
+we formalized the feature proposal process, and constructed a development
+roadmap with extensive input and feedback from the community.   In addition,
+we hired people who were already active in NumPy and its surrounding communities:
+they already shared the project's norms and values.
+Funded developers also regularly reviewed other people's code as a part of
+their job, thereby supporting the work done by volunteers.
 
-New work divides roughly into two categories: improving the library's interaction with external packages, and, with the benefit of several years' worth of experience, redesigning core parts of the library.
+Much of the recent work falls into two categories: improving the library's
+interaction with external packages, and, with the benefit of several years'
+worth of experience, redesigning core parts of the library.
 
-For example, a new array protocol was implemented that allows NumPy to consume array-like objects produced by libraries outside of NumPy.  When asking NumPy to, e.g., sum such an array, instead of attempting that operation itself, NumPy requests the original array to complete the computation.  This means that the NumPy API---the syntax for interacting with arrays---can still be used, but now with a library that supports GPUs, does distributed computation processing, or stores data in the cloud.
+For example, a new array protocol was implemented that allows NumPy to consume
+array-like objects produced by libraries outside of NumPy.  When asking NumPy
+to, e.g., sum such an array, instead of attempting that operation itself, NumPy
+requests the original array to complete the computation.  This means that the
+NumPy API---the syntax for interacting with arrays---can still be used, but now
+with a library that supports GPUs, does distributed computation processing, or
+stores data in the cloud.
 
-A second example is the rewrite of NumPy's random number generation facilities.  These have been maintained but unchanged for many years to preserve bit-by-bit compatibility of random number streams.  A rewrite that allowed for the underlying pseudorandom algorithms to be exchanged and extended was completed by a volunteer contributor and integrated by a paid developer.
+A second example is the rewrite of NumPy's random number generation facilities.
+These have been maintained but unchanged for many years to preserve bit-by-bit
+compatibility of random number streams.  A rewrite that allowed for the
+underlying pseudorandom algorithms to be exchanged and extended was completed
+by a volunteer contributor and integrated by a paid developer.
 
-An example of ongoing work is a redesign of the data type system.  Data types (dtypes for short) tell us more about the elements stored in a NumPy array. Arrays can hold, e.g., numerical data (of lower and higher precision), strings, datetimes, or Python objects, each identified by its own dtype.
+An example of ongoing work is a redesign of the data type system.  Data types
+(dtypes for short) tell us more about the elements stored in a NumPy array.
+Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
+datetimes, or Python objects, each identified by its own dtype.
 
 %We are busy overhauling the datatype
 %system to make it behave consistently and to simplify the creation of
@@ -226,3 +258,6 @@ differentiation\cite{pyadolc}.
 The proposed overhaul of the datatype system will make it behave consistently and will simplify the creation of custom dtypes, both in C and in Python.
 
 \section*{Discussion}
+
+\fixme{To be written.}
+
