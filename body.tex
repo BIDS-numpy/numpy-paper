@@ -1,21 +1,6 @@
 % https://books.google.com/books?id=QQJODwAAQBAJ&pg=PA101&lpg=PA101&dq=%E2%80%9Cthe+secret+to+successful+hiring+is+this:+look+for+the+people+who+want+to+change+the+world.%E2%80%9D&source=bl&ots=D6l8JXfB20&sig=ACfU3U0x1X9Gh8k6MlNV0BqhBa_73Q0yfQ&hl=en&sa=X&ved=2ahUKEwj48pqg_oHgAhVohuAKHYlJAsc4ChDoATAAegQIChAB#v=onepage&q=%E2%80%9Cthe%20secret%20to%20successful%20hiring%20is%20this%3A%20look%20for%20the%20people%20who%20want%20to%20change%20the%20world.%E2%80%9D&f=false
 % "The secret to successful hiring is this: look for the people who want to change the world.".  Marc Benioff.
 
-NumPy is both a cause and an effect of a striking shift in the nature of
-scientific computing.  In the traditional scientific software model, the user is a {\it consumer}.  Writing software is a task for specialists and
-professionals, supported by income from selling the software to
-scientists.  In the new model, the user is an {\it owner}.  The Python language, with
-the NumPy library, provides a framework that scientists can consume,
-but also encourages scientists to participate as programmers---to
-write code for the library and the ecosystem of packages around it.  This has
-fostered a new culture of contribution and collaboration in scientific
-computing that resulted in a virtuous cycle of increasing use, and increasing
-development.
-
-This cycle is one of several explanations for the astonishing growth of NumPy
-in scientific computing.
-
-\section*{History}
 
 The first incarnation of NumPy was a package called Numeric, written in 1995
 by Jim Hugunin, then completing his master's thesis at MIT on
@@ -26,18 +11,20 @@ Numeric provided an array object in Python, written in C, and linking to
 standard fast implementations of linear algebra.
 % https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
 % https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
-% May want to mention Yorick here (origin of broadcasting idea)
+% May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
 
-As Hugunin points out, at the time he wrote Numeric, commercial languages for
-interactive computing with numerical arrays were already well-established,
-including Matlab and IDL.  Back then, it must have seemed a safe bet that
-Numeric would not succeed in this market.  The commercial languages were
-developed and maintained by large groups of full-time professional programmers,
-supported by formal quality assurance, release managers, and writers of
-scientific documentation.  In contrast, Numeric, and later NumPy, would
-continue to be developed almost entirely by scientists, including graduate
-students and faculty, without specific funding and often to the detriment of their careers.
-% S: The "Back then" sentence sets up an expectation.  Later in this section, we then explain that Numeric/NumPy *was* successful, but we never explicitly close the loop: "despite the odds, great success".
+%At the time, commercial languages for interactive computing with numerical
+%arrays were already well-established, including Matlab and IDL.
+%They were developed and maintained by large groups of
+%full-time professional programmers, supported by formal quality assurance,
+%release managers, and writers of scientific documentation.
+%In contrast, Numeric, and later NumPy, would continue to be developed almost
+%entirely by scientists, including graduate students and faculty.
+%%without specific funding and often to the detriment of their careers.
+%% S: The "Back then" sentence sets up an expectation.  Later in this section, we then explain that Numeric/NumPy *was* successful, but we never explicitly close the loop: "despite the odds, great success".
+%NumPy had no dedicated funding, and development time
+%was mostly contributed freely by students and researchers in their
+%spare time.
 
 %Table X1 about here: backgrounds of initial designers (mainly math, physics).
 
@@ -51,12 +38,10 @@ arrays and arrays of mixed data type records \cite{STScI-slither}.  This
 briefly caused the Numeric and NumArray communities to diverge, until 2005,
 when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
 both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
-This merger resulted in NumPy.  At the time, Oliphant was an assistant
-professor of Electrical and Computer Engineering at Brigham Young University.
+This merger resulted in NumPy.
 
-Over the next 10 years, NumPy attracted a relatively large pool of scientist
-developers.  To benefit from these
-user-developers, the project developed an increasingly strong culture of using
+Over the next 10 years, NumPy attracted more scientist developers.
+The project developed an increasingly strong culture of using
 software-engineering practice to improve collaboration and reduce error
 \cite{millman2014developing}. The NumPy team was early in adopting distributed
 revision control and code review to improve collaboration on code, and
@@ -89,7 +74,7 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 The creation of NumPy spurred renewed development in the larger scientific
 Python ecosystem and heralded the current era of wide-spread use of Python for
 scientific computing.
-As we implied above, there were several factors that allowed this rapid growth
+There were several factors that allowed this rapid growth
 and successful development.
 
 Hugunin identified the first factor in his initial description of the Numeric
@@ -184,7 +169,8 @@ NumPy also provides support for accelerated linear algebra, and supports several
 This matrix multiplication operation extends to higher-dimensions by
 treating the array as a stack of matrices.
 
-In addition, NumPy provides a large collection of utility functions for creating, reshaping, concatenating, and padding arrays; for searching, sorting and counting data in arrays; and for reading and writing files.  It provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions.  For historical reasons, NumPy also includes basic functionality for linear algebra, fast Fourier transforms and windowing, and polynomial fitting.  We will continue supporting these, but we will not expand beyond them.
+In addition, NumPy provides a large collection of utility functions for creating, reshaping, concatenating, and padding arrays; for searching, sorting and counting data in arrays; and for reading and writing files.  It provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions.
+
 
 \section*{Recent development}
 
