@@ -82,6 +82,8 @@ The library has such widespread adoption that not only the array object but also
 a language for tensor computation---witnessed by its use in popular
 deep learning libraries such as PyTorch\cite{pytorch}.
 
+% S: Maybe we want to emphasize Jax, which has rapidly become very popular
+
 \section*{Enabling factors}
 
 The creation of NumPy spurred renewed development in the larger scientific
@@ -196,49 +198,31 @@ notably those by Mark Wiebe when he was sponsored by Travis Oliphant
 at Enthought, the package's rapid adoption in scientific
 computing took place without external investment.
 
-The project entered a new phase of development in 2018 with the hiring of two full-time developers.  With this new resource, we were able to address long-outstanding technical debt, review more volunteer work, and implement several larger features.
+The project entered a new phase of development in 2018 with the hiring of two (and later four) full-time developers.  With this new resource, NumPy was able to address long-outstanding technical debt, review more volunteer work, and implement several larger features.
 
-In an open source project that has relied on volunteer effort for so many years, the introduction of paid work can be disruptive. In such communities, decision making power is often tied to contributed effort, and when some individuals are paid it skews the equation. To guard against this, the project set up an explicit governance structure, formalized the feature proposal process, and constructed a development roadmap with extensive feedback from the community.   Individuals were hired that were already active in NumPy and its surrounding communities, who already shared the project's norms and values.  Funded developers were also expected to review code as a part of their job, thereby supporting the work done by volunteers.
+In an open source project that has relied on volunteer effort for so many years, the introduction of paid work can be disruptive. In such communities, decision making power is often tied to contributed effort, and when some individuals are paid it skews the balance. To guard against this, the project set up an explicit governance structure, formalized the feature proposal process, and constructed a development roadmap with extensive feedback from the community.   In addition, individuals were hired that were already active in NumPy and its surrounding communities: they already shared the project's norms and values.  Funded developers were also expected to review code as a part of their job, thereby supporting the work done by volunteers.
 
-Still, funded development allowed for the implementation of several larger features, which require a sizeable amount of time, conversations with multiple stakeholders, and longer term focus; and were therefore more difficult to accomplish by volunteer effort alone.
+Still, funded development allowed for the implementation of several bigger features, which required a sizeable amount of time, conversations with multiple stakeholders, as well as longer term focus, and were therefore difficult to accomplish by volunteer effort alone.
 
-% --- I'm here now ---
+New work divides roughly into two categories: improving the library's interaction with external packages, and, with the benefit of several years' worth of experience, redesigning core parts of the library.
 
-We briefly highlight two of those below.
+For example, a new array protocol was implemented that allows NumPy to consume array-like objects produced by libraries outside of NumPy.  When asking NumPy to, e.g., sum such an array, instead of attempting that operation itself, NumPy requests the original array to complete the computation.  This means that the NumPy API---the syntax for interacting with arrays---can still be used, but now with a library that supports GPUs, does distributed computation processing, or stores data in the cloud.
 
-- array function protocol
+A second example is the rewrite of NumPy's random number generation facilities.  These have been maintained but unchanged for many years to preserve bit-by-bit compatibility of random number streams.  A rewrite that allowed for the underlying pseudorandom algorithms to be exchanged and extended was completed by a volunteer contributor and integrated by a paid developer.
 
-- random number generation
+An example of ongoing work is a redesign of the data type system.  Data types (dtypes for short) tell us more about the elements stored in a NumPy array. Arrays can hold, e.g., numerical data (of lower and higher precision), strings, datetimes, or Python objects, each identified by its own dtype.
 
-The random number generator library in NumPy provides several alternative
-\emph{bit stream generators} that provide the core function of generating
-random integers.
-A higher-level generator class that implements an assortment of
-probability distributions is provided. It includes the beta, gamma
-and Weibull distributions, the univariate and multivariate normal
-distributions, and more.
-
-Ongoing work
-
-- dtype
-
-The meaning of each element within a NumPy array is described by its
-datatype (dtype). NumPy arrays can hold all common numerical
-datatypes, strings, datetimes, and generic Python objects, each of
-which is identified by a dtype.
 %We are busy overhauling the datatype
 %system to make it behave consistently and to simplify the creation of
 %custom dtypes, both in C and in Python [XXX Cite the NEP here, instead
 %of \href{https://github.com/numpy/numpy/pull/14422}{draft of DTypes NEP}].
-While numerical dtypes make the foundation for most users,
-there are a multitude of use cases which cannot prosper due to current
-limitations, such as physical units\cite{astropy,Goldbaum2018,pint},
+While the majority of users rely only on numerical dtypes,
+there are a multitude of use cases for which the current implementation is unsuited, such as physical units\cite{astropy,Goldbaum2018,pint},
 % pyadolc may be a bit too small a project, so may want to remove/replace with an other example.
 geometrical objects\cite{pygeos}, and automatic
 differentiation\cite{pyadolc}.
 %Projects addressing these exist, each struggles with current
 %limitations.  % TODO: I may need citations, we could link github issues.
-The proposed overhaul of the datatype system will make it behave consistently and
-to simplify the creation of custom dtypes, both in C and in Python.
+The proposed overhaul of the datatype system will make it behave consistently and will simplify the creation of custom dtypes, both in C and in Python.
 
 \section*{Discussion}
