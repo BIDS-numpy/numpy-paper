@@ -3,11 +3,16 @@ by Jim Hugunin, then completing his master's thesis at MIT.
 Hugunin based his package on previous work by Jim Fulton,
 then working at the US Geological Survey, and acknowledges
 many others in his initial report of the package \cite{Hugunin-whitepaper}.
+Later, Paul Dubois at Lawrence Livermore National Laboratory toke over the project
+and funded the writing of the first
+manual\footnote{https://conference.scipy.org/scipy2010/slides/travis\_oliphant\_keynote.pdf}
 Numeric provided an array object in Python, written in C, and linking to
 standard fast implementations of linear algebra.
 % https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
 % https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
 % May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
+% https://aip.scitation.org/doi/pdf/10.1063/1.4823451 
+% https://www.dyalog.com/uploads/documents/Papers/Arrays%20of%20Objects.pdf
 
 % S TODO: the first sentence below could flow a bit better
 Around 2000, the Space Telescope Science Institute (STScI) software group wrote
@@ -155,11 +160,24 @@ and will simplify the creation of custom dtypes, both in C and in Python.
 % https://numpy.org/neps/nep-0030-duck-array-protocol.html
 % https://numpy.org/neps/nep-0037-array-module.html
 
-\fixme{NumPy’s high level ndarray API has been implemented several times outside of
-NumPy itself for different architectures, such as for GPU arrays (CuPy), Sparse
-arrays (scipy.sparse, pydata/sparse) and parallel arrays (Dask array) as well
-as various NumPy-like implementations in the deep learning frameworks, like
-TensorFlow and PyTorch.}
+A vast number of projects are built on NumPy;
+these projects are consumers of the NumPy API.
+Over the last several years, a growing number of projects are providers of
+a \emph{NumPy-like API} and array objects targeting audiences with specialized
+needs beyond NumPy's capabilities.
+For example, the NumPy API is implemented by several popular tensor computation
+libraries including CuPy\footnote{\url{https://cupy.chainer.org/}},
+JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+provide tensor APIs with NumPy-inspired semantics.
+It is also implemented in packages that support sparse arrays
+such as \code{scipy.sparse} and \code{pydata.sparse}.
+Another notable example is Dask, a library for parallel computing in
+Python.  Dask adopts the NumPy API and therefore presents a familiar
+interface to existing NumPy users, while adding powerful abilities to
+parallelize and distribute tasks.
 
 \fixme{Similarly there are many projects that build on top of the NumPy API for
 labeled and indexed arrays (XArray), automatic differentiation (Autograd,
@@ -167,10 +185,23 @@ Tangent), masked arrays (numpy.ma), physical units (astropy.units, pint, unyt),
 etc. that add additional functionality on top of the NumPy API. Most of these
 project also implement a close variation of NumPy’s level high API.}
 
+The multitude of specialized projects creates the difficulty that consumers
+of these NumPy-like APIs write code specific to a single project and do not support
+all of the above array providers.
+This is a burden for users relying on the specialized array-like, since
+a tool they need may not work for them.
+It also creates new challenges for end-users who need to transition
+from NumPy to a more specialized array.
+The growing multitude of specialized projects with NumPy-like APIs threatened
+to again fracture the scientific Python community.
+
 \fixme{We would like to be able to use these libraries together, for example we would
 like to be able to place a CuPy array within XArray, or perform automatic
 differentiation on Dask array code. This would be easier to accomplish if code
 written for NumPy ndarrays could also be used by other NumPy-like projects.}
+
+To address these issues NumPy has the goal of providing the fundamental
+API for \emph{interoperability} between the various NumPy-like APIs.
 
 For example, a new array protocol was implemented that allows NumPy to consume
 array-like objects produced by libraries outside of NumPy.  When asking NumPy
@@ -179,6 +210,7 @@ requests the original array to complete the computation.  This means that the
 NumPy API---the syntax for interacting with arrays---can still be used, but now
 with a library that supports GPUs, does distributed computation processing, or
 stores data in the cloud.
+
 
 \section*{Discussion}
 
