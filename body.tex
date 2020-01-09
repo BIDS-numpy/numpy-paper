@@ -12,7 +12,7 @@ standard fast implementations of linear algebra.
 % https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
 % May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
 % https://aip.scitation.org/doi/pdf/10.1063/1.4823451 
-% https://www.dyalog.com/uploads/documents/Papers/Arrays%20of%20Objects.pdf
+% https://aip.scitation.org/doi/pdf/10.1063/1.4822400
 
 % S TODO: the first sentence below could flow a bit better
 Around 2000, the Space Telescope Science Institute (STScI) software group wrote
@@ -45,7 +45,7 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{static/sketches/array concepts}
+  \includegraphics[width=\textwidth]{static/sketches/array-concepts}
   \caption{\fixme{PLACEHOLDER: This figure needs some text to describe
   it}
    }
@@ -72,8 +72,9 @@ array.
 Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
 datetimes, or Python objects, each identified by its own dtype.
 
-Once data is viewed as an $n$-dimensional array, more abstract operations such as
-reductions (e.g., summation across columns), products, and so forth, are defined.
+Once data is viewed as an $n$-dimensional array, more abstract operations such
+as reductions (e.g., summation across columns), products, and so forth, are
+defined (Figure~\ref{fig:reductions}).
 Users predominantly interact with NumPy arrays using these operators and
 associated utility functions through an easily readable high-level API
 (Application Programming Interface).
@@ -88,7 +89,7 @@ Broadcasting is illustrated in Figure~\ref{fig:broadcasting}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{static/sketches/fancy indexing}
+  \includegraphics[width=\linewidth]{static/sketches/fancy-indexing}
   \caption{\fixme{Indexing using arrays, or ``fancy indexing''.}
    }
   \label{fig:broadcasting}
@@ -156,29 +157,23 @@ learning increased, many new use cases arose.
 
 - massive explosion in data science, machine learning, and artificial intelligence
 
-% NumPy also went from a small community of mostly expert users to
-% one of the most widely used foundations of the scientific Python
-% ecosystem.
-% Now the user base is very different....
+NumPy also went from a small community of mostly expert users to
+one of the most widely used foundations of the scientific Python
+ecosystem.
+Now the user base is very different....
+% maybe worth a sentence or two about how we are working on web and
+% user docs to make it easier for new users to get started...
 
-Another ongoing example is a redesign of the data type system.
-While the majority of users rely only on numerical dtypes, there are a
-multitude of use cases for which the current implementation is unsuited, such
-as physical units\cite{astropy,Goldbaum2018,pint}, geometrical
-objects\cite{pygeos}, and automatic differentiation\cite{pyadolc}.
-The proposed overhaul of the datatype system will make it behave consistently
-and will simplify the creation of custom dtypes, both in C and in Python.
-
-\section*{Array protocols}
+\section*{Interoperability and extensibility}
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.8\textwidth]{static/sketches/duck arrays}
+  \includegraphics[width=0.8\textwidth]{static/sketches/duck-arrays}
   \caption{\fixme{Examples of so-called ``duck arrays'': arrays
   implemented by another library that behave like NumPy arrays, and
   support NumPy operations.  Through protocols, it is possible to have
   a call such as $\cos(\cdot)$ succeed on each of these.}}
-  \label{fig:arrayconcepts}
+  \label{fig:duck-arrays}
 \end{figure*}
 
 
@@ -192,7 +187,7 @@ A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
 Over the last several years, a growing number of projects are providers of
 a \emph{NumPy-like API} and array objects targeting audiences with specialized
-needs beyond NumPy's capabilities.
+needs beyond NumPy's capabilities (Figure~\ref{fig:duck-arrays}).
 For example, the NumPy API is implemented by several popular tensor computation
 libraries including CuPy\footnote{\url{https://cupy.chainer.org/}},
 JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
@@ -238,6 +233,14 @@ requests the original array to complete the computation.  This means that the
 NumPy API---the syntax for interacting with arrays---can still be used, but now
 with a library that supports GPUs, does distributed computation processing, or
 stores data in the cloud.
+
+Another ongoing example is a redesign of the data type system.
+While the majority of users rely only on numerical dtypes, there are a
+multitude of use cases for which the current implementation is unsuited, such
+as physical units\cite{astropy,Goldbaum2018,pint}, geometrical
+objects\cite{pygeos}, and automatic differentiation\cite{pyadolc}.
+The proposed overhaul of the datatype system will make it behave consistently
+and will simplify the creation of custom dtypes, both in C and in Python.
 
 
 \section*{Discussion}
