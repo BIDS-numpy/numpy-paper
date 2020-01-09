@@ -43,6 +43,15 @@ deep learning libraries such as PyTorch\cite{pytorch}.
 
 \section*{NumPy arrays}
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{static/sketches/array concepts}
+  \caption{\fixme{PLACEHOLDER: This figure needs some text to describe
+  it}
+   }
+  \label{fig:arrayconcepts}
+\end{figure*}
+
 The NumPy array is a structure that efficiently stores and accesses
 $n$-dimensional array data\cite{vanderwalt2011numpy}.
 The need for such a data structure arises often in science.
@@ -79,8 +88,8 @@ Broadcasting is illustrated in Figure~\ref{fig:broadcasting}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\linewidth]{static/broadcasting}
-  \caption{\fixme{PLACEHOLDER: Stefan is working on some new figures to illustrate arrays, broadcasting, etc.}
+  \includegraphics[width=\linewidth]{static/sketches/fancy indexing}
+  \caption{\fixme{Indexing using arrays, or ``fancy indexing''.}
    }
   \label{fig:broadcasting}
 \end{figure}
@@ -93,6 +102,14 @@ implement broadcasting.
 Vectorized operations that would take many tens of lines to express in
 languages such as C can often be implemented as a single, clear Python
 expression.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{static/sketches/reductions}
+  \caption{\fixme{Reducing an array along one of several axes.}
+   }
+  \label{fig:reductions}
+\end{figure}
 
 NumPy also provides support for accelerated linear algebra, and supports
 several established backends such as OpenBLAS and Intel MKL.
@@ -153,6 +170,17 @@ The proposed overhaul of the datatype system will make it behave consistently
 and will simplify the creation of custom dtypes, both in C and in Python.
 
 \section*{Array protocols}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.8\textwidth]{static/sketches/duck arrays}
+  \caption{\fixme{Examples of so-called ``duck arrays'': arrays
+  implemented by another library that behave like NumPy arrays, and
+  support NumPy operations.  Through protocols, it is possible to have
+  a call such as $\cos(\cdot)$ succeed on each of these.}}
+  \label{fig:arrayconcepts}
+\end{figure*}
+
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
