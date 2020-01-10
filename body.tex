@@ -1,43 +1,67 @@
-The first incarnation of NumPy was a package called Numeric, written in 1995
-by Jim Hugunin, then completing his master's thesis at MIT.
-Hugunin based his package on previous work by Jim Fulton,
-then working at the US Geological Survey, and acknowledges
-many others in his initial report of the package \cite{Hugunin-whitepaper}.
-Later, Paul Dubois at Lawrence Livermore National Laboratory toke over the project
-and funded the writing of the first
-manual\footnote{https://conference.scipy.org/scipy2010/slides/travis\_oliphant\_keynote.pdf}.
-Numeric provided an array object in Python, written in C, and linking to
-standard fast implementations of linear algebra.
-% https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
-% https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
-% May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
-% https://aip.scitation.org/doi/pdf/10.1063/1.4823451 
-% https://aip.scitation.org/doi/pdf/10.1063/1.4822400
-
-% S TODO: the first sentence below could flow a bit better
+Two different Python array packages existed before NumPy.
+The Numeric package began in the mid-90s and provided an array object in
+Python, written in C, and linking to standard fast implementations of linear
+algebra.
 Around 2000, the Space Telescope Science Institute (STScI) software group wrote
 a re-implementation of much of Numeric, called NumArray, to support their
 need to work on large memory-mapped arrays and arrays of mixed data type
 records \cite{STScI-slither}.
-This briefly caused the Numeric and NumArray communities to diverge, until 2005,
-when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
-both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
-This merger resulted in NumPy.
+This briefly caused the two communities to diverge, until
+2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
+and NumArray \cite{oliphant2006guide}.
 
-NumPy now underpins almost every Python library that does scientific or
-numerical computation, including SciPy\cite{virtanen2019scipy},
+%By the beginning of the millennium, several libraries built on top of Numeric 
+%to provide fundamental scientific routines were combined into SciPy.
+%Due to the poor performance of Numeric on large data sets, NumArray was
+%developed at the Space Telescope Science Institute (STScI) to handle
+%large astronomical images such as those produced by the Hubble Space Telescope.
+%However, while initially considered the successor to Numeric, NumArray was no longer
+%performant on multiple small arrays.
+%This divide posed a challenge for SciPy as it wasn't clear how to support
+%both libraries.
+%Working with the NumArray and SciPy communities, the then maintainer of Numeric,
+%Travis Oliphant, embarked upon a major rewrite that aimed to be a ``best of both
+%worlds'' unification of Numeric and NumArray. This merger resulted in NumPy.
+%
+%The first incarnation of NumPy was a package called Numeric, written in 1995
+%by Jim Hugunin, then completing his master's thesis at MIT.
+%Hugunin based his package on previous work by Jim Fulton,
+%then working at the US Geological Survey, and acknowledges
+%many others in his initial report of the package \cite{Hugunin-whitepaper}.
+%Later, Paul Dubois at Lawrence Livermore National Laboratory toke over the project
+%and funded the writing of the first
+%manual\footnote{https://conference.scipy.org/scipy2010/slides/travis\_oliphant\_keynote.pdf}.
+%Numeric provided an array object in Python, written in C, and linking to
+%standard fast implementations of linear algebra.
+%% https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
+%% https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
+%% May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
+%% https://aip.scitation.org/doi/pdf/10.1063/1.4823451 
+%% https://aip.scitation.org/doi/pdf/10.1063/1.4822400
+%
+%% S TODO: the first sentence below could flow a bit better
+%Around 2000, the Space Telescope Science Institute (STScI) software group wrote
+%a re-implementation of much of Numeric, called NumArray, to support their
+%need to work on large memory-mapped arrays and arrays of mixed data type
+%records \cite{STScI-slither}.
+%This briefly caused the Numeric and NumArray communities to diverge, until 2005,
+%when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
+%both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
+%This merger resulted in NumPy.
+
+Today, NumPy underpins almost every Python library that does scientific or
+numerical computation including SciPy\cite{virtanen2019scipy},
 matplotlib\cite{hunter2007matplotlib}, pandas\cite{mckinney-proc-scipy-2010},
 scikit-learn\cite{pedregosa2011scikit}, and
 scikit-image\cite{vanderwalt2014scikit}.
-NumPy consists of the $n$-dimensional array object along with utility functions
+It consists of an $n$-dimensional array object along with utility functions
 that operate on it.
 Because of its inherent simplicity---being a pointer to memory with some
-associated meta-data about shape, data-type, and so forth---the NumPy array is
+associated meta-data---the NumPy array is
 the {\it de facto} exchange format for array data in Python.
 The library has such widespread adoption that not only the array object but also its
 {\it Application Programming Interface} (API) has become ubiquitous as
-a language for tensor computation---witnessed by its use in popular
-deep learning libraries such as PyTorch\cite{pytorch}.
+a language for array computation.
 
 % S: Maybe we want to emphasize Jax, which has rapidly become very popular
 
@@ -57,7 +81,7 @@ $n$-dimensional array data\cite{vanderwalt2011numpy}.
 The need for such a data structure arises often in science.
 For instance, it may be used to store experimental measurements made at
 discrete time intervals (1-D arrays), gray-level photographs (2-D arrays),
-spectral measurement on a regular grid (3-D arrays), or color videos (4-D
+spectral measurements on a regular grid (3-D arrays), or color videos (4-D
 arrays).
 
 The NumPy array consists of a pointer to memory, along with meta-data used to
@@ -65,10 +89,11 @@ interpret the data stored there.
 Computer memory stores elements linearly and has no notion
 of higher-dimensions, but we can interpret it as an $n$-dimensional array by also
 providing the array's shape, strides (the number of bytes to advance in memory to skip
-along rows, columns, etc.), and data-type (see Figure~\ref{fig:array-concepts}).
+along rows, columns, etc.), and data type (see Figure~\ref{fig:array-concepts}).
 
 Data types (dtypes for short) tell us more about the elements stored in a NumPy
 array.
+% can hold ...?, e.g.,
 Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
 timestamps, or Python objects, each identified by its own dtype.
 
@@ -123,7 +148,7 @@ as commercial languages like IDL and Matlab.
 Often they developed code to solve their own or their colleagues' problems.
 
 As Python's popularity for scientific computing, data science, and machine
-learning increased, many new use cases arose.
+learning increased, many new challenges and use cases arose.
 
 - GPUs
 
