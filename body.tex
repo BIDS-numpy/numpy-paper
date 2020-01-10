@@ -50,10 +50,10 @@ and NumArray \cite{oliphant2006guide}.
 %This merger resulted in NumPy.
 
 Today, NumPy underpins almost every Python library that does scientific or
-numerical computation including SciPy\cite{virtanen2019scipy},
-matplotlib\cite{hunter2007matplotlib}, pandas\cite{mckinney-proc-scipy-2010},
-scikit-learn\cite{pedregosa2011scikit}, and
-scikit-image\cite{vanderwalt2014scikit}.
+numerical computation including SciPy \cite{virtanen2019scipy},
+matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
+scikit-learn \cite{pedregosa2011scikit}, and
+scikit-image \cite{vanderwalt2014scikit}.
 It consists of an $n$-dimensional array object along with utility functions
 that operate on it.
 Because of its inherent simplicity---being a pointer to memory with some
@@ -79,33 +79,19 @@ a language for array programming.
   \label{fig:array-concepts}
 \end{figure*}
 
-The NumPy array is a structure that efficiently stores and accesses
-$n$-dimensional arrays, also known as tensors\cite{vanderwalt2011numpy}.
-The need for such a data structure arises often in science, as it can be used to represent everything from time-series measurements to time-varying spectral measurements on a grid.
-
-The NumPy array consists of a pointer to memory, along with meta-data used to
-interpret the data stored there, notably {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
+The NumPy array is a structure that efficiently stores and accesses $n$-dimensional arrays, also known as tensors \cite{vanderwalt2011numpy}, that enables a wide variety of scientific computation.  It consists of a pointer to memory, along with meta-data used to interpret the data stored there, notably a {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
 
 A {\em data type} describes the nature of elements stored in an array.  An array has a single data type, and each array element occupies the same number of bytes in memory.  Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps, and pointers to Python objects.
 
-The {\em shape} of an array determines the number of axes, or dimensionality, of the array.  For example, a vector of numbers can be stored as a 1-D array of shape $N$, while color videos are 4-D arrays of shape $T \times M \times N \times 3$.
-
-% shape > num. of axes and number of elements in each axis
+The {\em shape} of an array determines the number of elements along each axis, and the number of axes is the array's dimensionality. For example, a vector of numbers can be stored as a one dimensional array of shape $N$, while color videos are four dimensional arrays of shape $T \times M \times N \times 3$.
 
 {\em Strides} are necessary to interpret computer memory, which stores elements linearly, as $n$-dimensional arrays.  It describes the number of bytes to move forward in memory to jump from row to row, column to column, and so forth.  Consider, for example, a 2-D array of floating point numbers with shape $4 \times 3$, where each element occupies 8 bytes in memory.  To move between consecutive columns we need to jump forward 8 bytes in memory, and to access the next row $3 \times 8 = 24$ bytes.  The strides of that array are therefore $(24, 8)$.
 
-% on top of this structure we add a powerful, expressive syntax for indexing and element-wise
-% calculations ....
-% this high-level syntax allows us to be efficient (broadcasting) and implement in C for
-% optimizing
+To manipulate the data structure in an intuitive manner, we provide users with a simple yet powerful array expression syntax.  It supports operations such as indexing (selecting subarrays) and element-wise calculations.  A high level syntax allows users to express themselves succinctly, while NumPy deals with the underlying mechanics of making operations fast.
 
-Portions of an array can be accessed through an {\em indexing} operation.  Arrays can be indexed in several ways to return single elements, sub-arrays, or elements that satisfy a specific condition.  Arrays can even be indexed using other arrays (see Figure~\ref{fig:array-concepts}).  Wherever possible, indexing that retrieves a subarray returns a {\em view} on the original array, such that data is shared between the two arrays.  This provides a powerful way to operate on subsets of array data, while limiting memory usage.
+Indexing an array returns single elements, sub-arrays, or elements that satisfy a specific condition.  Arrays can even be indexed using other arrays (see Figure~\ref{fig:array-concepts}).  Wherever possible, indexing that retrieves a subarray returns a {\em view} on the original array, such that data is shared between the two arrays.  This provides a powerful way to operate on subsets of array data, while limiting memory usage.
 
-Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
-
-Once data is viewed as an $n$-dimensional array, more abstract operations such
-as reductions (e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and so forth, are
-defined.
+A powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
 
 \begin{figure}
   \centering
@@ -116,12 +102,21 @@ defined.
   \label{fig:reductions}
 \end{figure}
 
+%Once data is viewed as an $n$-dimensional array, more abstract operations such
+%as reductions can be defined.
 
-NumPy includes numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+%(e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and %so forth, are
+%defined.
+
+To complement the array syntax, NumPy includes several functions that perform element-wise calculations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+
+Many of these functions, such as summation, support reductions: aggregating results across over or more dimension of the array.  For example, summing a $D$-dimensional array over $p$ axes results in a $D-p$-dimensional array, as shown in Figure~\ref{fig:reductions}.
 
 Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
 
-Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
+Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), as well as {\em utility functions}; together, these provide an easily readable, expressive, high-level API for array programming.  Exposing these array programming primitives in Python---an interpreted language---creates an ideal environment for exploratory data analysis \cite{perez2007ipython} where users may inspect, manipulate, and visualize their data.
+
+\fixme{This end of paragraph needs fixing up}Instead of focusing on programming, users can bring their attention to understanding and interacting with their data.
 
 % + interactivity
 % users tend to "live in their data",
@@ -239,8 +234,8 @@ NumPy also aims to improve our \emph{extensibility}.
 For example, we are currently redesigning the data type system.
 While the majority of users rely only on numerical dtypes, there are a
 multitude of use cases for which the current implementation is unsuited, such
-as physical units\cite{astropy,Goldbaum2018,pint}, geometrical
-objects\cite{pygeos}, and automatic differentiation\cite{pyadolc}.
+as physical units \cite{astropy,Goldbaum2018,pint}, geometrical
+objects \cite{pygeos}, and automatic differentiation \cite{pyadolc}.
 The proposed overhaul of the datatype system will make it behave consistently
 and will simplify the creation of custom dtypes, both in C and in Python.
 
@@ -302,7 +297,7 @@ continuous testing that runs a large battery of automated tests for every propos
 change to NumPy.
 The project has comprehensive, high-quality documentation,
 integrated with the source
-code\cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
+code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
 
 Lastly, we believe NumPy has benefited greatly from a well-chosen application
 programming interface (API).  Scientific and numerical programming needs to be
