@@ -77,44 +77,27 @@ a language for array computation.
 \end{figure*}
 
 The NumPy array is a structure that efficiently stores and accesses
-$n$-dimensional array data\cite{vanderwalt2011numpy}.
-The need for such a data structure arises often in science.
-For instance, it may be used to store experimental measurements made at
-discrete time intervals (1-D arrays), gray-level photographs (2-D arrays),
-spectral measurements on a regular grid (3-D arrays), or color videos (4-D
-arrays).
+$n$-dimensional arrays, also known as tensors\cite{vanderwalt2011numpy}.
+The need for such a data structure arises often in science, as it can be used to represent everything from time-series measurements to time-varying spectral measurements on a grid.
 
 The NumPy array consists of a pointer to memory, along with meta-data used to
-interpret the data stored there.
+interpret the data stored there, notably {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
 
-Data types (dtypes for short) tell us more about the elements stored in a NumPy
-array.
-% can hold ...?, e.g.,
-Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
-timestamps, or Python objects, each identified by its own dtype.
+A {\em data type} describes the nature of elements stored in an array.  An array has a single data type, and each array element occupies the same number of bytes in memory.  Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps, and pointers to Python objects.
 
-Shape 
+The {\em shape} of an array determines the number of axes, or dimensionality, of the array.  For example, a vector of numbers can be stored as a 1-D array of shape $N$, while color videos are 4-D arrays of shape $T \times M \times N \times 3$.
 
-strides
+{\em Strides} are necessary to interpret computer memory, which stores elements linearly, as $n$-dimensional arrays.  It describes the number of bytes to move forward in memory to jump from row to row, column to column, and so forth.  Consider, for example, a 2-D array of floating point numbers with shape $4 \times 3$, where each element occupies 8 bytes in memory.  To move between consecutive columns we need to jump forward 8 bytes in memory, and to access the next row $3 \times 8 = 24$ bytes.  The strides of that array are therefore $(24, 8)$.
 
-Computer memory stores elements linearly and has no notion
-of higher-dimensions, but we can interpret it as an $n$-dimensional array by also
-providing the array's shape, strides (the number of bytes to advance in memory to skip
-along rows, columns, etc.), and data type (see Figure~\ref{fig:array-concepts}).
-
-
-indexing - weirder stuff ? ..
-
+Portions of an array can be accessed through an {\em indexing} operation.  Arrays can be indexed in several ways to return single elements, sub-arrays, or elements that satisfy a specific condition.  Arrays can even be indexed using other arrays (see Figure~\ref{fig:array-concepts}).  Wherever possible, indexing that retrieves a subarray returns a {\em view} on the original array, such that data is shared between the two arrays.  This provides a powerful way to operate on subsets of array data, while limiting memory usage.
 
 Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
-
-
 
 Once data is viewed as an $n$-dimensional array, more abstract operations such
 as reductions (e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and so forth, are
 defined.
 
-Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and $@$, for matrix multiplication), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
+Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
 
 NumPy includes numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
 
