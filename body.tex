@@ -227,7 +227,6 @@ written for NumPy ndarrays could also be used by other NumPy-like projects.}
 
 To address these issues NumPy has the goal of providing the fundamental
 API for \emph{interoperability} between the various NumPy-like APIs.
-
 For example, a new array protocol was implemented that allows NumPy to consume
 array-like objects produced by libraries outside of NumPy.  When asking NumPy
 to, e.g., sum such an array, instead of attempting that operation itself, NumPy
@@ -236,7 +235,8 @@ NumPy API---the syntax for interacting with arrays---can still be used, but now
 with a library that supports GPUs, does distributed computation processing, or
 stores data in the cloud.
 
-Another ongoing example is a redesign of the data type system.
+NumPy also aims to improve our \emph{extensibility}.
+For example, we are currently redesigning the data type system.
 While the majority of users rely only on numerical dtypes, there are a
 multitude of use cases for which the current implementation is unsuited, such
 as physical units\cite{astropy,Goldbaum2018,pint}, geometrical
