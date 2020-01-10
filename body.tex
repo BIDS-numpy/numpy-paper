@@ -109,15 +109,15 @@ Other utility functions include creating, reshaping, concatenating, and padding 
 
 %Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes %the matrix-vector product $Ax$ and \code{x @ A} computes the vector-matrix product $x^\top A$.  This matrix %multiplication operation extends to higher-dimensions by treating the array as a stack of matrices.
 
-Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices (see Figure~\ref{fig:broadcasting}).
+Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{static/sketches/fancy-indexing}
-  \caption{\fixme{Indexing using arrays, or ``fancy indexing''.}
-   }
-  \label{fig:broadcasting}
-\end{figure}
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=\linewidth]{static/sketches/fancy-indexing}
+%  \caption{\fixme{Indexing using arrays, or ``fancy indexing''.}
+%   }
+%  \label{fig:broadcasting}
+%\end{figure}
 
 \begin{figure}
   \centering
