@@ -23,6 +23,11 @@
   upquote=true  %straight single quotes (requires textcomp)
 }
 
+\usepackage{caption}
+\captionsetup{%
+   figurename=Fig.,
+   tablename=Tab.
+}
 \usepackage{subcaption}
 
 % New Commands
@@ -32,7 +37,6 @@
 \newcommand{\fixme}[1]{\textcolor{red}{{#1}}}
 \newcommand{\inlinecite}[1]{\footnotesize\citen{#1}}
 \newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
 
 \usepackage{etoolbox}
 \makeatletter
