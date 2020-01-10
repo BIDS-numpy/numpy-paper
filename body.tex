@@ -87,7 +87,14 @@ A {\em data type} describes the nature of elements stored in an array.  An array
 
 The {\em shape} of an array determines the number of axes, or dimensionality, of the array.  For example, a vector of numbers can be stored as a 1-D array of shape $N$, while color videos are 4-D arrays of shape $T \times M \times N \times 3$.
 
+% shape > num. of axes and number of elements in each axis
+
 {\em Strides} are necessary to interpret computer memory, which stores elements linearly, as $n$-dimensional arrays.  It describes the number of bytes to move forward in memory to jump from row to row, column to column, and so forth.  Consider, for example, a 2-D array of floating point numbers with shape $4 \times 3$, where each element occupies 8 bytes in memory.  To move between consecutive columns we need to jump forward 8 bytes in memory, and to access the next row $3 \times 8 = 24$ bytes.  The strides of that array are therefore $(24, 8)$.
+
+% on top of this structure we add a powerful, expressive syntax for indexing and element-wise
+% calculations ....
+% this high-level syntax allows us to be efficient (broadcasting) and implement in C for
+% optimizing
 
 Portions of an array can be accessed through an {\em indexing} operation.  Arrays can be indexed in several ways to return single elements, sub-arrays, or elements that satisfy a specific condition.  Arrays can even be indexed using other arrays (see Figure~\ref{fig:array-concepts}).  Wherever possible, indexing that retrieves a subarray returns a {\em view} on the original array, such that data is shared between the two arrays.  This provides a powerful way to operate on subsets of array data, while limiting memory usage.
 
@@ -96,22 +103,6 @@ Finally, a powerful array feature that affects the way NumPy indexes and combine
 Once data is viewed as an $n$-dimensional array, more abstract operations such
 as reductions (e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and so forth, are
 defined.
-
-Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
-
-NumPy includes numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
-
-Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
-
-%Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes %the matrix-vector product $Ax$ and \code{x @ A} computes the vector-matrix product $x^\top A$.  This matrix %multiplication operation extends to higher-dimensions by treating the array as a stack of matrices.
-
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=\linewidth]{static/sketches/fancy-indexing}
-%  \caption{\fixme{Indexing using arrays, or ``fancy indexing''.}
-%   }
-%  \label{fig:broadcasting}
-%\end{figure}
 
 \begin{figure}
   \centering
@@ -122,17 +113,21 @@ Other utility functions include creating, reshaping, concatenating, and padding 
   \label{fig:reductions}
 \end{figure}
 
+
+NumPy includes numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+
+Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
+
+Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
+
+% + interactivity
+% users tend to "live in their data",
+% interactivity and powerful, expressive syntax ... inspect, feel their way forward, experiment
+% collect these into imperative or functional programs ....
+% not that they never plan, often do ... but the ability to stopping "programming"
+% and experiment is a key factor in why people use numpy ....
+
 \section*{Changing computational landscape}
-
-\fixme{Ralf will take a first pass on the section on 1/12.}
-
-\fixme{The idea here is something like:  classic numpy (as described above)
-was built to solve previous problems; new problems have arisen as
-the computational landscape has changed; new hardware, new languages,
-new problems; as a result np's role has changed; it is a foundational
-tool widely-used not a specialist tool used by scientist developers;
-many array-like libraries for various uses and np is serving as
-a standard)}
 
 NumPy was initially developed by students, faculty, and researchers in their
 spare time to provide a modern array computation library for Python.
@@ -143,6 +138,14 @@ Often they developed code to solve their own or their colleagues' problems.
 
 As Python's popularity for scientific computing, data science, and machine
 learning increased, many new challenges and use cases arose.
+
+\fixme{The idea here is something like:  classic numpy (as described above)
+was built to solve previous problems; new problems have arisen as
+the computational landscape has changed; new hardware, new languages,
+new problems; as a result np's role has changed; it is a foundational
+tool widely-used not a specialist tool used by scientist developers;
+many array-like libraries for various uses and np is serving as
+a standard)}
 
 - GPUs
 
