@@ -49,7 +49,7 @@ deep learning libraries such as PyTorch\cite{pytorch}.
   \caption{\fixme{PLACEHOLDER: This figure needs some text to describe
   it}
    }
-  \label{fig:arrayconcepts}
+  \label{fig:array-concepts}
 \end{figure*}
 
 The NumPy array is a structure that efficiently stores and accesses
@@ -62,30 +62,29 @@ arrays).
 
 The NumPy array consists of a pointer to memory, along with meta-data used to
 interpret the data stored there.
-For example, while computer memory stores elements linearly and has no notion
-of higher-dimensions, we can interpret it as $n$-dimensional arrays by also
-providing its shape, strides (the number of bytes to advance in memory to skip
-along rows, columns, etc.), and data-type.
+Computer memory stores elements linearly and has no notion
+of higher-dimensions, but we can interpret it as an $n$-dimensional array by also
+providing the array's shape, strides (the number of bytes to advance in memory to skip
+along rows, columns, etc.), and data-type (see Figure~\ref{fig:array-concepts}).
 
 Data types (dtypes for short) tell us more about the elements stored in a NumPy
 array.
 Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
-datetimes, or Python objects, each identified by its own dtype.
+timestamps, or Python objects, each identified by its own dtype.
 
 Once data is viewed as an $n$-dimensional array, more abstract operations such
-as reductions (e.g., summation across columns), products, and so forth, are
-defined (Figure~\ref{fig:reductions}).
-Users predominantly interact with NumPy arrays using these operators and
-associated utility functions through an easily readable high-level API
-(Application Programming Interface).
+as reductions (e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and so forth, are
+defined.
 
-Sometimes, it is desirable to combine arrays of different dimensions.
-One may, for example, want to add a scalar to a vector, or scale each column of
-an array by a specific scalar value.
-This is done through {\em broadcasting}, where one of the arrays is virtually
-duplicated (i.e., without copying any data in memory), so that the shapes of
-the operands match.
-Broadcasting is illustrated in Figure~\ref{fig:broadcasting}.
+Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and $@$, for matrix multiplication), together with {\em utility functions}; together, these provide an easily readable, expressive, high-level API (Application Programming Interface) for array manipulation.
+
+NumPy includes numerous functions that perform element-wise and reduction operations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+
+Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
+
+%Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes %the matrix-vector product $Ax$ and \code{x @ A} computes the vector-matrix product $x^\top A$.  This matrix %multiplication operation extends to higher-dimensions by treating the array as a stack of matrices.
+
+Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices (see Figure~\ref{fig:broadcasting}).
 
 \begin{figure}
   \centering
@@ -95,37 +94,14 @@ Broadcasting is illustrated in Figure~\ref{fig:broadcasting}.
   \label{fig:broadcasting}
 \end{figure}
 
-NumPy include numerous functions that perform element-wise and reduction
-operations on arrays, including arithmetic, statistics, and trigonometry.
-They aim to loop over array elements near-optimally (taking into consideration,
-e.g., strides, in order to best utilize the computer's fast cache memory), and
-implement broadcasting.
-Vectorized operations that would take many tens of lines to express in
-languages such as C can often be implemented as a single, clear Python
-expression.
-
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{static/sketches/reductions}
-  \caption{\fixme{Reducing an array along one of several axes.}
+  \caption{\fixme{Reducing an array along one of several axes. Note:
+  may want to fix to have right-hand axis system.}
    }
   \label{fig:reductions}
 \end{figure}
-
-NumPy also provides support for accelerated linear algebra, and supports
-several established backends such as OpenBLAS and Intel MKL.
-Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.
-Then \code{A @ x} computes the matrix-vector product $Ax$ and \code{x @ A} computes
-the vector-matrix product $x^\top A$.
-This matrix multiplication operation extends to higher-dimensions by treating
-the array as a stack of matrices.
-
-In addition, NumPy provides a large collection of utility functions for
-creating, reshaping, concatenating, and padding arrays; for searching, sorting
-and counting data in arrays; and for reading and writing files.
-It provides extensive support for generating pseudorandom numbers and includes
-an assortment of probability distributions.
-
 
 \section*{Changing computational landscape}
 
