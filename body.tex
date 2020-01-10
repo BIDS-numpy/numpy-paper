@@ -86,16 +86,29 @@ arrays).
 
 The NumPy array consists of a pointer to memory, along with meta-data used to
 interpret the data stored there.
-Computer memory stores elements linearly and has no notion
-of higher-dimensions, but we can interpret it as an $n$-dimensional array by also
-providing the array's shape, strides (the number of bytes to advance in memory to skip
-along rows, columns, etc.), and data type (see Figure~\ref{fig:array-concepts}).
 
 Data types (dtypes for short) tell us more about the elements stored in a NumPy
 array.
 % can hold ...?, e.g.,
 Arrays can hold, e.g., numerical data (of lower and higher precision), strings,
 timestamps, or Python objects, each identified by its own dtype.
+
+Shape 
+
+strides
+
+Computer memory stores elements linearly and has no notion
+of higher-dimensions, but we can interpret it as an $n$-dimensional array by also
+providing the array's shape, strides (the number of bytes to advance in memory to skip
+along rows, columns, etc.), and data type (see Figure~\ref{fig:array-concepts}).
+
+
+indexing - weirder stuff ? ..
+
+
+Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
+
+
 
 Once data is viewed as an $n$-dimensional array, more abstract operations such
 as reductions (e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and so forth, are
@@ -108,8 +121,6 @@ NumPy includes numerous functions that perform element-wise and reduction operat
 Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
 
 %Suppose the matrix \code{A} is a 2-d array and the vector \code{x} is a 1-d array.  Then \code{A @ x} computes %the matrix-vector product $Ax$ and \code{x @ A} computes the vector-matrix product $x^\top A$.  This matrix %multiplication operation extends to higher-dimensions by treating the array as a stack of matrices.
-
-Finally, a powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
 
 %\begin{figure}
 %  \centering
