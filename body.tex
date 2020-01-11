@@ -139,6 +139,12 @@ Now the user base is very different....
 % https://github.com/numpy/numpy/blob/a111b551ae940d7d5f8523fef1cf3589c6ba00a0/doc/neps/nep-0033-extensible-dtypes.rst
 % https://numpy.org/neps/nep-0037-array-module.html
 
+While NumPy remains the fundamental tool of choice for a large portion
+of applications the growth of the computational landscape and methods
+cannot be supported within a single library.
+However, the NumPy API is a preferred language for array computation
+and often one of the first tools learned.
+
 A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
 Over the last several years, a growing number of projects are providers of
@@ -175,6 +181,11 @@ written for NumPy ndarrays could also be used by other NumPy-like projects.}
 
 To address these issues NumPy has the goal of providing the fundamental
 API for \emph{interoperability} between the various NumPy-like APIs.
+We believe that improving the interoperability and moving NumPy forward
+to serve new arising needs where possible is the best way to balance
+the need for stability on the one hand while supporting the growth of
+specialized solutions and new tools on the other.
+
 For example, a new array protocol was implemented that allows NumPy to consume
 array-like objects produced by libraries outside of NumPy.  When asking NumPy
 to, e.g., sum such an array, instead of attempting that operation itself, NumPy
@@ -233,7 +244,7 @@ embedded within the open-source community.  Python attracts developers who like
 to build and contribute.  As a result, NumPy has always been a library that was
 developed by scientists in order to do their work.  Commercial specialist
 numerical languages can encourage consumer-users, who pick up a tool and use
-it, but do not expect to contribute to development%<-sentence a bit tough to parse.
+it, but do not expect to contribute to development. %<-sentence a bit tough to parse.
 In contrast, NumPy often
 attracts user-developers, who want to work with NumPy, and are prepared to fix
 and extend the library as they work. User-developers have been the fundamental
