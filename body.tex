@@ -176,10 +176,9 @@ can never hope to satisfy every single specialized need of the community.
 The advent of new technologies, such as GPUs, create opportunities that should be
 exploited, but are out of scope for NumPy development.
 Still, the widespread adoption of the NumPy API is valuable, as it lowers the
-barrier to entry and provides stability to the community.
+barrier to entry and provides the wider community with a stable array programming interface.
 What can NumPy do to support the use of its API without blocking innovation?
-We believe that improving interoperability by having NumPy be a central
-coordinator among array objects is a good way to balance stability while
+We believe that having NumPy as a central point of coordination between array objects can improve interoperability while
 supporting growth of a larger surrounding ecosystem of specialized solutions
 and new tools.
 Primarily, there exist two types of Python array objects: subclasses of NumPy
@@ -209,7 +208,7 @@ NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
 To facilitate \emph{interoperability}, the NumPy team is defining so-called
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions.
-NumPy, in turn, dispatches operations to the originating library, as required.
+NumPy, in turn, dispatches operations to the originating library, as required.  Early versions of these protocols have been successfully deployed.
 
 %\url{https://numpy.org/neps/nep-0037-array-module.html}
 
