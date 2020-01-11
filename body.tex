@@ -3,51 +3,12 @@ The Numeric package began in the mid-90s and provided an array object in
 Python, written in C, and linking to standard fast implementations of linear
 algebra.
 Around 2000, the Space Telescope Science Institute (STScI) software group wrote
-a re-implementation of much of Numeric, called NumArray, to support their
-need to work on large memory-mapped arrays and arrays of mixed data type
+a re-implementation of much of Numeric, called NumArray, to support their work
+on large memory-mapped arrays and arrays of mixed data type
 records \cite{STScI-slither}.
 This briefly caused the two communities to diverge, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
 and NumArray \cite{oliphant2006guide}.
-
-%By the beginning of the millennium, several libraries built on top of Numeric 
-%to provide fundamental scientific routines were combined into SciPy.
-%Due to the poor performance of Numeric on large data sets, NumArray was
-%developed at the Space Telescope Science Institute (STScI) to handle
-%large astronomical images such as those produced by the Hubble Space Telescope.
-%However, while initially considered the successor to Numeric, NumArray was no longer
-%performant on multiple small arrays.
-%This divide posed a challenge for SciPy as it wasn't clear how to support
-%both libraries.
-%Working with the NumArray and SciPy communities, the then maintainer of Numeric,
-%Travis Oliphant, embarked upon a major rewrite that aimed to be a ``best of both
-%worlds'' unification of Numeric and NumArray. This merger resulted in NumPy.
-%
-%The first incarnation of NumPy was a package called Numeric, written in 1995
-%by Jim Hugunin, then completing his master's thesis at MIT.
-%Hugunin based his package on previous work by Jim Fulton,
-%then working at the US Geological Survey, and acknowledges
-%many others in his initial report of the package \cite{Hugunin-whitepaper}.
-%Later, Paul Dubois at Lawrence Livermore National Laboratory toke over the project
-%and funded the writing of the first
-%manual\footnote{https://conference.scipy.org/scipy2010/slides/travis\_oliphant\_keynote.pdf}.
-%Numeric provided an array object in Python, written in C, and linking to
-%standard fast implementations of linear algebra.
-%% https://stackoverflow.com/questions/26948776/where-did-the-term-broadcasting-come-from/26950256
-%% https://mail.python.org/pipermail/matrix-sig/1995-November/000143.html
-%% May want to mention Yorick here (origin of broadcasting idea; it is mentioned later)
-%% https://aip.scitation.org/doi/pdf/10.1063/1.4823451 
-%% https://aip.scitation.org/doi/pdf/10.1063/1.4822400
-%
-%% S TODO: the first sentence below could flow a bit better
-%Around 2000, the Space Telescope Science Institute (STScI) software group wrote
-%a re-implementation of much of Numeric, called NumArray, to support their
-%need to work on large memory-mapped arrays and arrays of mixed data type
-%records \cite{STScI-slither}.
-%This briefly caused the Numeric and NumArray communities to diverge, until 2005,
-%when Travis Oliphant embarked upon a major rewrite that aimed to be a ``best of
-%both worlds'' unification of Numeric and NumArray \cite{oliphant2006guide}.
-%This merger resulted in NumPy.
 
 Today, NumPy underpins almost every Python library that does scientific or
 numerical computation including SciPy \cite{virtanen2019scipy},
@@ -63,8 +24,6 @@ The library has such widespread adoption that not only the array object but also
 {\it Application Programming Interface} (API) has become ubiquitous as
 a language for array programming.
 
-% S: Maybe we want to emphasize Jax, which has rapidly become very popular
-
 \section*{NumPy arrays}
 
 \begin{figure*}
@@ -79,9 +38,9 @@ a language for array programming.
   \label{fig:array-concepts}
 \end{figure*}
 
-The NumPy array is a structure that efficiently stores and accesses $n$-dimensional arrays, also known as tensors \cite{vanderwalt2011numpy}, that enables a wide variety of scientific computation.  It consists of a pointer to memory, along with meta-data used to interpret the data stored there, notably a {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
+The NumPy array is a data structure that efficiently stores and accesses $n$-dimensional arrays, also known as tensors \cite{vanderwalt2011numpy}, that enables a wide variety of scientific computation.  It consists of a pointer to memory, along with meta-data used to interpret the data stored there, notably {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
 
-A {\em data type} describes the nature of elements stored in an array.  An array has a single data type, and each array element occupies the same number of bytes in memory.  Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps, and pointers to Python objects.
+The {\em data type} describes the nature of elements stored in an array.  An array has a single data type, and each array element occupies the same number of bytes in memory.  Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps, and pointers to Python objects.
 
 The {\em shape} of an array determines the number of elements along each axis, and the number of axes is the array's dimensionality. For example, a vector of numbers can be stored as a one dimensional array of shape $N$, while color videos are four dimensional arrays of shape $T \times M \times N \times 3$.
 
@@ -199,12 +158,6 @@ Python.  Dask adopts the NumPy API and therefore presents a familiar
 interface to existing NumPy users, while adding powerful abilities to
 parallelize and distribute tasks.
 
-\fixme{Similarly there are many projects that build on top of the NumPy API for
-labeled and indexed arrays (XArray), automatic differentiation (Autograd,
-Tangent), masked arrays (numpy.ma), physical units (astropy.units, pint, unyt),
-etc. that add additional functionality on top of the NumPy API. Most of these
-project also implement a close variation of NumPy’s level high API.}
-
 The multitude of specialized projects creates the difficulty that consumers
 of these NumPy-like APIs write code specific to a single project and do not support
 all of the above array providers.
@@ -229,6 +182,12 @@ requests the original array to complete the computation.  This means that the
 NumPy API---the syntax for interacting with arrays---can still be used, but now
 with a library that supports GPUs, does distributed computation processing, or
 stores data in the cloud.
+
+\fixme{Similarly there are many projects that build on top of the NumPy API for
+labeled and indexed arrays (XArray), automatic differentiation (Autograd,
+Tangent), masked arrays (numpy.ma), physical units (astropy.units, pint, unyt),
+etc. that add additional functionality on top of the NumPy API. Most of these
+project also implement a close variation of NumPy’s level high API.}
 
 NumPy also aims to improve our \emph{extensibility}.
 For example, we are currently redesigning the data type system.
