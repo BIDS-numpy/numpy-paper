@@ -1,4 +1,4 @@
-Two different Python array packages existed before NumPy.
+Two Python array packages existed before NumPy.
 The Numeric package began in the mid-90s and provided an array object in
 Python, written in C, and linking to standard fast implementations of linear
 algebra.
@@ -38,19 +38,64 @@ a language for array programming.
   \label{fig:array-concepts}
 \end{figure*}
 
-The NumPy array is a data structure that efficiently stores and accesses $n$-dimensional arrays, also known as tensors \cite{vanderwalt2011numpy}, that enables a wide variety of scientific computation.  It consists of a pointer to memory, along with meta-data used to interpret the data stored there, notably {\em data type}, {\em shape}, and {\em strides} (see Figure~\ref{fig:array-concepts}).
+The NumPy array is a data structure that efficiently stores and accesses
+$n$-dimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, that
+enables a wide variety of scientific computation.
+It consists of a pointer to memory, along with meta-data used to interpret the
+data stored there, notably {\em data type}, {\em shape}, and {\em strides}
+(Fig.~\ref{fig:array-concepts}a).
 
-The {\em data type} describes the nature of elements stored in an array.  An array has a single data type, and each array element occupies the same number of bytes in memory.  Examples of data types include real and complex numbers (of lower and higher precision), strings, timestamps, and pointers to Python objects.
+The {\em data type} describes the nature of elements stored in an array.
+An array has a single data type, and each array element occupies the same
+number of bytes in memory.
+Examples of data types include real and complex numbers (of lower and higher
+precision), strings, timestamps, and pointers to Python objects.
 
-The {\em shape} of an array determines the number of elements along each axis, and the number of axes is the array's dimensionality. For example, a vector of numbers can be stored as a one dimensional array of shape $N$, while color videos are four dimensional arrays of shape $T \times M \times N \times 3$.
+The {\em shape} of an array determines the number of elements along each axis,
+and the number of axes is the array's dimensionality.
+For example, a vector of numbers can be stored as a one dimensional array of
+shape $N$, while color videos are four dimensional arrays of shape
+$T \times M \times N \times 3$.
 
-{\em Strides} are necessary to interpret computer memory, which stores elements linearly, as $n$-dimensional arrays.  It describes the number of bytes to move forward in memory to jump from row to row, column to column, and so forth.  Consider, for example, a 2-D array of floating point numbers with shape $4 \times 3$, where each element occupies 8 bytes in memory.  To move between consecutive columns we need to jump forward 8 bytes in memory, and to access the next row $3 \times 8 = 24$ bytes.  The strides of that array are therefore $(24, 8)$.
+{\em Strides} are necessary to interpret computer memory, which stores elements
+linearly, as $n$-dimensional arrays.
+It describes the number of bytes to move forward in memory to jump from row to
+row, column to column, and so forth.
+Consider, for example, a 2-D array of floating point numbers with shape
+$4 \times 3$, where each element occupies 8 bytes in memory.
+To move between consecutive columns we need to jump forward 8 bytes in memory,
+and to access the next row $3 \times 8 = 24$ bytes.
+The strides of that array are therefore $(24, 8)$.
 
-To manipulate the data structure in an intuitive manner, we provide users with a simple yet powerful array expression syntax.  It supports operations such as indexing (selecting subarrays) and element-wise calculations.  A high level syntax allows users to express themselves succinctly, while NumPy deals with the underlying mechanics of making operations fast.
+To manipulate the data structure in an intuitive manner, we provide users with
+a simple yet powerful array expression syntax.
+It supports operations such as indexing (selecting subarrays) and element-wise
+calculations.
+A high level syntax allows users to express themselves succinctly, while NumPy
+deals with the underlying mechanics of making operations fast.
 
-Indexing an array returns single elements, sub-arrays, or elements that satisfy a specific condition.  Arrays can even be indexed using other arrays (see Figure~\ref{fig:array-concepts}).  Wherever possible, indexing that retrieves a subarray returns a {\em view} on the original array, such that data is shared between the two arrays.  This provides a powerful way to operate on subsets of array data, while limiting memory usage.
+Indexing an array returns single elements, sub-arrays, or elements that satisfy
+a specific condition (Fig.~\ref{fig:array-concepts}b).
+Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}d).
+Wherever possible, indexing that retrieves a subarray returns a {\em view} on
+the original array, such that data is shared between the two arrays.
+This provides a powerful way to operate on subsets of array data, while
+limiting memory usage.
 
-A powerful array feature that affects the way NumPy indexes and combines arrays, is {\em broadcasting}. When performing an operation (such as addition) on two arrays, one intuitively expect that these arrays should be required to have the same shape.  However, through broadcasting, NumPy allows the dimensions to differ, while still producing results that appeal to intuition.  A trivial example is the addition of a scalar value to an array, but it also generalizes to more complex examples such as scaling each column of an array, or generating a grid of coordinates.  In broadcasting, one or both arrays are virtually duplicated (that is, without copying any data in memory), so that the shapes of the operands match (see Figure~\ref{fig:array-concepts}).  Broadcasting is also applied whenever an array is indexed using arrays of indices.% (see Figure~\ref{fig:broadcasting}).
+A powerful array feature that affects the way NumPy indexes and combines
+arrays, is {\em broadcasting}.
+When performing an operation (such as addition) on two arrays, one intuitively
+expect that these arrays should be required to have the same shape.
+However, through broadcasting, NumPy allows the dimensions to differ, while
+still producing results that appeal to intuition.
+A trivial example is the addition of a scalar value to an array, but it also
+generalizes to more complex examples such as scaling each column of an array,
+or generating a grid of coordinates.
+In broadcasting, one or both arrays are virtually duplicated (that is, without
+copying any data in memory), so that the shapes of the operands match
+(Fig.~\ref{fig:array-concepts}c).
+Broadcasting is also applied whenever an array is indexed using arrays of
+indices (Fig.~\ref{fig:array-concepts}d).
 
 \begin{figure}
   \centering
@@ -64,85 +109,109 @@ A powerful array feature that affects the way NumPy indexes and combines arrays,
 %Once data is viewed as an $n$-dimensional array, more abstract operations such
 %as reductions can be defined.
 
-%(e.g., summation across columns, see Figure~\ref{fig:reductions}) products, and %so forth, are
+%(e.g., summation across columns, see Fig.~\ref{fig:reductions}) products, and %so forth, are
 %defined.
 
-To complement the array syntax, NumPy includes several functions that perform element-wise calculations on arrays, including arithmetic, statistics, and trigonometry.  They aim to loop over array elements near-optimally, taking into consideration, e.g., strides, in order to best utilize the computer's fast cache memory.  Vectorized operations that would take many tens of lines to express in languages such as C can often be implemented as a single, clear Python expression.
+To complement the array syntax, NumPy includes several functions that perform
+element-wise calculations on arrays, including arithmetic, statistics, and
+trigonometry.
+They aim to loop over array elements near-optimally, taking into consideration,
+e.g., strides, in order to best utilize the computer's fast cache memory.
+Vectorized operations that would take many tens of lines to express in
+languages such as C can often be implemented as a single, clear Python
+expression.
 
-Many of these functions, such as summation, support reductions: aggregating results across over or more dimension of the array.  For example, summing a $D$-dimensional array over $p$ axes results in a $D-p$-dimensional array, as shown in Figure~\ref{fig:reductions}.
+Many of these functions, such as summation, support reductions: aggregating
+results across over or more dimension of the array.
+For example, summing a $D$-dimensional array over $p$ axes results in a
+$D-p$-dimensional array (Fig.~\ref{fig:reductions}).
 
-Other utility functions include creating, reshaping, concatenating, and padding arrays; searching, sorting and counting data; and reading and writing files.  NumPy provides extensive support for generating pseudorandom numbers and includes an assortment of probability distributions. It also performs accelerated linear algebra, utilising one of several backends such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
+Other utility functions include creating, reshaping, concatenating, and padding
+arrays; searching, sorting and counting data; and reading and writing files.
+NumPy provides extensive support for generating pseudorandom numbers and
+includes an assortment of probability distributions.
+It also performs accelerated linear algebra, utilising one of several backends
+such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
 
-Users predominantly interact with NumPy arrays using {\em indexing} (to access sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and, for matrix multiplication, $@$), as well as {\em utility functions}; together, these provide an easily readable, expressive, high-level API for array programming.  Exposing these array programming primitives in Python---an interpreted language---creates an ideal environment for exploratory data analysis \cite{perez2007ipython} where users may inspect, manipulate, and visualize their data.
+Users predominantly interact with NumPy arrays using {\em indexing} (to access
+sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
+and, for matrix multiplication, $@$), as well as {\em utility functions};
+together, these provide an easily readable, expressive, high-level API for
+array programming.
+Exposing these array programming primitives in Python---an interpreted
+language---creates an ideal environment for exploratory data analysis where
+users may inspect, manipulate, and visualize their data
+\cite{perez2007ipython}.
 
-\fixme{This end of paragraph needs fixing up}Instead of focusing on programming, users can bring their attention to understanding and interacting with their data.
+\section*{The proliferation of arrays}
 
-% + interactivity
-% users tend to "live in their data",
-% interactivity and powerful, expressive syntax ... inspect, feel their way forward, experiment
-% collect these into imperative or functional programs ....
-% not that they never plan, often do ... but the ability to stopping "programming"
-% and experiment is a key factor in why people use numpy ....
-
-\section*{Changing computational landscape}
-
-NumPy was initially developed by students, faculty, and researchers in their
-spare time to provide a modern array programming library for Python.
-They were influenced by their experiences with powerful interactive programming
-languages for scientific computing like Yorick \cite{munro1995using} as well
-as commercial languages like IDL and Matlab.
-Often they developed code to solve their own or their colleagues' problems.
-
-As Python's popularity for scientific computing, data science, and machine
-learning increased, many new challenges and use cases arose.
-
-\fixme{The idea here is something like:  classic numpy (as described above)
-was built to solve previous problems; new problems have arisen as
-the computational landscape has changed; new hardware, new languages,
-new problems; as a result np's role has changed; it is a foundational
-tool widely-used not a specialist tool used by scientist developers;
-many array-like libraries for various uses and np is serving as
-a standard)}
-
-- GPUs
-
-- distributed computing
-
-- other languages w/ arrays
-
-- massive explosion in data science, machine learning, and artificial intelligence
-
-NumPy also went from a small community of mostly expert users to
-one of the most widely used foundations of the scientific Python
-ecosystem.
-Now the user base is very different....
-% maybe worth a sentence or two about how we are working on web and
-% user docs to make it easier for new users to get started...
-
-\section*{Extensibility and Interoperability}
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.8\textwidth]{static/sketches/duck-arrays}
-  \caption{\textbf{Duck Arrays.} \fixme{Examples of so-called ``duck arrays'': arrays
-  implemented by another library that behave like NumPy arrays, and
-  support NumPy operations.  Through protocols, it is possible to have
-  a call such as $\cos(\cdot)$ succeed on each of these.}}
-  \label{fig:duck-arrays}
+  \caption{\textbf{Proliferation of Arrays.} Many ...}
+  \label{fig:array-proliferation}
 \end{figure*}
 
-NumPy's API has become ubiquitous in scientific computation, but NumPy itself can never hope to satisfy every single specialized need of the community.  The advent of new technologies, such as GPUs, create opportunities that should be exploited, but are out of scope for NumPy development.  Still, the widespread adoption of the NumPy API is valuable, as it lowers the barrier to entry and provides stability to the community.  What can NumPy do to support the use of its API without blocking innovation?  We believe that improving interoperability by having NumPy be a central coordinator among array objects is a good way to balance stability while supporting growth of a larger surrounding ecosystem of specialized solutions and new tools.
+(Fig.~\ref{fig:array-proliferation})
 
-Primarily, there exist two types of Python array objects: subclasses of NumPy arrays, and arrays that mimic NumPy arrays but are fundamentally different.
+- distributed arrays
 
-Subclasses of NumPy often exist due to difficulty in constructing richer data types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint}, geometrical objects \cite{pygeos}, and missing numbers.  To improve {\em extensibility}, we are currently overhauling the data type system to make it easier to implement data types both in Python and C, and to support these and other applications.
+- GPUs
 
-There has been a steady increase in the number of external libraries that mimic NumPy, i.e. provide arrays and a NumPy-like API for manipulating them.  This includes popular tensor computation libraries such as CuPy\footnote{\url{https://cupy.chainer.org/}}, JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.  PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}} and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}} provide tensor APIs with NumPy-inspired semantics.
-Ideally, operating on these arrays using NumPy would simply work, so that end users could write code once, and would then benefit from switching between NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
+- computation graph
 
-To facilitate {\em interoperability}, the NumPy team is defining so-called ``protocols'' (or contracts of operation), that allow for these arrays to be passed to NumPy functions.  NumPy, in turn, dispatches operations to the originating library, as required.
+- sparse arrays
 
-\url{https://numpy.org/neps/nep-0037-array-module.html}
+- other languages w/ arrays
+
+- massive explosion in data science, machine learning, and artificial intelligence (tensors)
+
+
+\section*{Extensibility and Interoperability}
+
+
+NumPy's API has become ubiquitous in scientific computation, but NumPy itself
+can never hope to satisfy every single specialized need of the community.
+The advent of new technologies, such as GPUs, create opportunities that should be
+exploited, but are out of scope for NumPy development.
+Still, the widespread adoption of the NumPy API is valuable, as it lowers the
+barrier to entry and provides stability to the community.
+What can NumPy do to support the use of its API without blocking innovation?
+We believe that improving interoperability by having NumPy be a central
+coordinator among array objects is a good way to balance stability while
+supporting growth of a larger surrounding ecosystem of specialized solutions
+and new tools.
+Primarily, there exist two types of Python array objects: subclasses of NumPy
+arrays, and arrays that mimic NumPy arrays but are fundamentally different.
+
+Subclasses of NumPy often exist due to difficulty in constructing richer data
+types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
+geometrical objects \cite{pygeos}, and missing numbers.
+To improve \emph{extensibility}, we are currently overhauling the data type
+system to make it easier to implement data types both in Python and C, and to
+support these and other applications.
+
+There has been a steady increase in the number of external libraries that mimic
+NumPy, i.e. provide arrays and a NumPy-like API for manipulating them.
+This includes popular tensor computation libraries such as
+CuPy\footnote{\url{https://cupy.chainer.org/}},
+JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and
+Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+and
+Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+provide tensor APIs with NumPy-inspired semantics.
+Ideally, operating on these arrays using NumPy would simply work, so that end
+users could write code once, and would then benefit from switching between
+NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
+
+To facilitate \emph{interoperability}, the NumPy team is defining so-called
+``protocols'' (or contracts of operation), that allow for these arrays to be
+passed to NumPy functions.
+NumPy, in turn, dispatches operations to the originating library, as required.
+
+%\url{https://numpy.org/neps/nep-0037-array-module.html}
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
@@ -156,68 +225,42 @@ To facilitate {\em interoperability}, the NumPy team is defining so-called ``pro
 % aka why is this so successful
 % some sense of ongoing work / future directions
 
+NumPy was initially developed by students, faculty, and researchers in their
+spare time to provide a modern array programming library for Python.
+They were influenced by their experiences with powerful interactive programming
+languages for scientific computing like Yorick \cite{munro1995using} as well
+as commercial languages like IDL and Matlab.
+Often they developed code to solve their own or their colleagues' problems.
 
-The creation of NumPy spurred renewed development in the larger scientific
-Python ecosystem and heralded the current era of wide-spread use of Python for
-scientific computing.
-There were several factors that allowed this rapid growth
-and successful development.
+NumPy spurred the development of the larger scientific Python ecosystem and
+heralded the current era of wide-spread use of Python for scientific computing.
+There were several factors that allowed this rapid growth and successful
+development.
 
-Hugunin identified the first factor in his initial description of the Numeric
-package \cite{Hugunin-whitepaper}.  Numerical computing is usually one
-component of a larger programming task, therefore:
-\begin{quote}
-    Rather than trying to retrofit an existing numerical language to support
-    the wealth of features found in a powerful, modern, general-purpose
-    programming language, it makes much more sense to attack the problem from
-    the other direction and add the features of a powerful numerical
-    programming language to Python.
-\end{quote}
 Python is already a good choice for many standard programming tasks such as
-cleaning data, interacting with web resources and parsing text.  It has a wide
-range of libraries for many different tasks. Adding fast array operations and
-linear algebra allows the scientist to do all their work with within the same
-language---and one that has the advantage of being famously easy to learn and
-teach.
+cleaning data, interacting with web resources and parsing text.
+It has a wide range of libraries for many different tasks.
+Adding fast array operations and linear algebra allows the scientist to do all
+their work with within the same language---and one that has the advantage of
+being famously easy to learn and teach.
 
-The second factor flows from Python's nature as an open-source language,
-embedded within the open-source community.  Python attracts developers who like
-to build and contribute.  As a result, NumPy has always been a library that was
-developed by scientists in order to do their work.  Commercial specialist
-numerical languages can encourage consumer-users, who pick up a tool and use
-it, but do not expect to contribute to development. %<-sentence a bit tough to parse.
-In contrast, NumPy often
-attracts user-developers, who want to work with NumPy, and are prepared to fix
-and extend the library as they work. User-developers have been the fundamental
-force in developing NumPy, and shaping it into a library that has been refined
-in the furnace of practical scientific work.
-
-The third factor is much like the second: 
-%a culture in Python that concentrates
-%on high quality of code and distribution.  Because Python is open-source, it has
-%a strong culture of contribution, and therefore, of using tools and process to
-%improve collaborative software development, such as distributed version
-%control, code review, and automated testing.  These have allowed the project to
-%scale safely as it attracted more users and developers, even though these
-%developers rarely came to the project with training in software engineering.
-the project has strong culture of using software-engineering practice to
+NumPy has strong culture of using software-engineering practice to
 improve collaboration and reduce error \cite{millman2014developing}.
-The NumPy team was early in adopting distributed
-revision control and code review to improve collaboration on code, and
-continuous testing that runs a large battery of automated tests for every proposed
-change to NumPy.
-The project has comprehensive, high-quality documentation,
-integrated with the source
-code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
+The NumPy team was early in adopting distributed revision control and code
+review to improve collaboration on code, and continuous testing that runs a
+large battery of automated tests for every proposed change to NumPy.
+The project has comprehensive, high-quality documentation, integrated with the
+source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
 
-Lastly, we believe NumPy has benefited greatly from a well-chosen application
-programming interface (API).  Scientific and numerical programming needs to be
-fast, and scale to very large datasets.  The NumPy API defines a simple wrapper
-for data in memory so it can be represented as a one- or multi-dimensional
-array.  The simplicity of this wrapper has made it very successful as a
-standard way of representing arrays in memory, and has made it relatively easy
-for other libraries to develop fast and memory-efficient compiled code, usually
-in C or Fortran, that can manipulate these arrays and pass them back to Python.
+Lastly, NumPy has benefited greatly from a well-chosen API.
+Scientific and numerical programming needs to be fast, and scale to very large
+datasets.
+The NumPy API defines a simple wrapper for data in memory so it can be
+represented as a one- or multi-dimensional array.
+The simplicity of this wrapper has made it very successful as a standard way of
+representing arrays in memory, and has made it relatively easy for other
+libraries to develop fast and memory-efficient compiled code, usually in C or
+Fortran, that can manipulate these arrays and pass them back to Python.
 This has been a large factor in the growth of numerical computing libraries
 around NumPy and Python.
 
