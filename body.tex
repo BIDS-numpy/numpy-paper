@@ -119,7 +119,7 @@ Now the user base is very different....
 % maybe worth a sentence or two about how we are working on web and
 % user docs to make it easier for new users to get started...
 
-\section*{Interoperability and extensibility}
+\section*{Extensibility and Interoperability}
 
 \begin{figure*}
   \centering
@@ -131,6 +131,18 @@ Now the user base is very different....
   \label{fig:duck-arrays}
 \end{figure*}
 
+NumPy's API has become ubiquitous in scientific computation, but NumPy itself can never hope to satisfy every single specialized need of the community.  The advent of new technologies, such as GPUs, create opportunities that should be exploited, but are out of scope for NumPy development.  Still, the widespread adoption of the NumPy API is valuable, as it lowers the barrier to entry and provides stability to the community.  What can NumPy do to support the use of its API without blocking innovation?  We believe that improving interoperability by having NumPy be a central coordinator among array objects is a good way to balance stability while supporting growth of a larger surrounding ecosystem of specialized solutions and new tools.
+
+Primarily, there exist two types of Python array objects: subclasses of NumPy arrays, and arrays that mimic NumPy arrays but are fundamentally different.
+
+Subclasses of NumPy often exist due to difficulty in constructing richer data types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint}, geometrical objects \cite{pygeos}, and missing numbers.  To improve {\em extensibility}, we are currently overhauling the data type system to make it easier to implement data types both in Python and C, and to support these and other applications.
+
+There has been a steady increase in the number of external libraries that mimic NumPy, i.e. provide arrays and a NumPy-like API for manipulating them.  This includes popular tensor computation libraries such as CuPy\footnote{\url{https://cupy.chainer.org/}}, JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.  PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}} and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}} provide tensor APIs with NumPy-inspired semantics.
+Ideally, operating on these arrays using NumPy would simply work, so that end users could write code once, and would then benefit from switching between NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
+
+To facilitate {\em interoperability}, the NumPy team is defining so-called ``protocols'' (or contracts of operation), that allow for these arrays to be passed to NumPy functions.  NumPy, in turn, dispatches operations to the originating library, as required.
+
+\url{https://numpy.org/neps/nep-0037-array-module.html}
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
@@ -138,77 +150,6 @@ Now the user base is very different....
 % https://numpy.org/neps/nep-0030-duck-array-protocol.html
 % https://github.com/numpy/numpy/blob/a111b551ae940d7d5f8523fef1cf3589c6ba00a0/doc/neps/nep-0033-extensible-dtypes.rst
 % https://numpy.org/neps/nep-0037-array-module.html
-
-While NumPy remains the fundamental tool of choice for a large portion
-of applications the growth of the computational landscape and methods
-cannot be supported within a single library.
-However, the NumPy API is a preferred language for array computation
-and often one of the first tools learned.
-
-A vast number of projects are built on NumPy;
-these projects are consumers of the NumPy API.
-Over the last several years, a growing number of projects are providers of
-a \emph{NumPy-like API} and array objects targeting audiences with specialized
-needs beyond NumPy's capabilities (Figure~\ref{fig:duck-arrays}).
-For example, the NumPy API is implemented by several popular tensor computation
-libraries including CuPy\footnote{\url{https://cupy.chainer.org/}},
-JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
-and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
-and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
-provide tensor APIs with NumPy-inspired semantics.
-It is also implemented in packages that support sparse arrays
-such as \code{scipy.sparse} and \code{pydata.sparse}.
-Another notable example is Dask, a library for parallel computing in
-Python.  Dask adopts the NumPy API and therefore presents a familiar
-interface to existing NumPy users, while adding powerful abilities to
-parallelize and distribute tasks.
-
-The multitude of specialized projects creates the difficulty that consumers
-of these NumPy-like APIs write code specific to a single project and do not support
-all of the above array providers.
-This is a burden for users relying on the specialized array-like, since
-a tool they need may not work for them.
-It also creates new challenges for end-users who need to transition
-from NumPy to a more specialized array.
-The growing multitude of specialized projects with NumPy-like APIs threatened
-to again fracture the scientific Python community.
-
-\fixme{We would like to be able to use these libraries together, for example we would
-like to be able to place a CuPy array within XArray, or perform automatic
-differentiation on Dask array code. This would be easier to accomplish if code
-written for NumPy ndarrays could also be used by other NumPy-like projects.}
-
-To address these issues NumPy has the goal of providing the fundamental
-API for \emph{interoperability} between the various NumPy-like APIs.
-We believe that improving the interoperability and moving NumPy forward
-to serve new arising needs where possible is the best way to balance
-the need for stability on the one hand while supporting the growth of
-specialized solutions and new tools on the other.
-
-For example, a new array protocol was implemented that allows NumPy to consume
-array-like objects produced by libraries outside of NumPy.  When asking NumPy
-to, e.g., sum such an array, instead of attempting that operation itself, NumPy
-requests the original array to complete the computation.  This means that the
-NumPy API---the syntax for interacting with arrays---can still be used, but now
-with a library that supports GPUs, does distributed computation processing, or
-stores data in the cloud.
-
-\fixme{Similarly there are many projects that build on top of the NumPy API for
-labeled and indexed arrays (XArray), automatic differentiation (Autograd,
-Tangent), masked arrays (numpy.ma), physical units (astropy.units, pint, unyt),
-etc. that add additional functionality on top of the NumPy API. Most of these
-project also implement a close variation of NumPy’s level high API.}
-
-NumPy also aims to improve our \emph{extensibility}.
-For example, we are currently redesigning the data type system.
-While the majority of users rely only on numerical dtypes, there are a
-multitude of use cases for which the current implementation is unsuited, such
-as physical units \cite{astropy,Goldbaum2018,pint}, geometrical
-objects \cite{pygeos}, and automatic differentiation \cite{pyadolc}.
-The proposed overhaul of the datatype system will make it behave consistently
-and will simplify the creation of custom dtypes, both in C and in Python.
-
 
 \section*{Discussion}
 
