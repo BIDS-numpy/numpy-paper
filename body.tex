@@ -55,14 +55,14 @@ The {\em shape} of an array determines the number of elements along each axis,
 and the number of axes is the array's dimensionality.
 For example, a vector of numbers can be stored as a one dimensional array of
 shape $N$, while color videos are four dimensional arrays of shape
-$T \times M \times N \times 3$.
+$(T, M, N, 3)$.
 
 {\em Strides} are necessary to interpret computer memory, which stores elements
 linearly, as $n$-dimensional arrays.
 It describes the number of bytes to move forward in memory to jump from row to
 row, column to column, and so forth.
 Consider, for example, a 2-D array of floating point numbers with shape
-$4 \times 3$, where each element occupies 8 bytes in memory.
+$(4, 3)$, where each element occupies 8 bytes in memory.
 To move between consecutive columns we need to jump forward 8 bytes in memory,
 and to access the next row $3 \times 8 = 24$ bytes.
 The strides of that array are therefore $(24, 8)$.
@@ -185,8 +185,10 @@ NumPy's API has become ubiquitous in scientific computation, but NumPy itself
 can never hope to satisfy every single specialized need of the community.
 The advent of new technologies, such as GPUs, create opportunities that should be
 exploited, but are out of scope for NumPy development.
+
 Still, the widespread adoption of the NumPy API is valuable, as it lowers the
 barrier to entry and provides the wider community with a stable array programming interface.
+
 What can NumPy do to support the use of its API without blocking innovation?
 We believe that having NumPy as a central point of coordination between array objects can improve interoperability while
 supporting growth of a larger surrounding ecosystem of specialized solutions
@@ -201,8 +203,8 @@ To improve \emph{extensibility}, we are currently overhauling the data type
 system to make it easier to implement data types both in Python and C, and to
 support these and other applications.
 
-There has been a steady increase in the number of external libraries that mimic
-NumPy, i.e. provide arrays and a NumPy-like API for manipulating them.
+There has been a steady increase in the number of external libraries that
+provide arrays and a NumPy-like API for manipulating them.
 This includes popular tensor computation libraries such as
 CuPy\footnote{\url{https://cupy.chainer.org/}},
 JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and
@@ -218,9 +220,12 @@ NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
 To facilitate \emph{interoperability}, the NumPy team is defining so-called
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions.
-NumPy, in turn, dispatches operations to the originating library, as required.  Early versions of these protocols have been successfully deployed.
-
+NumPy, in turn, dispatches operations to the originating library, as required.
+% FIXME: expand to 3 or more sentences discussing current efforts and
+% issues with those, how did adoption go, what is being done next
 %\url{https://numpy.org/neps/nep-0037-array-module.html}
+Early versions of these protocols have been successfully deployed.
+
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
