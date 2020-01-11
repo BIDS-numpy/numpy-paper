@@ -247,7 +247,7 @@ There were several factors that allowed this rapid growth and successful
 development.
 
 Python is already a good choice for many standard programming tasks such as
-cleaning data, interacting with web resources and parsing text.
+cleaning data, interacting with web resources, and parsing text.
 It has a wide range of libraries for many different tasks.
 Adding fast array operations and linear algebra allows the scientist to do all
 their work with within the same language---and one that has the advantage of
@@ -261,17 +261,11 @@ large battery of automated tests for every proposed change to NumPy.
 The project has comprehensive, high-quality documentation, integrated with the
 source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
 
-Lastly, NumPy has benefited greatly from a well-chosen API.
-Scientific and numerical programming needs to be fast, and scale to very large
-datasets.
-The NumPy API defines a simple wrapper for data in memory so it can be
-represented as a one- or multi-dimensional array.
-The simplicity of this wrapper has made it very successful as a standard way of
-representing arrays in memory, and has made it relatively easy for other
+Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it relatively easy for other
 libraries to develop fast and memory-efficient compiled code, usually in C or
-Fortran, that can manipulate these arrays and pass them back to Python.
-This has been a large factor in the growth of numerical computing libraries
-around NumPy and Python.
+Fortran, that could manipulate these arrays and pass them back to Python.
+
+Over time, and with the arrival of different technologies and array types, the role of NumPy has changed from merely being an array provider, to being a widely adopted array programming language.
 
 % S: I think two issues are conflated here: the simple underlying memory model, and the API.  The API has developed organically, while the underlying memory model is a design decision that shapes much of how the rest of the library was built.
 
