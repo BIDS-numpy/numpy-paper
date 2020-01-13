@@ -153,7 +153,6 @@ Exposing array programming primitives, as well as the surrounding ecosystem of t
 
 \section*{The proliferation of arrays}
 
-
 \begin{figure*}
   \centering
   \includegraphics[width=0.8\textwidth]{static/sketches/duck-arrays}
@@ -161,42 +160,13 @@ Exposing array programming primitives, as well as the surrounding ecosystem of t
   \label{fig:array-proliferation}
 \end{figure*}
 
-- massive explosion in data science, machine learning, and artificial intelligence
+Recent years have seen a massive explosion in data science, machine learning, and artificial intelligence.  NumPy and its API, underlying almost every tool in the computational toolchain, has become ubiquitous.  Still, NumPy itself could never hope to satisfy every single specialized need of the community; it is limited in its ability to work with very large datasets, datasets split across multiple systems, and computations that require specialized hardware.
 
-\fixme{NumPy is now omnipresent.  Many packages depend on it.}
-
-
-- new hardware platforms; large scales of data; computational barriers; ...
-
-\fixme{arrays are a nice idea in principle, but not all problems are that easily
-solved; it breaks down when you have very large data sets, when your data
-doesn't live on a single machine, when you have to use specialized hardware, or
-when several resources need to be combined to solve a single array computation}
-
-This has lead to a proliferation of arrays (Fig.~\ref{fig:array-proliferation}).
-
-- distributed arrays
-
-- GPUs
-
-- computation graph
-
-- sparse arrays
-
-- other languages w/ arrays
-
-
+Furthermore, pursuing solutions to these challenges are deemed out of scope for NumPy development. The community's efforts to fill the resultant gaps therefore led to a proliferation of arrays (Fig.~\ref{fig:array-proliferation}): distributed arrays, GPU arrays, delayed execution arrays, sparse arrays, foreign language arrays, and more.
 
 \section*{Extensibility and Interoperability}
 
-
-NumPy's API has become ubiquitous in scientific computation, but NumPy itself
-can never hope to satisfy every single specialized need of the community.
-The advent of new technologies, such as GPUs, create opportunities that should be
-exploited, but are out of scope for NumPy development.
-
-Still, the widespread adoption of the NumPy API is valuable, as it lowers the
-barrier to entry and provides the wider community with a stable array programming interface.
+Given a rapid proliferation of array implementations, a widespread adoption of the NumPy API remains valuable: it lowers the barrier to entry for newcomers, and provides the wider community with a stable array programming interface.
 
 What can NumPy do to support the use of its API without blocking innovation?
 We believe that having NumPy as a central point of coordination between array objects can improve interoperability while
@@ -248,12 +218,7 @@ Early versions of these protocols have been successfully deployed.
 % aka why is this so successful
 % some sense of ongoing work / future directions
 
-NumPy was initially developed by students, faculty, and researchers in their
-spare time to provide a modern array programming library for Python.
-They were influenced by their experiences with powerful interactive programming
-languages for scientific computing like Yorick \cite{munro1995using} as well
-as commercial languages like IDL and Matlab.
-Often they developed code to solve their own or their colleagues' problems.
+NumPy was initially developed by students, faculty, and researchers in their spare time to provide a modern array programming library for Python.  They were influenced by their experiences with powerful interactive programming languages for scientific computing like Yorick \cite{munro1995using} as well as commercial languages and environments like IDL and Matlab.  They also frequently developed code from scratch to solve their own or their colleagues' problems, often in low-level languages that preceeded Python like as Fortran \fixme{Cite https://www.netlib.org/} and C.  It is also hard to imagine that scientific Python was not in part influenced by its contemporaries, such as ROOT.
 
 % Fortran / C
 % IDL / FITS / ROOT / Parquet / Arrow ?
@@ -276,9 +241,16 @@ The NumPy team was early in adopting distributed revision control and code
 review to improve collaboration on code, and continuous testing that runs a
 large battery of automated tests for every proposed change to NumPy.
 The project has comprehensive, high-quality documentation, integrated with the
-source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
+source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 
-% teaching (neuroimaging paper / etc.?)
+% https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf
+% https://ras.ac.uk/news-and-press/news/leading-astronomers-and-geophysicists-honoured-ras-bicentenary-year-0
+
+This culture of using best practices for producing reliable scientific software has been eagerly adopted by the ecosystem of libraries that build on NumPy.  For example, in a recent award given by the Royal Astronomical Society to AstroPy, they state:
+\begin{quotation}
+\noindent\emph{The Astropy Project has provided hundreds of junior scientists with experience in professional-standard software development practices including use of version control, unit testing, code review and issue tracking procedures. This is a vital skillset for modern researchers that is often missing from formal university education in physics or astronomy.}
+\end{quotation}
+Community members explicitly work to address this lack of formal education through formal courses and workshops\cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}\fixme{cite https://scipy-school.org/}.
 
 Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it relatively easy for other
 libraries to develop fast and memory-efficient compiled code, usually in C or
