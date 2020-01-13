@@ -65,9 +65,10 @@ Consider, for example, a 2-D array of floating point numbers with shape
 $(4, 3)$, where each element occupies 8 bytes in memory.
 To move between consecutive columns we need to jump forward 8 bytes in memory,
 and to access the next row $3 \times 8 = 24$ bytes.
-The strides of that array are therefore $(24, 8)$.
-
-% Fortran / C
+The strides of that array are therefore $(24, 8)$.  NumPy is able to
+store arrays in both so-called ``C'' and ``Fortran''-order, iterating
+first over either rows or columns.  This allows external libraries
+written in those languages to directly access NumPy array data in memory.
 
 To manipulate the data structure in an intuitive manner, we provide users with
 a simple yet powerful array expression syntax.
@@ -107,12 +108,6 @@ indices (Fig.~\ref{fig:array-concepts}d).
   \label{fig:reductions}
 \end{figure}
 
-%Once data is viewed as an $n$-dimensional array, more abstract operations such
-%as reductions can be defined.
-
-%(e.g., summation across columns, see Fig.~\ref{fig:reductions}) products, and %so forth, are
-%defined.
-
 To complement the array syntax, NumPy includes several functions that perform
 element-wise calculations on arrays, including arithmetic, statistics, and
 trigonometry.
@@ -142,16 +137,19 @@ and, for matrix multiplication, $@$), as well as {\em utility functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming.
 
+Various libraries build on and extend this functionality to further enrich the ecosystem of available tools.  For example, SciPy adds various mathematical, scientific, and engineering routines; Pandas provides indexed arrays, known as dataframes; xarray implements arrays with labeled axes; and Matplotlib generates publication-ready figures and visualizations.  Employing these low-level utilities are several widely used technique-specific libraries, including scikit-learn (machine learning), scikit-image (image processing), statmodels (statistics),  networkx (graphs and complex networks), and Napari (volumetric image visualization) \fixme{citations for all these}.  
+
+Finally, domain-specific libraries and applications are built on this diverse foundation of tooling; these include astropy (astronomy) \fixme{citation}, NiPy (neuroimaging) \fixme{citation}, and pangeo (earth science) \fixme{citation}.
+
 % ecosystem
 % core: scipy, pandas, matplolib ;
 % scikits: scikit-learn, scikit-image, statmodels, networkx
 % domain specific: astropy (2 citations?), neuroscience (3 citations?), pangeo, napari, etc.
 % Ipython / Jupyter
 
-Exposing these array programming primitives in Python---an interpreted
-language---creates an ideal environment for exploratory data analysis where
-users may inspect, manipulate, and visualize their data
-\cite{perez2007ipython}.
+\fixme{Maybe some wording around the actual *support* element?}
+
+Exposing array programming primitives, as well as the surrounding ecosystem of tools, in Python---an interpreted language---creates an ideal environment for interactive, exploratory data analysis where users may iteratively inspect, manipulate, and visualize their data \cite{perez2007ipython}.
 
 \section*{The proliferation of arrays}
 
