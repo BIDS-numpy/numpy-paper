@@ -268,6 +268,37 @@ infrastructure to support hardware platforms used in large scale computing.
 
 \subsection*{Array function protocol}
 
+A vast number of projects are built on NumPy;
+these projects are consumers of the NumPy API.
+Over the last several years, a growing number of projects are providers of
+a \emph{NumPy-like API} and array objects targeting audiences with specialized
+needs beyond NumPy's capabilities.
+For example, the NumPy API is implemented by several popular tensor computation
+libraries including CuPy\footnote{\url{https://cupy.chainer.org/}},
+JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}},
+and Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+provide tensor APIs with NumPy-inspired semantics.
+It is also implemented in packages that support sparse arrays
+such as \code{scipy.sparse} and \code{pydata.sparse}.
+Another notable example is Dask, a library for parallel computing in
+Python.  Dask adopts the NumPy API and therefore presents a familiar
+interface to existing NumPy users, while adding powerful abilities to
+parallelize and distribute tasks.
+
+The multitude of specialized projects creates the difficulty that consumers
+of these NumPy-like APIs write code specific to a single project and do not support
+all of the above array providers.
+This is a burden for users relying on the specialized array-like, since
+a tool they need may not work for them.
+It also creates new challenges for end-users who need to transition
+from NumPy to a more specialized array.
+The growing multitude of specialized projects with NumPy-like APIs threatened
+to again fracture the scientific Python community.
+
+To address these issues NumPy has the goal of providing the fundamental
+API for \emph{interoperability} between the various NumPy-like APIs.
 An earlier step in this direction was the implementation of the
 \code{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
 for most mathematical functions.\cite{NEP13}

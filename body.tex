@@ -67,6 +67,8 @@ To move between consecutive columns we need to jump forward 8 bytes in memory,
 and to access the next row $3 \times 8 = 24$ bytes.
 The strides of that array are therefore $(24, 8)$.
 
+% Fortran / C
+
 To manipulate the data structure in an intuitive manner, we provide users with
 a simple yet powerful array expression syntax.
 It supports operations such as indexing (selecting subarrays) and element-wise
@@ -132,11 +134,20 @@ includes an assortment of probability distributions.
 It also performs accelerated linear algebra, utilizing one of several backends
 such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
 
+\section*{Supporting the ecosystem}
+
 Users predominantly interact with NumPy arrays using {\em indexing} (to access
 sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
 and, for matrix multiplication, $@$), as well as {\em utility functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming.
+
+% ecosystem
+% core: scipy, pandas, matplolib ;
+% scikits: scikit-learn, scikit-image, statmodels, networkx
+% domain specific: astropy (2 citations?), neuroscience (3 citations?), pangeo, napari, etc.
+% Ipython / Jupyter
+
 Exposing these array programming primitives in Python---an interpreted
 language---creates an ideal environment for exploratory data analysis where
 users may inspect, manipulate, and visualize their data
@@ -246,6 +257,9 @@ languages for scientific computing like Yorick \cite{munro1995using} as well
 as commercial languages like IDL and Matlab.
 Often they developed code to solve their own or their colleagues' problems.
 
+% Fortran / C
+% IDL / FITS / ROOT / Parquet / Arrow ?
+
 NumPy spurred the development of the larger scientific Python ecosystem and
 heralded the current era of wide-spread use of Python for scientific computing.
 There were several factors that allowed this rapid growth and successful
@@ -265,6 +279,8 @@ review to improve collaboration on code, and continuous testing that runs a
 large battery of automated tests for every proposed change to NumPy.
 The project has comprehensive, high-quality documentation, integrated with the
 source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}. 
+
+% teaching (neuroimaging paper / etc.?)
 
 Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it relatively easy for other
 libraries to develop fast and memory-efficient compiled code, usually in C or
