@@ -28,12 +28,16 @@ a language for array programming.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{static/sketches/array-concepts}
+  \includegraphics[width=.9\textwidth]{static/sketches/array-concepts}   
   \caption{\textbf{Fundamental Array Concepts.}
     \textbf{a,} The NumPy array data structure and its associated meta-data fields.
     \textbf{b,} Indexing an array with various types of arguments.
-    \textbf{c,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
-    \textbf{d,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
+    \textbf{c,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
+    \textbf{d,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
+    \textbf{e,} Reduction operations act along one or more axes. In this
+    example, a three-dimensional array is shown to be summed along various single
+    axes to produce two-dimensional results, or along two axes consecutively to
+    produce a one-dimensional result.
    }
   \label{fig:array-concepts}
 \end{figure*}
@@ -79,7 +83,7 @@ deals with the underlying mechanics of making operations fast.
 
 Indexing an array returns single elements, sub-arrays, or elements that satisfy
 a specific condition (Fig.~\ref{fig:array-concepts}b).
-Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}d).
+Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}c).
 Wherever possible, indexing that retrieves a subarray returns a {\em view} on
 the original array, such that data is shared between the two arrays.
 This provides a powerful way to operate on subsets of array data, while
@@ -96,17 +100,9 @@ generalizes to more complex examples such as scaling each column of an array,
 or generating a grid of coordinates.
 In broadcasting, one or both arrays are virtually duplicated (that is, without
 copying any data in memory), so that the shapes of the operands match
-(Fig.~\ref{fig:array-concepts}c).
+(Fig.~\ref{fig:array-concepts}d).
 Broadcasting is also applied whenever an array is indexed using arrays of
-indices (Fig.~\ref{fig:array-concepts}d).
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{static/sketches/reductions}
-  \caption{\textbf{Reductions.} Reduction operations act along one or more axes. In this example, a three-dimensional array is shown to be summed along various single axes to produce two-dimensional results, or along two axes consecutively to produce a one-dimensional result. \fixme{May want to fix to have right-hand axis system.}
-   }
-  \label{fig:reductions}
-\end{figure}
+indices (Fig.~\ref{fig:array-concepts}c).
 
 To complement the array syntax, NumPy includes several functions that perform
 element-wise calculations on arrays, including arithmetic, statistics, and
@@ -120,7 +116,7 @@ expression.
 Many of these functions, such as summation, support reductions: aggregating
 results across over or more dimension of the array.
 For example, summing a $D$-dimensional array over $p$ axes results in a
-$D-p$-dimensional array (Fig.~\ref{fig:reductions}).
+$D-p$-dimensional array (Fig.~\ref{fig:array-concepts}e).
 
 Other utility functions include creating, reshaping, concatenating, and padding
 arrays; searching, sorting and counting data; and reading and writing files.
