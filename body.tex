@@ -144,10 +144,10 @@ ecosystem of available tools.  For example, SciPy adds various mathematical,
 scientific, and engineering routines; Pandas provides indexed arrays, known as
 dataframes; xarray implements arrays with labeled axes; and Matplotlib
 generates publication-ready figures and visualizations.  Employing these
-low-level array-aware functions are several widely used technique-specific libraries,
+low-level array-aware functions are widely used technique-specific libraries,
 including scikit-learn (machine learning), scikit-image (image processing),
-statsmodels (statistics),  networkx (graphs and complex networks) \cite{SciPyProceedings_11}, and Napari
-(volumetric image visualization).
+statsmodels (statistics),  networkx (graphs and complex networks)
+\cite{SciPyProceedings_11}, and Napari (volumetric image visualization).
 
 Finally, domain-specific libraries and applications are built on this diverse
 foundation of tooling; these include Astropy (astronomy) \cite{astropy:2013,
@@ -174,7 +174,11 @@ https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
 
 Recent years have seen a massive explosion in data science, machine learning, and artificial intelligence.  NumPy and its API, underlying almost every tool in the computational toolchain, has become ubiquitous.  Still, NumPy itself could never hope to satisfy every single specialized need of the community; it is limited in its ability to work with very large datasets, datasets split across multiple systems, and computations that require specialized hardware.
 
-Furthermore, pursuing solutions to these challenges are deemed out of scope for NumPy development. The community's efforts to fill the resultant gaps therefore led to a proliferation of arrays (Fig.~\ref{fig:array-proliferation}): distributed arrays, GPU arrays, delayed execution arrays, sparse arrays, foreign language arrays, and more.
+Furthermore, pursuing solutions to these challenges is out of scope for
+NumPy development. The community's efforts to fill the resultant gaps therefore
+led to a proliferation of arrays (Fig.~\ref{fig:array-proliferation}):
+distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
+foreign language arrays, and more.
 
 \section*{Extensibility and Interoperability}
 
@@ -241,9 +245,9 @@ heralded the current era of wide-spread use of Python for scientific computing.
 There were several factors that allowed this rapid growth and successful
 development.
 
-Python is already a good choice for many standard programming tasks such as
+Python is already a good choice for standard programming tasks such as
 cleaning data, interacting with web resources, and parsing text.
-It has a wide range of libraries for many different tasks.
+It has a wide range of libraries for different tasks.
 Adding fast array operations and linear algebra allows the scientist to do all
 their work with within the same language---and one that has the advantage of
 being famously easy to learn and teach.
@@ -268,7 +272,7 @@ through formal courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
 %\fixme{cite https://scipy-school.org/}.
 
-Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it relatively easy for other
+Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it easy for other
 libraries to develop fast and memory-efficient compiled code, usually in C or
 Fortran, that could manipulate these arrays and pass them back to Python.
 
