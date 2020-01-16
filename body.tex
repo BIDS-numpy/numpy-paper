@@ -69,7 +69,7 @@ $(4, 3)$, where each element occupies 8 bytes in memory.
 To move between consecutive columns we need to jump forward 8 bytes in memory,
 and to access the next row $3 \times 8 = 24$ bytes.
 The strides of that array are therefore $(24, 8)$.  NumPy is able to
-store arrays in both so-called ``C'' and ``Fortran''-order, iterating
+store arrays in either C or Fortran memory order, iterating
 first over either rows or columns.  This allows external libraries
 written in those languages to directly access NumPy array data in memory.
 
