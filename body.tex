@@ -15,7 +15,7 @@ numerical computation including SciPy \cite{virtanen2019scipy},
 Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
 scikit-learn \cite{pedregosa2011scikit}, and
 scikit-image \cite{vanderwalt2014scikit}.
-It consists of an $n$-dimensional array object along with utility functions
+It consists of an $n$-dimensional array object along with array-aware functions
 that operate on it.
 Because of its inherent simplicity---being a pointer to memory with some
 associated meta-data---the NumPy array is
@@ -118,7 +118,7 @@ results across over or more dimension of the array.
 For example, summing a $D$-dimensional array over $p$ axes results in a
 $D-p$-dimensional array (Fig.~\ref{fig:array-concepts}e).
 
-Other utility functions include creating, reshaping, concatenating, and padding
+Other array-aware functions include creating, reshaping, concatenating, and padding
 arrays; searching, sorting and counting data; and reading and writing files.
 NumPy provides extensive support for generating pseudorandom numbers and
 includes an assortment of probability distributions.
@@ -136,7 +136,7 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 
 Users predominantly interact with NumPy arrays using {\em indexing} (to access
 sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
-and, for matrix multiplication, $@$), as well as {\em utility functions};
+and, for matrix multiplication, $@$), as well as {\em array-aware functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming.
 
@@ -145,7 +145,7 @@ ecosystem of available tools.  For example, SciPy adds various mathematical,
 scientific, and engineering routines; Pandas provides indexed arrays, known as
 dataframes; xarray implements arrays with labeled axes; and Matplotlib
 generates publication-ready figures and visualizations.  Employing these
-low-level utilities are several widely used technique-specific libraries,
+low-level array-aware functions are several widely used technique-specific libraries,
 including scikit-learn (machine learning), scikit-image (image processing),
 statsmodels (statistics),  networkx (graphs and complex networks) \cite{SciPyProceedings_11}, and Napari
 (volumetric image visualization).
