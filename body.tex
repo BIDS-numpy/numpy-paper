@@ -123,9 +123,11 @@ arrays; searching, sorting and counting data; and reading and writing files.
 NumPy provides extensive support for generating pseudorandom numbers and
 includes an assortment of probability distributions.
 It also performs accelerated linear algebra, utilizing one of several backends
-such as OpenBLAS and Intel MKL optimized for the CPUs at hand.
+such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized for the CPUs at hand.
 
 \section*{Supporting the ecosystem}
+
+\fixme{Maybe some wording around the actual *support* element?}
 
 Users predominantly interact with NumPy arrays using {\em indexing} (to access
 sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
@@ -133,23 +135,31 @@ and, for matrix multiplication, $@$), as well as {\em utility functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming.
 
-Various libraries build on and extend this functionality to further enrich the ecosystem of available tools.  For example, SciPy adds various mathematical, scientific, and engineering routines; Pandas provides indexed arrays, known as dataframes; xarray implements arrays with labeled axes; and Matplotlib generates publication-ready figures and visualizations.  Employing these low-level utilities are several widely used technique-specific libraries, including scikit-learn (machine learning), scikit-image (image processing), statmodels (statistics),  networkx (graphs and complex networks), and Napari (volumetric image visualization) \fixme{citations for all these}.  
+Various libraries build on and extend this functionality to further enrich the
+ecosystem of available tools.  For example, SciPy adds various mathematical,
+scientific, and engineering routines; Pandas provides indexed arrays, known as
+dataframes; xarray implements arrays with labeled axes; and Matplotlib
+generates publication-ready figures and visualizations.  Employing these
+low-level utilities are several widely used technique-specific libraries,
+including scikit-learn (machine learning), scikit-image (image processing),
+statmodels (statistics),  networkx (graphs and complex networks) \cite{SciPyProceedings_11}, and Napari
+(volumetric image visualization).
 
-Finally, domain-specific libraries and applications are built on this diverse foundation of tooling; these include astropy (astronomy) \fixme{citation}, NiPy (neuroimaging) \fixme{citation}, and pangeo (earth science) \fixme{citation}.
+Finally, domain-specific libraries and applications are built on this diverse
+foundation of tooling; these include Astropy (astronomy) \cite{astropy:2013,
+astropy:2018}, Biopython (computational biology and bioinformatics) \cite{cock2009biopython},
+NIPY (neuroimaging) \cite{millman2007analysis}, and Pangeo (earth science) \cite{2018EGUGA..2012146H}.
 
-% ecosystem
-% core: scipy, pandas, matplolib ;
-% scikits: scikit-learn, scikit-image, statmodels, networkx
-% domain specific: astropy (2 citations?), neuroscience (3 citations?), pangeo, napari, etc.
-% Ipython / Jupyter
-
-\fixme{Maybe some wording around the actual *support* element?}
-
-Exposing array programming primitives, as well as the surrounding ecosystem of tools, in Python---an interpreted language---creates an ideal environment for interactive, exploratory data analysis where users may iteratively inspect, manipulate, and visualize their data \cite{perez2007ipython}.
+Exposing array programming primitives, as well as the surrounding ecosystem of
+tools, in Python---an interpreted language---creates an ideal environment for
+interactive, exploratory data analysis where users may iteratively inspect,
+manipulate, and visualize their data \cite{perez2007ipython}.
 
 \section*{The proliferation of arrays}
 
-\fixme{Add references somewhere to Zarr, https://arrow.apache.org/, https://parquet.apache.org/, https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
+\fixme{Add references somewhere to Zarr, https://arrow.apache.org/,
+https://parquet.apache.org/,
+https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
 
 \begin{figure*}
   \centering
@@ -216,10 +226,9 @@ Early versions of these protocols have been successfully deployed.
 % aka why is this so successful
 % some sense of ongoing work / future directions
 
-NumPy was initially developed by students, faculty, and researchers in their spare time to provide a modern array programming library for Python.  They were influenced by their experiences with powerful interactive programming languages for scientific computing like Yorick \cite{munro1995using} as well as commercial languages and environments like IDL and Matlab.  They also frequently developed code from scratch to solve their own or their colleagues' problems, often in low-level languages that preceeded Python like as Fortran \fixme{Cite https://www.netlib.org/} and C.  It is also hard to imagine that scientific Python was not in part influenced by its contemporaries, such as ROOT.
+NumPy was initially developed by students, faculty, and researchers in their spare time to provide a modern array programming library for Python.  They were influenced by their experiences with powerful interactive programming languages for scientific computing like Yorick \cite{munro1995using} as well as commercial languages and environments like IDL and Matlab.  They also frequently developed code from scratch to solve their own or their colleagues' problems, often in low-level languages that preceded Python like as Fortran \cite{dongarra2008netlib} and C.  It is also hard to imagine that scientific Python was not in part influenced by its contemporaries, such as ROOT.
 
 % Fortran / C
-% IDL / FITS / ROOT / Parquet / Arrow ?
 
 NumPy spurred the development of the larger scientific Python ecosystem and
 heralded the current era of wide-spread use of Python for scientific computing.
@@ -248,7 +257,10 @@ This culture of using best practices for producing reliable scientific software 
 \begin{quotation}
 \noindent\emph{The Astropy Project has provided hundreds of junior scientists with experience in professional-standard software development practices including use of version control, unit testing, code review and issue tracking procedures. This is a vital skillset for modern researchers that is often missing from formal university education in physics or astronomy.}
 \end{quotation}
-Community members explicitly work to address this lack of formal education through formal courses and workshops\cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}\fixme{cite https://scipy-school.org/}.
+Community members explicitly work to address this lack of formal education
+through formal courses and workshops
+\cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
+%\fixme{cite https://scipy-school.org/}.
 
 Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it relatively easy for other
 libraries to develop fast and memory-efficient compiled code, usually in C or
