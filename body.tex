@@ -12,7 +12,7 @@ and NumArray \cite{oliphant2006guide}.
 
 Today, NumPy underpins almost every Python library that does scientific or
 numerical computation including SciPy \cite{virtanen2019scipy},
-matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
+Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
 scikit-learn \cite{pedregosa2011scikit}, and
 scikit-image \cite{vanderwalt2014scikit}.
 It consists of an $n$-dimensional array object along with utility functions
@@ -129,6 +129,11 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 
 \fixme{Maybe some wording around the actual *support* element?}
 
+% - review supporting the ecosystem (actual support element)
+%   - docstrings / testing / packaging
+%   - coordinating mechanism
+%     - deprecation policy
+
 Users predominantly interact with NumPy arrays using {\em indexing} (to access
 sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
 and, for matrix multiplication, $@$), as well as {\em utility functions};
@@ -142,7 +147,7 @@ dataframes; xarray implements arrays with labeled axes; and Matplotlib
 generates publication-ready figures and visualizations.  Employing these
 low-level utilities are several widely used technique-specific libraries,
 including scikit-learn (machine learning), scikit-image (image processing),
-statmodels (statistics),  networkx (graphs and complex networks) \cite{SciPyProceedings_11}, and Napari
+statsmodels (statistics),  networkx (graphs and complex networks) \cite{SciPyProceedings_11}, and Napari
 (volumetric image visualization).
 
 Finally, domain-specific libraries and applications are built on this diverse
@@ -253,7 +258,7 @@ source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 % https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf
 % https://ras.ac.uk/news-and-press/news/leading-astronomers-and-geophysicists-honoured-ras-bicentenary-year-0
 
-This culture of using best practices for producing reliable scientific software has been eagerly adopted by the ecosystem of libraries that build on NumPy.  For example, in a recent award given by the Royal Astronomical Society to AstroPy, they state:
+This culture of using best practices for producing reliable scientific software has been eagerly adopted by the ecosystem of libraries that build on NumPy.  For example, in a recent award given by the Royal Astronomical Society to Astropy, they state:
 \begin{quotation}
 \noindent\emph{The Astropy Project has provided hundreds of junior scientists with experience in professional-standard software development practices including use of version control, unit testing, code review and issue tracking procedures. This is a vital skillset for modern researchers that is often missing from formal university education in physics or astronomy.}
 \end{quotation}
