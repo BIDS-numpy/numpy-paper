@@ -165,31 +165,36 @@ manipulate, and visualize their data \cite{perez2007ipython}.
 https://parquet.apache.org/,
 https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
 
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.6\textwidth]{static/sketches/duck-arrays}
-  \caption{\textbf{Proliferation of Arrays.} The NumPy array is a classic and simple in-memory representation of array data. Since its inception, numerous other array representations have been developed, including distributed arrays---which are stored on multiple computers, GPU arrays---which utilize graphics processing units for fast computation, computation graphs---which postpone and combine calculations before executing them efficiently, and sparse arrays---which typically contain few non-zero values, and store only those in memory.}
-  \label{fig:array-proliferation}
-\end{figure*}
+Recent years have seen a massive explosion in data science, machine learning,
+and artificial intelligence.  NumPy and its API, underlying almost every tool
+in the computational toolchain, has become ubiquitous.  Still, NumPy itself
+could never hope to satisfy every single specialized need of the community; it
+is limited in its ability to work with very large datasets, datasets split
+across multiple systems, and computations that require specialized hardware.
+Furthermore, pursuing solutions to these challenges is out of scope for NumPy
+development.
 
-Recent years have seen a massive explosion in data science, machine learning, and artificial intelligence.  NumPy and its API, underlying almost every tool in the computational toolchain, has become ubiquitous.  Still, NumPy itself could never hope to satisfy every single specialized need of the community; it is limited in its ability to work with very large datasets, datasets split across multiple systems, and computations that require specialized hardware.
-
-Furthermore, pursuing solutions to these challenges is out of scope for
-NumPy development. The community's efforts to fill the resultant gaps therefore
-led to a proliferation of arrays (Fig.~\ref{fig:array-proliferation}):
-distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
-foreign language arrays, and more.
+The community's efforts to fill the resultant gaps therefore led to a
+proliferation of arrays including distributed arrays---which are stored on
+multiple computers, GPU arrays---which utilize graphics processing units for
+fast computation, computation graphs---which postpone and combine calculations
+before executing them efficiently, and sparse arrays---which typically contain
+few non-zero values, and store only those in memory.
+%distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
+%foreign language arrays, and more.
 
 \section*{Extensibility and Interoperability}
 
-Given the proliferation of array implementations, a widespread adoption of the NumPy API remains valuable: it lowers the barrier to entry for newcomers, and provides the wider community with a stable array programming interface.
+Given the proliferation of array implementations, a widespread adoption of the
+NumPy API remains valuable: it lowers the barrier to entry for newcomers, and
+provides the wider community with a stable array programming interface.
 
 What can NumPy do to support the use of its API without blocking innovation?
-We believe that having NumPy as a central point of coordination between array objects can improve interoperability while
-supporting growth of a larger surrounding ecosystem of specialized solutions
-and new tools.
-Primarily, there exist two types of Python array objects: subclasses of NumPy
-arrays, and arrays that mimic NumPy arrays but are fundamentally different.
+We believe that having NumPy as a central point of coordination between array
+objects can improve interoperability while supporting growth of a larger
+surrounding ecosystem of specialized solutions and new tools.  Primarily, there
+exist two types of Python array objects: subclasses of NumPy arrays, and arrays
+that mimic NumPy arrays but are fundamentally different.
 
 Subclasses of NumPy often exist due to difficulty in constructing richer data
 types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
@@ -212,9 +217,16 @@ Ideally, operating on these arrays using NumPy would simply work, so that end
 users could write code once, and would then benefit from switching between
 NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{static/sketches/duck-arrays}
+  \caption{\textbf{Interoperability.} \fixme{This figure needs work.}}  \label{fig:duck-arrays}
+\end{figure*}
+
+
 To facilitate \emph{interoperability}, the NumPy team has designed
 ``protocols'' (or contracts of operation), that allow for these arrays to be
-passed to NumPy functions.
+passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
 NumPy, in turn, dispatches operations to the originating library, as required.
 % FIXME: expand to 3 or more sentences discussing current efforts and
 % issues with those, how did adoption go, what is being done next
@@ -236,7 +248,15 @@ Versions of these protocols have been successfully deployed.
 % aka why is this so successful
 % some sense of ongoing work / future directions
 
-NumPy was initially developed by students, faculty, and researchers in their spare time to provide a modern array programming library for Python.  They were influenced by their experiences with powerful interactive programming languages for scientific computing like Yorick \cite{munro1995using} as well as commercial languages and environments like IDL and Matlab.  They also frequently developed code from scratch to solve their own or their colleagues' problems, often in low-level languages that preceded Python like as Fortran \cite{dongarra2008netlib} and C.  It is also hard to imagine that scientific Python was not in part influenced by its contemporaries, such as ROOT.
+NumPy was initially developed by students, faculty, and researchers in their
+spare time to provide a modern array programming library for Python.  They were
+influenced by their experiences with powerful interactive programming languages
+for scientific computing like Yorick \cite{munro1995using} as well as
+commercial languages and environments like IDL and Matlab.  They also
+frequently developed code from scratch to solve their own or their colleagues'
+problems, often in low-level languages that preceded Python like as Fortran
+\cite{dongarra2008netlib} and C.  It is also hard to imagine that scientific
+Python was not in part influenced by its contemporaries, such as ROOT.
 
 % Fortran / C
 
@@ -263,22 +283,31 @@ source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 % https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf
 % https://ras.ac.uk/news-and-press/news/leading-astronomers-and-geophysicists-honoured-ras-bicentenary-year-0
 
-This culture of using best practices for producing reliable scientific software has been eagerly adopted by the ecosystem of libraries that build on NumPy.  For example, in a recent award given by the Royal Astronomical Society to Astropy, they state:
+This culture of using best practices for producing reliable scientific software
+has been eagerly adopted by the ecosystem of libraries that build on NumPy.
+For example, in a recent award given by the Royal Astronomical Society to
+Astropy, they state:
 \begin{quotation}
-\noindent\emph{The Astropy Project has provided hundreds of junior scientists with experience in professional-standard software development practices including use of version control, unit testing, code review and issue tracking procedures. This is a vital skillset for modern researchers that is often missing from formal university education in physics or astronomy.}
+\noindent\emph{The Astropy Project has provided hundreds of junior scientists
+with experience in professional-standard software development practices
+including use of version control, unit testing, code review and issue tracking
+procedures. This is a vital skillset for modern researchers that is often
+missing from formal university education in physics or astronomy.}
 \end{quotation}
 Community members explicitly work to address this lack of formal education
 through formal courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
 %\fixme{cite https://scipy-school.org/}.
 
-Lastly, NumPy benefited greatly from the simplicity of its underlying data structure, which made it a natural standard for exchanging array data between libraries.  It also made it easy for other
-libraries to develop fast and memory-efficient compiled code, usually in C or
-Fortran, that could manipulate these arrays and pass them back to Python.
+Lastly, NumPy benefited greatly from the simplicity of its underlying data
+structure, which made it a natural standard for exchanging array data between
+libraries.  It also made it easy for other libraries to develop fast and
+memory-efficient compiled code, usually in C or Fortran, that could manipulate
+these arrays and pass them back to Python.
 
-Over time, and with the arrival of different technologies and array types, the role of NumPy has changed from merely being an array provider, to being a widely adopted array programming language.
-
-% S: I think two issues are conflated here: the simple underlying memory model, and the API.  The API has developed organically, while the underlying memory model is a design decision that shapes much of how the rest of the library was built.
+Over time, and with the arrival of different technologies and array types, the
+role of NumPy has changed from merely being an array provider, to being a
+widely adopted array programming language.
 
 % S:
 %
@@ -288,10 +317,12 @@ Over time, and with the arrival of different technologies and array types, the r
 % - Philosophical
 % - Social
 %
-% E.g., practical: reason why we use Python (learn one language for everything); students don't have money, so want to avoid impracticalities of license dongles/servers, etc.
+% E.g., practical: reason why we use Python (learn one language for
+% everything); students don't have money, so want to avoid impracticalities of
+% license dongles/servers, etc.
 %
-% Philosophical: science should be open, transparent; our software should be controlled by scientists, not designers that we don't have access to
+% Philosophical: science should be open, transparent; our software should be
+% controlled by scientists, not designers that we don't have access to
 %
-% Social: joy of building these things together, friendly welcome into the community for many of us---appreciation of our work and hours
-%
-
+% Social: joy of building these things together, friendly welcome into the
+% community for many of us---appreciation of our work and hours
