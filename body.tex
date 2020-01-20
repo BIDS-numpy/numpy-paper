@@ -15,7 +15,7 @@ numerical computation including SciPy \cite{virtanen2019scipy},
 Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
 scikit-learn \cite{pedregosa2011scikit}, and
 scikit-image \cite{vanderwalt2014scikit}.
-It consists of an $n$-dimensional array object along with array-aware functions
+It consists of an multidimensional array object along with array-aware functions
 that operate on it.
 Because of its inherent simplicity, the NumPy array is
 the {\it de facto} exchange format for array data in Python.
@@ -27,9 +27,9 @@ a language for array programming.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=.9\textwidth]{static/sketches/array-concepts}   
+  \includegraphics[width=\textwidth]{static/sketches/array-concepts}   
   \caption{\textbf{Fundamental Array Concepts.}
-    \textbf{a,} The NumPy array data structure and its associated meta-data fields.
+    \textbf{a,} The NumPy array data structure and its associated metadata fields.
     \textbf{b,} Indexing an array with various types of arguments.
     \textbf{c,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
     \textbf{d,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
@@ -42,14 +42,14 @@ a language for array programming.
 \end{figure*}
 
 The NumPy array is a data structure that efficiently stores and accesses
-$n$-dimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, that
+multidimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, that
 enables a wide variety of scientific computation.
-It consists of a pointer to memory, along with meta-data used to interpret the
+It consists of a pointer to memory, along with metadata used to interpret the
 data stored there, notably {\em data type}, {\em shape}, and {\em strides}
 (Fig.~\ref{fig:array-concepts}a).
 
 The {\em data type} describes the nature of elements stored in an array.
-An array has a single data type, and each array element occupies the same
+n array has a single data type, and each array element occupies the same
 number of bytes in memory.
 Examples of data types include real and complex numbers (of lower and higher
 precision), strings, timestamps, and pointers to Python objects.
@@ -61,7 +61,7 @@ shape $N$, while color videos are four dimensional arrays of shape
 $(T, M, N, 3)$.
 
 {\em Strides} are necessary to interpret computer memory, which stores elements
-linearly, as $n$-dimensional arrays.
+linearly, as multidimensional arrays.
 It describes the number of bytes to move forward in memory to jump from row to
 row, column to column, and so forth.
 Consider, for example, a 2-D array of floating point numbers with shape
@@ -75,7 +75,7 @@ written in those languages to directly access NumPy array data in memory.
 
 To manipulate the data structure in an intuitive manner, we provide users with
 a simple yet powerful array expression syntax.
-It supports operations such as indexing (selecting subarrays) and element-wise
+It supports operations such as indexing (selecting subarrays) and elementwise
 calculations.
 A high level syntax allows users to express themselves succinctly, while NumPy
 deals with the underlying mechanics of making operations fast.
@@ -103,8 +103,8 @@ copying any data in memory), so that the shapes of the operands match
 Broadcasting is also applied whenever an array is indexed using arrays of
 indices (Fig.~\ref{fig:array-concepts}c).
 
-To complement the array syntax, NumPy includes several functions that perform
-element-wise calculations on arrays, including arithmetic, statistics, and
+To complement the array syntax, NumPy includes functions that perform
+elementwise calculations on arrays, including arithmetic, statistics, and
 trigonometry.
 They aim to loop over array elements near-optimally, taking into consideration,
 e.g., strides, in order to best utilize the computer's fast cache memory.
@@ -114,8 +114,8 @@ expression.
 
 Many of these functions, such as summation, support reductions: aggregating
 results across one or more dimensions of the array.
-For example, summing a $d$-dimensional array over $c$ axes results in a
-$(d-c)$-dimensional array (Fig.~\ref{fig:array-concepts}e).
+For example, summing a $n$-dimensional array over $d$ axes results in a
+$(n-d)$-dimensional array (Fig.~\ref{fig:array-concepts}e).
 
 Other array-aware functions include creating, reshaping, concatenating, and padding
 arrays; searching, sorting and counting data; and reading and writing files.
@@ -167,7 +167,7 @@ https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.8\textwidth]{static/sketches/duck-arrays}
+  \includegraphics[width=0.6\textwidth]{static/sketches/duck-arrays}
   \caption{\textbf{Proliferation of Arrays.} The NumPy array is a classic and simple in-memory representation of array data. Since its inception, numerous other array representations have been developed, including distributed arrays---which are stored on multiple computers, GPU arrays---which utilize graphics processing units for fast computation, computation graphs---which postpone and combine calculations before executing them efficiently, and sparse arrays---which typically contain few non-zero values, and store only those in memory.}
   \label{fig:array-proliferation}
 \end{figure*}
@@ -182,7 +182,7 @@ foreign language arrays, and more.
 
 \section*{Extensibility and Interoperability}
 
-Given a rapid proliferation of array implementations, a widespread adoption of the NumPy API remains valuable: it lowers the barrier to entry for newcomers, and provides the wider community with a stable array programming interface.
+Given the proliferation of array implementations, a widespread adoption of the NumPy API remains valuable: it lowers the barrier to entry for newcomers, and provides the wider community with a stable array programming interface.
 
 What can NumPy do to support the use of its API without blocking innovation?
 We believe that having NumPy as a central point of coordination between array objects can improve interoperability while
