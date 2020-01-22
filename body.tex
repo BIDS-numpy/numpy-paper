@@ -3,7 +3,7 @@ The Numeric package began in the mid-90s and provided an array object in
 Python, written in C, and linking to standard fast implementations of linear
 algebra.
 Around 2000, the Space Telescope Science Institute (STScI) software group wrote
-a re-implementation of much of Numeric, called NumArray, to support their work
+a reimplementation of much of Numeric, called NumArray, to support their work
 on large memory-mapped arrays and arrays of mixed data type
 records \cite{STScI-slither}.
 This briefly caused the two communities to diverge, until
@@ -81,7 +81,7 @@ calculations.
 A high level syntax allows users to express themselves succinctly, while NumPy
 deals with the underlying mechanics of making operations fast.
 
-Indexing an array returns single elements, sub-arrays, or elements that satisfy
+Indexing an array returns single elements, subarrays, or elements that satisfy
 a specific condition (Fig.~\ref{fig:array-concepts}b).
 Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}c).
 Wherever possible, indexing that retrieves a subarray returns a {\em view} on
@@ -135,7 +135,7 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 %     - deprecation policy
 
 Users predominantly interact with NumPy arrays using {\em indexing} (to access
-sub-arrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
+subarrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
 and, for matrix multiplication, $@$), as well as {\em array-aware functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming.
@@ -273,7 +273,7 @@ Adding fast array operations and linear algebra allows the scientist to do all
 their work with within the same language---and one that has the advantage of
 being famously easy to learn and teach.
 
-NumPy has strong culture of using software-engineering practice to
+NumPy has strong culture of using software engineering practice to
 improve collaboration and reduce error \cite{millman2014developing}.
 The NumPy team was early in adopting distributed revision control and code
 review to improve collaboration on code, and continuous testing that runs a
