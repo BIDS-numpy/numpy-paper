@@ -184,7 +184,7 @@ few non-zero values, and store only those in memory.
 %distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
 %foreign language arrays, and more.
 
-\section*{Extensibility and Interoperability}
+\section*{Interoperability and extensibility}
 
 Given the proliferation of array implementations, a widespread adoption of the
 NumPy API remains valuable: it lowers the barrier to entry for newcomers, and
@@ -194,15 +194,9 @@ What can NumPy do to support the use of its API without blocking innovation?
 We believe that having NumPy as a central point of coordination between array
 objects can improve interoperability while supporting growth of a larger
 surrounding ecosystem of specialized solutions and new tools.  Primarily, there
-exist two types of Python array objects: subclasses of NumPy arrays, and arrays
-that mimic NumPy arrays but are fundamentally different.
+exist two types of Python array objects: (1) arrays that mimic NumPy arrays but are
+fundamentally different and (2) subclasses of NumPy arrays.
 
-Subclasses of NumPy often exist due to difficulty in constructing richer data
-types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
-geometrical objects \cite{pygeos}, and missing numbers.
-To improve \emph{extensibility}, we are currently overhauling the data type
-system to make it easier to implement data types both in Python and C, and to
-support these and other applications.
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
@@ -243,6 +237,13 @@ Versions of these protocols have been successfully deployed.
 % https://numpy.org/neps/nep-0030-duck-array-protocol.html
 % https://github.com/numpy/numpy/blob/a111b551ae940d7d5f8523fef1cf3589c6ba00a0/doc/neps/nep-0033-extensible-dtypes.rst
 % https://numpy.org/neps/nep-0037-array-module.html
+
+Subclasses of NumPy often exist due to difficulty in constructing richer data
+types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
+geometrical objects \cite{pygeos}, and missing numbers.
+To improve \emph{extensibility}, we are currently overhauling the data type
+system to make it easier to implement data types both in Python and C, and to
+support these and other applications.
 
 \section*{Discussion}
 
