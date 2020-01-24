@@ -186,17 +186,19 @@ few non-zero values, and store only those in memory.
 
 \section*{Interoperability and extensibility}
 
-Given the proliferation of array implementations, a widespread adoption of the
-NumPy API remains valuable: it lowers the barrier to entry for newcomers, and
-provides the wider community with a stable array programming interface.
+NumPy supports array operations between external array objects by
+acting as a central coordination mechanism with a well-specified API.
+With the proliferation of array implementations discussed above, a
+widespread adoption of the NumPy API is valuable: it lowers the
+barrier to entry for newcomers and provides the wider community with a
+stable array programming interface. This, in turn, prevents disruptive
+schisms like the divergence of Numeric and NumArray, by facilitating
+the development of specialized solutions and new tools that operate in
+concert.
 
-What can NumPy do to support the use of its API without blocking innovation?
-We believe that having NumPy as a central point of coordination between array
-objects can improve interoperability while supporting growth of a larger
-surrounding ecosystem of specialized solutions and new tools.  Primarily, there
+Primarily, there
 exist two types of Python array objects: (1) arrays that mimic NumPy arrays but are
 fundamentally different and (2) subclasses of NumPy arrays.
-
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
