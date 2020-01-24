@@ -49,19 +49,19 @@ It consists of a pointer to memory, along with metadata used to interpret the
 data stored there, notably {\em data type}, {\em shape}, and {\em strides}
 (Fig.~\ref{fig:array-concepts}a).
 
-The {\em data type} describes the nature of elements stored in an array.
-n array has a single data type, and each array element occupies the same
+The \emph{data type} describes the nature of elements stored in an array.
+An array has a single data type, and each array element occupies the same
 number of bytes in memory.
 Examples of data types include real and complex numbers (of lower and higher
 precision), strings, timestamps, and pointers to Python objects.
 
-The {\em shape} of an array determines the number of elements along each axis,
+The \emph{shape} of an array determines the number of elements along each axis,
 and the number of axes is the array's dimensionality.
 For example, a vector of numbers can be stored as a one dimensional array of
 shape $N$, while color videos are four dimensional arrays of shape
 $(T, M, N, 3)$.
 
-{\em Strides} are necessary to interpret computer memory, which stores elements
+\emph{Strides} are necessary to interpret computer memory, which stores elements
 linearly, as multidimensional arrays.
 It describes the number of bytes to move forward in memory to jump from row to
 row, column to column, and so forth.
@@ -81,7 +81,7 @@ calculations.
 A high level syntax allows users to express themselves succinctly, while NumPy
 deals with the underlying mechanics of making operations fast.
 
-Indexing an array returns single elements, subarrays, or elements that satisfy
+\emph{Indexing} an array returns single elements, subarrays, or elements that satisfy
 a specific condition (Fig.~\ref{fig:array-concepts}b).
 Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}c).
 Wherever possible, indexing that retrieves a subarray returns a {\em view} on
@@ -91,8 +91,8 @@ limiting memory usage.
 
 A powerful array feature that affects the way NumPy indexes and combines
 arrays, is {\em broadcasting}.
-When performing an operation (such as addition) on two arrays, one intuitively
-expect that these arrays should be required to have the same shape.
+When performing an elementwise operation (such as addition) on two arrays, one
+expects that these arrays should have the same shape.
 However, through broadcasting, NumPy allows the dimensions to differ, while
 still producing results that appeal to intuition.
 A trivial example is the addition of a scalar value to an array, but it also
@@ -113,7 +113,7 @@ Vectorized operations that would take many tens of lines to express in
 languages such as C can often be implemented as a single, clear Python
 expression.
 
-Many of these functions, such as summation, support reductions: aggregating
+Many of these functions, such as summation, support \emph{reductions}: aggregating
 results across one or more dimensions of the array.
 For example, summing a $n$-dimensional array over $d$ axes results in a
 $(n-d)$-dimensional array (Fig.~\ref{fig:array-concepts}e).
