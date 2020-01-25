@@ -184,6 +184,15 @@ few non-zero values, and store only those in memory.
 %distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
 %foreign language arrays, and more.
 
+This includes popular tensor computation libraries such as
+CuPy\footnote{\url{https://cupy.chainer.org/}},
+JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and
+Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
+PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+and
+Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+provide tensor APIs with NumPy-inspired semantics.
+
 \section*{Interoperability and extensibility}
 
 NumPy supports array operations between external array objects by
@@ -202,14 +211,6 @@ fundamentally different and (2) subclasses of NumPy arrays.
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
-This includes popular tensor computation libraries such as
-CuPy\footnote{\url{https://cupy.chainer.org/}},
-JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and
-Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
-and
-Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
-provide tensor APIs with NumPy-inspired semantics.
 Ideally, operating on these arrays using NumPy would simply work, so that end
 users could write code once, and would then benefit from switching between
 NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
@@ -285,9 +286,8 @@ to inspect, almost feel their  way forward, discovering successful snippets
 of code through experimentation and collecting them
 into imperative or functional programs according to taste.
 \end{quote}
-
 This modality of interactive scientific exploration would develop
-further and eventually culminate in the Jupyter ecosystem of tools \fixme{citation needed}.
+further and eventually culminate in the Jupyter ecosystem of tools \cite{Kluyver:2016aa}.
 
 NumPy also benefited from being written in Python, a
 general-purpose language well-suited to standard programming tasks such as
@@ -295,9 +295,11 @@ cleaning data, interacting with web resources, and parsing text.
 Adding fast array operations and linear algebra allows scientist to do all
 their work with within a single language---and one that has the advantage of
 being famously easy to learn and teach.  In fact, Python's adoption as
-a primary learning language in many universities \fixme{citation
-needed} may well have further popularize NumPy as a tool of choice for
-modern data science.
+a primary learning language in many universities (e.g., at UC Berkeley
+many lower division courses use Python including Foundations of Data Science,
+Introduction to Computational Thinking with Data,
+and The Structure and Interpretation of Computer Programs) have
+further popularized NumPy as a tool of choice for modern data science.
 
 As an open source project, NumPy also did not cost money, and was
 unencumbered by license servers, dongles, and the likes.
