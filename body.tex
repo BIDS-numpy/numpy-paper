@@ -252,20 +252,33 @@ support these and other applications.
 % aka why is this so successful
 % some sense of ongoing work / future directions
 
-NumPy was initially developed by students, faculty, and researchers in their
-spare time to provide a modern array programming library for Python.  They were
-influenced by their experiences with powerful interactive programming languages
-for scientific computing like Yorick \cite{munro1995using} as well as
-commercial languages and environments like IDL and Matlab.  They also
-frequently developed code from scratch to solve their own or their colleagues'
-problems, often in low-level languages that preceded Python like Fortran
-\cite{dongarra2008netlib} and C.
+NumPy was initially developed by students, faculty, and researchers to
+provide a modern array programming library for Python.  These
+user-developers frequently had to write code from scratch to solve
+their or their colleagues' problems---often in low-level languages
+that preceded Python, like Fortran \cite{dongarra2008netlib} and C.
+To them, the advantages of an interactive, high-level array library
+were evident. Their design of this new tool was informed by their
+experiences with powerful interactive programming languages for
+scientific computing such as APL \cite{iverson1962programming} and
+Yorick \cite{munro1995using}, as well as commercial languages and
+environments like IDL and Matlab.
+
+NumPy has subsequently seen prolific adoption, with millions of users,
+first from research and later also industry.  It spurred the
+development of the larger scientific Python ecosystem and heralded the
+current era of wide-spread use of Python for scientific computing. The
+reasons for its success are certainly complex, but we argue that they
+are broadly of \emph{practical}, \emph{philosophical},
+\emph{social}, and \emph{technical} origins.
 
 % Fortran / C
 % A few sentences on the history of array programming, referencing APL and Fortran, are missing.
 
-This description of how APL users work easily applies to scientific Python
-users \cite{kromberg2007apl}:
+The \emph{practical} appeal of NumPy and its ecosystem is apparent
+when you consider the following description of how APL users
+work---one which
+easily applies to scientific Python users too \cite{kromberg2007apl}:
 \begin{quote}
 Users of APL tend to ``live in their data''. Interactive interpreters allow them
 to inspect, almost feel their  way forward, discovering successful snippets
@@ -273,25 +286,46 @@ of code through experimentation and collecting them
 into imperative or functional programs according to taste.
 \end{quote}
 
-NumPy spurred the development of the larger scientific Python ecosystem and
-heralded the current era of wide-spread use of Python for scientific computing.
-There were several factors that allowed this rapid growth and successful
-development.
+This modality of interactive scientific exploration would develop
+further and eventually culminate in the Jupyter ecosystem of tools \fixme{citation needed}.
 
-Python is already a good choice for standard programming tasks such as
+NumPy also benefited from being written in Python, a
+general-purpose language well-suited to standard programming tasks such as
 cleaning data, interacting with web resources, and parsing text.
-It has a wide range of libraries for different tasks.
-Adding fast array operations and linear algebra allows the scientist to do all
-their work with within the same language---and one that has the advantage of
-being famously easy to learn and teach.
+Adding fast array operations and linear algebra allows scientist to do all
+their work with within a single language---and one that has the advantage of
+being famously easy to learn and teach.  In fact, Python's adoption as
+a primary learning language in many universities \fixme{citation
+needed} may well have further popularize NumPy as a tool of choice for
+modern data science.
 
-NumPy has strong culture of using software engineering practice to
-improve collaboration and reduce error \cite{millman2014developing}.
-The NumPy team was early in adopting distributed revision control and code
-review to improve collaboration on code, and continuous testing that runs a
-large battery of automated tests for every proposed change to NumPy.
-The project has comprehensive, high-quality documentation, integrated with the
-source code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
+As an open source project, NumPy also did not cost money, and was
+unencumbered by license servers, dongles, and the likes.
+
+In terms of \emph{philosophical} appeal, NumPy is open source
+software.  So, of course, are many other packages that are no longer
+relevant, and by itself it does not motivate NumPy's sucess. However,
+many developers would never have participated in building a closed
+project.  Open source software also appealed the many proponents of
+reproducible science, who wanted a transparent, introspectable stack
+of software underlying their results.
+
+\emph{Socially}, there was a sense of building something
+impactful together, for the benefit of many others.  Participating in
+such an endeavor, within a welcoming community of like-minded
+indivuals, held a powerful attraction for many early contributors.
+
+Throughout its development, NumPy has upheld strong \emph{technical}
+principles.  It is a community of practice that enshrines a culture of
+employing software engineering practice to improve collaboration and
+reduce error \cite{millman2014developing}.  This culture is not only
+adopted by leaders in the project, but also enthusiastically taught to
+newcomers. The NumPy team was early in adopting distributed revision
+control and code review to improve collaboration on code, and
+continuous testing that runs a large battery of automated tests for
+every proposed change to NumPy.  The project has comprehensive,
+high-quality documentation, integrated with the source
+code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 
 % https://ras.ac.uk/sites/default/files/2020-01/Group%20Award%20-%20Astropy.pdf
 % https://ras.ac.uk/news-and-press/news/leading-astronomers-and-geophysicists-honoured-ras-bicentenary-year-0
@@ -318,9 +352,12 @@ libraries.  It also made it easy for other libraries to develop fast and
 memory-efficient compiled code, usually in C or Fortran, that could manipulate
 these arrays and pass them back to Python.
 
-Over time, and with the arrival of different technologies and array types, the
-role of NumPy has changed from merely being an array provider, to being a
-widely adopted array programming language.
+Over time the role of the NumPy has changed. It is no longer merely an
+array library, but also a standard API for tensor computation and a
+central coordinating mechanism between array types and technologies.
+NumPy has become a fully-fledged array programming paradigm, that
+continues to drive numerical exploration and computation in scientific
+Python.
 
 % S:
 %
