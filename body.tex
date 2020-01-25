@@ -270,10 +270,10 @@ NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
 It spurred the development of the larger scientific Python ecosystem and
 heralded the current era of wide-spread use of Python for scientific computing.
-The reasons for its success are complex, but include the fact NumPy
-(a) is built on top of Python, (b) has a strong culture of collaboration
-and good software development practices, and (c) provides one of the
-best array programming environments for scientific data analysis.
+The reasons for its success are complex, but include the fact that
+NumPy (a) is built on top of Python,
+(b) has a strong culture of collaboration and good software development practices, and
+(c) provides a cutting-edge array programming environment for scientific data analysis.
 
 \emph{Python} is an open source, general-purpose, interpreted programming language
 well-suited to standard programming tasks such as cleaning data,
@@ -281,19 +281,24 @@ interacting with web resources, and parsing text.
 Adding fast array operations and linear algebra allows scientist to do all
 their work within a single language---and one that has the advantage of
 being famously easy to learn and teach.
-In fact, Python's adoption as
-a primary learning language in many universities (e.g., many lower division
-UC Berkeley courses use Python including Foundations of Data Science,
+In fact, Python's adoption as a primary learning language in universities
+(e.g., many lower division UC Berkeley courses use Python including
+Foundations of Data Science,
 The Beauty and Joy of Computing,
 Introduction to Computational Thinking with Data,
 and The Structure and Interpretation of Computer Programs) has
 further popularized NumPy as a tool of choice for modern data science.
 
 Even though NumPy is not part of Python's standard library,
-we have a health relationship to the core development team.
-\fixme{we've gotten a number of features: slicing syntax, implicit tuples,
-complex numbers, buffer protocol, matrix multiplication operator}
-\fixme{but we benefit from separate governance}
+we benefit from a good relationship with the Python developers.
+Over the years, the Python language has added new features and
+special syntax so that NumPy would have more succinct and 
+easy to read array notation.
+Since we are not part of the standard library, we are able to
+dictate our own release policies and development patterns.
+%\fixme{we've gotten a number of features: slicing syntax, implicit tuples,
+%complex numbers, buffer protocol, matrix multiplication operator}
+%\fixme{but we benefit from separate governance}
 
 NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
@@ -348,9 +353,10 @@ syntax from APL through Yorick and others.
 It also made it easy for other libraries to develop fast and
 memory-efficient compiled code, usually in C or Fortran, that could manipulate
 these arrays and pass them back to Python.
-Popular libraries increased the user community and that
-in turn led to new libraries adding additional functionality
-to the scientific Python ecosystem in a virtuous cycle.
+Popular array-aware libraries increased the user community and that
+in turn led to more libraries adding new functionality
+to the scientific Python ecosystem.
+
 
 Over time the role of the NumPy has evolved. It is no longer just the
 foundational array library underlying the scientific Python ecosystem,
