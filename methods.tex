@@ -48,7 +48,7 @@ The ufunc machinery takes care
 of calling the function with all the appropriate combinations of
 input array elements to complete the output array.
 The elementary arithmetic operations of addition, multiplication, etc.,
-are implemented as ufuncs, so broadcasting applies also to expressions
+are implemented as ufuncs, so that broadcasting also applies to expressions
 such as \code{x + y * z}.
 
 \paragraph{\emph{Computing libraries.}}
@@ -84,7 +84,8 @@ test suites for code that uses NumPy arrays.
 
 NumPy provides the subpackage \code{distutils} which includes functions and classes
 to facilitate configuration, installation, and packaging of libraries depending on NumPy.
-These can be used, for example, to as part of publishing to the PyPI website.
+% Remove the PyPI reference entirely?
+These can be used, for example, when publishing to the PyPI website.
 
 \paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
@@ -99,7 +100,7 @@ for historical reasons.
 NumPy adopted an official Governance Document on October~5,
 2015\cite{NumPyProjectGovernance}.
 Project decisions are usually made by consensus of interested contributors.
-This means for most decisions everyone is entrusted with veto power.
+This means that, for most decisions, everyone is entrusted with veto power.
 A Steering Council, currently composed of 12~members, facilitates this
 process and oversees daily development of the project by contributing code
 and reviewing contributions from the community.
@@ -145,9 +146,9 @@ It will also provide support to OpenBLAS, on which NumPy depends for
 accelerated linear algebra.
 
 Finally, since May 2019 the project receives around 10K USD annually from
-% typically is correct right now, but do we want to write it so specifically?
-Tidelift, which is typically used to fund documentation and website
+Tidelift, a part of which is used to fund documentation and website
 improvements.
+
 
 \subsection*{Developers}
 
@@ -401,9 +402,12 @@ sequence can be initialized with no arguments, in which case it reads entropy
 from a system-dependent provider, or with a user-provided seed. The seed
 sequence then transforms the initial set of entropy into a sequence of
 high-quality pseudorandom integers, which can be used to initialize multiple bit
-generators deterministically. A key design element of a seed sequence is that
-it can be used to spawn child \code{SeedSequence}s which are distinct from
-their parent and all ancestors.
+generators deterministically. The key feature of a seed sequence is that
+it can be used to spawn child \code{SeedSequence}s which allow to initialize
+multiple distinct bit generators.
+% Of course there is a diminishing chance of collisions...
+% Only found http://www.pcg-random.org/posts/developing-a-seed_seq-alternative.html
+% as a reference for seed sequence, it would be nice to cite something.
 This capability allows a seed sequence to facilitate large distributed applications
 where the number of workers required is not known. The sequences generated from
 the same initial entropy and spawns are fully deterministic to ensure
