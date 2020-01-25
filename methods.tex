@@ -7,15 +7,15 @@ upstream repository as our integration point.
 To get new code into the upstream repository, we use GitHub's
 pull request (PR) mechanism.
 This allows us to review code before integrating it as well as to run a
-large number of tests on the modified code to ensure that it does not
-break things.
+large number of tests on the modified code to ensure a bug free and stable
+experience for our users.
 
 We also use GitHub's issue tracking system to collect and triage bugs.
 
 \subsection*{Library organization}
 
 Broadly, the NumPy library consists of the following parts:
-the NumPy array data structure; the so-called \emph{universal functions};
+the NumPy array data structure \code{ndarray}; the so-called \emph{universal functions};
 a set of library functions for manipulating arrays and doing scientific
 computation; infrastructure libraries for unit tests and Python package
 building; and the program \code{f2py} for wrapping Fortran code in Python \cite{peterson2009f2py}.
@@ -29,7 +29,7 @@ universal functions make up the core of NumPy.
 
 The \code{ndarray} is the data structure at the heart of NumPy.
 The data structure stores regularly strided homogeneous data types
-in a contiguous block memory, allowing for the efficient representation
+inside a contiguous block memory, allowing for the efficient representation
 of $n$-dimensional data.
 More details about the data structure are given in ``The NumPy array:
 a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
@@ -43,11 +43,12 @@ $\tan^{-1}(y/x)$.  When arrays are passed in as the arguments,
 the ufunc will take care of looping over the dimensions of the inputs
 in such a way that if, say, \code{x} is a 1-D array with length 3, and
 \code{y} is a 2-D array with shape $2 \times 1$, the output will be
-an array with shape $2 \times 3$.  The ufunc machinery takes care
+an array with shape $2 \times 3$ (Fig.~\ref{fig:array-concepts}c).
+The ufunc machinery takes care
 of calling the function with all the appropriate combinations of
 input array elements to complete the output array.
 The elementary arithmetic operations of addition, multiplication, etc.,
-are implemented as ufuncs, so broadcasting applies even in expressions
+are implemented as ufuncs, so broadcasting applies also to expressions
 such as \code{x + y * z}.
 
 \paragraph{\emph{Computing libraries.}}
@@ -75,17 +76,15 @@ and Weibull distributions, the univariate and multivariate normal
 distributions, and more.
 
 \paragraph{\emph{Infrastructure libraries.}} NumPy provides utilities
-for writing unit tests and for building Python packages.
+for writing tests and for building Python packages.
 
 The \code{testing} subpackage provides functions such as
-\code{assert\_allclose(actual, desired)} that may be used in unit
+\code{assert\_allclose(actual, desired)} that may be used in
 test suites for code that uses NumPy arrays.
 
-NumPy provides a subpackage includes functions and classes
-that can be used by libraries that have NumPy as dependency,
-to be used in the library's configuration code that installs the
-library and that builds a package that can be used, for example,
-on the PyPI web site.
+NumPy provides the subpackage \code{distutils} which includes functions and classes
+to facilitate configuration, installation, and packaging of libraries depending on NumPy.
+These can be used, for example, to as part of publishing to the PyPI website.
 
 \paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
@@ -100,7 +99,7 @@ for historical reasons.
 NumPy adopted an official Governance Document on October~5,
 2015\cite{NumPyProjectGovernance}.
 Project decisions are usually made by consensus of interested contributors.
-This means for many thing everyone is entrusted with veto power.
+This means for most decisions everyone is entrusted with veto power.
 A Steering Council, currently composed of 12~members, facilitates this
 process and oversees daily development of the project by contributing code
 and reviewing contributions from the community.
@@ -146,6 +145,7 @@ It will also provide support to OpenBLAS, on which NumPy depends for
 accelerated linear algebra.
 
 Finally, since May 2019 the project receives around 10K USD annually from
+% typically is correct right now, but do we want to write it so specifically?
 Tidelift, which is typically used to fund documentation and website
 improvements.
 
@@ -292,7 +292,7 @@ of these NumPy-like APIs write code specific to a single project and do not supp
 all of the above array providers.
 This is a burden for users relying on the specialized array-like, since
 a tool they need may not work for them.
-It also creates new challenges for end-users who need to transition
+It also creates challenges for end-users who need to transition
 from NumPy to a more specialized array.
 The growing multitude of specialized projects with NumPy-like APIs threatened
 to again fracture the scientific Python community.
@@ -304,7 +304,7 @@ An earlier step in this direction was the implementation of the
 for most mathematical functions.\cite{NEP13}
 In 2019 this was expanded more generally with the inclusion of the
 \code{\_\_array\_function\_\_} protocol into NumPy~1.17.
-These two protocols allows providers of array-like APIs to be interoperable
+These two protocols allow providers of array objects to be interoperable
 with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
@@ -349,7 +349,7 @@ by a \code{RandomState} object that: handles seeding and state initialization;
 wraps the core pseudorandom number generator based on a Mersenne Twister
 implementation\footnote{to be precise, the standard 32-bit version of MT19937};
 interfaces with the underlying code that transforms random bits into
-deviates from other distributions; and supplies a singleton instance exposed in
+variates from other distributions; and supplies a singleton instance exposed in
 the root of the random module.
 
 The \code{RandomState} object makes a compatibility guarantee so that a fixed
@@ -401,12 +401,12 @@ sequence can be initialized with no arguments, in which case it reads entropy
 from a system-dependent provider, or with a user-provided seed. The seed
 sequence then transforms the initial set of entropy into a sequence of
 high-quality pseudorandom integers, which can be used to initialize multiple bit
-generators deterministically. A key design goal of a seed sequence was to be
-splittable in the sense that a seed sequence can be used to produce child
-sequences that are distinct from their parents or other ancestors. This
-capability allows a seed sequence to be used in large distributed applications
+generators deterministically. A key design element of a seed sequence is that
+it can be used to spawn child \code{SeedSequence}s which are distinct from
+their parent and all ancestors.
+This capability allows a seed sequence to facilitate large distributed applications
 where the number of workers required is not known. The sequences generated from
-the same initial entropy and the same splits are fully deterministic to ensure
+the same initial entropy and spawns are fully deterministic to ensure
 reproducibility.
 
 The three components are combined to construct a complete random number
