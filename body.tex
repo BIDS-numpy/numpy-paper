@@ -287,6 +287,15 @@ Versions of these protocols have been successfully deployed.
 % Ralf: Could you provide some proof of effectiveness, e.g., "This has made it
 % possible to create distributed GPU arrays, enabling .... [find a reference to
 % work by Peter Entschev]".
+% Below an attempt to start on this:
+Thanks to these developments users of Dask and NumPy arrays are now capable
+to scale their computation to the GPU using Dasks CuPy integration with
+only minimal code changes.
+However, general adoption has not yet been achieved mainly for compatibility
+concerns.
+Thus, we are actively exploring to address these by revising and extending
+these protocols with the aim of achieving a situation where this
+interoperability spans the whole scientific Python ecosystem up to and including domain libraries.
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
@@ -297,10 +306,15 @@ Versions of these protocols have been successfully deployed.
 
 Subclasses of NumPy often exist due to difficulty in constructing richer data
 types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
-geometrical objects \cite{pygeos}, and missing numbers.
+geometrical objects \cite{pygeos}, and missing numbers. % pandas: categoricals, IP addresses?
 To improve \emph{extensibility}, we are currently overhauling the data type
 system to make it easier to implement data types both in Python and C, and to
 support these and other applications.
+The widespread adoption of rich, user defined, data types can allow more
+concise, feature rich scientific computing.
+By making these user implemented data types a fundamental design of NumPy
+these tools will enabled and interact naturally with different libraries.
+
 
 \section*{Discussion}
 
