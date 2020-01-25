@@ -158,7 +158,11 @@ NIPY (neuroimaging) \cite{millman2007analysis}, and Pangeo (earth science) \cite
 Exposing array programming primitives, as well as the surrounding ecosystem of
 tools, in Python---an interpreted language---creates an ideal environment for
 interactive, exploratory data analysis where users may iteratively inspect,
-manipulate, and visualize their data \cite{perez2007ipython}.
+manipulate, and visualize their data.
+
+IPython \cite{perez2007ipython}
+
+Jupyter \cite{Kluyver:2016aa}
 
 \section*{The proliferation of arrays}
 
@@ -250,9 +254,6 @@ support these and other applications.
 
 \section*{Discussion}
 
-% aka why is this so successful
-% some sense of ongoing work / future directions
-
 NumPy was initially developed by students, faculty, and researchers to
 provide a modern array programming library for Python.  These
 user-developers frequently had to write code from scratch to solve
@@ -266,59 +267,35 @@ Yorick \cite{munro1995using}, as well as commercial languages and
 environments like IDL and Matlab.
 
 NumPy has subsequently seen prolific adoption, with millions of users,
-first from research and later also industry.  It spurred the
-development of the larger scientific Python ecosystem and heralded the
-current era of wide-spread use of Python for scientific computing. The
-reasons for its success are certainly complex, but we argue that they
-are broadly of \emph{practical}, \emph{philosophical},
-\emph{social}, and \emph{technical} origins.
+first from research and later also industry.
+It spurred the development of the larger scientific Python ecosystem and
+heralded the current era of wide-spread use of Python for scientific computing.
+The reasons for its success are complex, but include the fact NumPy
+(a) is built on top of Python, (b) has a strong culture of collaboration
+and good software development practices, and (c) provides one of the
+best array programming environments for scientific data analysis.
 
-% Fortran / C
-% A few sentences on the history of array programming, referencing APL and Fortran, are missing.
-
-The \emph{practical} appeal of NumPy and its ecosystem is apparent
-when you consider the following description of how APL users
-work---one which
-easily applies to scientific Python users too \cite{kromberg2007apl}:
-\begin{quote}
-Users of APL tend to ``live in their data''. Interactive interpreters allow them
-to inspect, almost feel their  way forward, discovering successful snippets
-of code through experimentation and collecting them
-into imperative or functional programs according to taste.
-\end{quote}
-This modality of interactive scientific exploration would develop
-further and eventually culminate in the Jupyter ecosystem of tools \cite{Kluyver:2016aa}.
-
-NumPy also benefited from being written in Python, a
-general-purpose language well-suited to standard programming tasks such as
-cleaning data, interacting with web resources, and parsing text.
+\emph{Python} is an open source, general-purpose, interpreted programming language
+well-suited to standard programming tasks such as cleaning data,
+interacting with web resources, and parsing text.
 Adding fast array operations and linear algebra allows scientist to do all
-their work with within a single language---and one that has the advantage of
-being famously easy to learn and teach.  In fact, Python's adoption as
-a primary learning language in many universities (e.g., at UC Berkeley
-many lower division courses use Python including Foundations of Data Science,
+their work within a single language---and one that has the advantage of
+being famously easy to learn and teach.
+In fact, Python's adoption as
+a primary learning language in many universities (e.g., many lower division
+UC Berkeley courses use Python including Foundations of Data Science,
+The Beauty and Joy of Computing,
 Introduction to Computational Thinking with Data,
-and The Structure and Interpretation of Computer Programs) have
+and The Structure and Interpretation of Computer Programs) has
 further popularized NumPy as a tool of choice for modern data science.
 
-As an open source project, NumPy also did not cost money, and was
-unencumbered by license servers, dongles, and the likes.
+Even though NumPy is not part of Python's standard library,
+we have a health relationship to the core development team.
+\fixme{we've gotten a number of features: slicing syntax, implicit tuples,
+complex numbers, buffer protocol, matrix multiplication operator}
+\fixme{but we benefit from separate governance}
 
-In terms of \emph{philosophical} appeal, NumPy is open source
-software.  So, of course, are many other packages that are no longer
-relevant, and by itself it does not motivate NumPy's sucess. However,
-many developers would never have participated in building a closed
-project.  Open source software also appealed the many proponents of
-reproducible science, who wanted a transparent, introspectable stack
-of software underlying their results.
-
-\emph{Socially}, there was a sense of building something
-impactful together, for the benefit of many others.  Participating in
-such an endeavor, within a welcoming community of like-minded
-indivuals, held a powerful attraction for many early contributors.
-
-Throughout its development, NumPy has upheld strong \emph{technical}
-principles.  It is a community of practice that enshrines a culture of
+NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
 reduce error \cite{millman2014developing}.  This culture is not only
 adopted by leaders in the project, but also enthusiastically taught to
@@ -340,42 +317,42 @@ Astropy, they state:
 \noindent\emph{The Astropy Project has provided hundreds of junior scientists
 with experience in professional-standard software development practices
 including use of version control, unit testing, code review and issue tracking
-procedures. This is a vital skillset for modern researchers that is often
+procedures. This is a vital skill set for modern researchers that is often
 missing from formal university education in physics or astronomy.}
 \end{quotation}
 Community members explicitly work to address this lack of formal education
 through formal courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
-%\fixme{cite https://scipy-school.org/}.
 
-Lastly, NumPy benefited greatly from the simplicity of its underlying data
-structure, which made it a natural standard for exchanging array data between
-libraries.  It also made it easy for other libraries to develop fast and
+The \emph{array programming} paradigm originated with APL in the 50s and 60s.
+It is characterized by working interactively with array data using
+vectorized operations.
+Its draw for scientist is captured by the following description of
+how APL users work \cite{kromberg2007apl}:
+\begin{quote}
+Users of APL tend to ``live in their data''. Interactive interpreters allow them
+to inspect, almost feel their  way forward, discovering successful snippets
+of code through experimentation and collecting them
+into imperative or functional programs according to taste.
+\end{quote}
+Scientist exploring data at the IPython command prompt with the
+whole scientific Python ecosystem available to them often work in
+this way.  This type of interactive scientific exploration is
+increasingly taking place in Jupyter notebooks.
+
+NumPy combines the performance of C, the expressive power of array
+programming, and the Python programming language in a mature
+well-tested and well-documented community developed library.
+It builds on decades of work refining the array programming
+syntax from APL through Yorick and others.
+It also made it easy for other libraries to develop fast and
 memory-efficient compiled code, usually in C or Fortran, that could manipulate
 these arrays and pass them back to Python.
+Popular libraries increased the user community and that
+in turn led to new libraries adding additional functionality
+to the scientific Python ecosystem in a virtuous cycle.
 
-Over time the role of the NumPy has changed. It is no longer merely an
-array library, but also a standard API for tensor computation and a
+Over time the role of the NumPy has evolved. It is no longer just the
+foundational array library underlying the scientific Python ecosystem,
+but it is also a standard API for tensor computation and a
 central coordinating mechanism between array types and technologies.
-NumPy has become a fully-fledged array programming paradigm, that
-continues to drive numerical exploration and computation in scientific
-Python.
-
-% S:
-%
-% Thinking about enabling factors, I'd characterize them into three categories:
-%
-% - Practical
-% - Philosophical
-% - Social
-% - Technical
-%
-% E.g., practical: reason why we use Python (learn one language for
-% everything); students don't have money, so want to avoid impracticalities of
-% license dongles/servers, etc.
-%
-% Philosophical: science should be open, transparent; our software should be
-% controlled by scientists, not designers that we don't have access to
-%
-% Social: joy of building these things together, friendly welcome into the
-% community for many of us---appreciation of our work and hours
