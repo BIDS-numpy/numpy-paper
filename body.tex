@@ -289,10 +289,14 @@ Versions of these protocols have been successfully deployed.
 % work by Peter Entschev]".
 % Below an attempt to start on this:
 Thanks to these developments users of Dask and NumPy arrays are now capable
-to scale their computation to the GPU using Dasks CuPy integration with
+of scaling their computation to the GPU using Dask's CuPy integration with
 only minimal code changes.
+% spelled out on this page: https://docs.dask.org/en/latest/gpu.html
+% The video cited embedded there could be a citation:i
+% https://on-demand-gtc.gputechconf.com/gtcnew/sessionview.php?sessionName=s9198-dask+and+v100s+for+fast%2c+distributed+batch+scoring+of+computer+vision+workloads
 However, general adoption has not yet been achieved mainly for compatibility
 concerns.
+% explain a bit what "compatibility concerns" means ...
 Thus, we are actively addressing these concerns by revising and extending
 these protocols with the aim of wide interoperability that spans the whole
 scientific Python ecosystem up to and including domain libraries.
@@ -314,7 +318,13 @@ The widespread adoption of rich, user defined, data types can allow more
 concise, feature rich scientific computing.
 By making these user implemented data types a fundamental design of NumPy
 these tools will enabled and interact naturally with different libraries.
-
+% need to add a bit of clarity on what "enable and interact naturally with different libraries" means.
+%
+%  1. I expect multiple user dtypes can interact (naturally); 2. libraries such
+%  as sklearn (or dask) might "just work" with e.g. physical Units (and
+%  Categoricals, which they probably really would like to use e.g. for labels);
+%  3. Things being inside a dtype rather than subclass is a better user
+%  experience.
 
 \section*{Discussion}
 
