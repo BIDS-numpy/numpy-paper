@@ -126,6 +126,9 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 The expressive power and brevity of NumPy's array programming syntax combined with 
 an advanced interactive environment like IPython \cite{perez2007ipython}
 or Jupyter \cite{Kluyver:2016aa} make interactive data exploration fluid and simple.
+It is common for NumPy users to work interactively with their data,
+discovering through experimentation bits of code that they stich together into
+imperative or functional programs.
 
 \section*{Scientific Python ecosystem}
 
@@ -264,12 +267,18 @@ support these and other applications.
 \section*{Discussion}
 
 NumPy was initially developed by students, faculty, and researchers to
-provide a modern array programming library for Python.  These
-user-developers frequently had to write code from scratch to solve
+provide an advanced, open source array programming library for Python,
+which was free to use and unencumbered by license servers, dongles, and the like.
+There was a sense of building something
+impactful together, for the benefit of many others.  Participating in
+such an endeavor, within a welcoming community of like-minded
+indivuals, held a powerful attraction for many early contributors.
+
+These user-developers frequently had to write code from scratch to solve
 their or their colleagues' problems---often in low-level languages
 that preceded Python, like Fortran \cite{dongarra2008netlib} and C.
 To them, the advantages of an interactive, high-level array library
-were evident. Their design of this new tool was informed by their
+were evident. The design of this new tool was informed by their
 experiences with powerful interactive programming languages for
 scientific computing such as APL \cite{iverson1962programming} and
 Yorick \cite{munro1995using}, as well as commercial languages and
@@ -338,24 +347,8 @@ Community members explicitly work to address this lack of formal education
 through formal courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
 
-The \emph{array programming} paradigm originated with APL in the 50s and 60s.
-It is characterized by working interactively with array data using
-vectorized operations.
-Its draw for scientist is captured by the following description of
-how APL users work \cite{kromberg2007apl}:
-\begin{quote}
-Users of APL tend to ``live in their data''. Interactive interpreters allow them
-to inspect, almost feel their  way forward, discovering successful snippets
-of code through experimentation and collecting them
-into imperative or functional programs according to taste.
-\end{quote}
-Scientist exploring data at the IPython command prompt with the
-whole scientific Python ecosystem available to them often work in
-this way.  This type of interactive scientific exploration is
-increasingly taking place in Jupyter notebooks.
-
-NumPy combines the performance of C, the expressive power of array
-programming, and the Python programming language in a mature
+NumPy combines the expressive power of \emph{array programming}, 
+the performance of C, and the Python programming language in a mature
 well-tested and well-documented community developed library.
 It builds on decades of work refining the array programming
 syntax from APL through Yorick and others.
