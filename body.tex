@@ -179,19 +179,21 @@ which vastly extends the basic image processing tools provided by SciPy.
 Other components of Scipy are used throughout the library, such as the
 \code{scipy.optimize} package for handling general optimization tasks.
 NetworkX \cite{SciPyProceedings_11} (the standard package for complex
-network analysis) is used for image comparisons.
+network analysis) is used for analysis of consistency among image
+comparisons.
 Astropy \cite{astropy:2013, astropy:2018} (a community-developed astronomy
-libarary) is used in quite a few places,
-primarily for I/O and time/coordinate transformations.
+library) is used throughout the library,
+primarily for I/O from standard astronomical file formats and time/coordinate
+transformations.
 Matplotlib (the core library for generating publication-ready figures
 and visualizations) is used for visualizing data throughout the analysis pipeline,
 including the generation of the final image of the black hole.
 % N.B. - most of this comes from introspecting the Image class defined in
-% ehtim/image.py. 
+% ehtim/image.py and grepping the dependencies in requirements.txt
 
 Tools for analyzing data from gravitational wave observatories such as LIGO
 and Virgo are provided by the \code{pycbc} package, which was used in the first
-detection of gravitationaly waves \cite{abbott2016observation} and in 
+detection of gravitational waves \cite{abbott2016observation} and in 
 on-going analysis of data from LIGO and Virgo.
 \code{pycbc} make extensive use of the scientific Python ecosystem.
 The time-series data from the interferometers are stored in NumPy arrays,
@@ -199,7 +201,9 @@ while the \code{scipy.signal} is used to construct and apply filters to the
 data.
 Matplotlib is used to visualize data at all points along the analysis chain
 including raw data from the instrumentation and the time-frequency 
-visualization of the ``chirp'' from the binary black hole merger.
+visualization of the ``chirps'' that result from mergers of compact binaries
+such as black holes\cite{abbott2016observation} and
+neutron stars\cite{abbott2017multi}.
 
 The rich ecosystem of tools building on NumPy and the larger community
 of scientists and programmers using those tools mean that NumPy has a
