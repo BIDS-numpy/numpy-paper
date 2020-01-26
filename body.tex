@@ -138,10 +138,14 @@ or Jupyter \cite{Kluyver:2016aa} makes interactive data exploration fluid and si
 It is common for NumPy users to work interactively with their data,
 discovering through experimentation bits of code that they stitch together into
 imperative or functional programs.
+SciPy and Matplotlib are tightly integrated with NumPy to expand the suite of
+standard algorithms and provide basic plotting capabilities.
+SciPy provides fundamental algorithms for scientific computing on arrays
+including many mathematical, scientific, and engineering routines.
+Matplotlib generates publication-ready figures and visualizations.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
-this solid foundation with core (e.g., SciPy and Matplotlib) libraries,
-widely used technique-specific
-libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
+this solid foundation providing many, widely used technique-specific
+libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11}
 and several domain-specific projects and libraries
 \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}.
 Exposing these simple array programming primitives, as well as the surrounding ecosystem of
@@ -170,22 +174,18 @@ reconstruction.
 SciPy is used to provide tools used in general image processing such as 
 filtering and image alignment, while scikit-image provides higher-level
 functionality such as edge filters and Hough transforms.
-SciPy provides fundamental algorithms for scientific computing on arrays
-including many mathematical, scientific, and engineering routines.
-SciPy and NumPy are closely related and were developed together often
-by the same people.
 scikit-image is a popular technique-specific library,
 which vastly extends the basic image processing tools provided by SciPy.
 Other components of SciPy are used throughout the library, such as the
-\code{scipy.optimize} package for handling general optimization tasks.
+\code{scipy.optimize} subpackage for handling general optimization tasks.
 NetworkX \cite{SciPyProceedings_11} (the standard package for complex
 network analysis) is used for analysis of consistency among image
 comparisons.
 Astropy \cite{astropy:2013, astropy:2018} (a community-developed astronomy
 library) is used throughout the library,
-primarily for I/O from standard astronomical file formats and time/coordinate
+primarily to handle standard astronomical file formats and time/coordinate
 transformations.
-Matplotlib (the core library for generating publication-ready figures) is
+Matplotlib is
 used for visualizing data throughout the analysis pipeline,
 including the generation of the final image of the black hole.
 % N.B. - most of this comes from introspecting the Image class defined in
@@ -197,7 +197,7 @@ detection of gravitational waves \cite{abbott2016observation} and in
 on-going analysis of data from LIGO and Virgo.
 \code{pycbc} make extensive use of the scientific Python ecosystem.
 The time-series data from the interferometers are stored in NumPy arrays,
-while the \code{scipy.signal} is used to construct and apply filters to the
+while the \code{scipy.signal} subpackage is used to construct and apply filters to the
 data.
 Matplotlib is used to visualize data at all points along the analysis chain
 including raw data from the instrumentation and the time-frequency 
