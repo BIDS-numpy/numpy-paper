@@ -74,9 +74,9 @@ store arrays in either C or Fortran memory order, iterating
 first over either rows or columns.  This allows external libraries
 written in those languages to directly access NumPy array data in memory.
 
-Users predominantly interact with NumPy arrays using {\em indexing} (to access
-subarrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$,
-and, for matrix multiplication, $@$), as well as {\em array-aware functions};
+Users interact with NumPy arrays using {\em indexing} (to access
+subarrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$, and $/$
+for elementwise operations and $@$ for matrix multiplication), as well as {\em array-aware functions};
 together, these provide an easily readable, expressive, high-level API for
 array programming, while NumPy
 deals with the underlying mechanics of making operations fast.
@@ -123,12 +123,6 @@ includes an assortment of probability distributions.
 It also performs accelerated linear algebra, utilizing one of several backends
 such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized for the CPUs at hand.
 
-The expressive power and brevity of NumPy's array programming syntax combined with 
-an advanced interactive environment like IPython \cite{perez2007ipython}
-or Jupyter \cite{Kluyver:2016aa} make interactive data exploration fluid and simple.
-It is common for NumPy users to work interactively with their data,
-discovering through experimentation bits of code that they stich together into
-imperative or functional programs.
 
 \section*{Scientific Python ecosystem}
 
@@ -138,10 +132,18 @@ imperative or functional programs.
 %   - coordinating mechanism
 %     - deprecation policy
 
+The expressive power and brevity of NumPy's array programming syntax combined with 
+an advanced interactive environment like IPython \cite{perez2007ipython}
+or Jupyter \cite{Kluyver:2016aa} makes interactive data exploration fluid and simple.
+It is common for NumPy users to work interactively with their data,
+discovering through experimentation bits of code that they stich together into
+imperative or functional programs.
+Exposing array programming primitives, as well as the surrounding ecosystem of
+tools, in Python---an interpreted language---creates an ideal environment for
+interactive, exploratory data analysis where users may iteratively inspect,
+manipulate, and visualize their data.
 
-While NumPy provides a solid foundation for array programming, the scientific
-Python ecosystem is composed of many different libraries, which build on and
-extend this functionality \fixme{(Fig.)}.
+The scientific Python ecosystem \fixme{(Fig.)} is composed of many different libraries.
 SciPy provides fundamental algorithms for scientific computing on arrays
 including many mathematical, scientific, and engineering routines.
 SciPy and NumPy are closely related and were developed together often
@@ -152,11 +154,6 @@ technique-specific libraries\cite{SciPyProceedings_11}.
 Finally, several domain-specific
 libraries \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}
 are built on this diverse foundation of tooling.
-
-Exposing array programming primitives, as well as the surrounding ecosystem of
-tools, in Python---an interpreted language---creates an ideal environment for
-interactive, exploratory data analysis where users may iteratively inspect,
-manipulate, and visualize their data.
 This has made the scientific Python ecosystem popular for scientific
 research.
 
@@ -173,15 +170,15 @@ research.
 
 For example, the \code{eht-imaging} library developed by the Event Horizon Telescope 
 collaboration relies on many components of the scientific Python ecosystem.
-NumPy arrays were used to store and manipulate numerical data at every step
+NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image 
 reconstruction.
-Scipy was used to provide tools used in general image processing such as 
-filtering and image alignment, while scikit\_image provided higher-level
+Scipy is used to provide tools used in general image processing such as 
+filtering and image alignment, while scikit-image provided higher-level
 functionality such as edge filters and Hough transforms.
 Other components of Scipy are used throughout the library, such as the
 \code{scipy.optimize} package for handling general optimization tasks.
-NetworkX \cite{SciPyProceedings_11} was used for image comparisons.
+NetworkX \cite{SciPyProceedings_11} is used for image comparisons.
 Astropy \cite{astropy:2013, astropy:2018} is used in quite a few places,
 primarily for I/O and time/coordinate transformations.
 Matplotlib is used for visualizing data throughout the analysis pipeline,
@@ -233,13 +230,13 @@ few non-zero values, and store only those in memory.
 %foreign language arrays, and more.
 
 This includes popular tensor computation libraries such as
-CuPy\footnote{\url{https://cupy.chainer.org/}},
-JAX\footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}, and
-Apache MXNet\footnote{\url{https://numpy.mxnet.io/}}.
-PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
-and
-Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
-provide tensor APIs with NumPy-inspired semantics.
+CuPy, JAX, and Apache MXNet.
+PyTorch and Tensorflow provide tensor APIs with NumPy-inspired semantics.
+% \footnote{\url{https://cupy.chainer.org/}}
+% \footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}
+% \footnote{\url{https://numpy.mxnet.io/}}
+% \footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
+% \footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
 
 \section*{Interoperability and extensibility}
 
@@ -320,7 +317,7 @@ NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
 It spurred the development of the larger scientific Python ecosystem and
 heralded the current era of wide-spread use of Python for scientific computing.
-The reasons for its success are complex, but include the fact that
+The reasons for its success are varied and complex, but include the fact that
 NumPy (a) is built on top of Python,
 (b) has a strong culture of collaboration and good software development practices, and
 (c) provides a cutting-edge array programming environment for scientific data analysis.
