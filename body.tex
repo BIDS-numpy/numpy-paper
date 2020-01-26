@@ -165,6 +165,33 @@ NIPY (neuroimaging) \cite{millman2007analysis}, and Pangeo (earth science) \cite
 % we should have an example of how these tools may all be used in an
 % example analysis.  maybe one of the ones mentioned in the abstract?
 
+The \tt{eht-imaging} library developed by the Event Horizon Telescope 
+collabortion relies on many components of the scientific Python ecosystem.
+NumPy arrays were used to store and manipulate numerical data at every step
+in the processing chain: from raw data through calibration and image 
+reconstruction.
+Scipy was used to provide tools used in general image processing such as 
+filtering and image alignment, while scikit\_image provided higher-level
+functionality such as edge filters and Hough transforms.
+Other components of Scipy are used throughout the library, such as the
+\tt{scipy.optimize} package for handling general optimization tasks.
+Matplotlib is used for visualizing data throughout the analysis pipeline,
+including the generation of the final image of the black hole.
+% N.B. - most of this comes from introspecting the Image class defined in
+% ehtim/image.py. 
+
+Tools for analyzing data from gravitational wave observatories such as LIGO
+and Virgo are provided by the \tt{pycbc} package, which was used in the first
+detection of gravitationaly waves \cite{abbott2016observation} and in 
+on-going analysis of data from LIGO and Virgo.
+\tt{pycbc} make extensive use of the scientific Python ecosystem.
+The time-series data from the interferometers are stored in NumPy arrays,
+while the \tt{scipy.signal} is used to construct and apply filters to the
+data.
+Matplotlib is used to visualize data at all points along the analysis chain
+including raw data from the instrumentation and the time-frequency 
+visualization of the ``chirp'' from the binary black hole merger.
+
 Exposing array programming primitives, as well as the surrounding ecosystem of
 tools, in Python---an interpreted language---creates an ideal environment for
 interactive, exploratory data analysis where users may iteratively inspect,
