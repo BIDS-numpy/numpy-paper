@@ -132,50 +132,35 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 %   - coordinating mechanism
 %     - deprecation policy
 
-The expressive power and brevity of NumPy's array programming syntax combined with 
+The brevity and expressive power of NumPy's array programming syntax combined with 
 an advanced interactive environment like IPython \cite{perez2007ipython}
 or Jupyter \cite{Kluyver:2016aa} makes interactive data exploration fluid and simple.
 It is common for NumPy users to work interactively with their data,
 discovering through experimentation bits of code that they stich together into
 imperative or functional programs.
-Exposing array programming primitives, as well as the surrounding ecosystem of
-tools, in Python---an interpreted language---creates an ideal environment for
+The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
+this solid foundation with core (e.g., SciPy and Matplotlib) libraries,
+widely used technique-specific
+libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
+and several domain-specific projects and libraries
+\cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}.
+Exposing these simple array programming primitives, as well as the surrounding ecosystem of
+tools, in Python---an interpreted, general purpose language---creates an ideal environment for
 interactive, exploratory data analysis where users may iteratively inspect,
 manipulate, and visualize their data.
-
+This rich environment has made the scientific Python ecosystem popular for scientific
+research.
 
 \begin{figure}
   \centering
   \includegraphics[width=.48\textwidth]{static/ecosystem}
   \caption{\textbf{Scientific Python Ecosystem.}
-   }
+   This figure highlights some of the essential tools and libraries in the vast
+   scientific Python ecosystem.  Most of the ecosystem builds on NumPy to
+   provide a rich and powerful collection of array-aware functionality.
+  }
   \label{fig:ecosystem}
 \end{figure}
-
-
-The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) is composed of many different libraries.
-SciPy provides fundamental algorithms for scientific computing on arrays
-including many mathematical, scientific, and engineering routines.
-SciPy and NumPy are closely related and were developed together often
-by the same people.
-Matplotlib generates publication-ready figures and visualizations.
-Employing these array-aware libraries are widely used
-technique-specific libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11}
-and several domain-specific projects and
-libraries \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}.
-This has made the scientific Python ecosystem popular for scientific
-research.
-
-%These libraries can roughly be organized into three layers:
-%core libraries, technique-specific libraries, and domain-specific libraries.
-
-%SciPy adds various mathematical, scientific, and engineering routines;
-%Matplotlib generates publication-ready figures and visualizations,
-%Pandas provides indexed arrays, known as dataframes; and
-%xarray implements arrays with labeled axes.
-
-% we should have an example of how these tools may all be used in an
-% example analysis.  maybe one of the ones mentioned in the abstract?
 
 For example, the \code{eht-imaging} library developed by the Event Horizon Telescope 
 collaboration relies on many components of the scientific Python ecosystem.
@@ -185,12 +170,21 @@ reconstruction.
 Scipy is used to provide tools used in general image processing such as 
 filtering and image alignment, while scikit-image provided higher-level
 functionality such as edge filters and Hough transforms.
+SciPy provides fundamental algorithms for scientific computing on arrays
+including many mathematical, scientific, and engineering routines.
+SciPy and NumPy are closely related and were developed together often
+by the same people.
+scikit-image is a popular technique-specific library,
+which vastly extends the basic image processing tools provided by SciPy.
 Other components of Scipy are used throughout the library, such as the
 \code{scipy.optimize} package for handling general optimization tasks.
-NetworkX \cite{SciPyProceedings_11} is used for image comparisons.
-Astropy \cite{astropy:2013, astropy:2018} is used in quite a few places,
+NetworkX \cite{SciPyProceedings_11} (the standard package for complex
+network analysis) is used for image comparisons.
+Astropy \cite{astropy:2013, astropy:2018} (a community-developed astronomy
+libarary) is used in quite a few places,
 primarily for I/O and time/coordinate transformations.
-Matplotlib is used for visualizing data throughout the analysis pipeline,
+Matplotlib (the core library for generating publication-ready figures
+and visualizations) is used for visualizing data throughout the analysis pipeline,
 including the generation of the final image of the black hole.
 % N.B. - most of this comes from introspecting the Image class defined in
 % ehtim/image.py. 
@@ -219,6 +213,8 @@ to evolve and change.
 %\fixme{Add references somewhere to Zarr, https://arrow.apache.org/,
 %https://parquet.apache.org/,
 %https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
+
+% pandas, xarray, ...
 
 Recent years have seen a massive explosion in data science, machine learning,
 and artificial intelligence.  NumPy and its API, underlying almost every tool
