@@ -167,7 +167,7 @@ collaboration relies on many components of the scientific Python ecosystem.
 NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image 
 reconstruction.
-Scipy is used to provide tools used in general image processing such as 
+SciPy is used to provide tools used in general image processing such as 
 filtering and image alignment, while scikit-image provides higher-level
 functionality such as edge filters and Hough transforms.
 SciPy provides fundamental algorithms for scientific computing on arrays
@@ -176,7 +176,7 @@ SciPy and NumPy are closely related and were developed together often
 by the same people.
 scikit-image is a popular technique-specific library,
 which vastly extends the basic image processing tools provided by SciPy.
-Other components of Scipy are used throughout the library, such as the
+Other components of SciPy are used throughout the library, such as the
 \code{scipy.optimize} package for handling general optimization tasks.
 NetworkX \cite{SciPyProceedings_11} (the standard package for complex
 network analysis) is used for analysis of consistency among image
@@ -185,8 +185,8 @@ Astropy \cite{astropy:2013, astropy:2018} (a community-developed astronomy
 library) is used throughout the library,
 primarily for I/O from standard astronomical file formats and time/coordinate
 transformations.
-Matplotlib (the core library for generating publication-ready figures
-and visualizations) is used for visualizing data throughout the analysis pipeline,
+Matplotlib (the core library for generating publication-ready figures) is
+used for visualizing data throughout the analysis pipeline,
 including the generation of the final image of the black hole.
 % N.B. - most of this comes from introspecting the Image class defined in
 % ehtim/image.py and grepping the dependencies in requirements.txt
@@ -334,7 +334,7 @@ which was free to use and unencumbered by license servers, dongles, and the like
 There was a sense of building something
 impactful together, for the benefit of many others.  Participating in
 such an endeavor, within a welcoming community of like-minded
-indivuals, held a powerful attraction for many early contributors.
+individuals, held a powerful attraction for many early contributors.
 
 These user-developers frequently had to write code from scratch to solve
 their or their colleagues' problems---often in low-level languages
