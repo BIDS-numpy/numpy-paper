@@ -89,26 +89,22 @@ the original array, such that data is shared between the two arrays.
 This provides a powerful way to operate on subsets of array data, while
 limiting memory usage.
 
-\fixme{Up to here we were talking about arrays, now we introduce array programming.
-Need to better explain vectorization in array programming.
-This is perhaps the essential thing about it so we should make it slightly
-more explicit.  It is just shorter to type, but it is easier to think
-about. }
 To complement the array syntax, NumPy includes functions that perform
-vectorized calculations on arrays, including arithmetic, statistics, and
+\emph{vectorized} calculations on arrays, including arithmetic, statistics, and
 trigonometry.
-They aim to loop over array elements near-optimally, taking into consideration,
-e.g., strides, in order to best utilize the computer's fast cache memory.
-Vectorized operations that would take many tens of lines to express in
+Vectorization---operating on whole arrays rather than their individual
+elements---is essential to array programming.
+This means that operations that would take many tens of lines to express in
 languages such as C can often be implemented as a single, clear Python
 expression.
+This results in concise code and frees users to focus on the details of
+their analysis, while NumPy handles looping over array elements near-optimally,
+taking into consideration, for example, strides, in order to best utilize the
+computer's fast cache memory.
 
-When performing a vectorized operation (such as addition) on two arrays, one
-expects that these arrays should have the same shape.
-% might expect if you are coming from other languages
-% wouldn't expect if you were doing math
-% scalar vector multiplication, scalar matrix multiplication, etc.
-However, through \emph{broadcasting}, NumPy allows the dimensions to differ, while
+When performing a vectorized operation (such as addition) on two arrays with
+the same shape, it is clear what should happen.
+Through \emph{broadcasting}, NumPy allows the dimensions to differ, while
 still producing results that appeal to intuition.
 A trivial example is the addition of a scalar value to an array, but it also
 generalizes to more complex examples such as scaling each column of an array,
@@ -116,7 +112,7 @@ or generating a grid of coordinates.
 In broadcasting, one or both arrays are virtually duplicated (that is, without
 copying any data in memory), so that the shapes of the operands match
 (Fig.~\ref{fig:array-concepts}d).
-Broadcasting is also applied whenever an array is indexed using arrays of
+Broadcasting is also applied when an array is indexed using arrays of
 indices (Fig.~\ref{fig:array-concepts}c).
 
 Many of the array-aware functions, such as summation, support \emph{reductions}: aggregating
@@ -134,32 +130,38 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 
 \section*{Scientific Python ecosystem}
 
-
-The brevity and expressive power of NumPy's array programming syntax combined with 
-an advanced interactive environment like IPython \cite{perez2007ipython}
-or Jupyter \cite{Kluyver:2016aa} makes interactive data exploration fluid and simple.
-SciPy and Matplotlib are tightly integrated with NumPy to expand the suite of
-standard algorithms and provide basic plotting capabilities.
-SciPy provides many fundamental algorithms for scientific computing on arrays
+SciPy and Matplotlib are tightly integrated with NumPy.
+% to expand the suite of standard algorithms and
+% provide basic plotting capabilities.
+SciPy provides fundamental algorithms for scientific computing
 including mathematical, scientific, and engineering routines.
 Matplotlib generates publication-ready figures and visualizations.
-
-% say something about this already being a good foundation comparable to
-% other scientific computing languages.
-
+The combination of NumPy, SciPy, and Matplotlib with 
+an advanced interactive environment like IPython \cite{perez2007ipython}
+or Jupyter \cite{Kluyver:2016aa}
+provides a complete foundation for array-based scientific computing
+and makes interactive data exploration fluid and simple.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
 this foundation providing many, widely used technique-specific
 libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11}
 and several domain-specific projects and libraries
 \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}.
-Exposing these simple array programming primitives, as well as the surrounding ecosystem of
-tools, in Python---an interpreted, general purpose language---creates an ideal environment for
-interactive, exploratory data analysis where users may iteratively inspect,
+NumPy plays a coordinating role for the ecosystem of array-aware
+libraries including setting documentation standards,
+providing array testing infrastracture,
+and coordinating minimum version depedencies.
+
+Exposing this foundation for array programming, as well as the surrounding ecosystem of
+tools, in IPython or Jupyter, creates an ideal environment for
+interactive, exploratory data analysis where users iteratively inspect,
 manipulate, and visualize their data.
 Working interactively with their data, users discover through experimentation
-bits of code that they stitch together into imperative or functional programs.
+bits of code that they stitch together into imperative or functional programs
+or narrative computational notebooks.
 This rich and productive environment has made the scientific Python ecosystem popular for scientific
 research.
+As a result, important scientific software packages build on the ecosystem
+further exanding it for specific research projects.
 
 \begin{figure}
   \centering
@@ -210,33 +212,28 @@ visualization of the ``chirps'' that result from mergers of compact binaries
 such as black holes\cite{abbott2016observation} and
 neutron stars\cite{abbott2017multi}.
 
-% need better transition
-% similar tools exist in physics, chemistry, biology, earth sciences,
-% engineering
-% this means there is an extraordinary need for stability and reliability
-% this conflicts with competing need to innovate
-% resolving this tension requires balancing trade-offs
-% this lead to a proliferation of arrays  
-
+Similar examples can be found in physics, earth sciences, biology,
+and more.
+These researchers depend on NumPy being correct, reliable,
+and repeatable.
 The rich ecosystem of tools building on NumPy and the larger community
 of scientists and programmers using those tools mean that NumPy has a
 responsibility to maintain considerable stability.
+This conflicts with the need to innovate;
+resolving it requires balancing trade-offs.
+% our focus is ...
 This need creates interesting challenges for NumPy development as the
 computational environment scientists are analyzing their data on continues
 to evolve and change.
-
-% - review supporting the ecosystem (actual support element)
-%   - docstrings / testing / packaging
-%   - coordinating mechanism
-%     - deprecation policy
+% this leads to a proliferation of arrays  
 
 \section*{Proliferation of arrays}
 
-%\fixme{Add references somewhere to Zarr, https://arrow.apache.org/,
-%https://parquet.apache.org/,
-%https://github.com/ruby-numo/numo-narray/wiki/Comparison-with-Numpy}
-
 % pandas, xarray, ...
+% distributed arrays, delayed execution arrays
+% GPU arrays, tensor computation libraries
+% sparse arrays
+% foreign language arrays
 
 Recent years have seen a massive explosion in data science, machine learning,
 and artificial intelligence.  NumPy and its API, underlying almost every tool
@@ -253,8 +250,6 @@ multiple computers, GPU arrays---which utilize graphics processing units for
 fast computation, computation graphs---which postpone and combine calculations
 before executing them efficiently, and sparse arrays---which typically contain
 few non-zero values, and store only those in memory.
-%distributed arrays, GPU arrays, delayed execution arrays, sparse arrays,
-%foreign language arrays, and more.
 
 This includes popular tensor computation libraries such as
 CuPy, JAX, and Apache MXNet.
@@ -278,8 +273,8 @@ the development of specialized solutions and new tools that operate in
 concert.
 
 Primarily, there
-exist two types of Python array objects: (1) arrays that mimic NumPy arrays but are
-fundamentally different and (2) subclasses of NumPy arrays.
+exist two types of Python array objects: (a) arrays that mimic NumPy arrays but are
+fundamentally different and (b) subclasses of NumPy arrays.
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
@@ -413,7 +408,7 @@ code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 % https://ras.ac.uk/news-and-press/news/leading-astronomers-and-geophysicists-honoured-ras-bicentenary-year-0
 
 This culture of using best practices for producing reliable scientific software
-has been eagerly adopted by the ecosystem of libraries that build on NumPy.
+has been adopted by the ecosystem of libraries that build on NumPy.
 For example, in a recent award given by the Royal Astronomical Society to
 Astropy, they state:
 \begin{quotation}
