@@ -130,38 +130,44 @@ such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized fo
 
 \section*{Scientific Python ecosystem}
 
-SciPy and Matplotlib are tightly integrated with NumPy.
+SciPy and Matplotlib are tightly coupled with NumPy---in terms of
+history, development, and usage.
 % to expand the suite of standard algorithms and
 % provide basic plotting capabilities.
 SciPy provides fundamental algorithms for scientific computing
 including mathematical, scientific, and engineering routines.
 Matplotlib generates publication-ready figures and visualizations.
-The combination of NumPy, SciPy, and Matplotlib with 
+The combination of NumPy, SciPy, and Matplotlib together with
 an advanced interactive environment like IPython \cite{perez2007ipython}
 or Jupyter \cite{Kluyver:2016aa}
-provides a complete foundation for array-based scientific computing
-and makes interactive data exploration fluid and simple.
+provides a complete foundation for array-based scientific computing.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
-this foundation providing many, widely used technique-specific
-libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11}
-and several domain-specific projects and libraries
+this foundation to provide several, widely used \emph{technique-specific}
+libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
+that in turn underlay numerous \emph{domain-specific} projects
 \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,2018EGUGA..2012146H}.
-NumPy plays a coordinating role for the ecosystem of array-aware
-libraries including setting documentation standards,
-providing array testing infrastracture,
-and coordinating minimum version depedencies.
+NumPy, as the focal point for the ecosystem of array-aware libraries,
+sets documentation standards, provides array testing infrastracture,
+and defines minimum version depedencies.
 
-Exposing this foundation for array programming, as well as the surrounding ecosystem of
-tools, in IPython or Jupyter, creates an ideal environment for
-interactive, exploratory data analysis where users iteratively inspect,
-manipulate, and visualize their data.
-Working interactively with their data, users discover through experimentation
-bits of code that they stitch together into imperative or functional programs
-or narrative computational notebooks.
-This rich and productive environment has made the scientific Python ecosystem popular for scientific
-research.
-As a result, important scientific software packages build on the ecosystem
-further exanding it for specific research projects.
+The interactive environment created by this array programming
+foundation---along with the surrounding ecosystem of tools---inside of
+IPython or Jupyter, is ideally suited to exploratory data analysis.
+Users fluidly inspect, manipulate, and visualize their data, and
+rapidly iterate to refine programming statements. These statements are
+then stitched together into imperative or functional programs, or
+narrative computational notebooks.  This rich and productive
+environment has made the scientific Python ecosystem hugely popular
+for scientific research.
+
+Despite its tight integration, the ecosystem was conceived to have
+clear functional separation, with well defined interfaces.  This makes
+possible the design of large, complex scientific libraries, that
+add specialized functionality for solving specific problems.
+
+%As a result, important scientific software
+%packages build on the ecosystem, and further expand it for specific
+%research projects.
 
 \begin{figure}
   \centering
@@ -214,22 +220,25 @@ neutron stars\cite{abbott2017multi}.
 
 Similar examples can be found in physics, earth sciences, biology,
 and more.
-These researchers depend on NumPy being correct, reliable,
+Researchers in these fields depend on NumPy being correct, reliable,
 and repeatable.
 The rich ecosystem of tools building on NumPy and the larger community
 of scientists and programmers using those tools mean that NumPy has a
 responsibility to maintain considerable stability.
-This conflicts with the need to innovate;
+At times, this conflicts with the need to innovate;
 resolving it requires balancing trade-offs.
 % our focus is ...
+% NumPy purpose engages with this problem by ...
+% [this also defines the scope of NumPy]
 This need creates interesting challenges for NumPy development as the
 computational environment scientists are analyzing their data on continues
 to evolve and change.
-% this leads to a proliferation of arrays  
+% this leads to a proliferation of arrays
 
 \section*{Proliferation of arrays}
 
 % pandas, xarray, ...
+% numba?
 % distributed arrays, delayed execution arrays
 % GPU arrays, tensor computation libraries
 % sparse arrays
