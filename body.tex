@@ -236,8 +236,7 @@ to evolve and change.
 
 \section*{Proliferation of arrays}
 
-% pandas, xarray, ...
-% numba?
+% pandas, xarray, ... - leave out Pandas since it's not an array?
 % distributed arrays, delayed execution arrays
 % GPU arrays, tensor computation libraries
 % sparse arrays
@@ -246,27 +245,50 @@ to evolve and change.
 Recent years have seen a massive explosion in data science, machine learning,
 and artificial intelligence.  NumPy and its API, underlying almost every tool
 in the computational toolchain, has become ubiquitous.  Still, NumPy itself
-could never hope to satisfy every single specialized need of the community; it
-is limited in its ability to work with very large datasets, datasets split
-across multiple systems, and computations that require specialized hardware.
-Furthermore, pursuing solutions to these challenges is out of scope for NumPy
-development.
+could never hope to satisfy every single specialized need of the community;
+due to its in-memory data model, it is limited in its ability to work with very
+large datasets, datasets split across multiple systems, and computations that
+require graphics processing units (GPUs), tensor processing units (TPUs) or
+other specialized hardware for performance reasons.  Pursuing solutions to
+these challenges is out of scope for NumPy development.
 
 The community's efforts to fill the resultant gaps therefore led to a
-proliferation of arrays including distributed arrays---which are stored on
-multiple computers, GPU arrays---which utilize graphics processing units for
-fast computation, computation graphs---which postpone and combine calculations
-before executing them efficiently, and sparse arrays---which typically contain
-few non-zero values, and store only those in memory.
+proliferation of array implementations. Each deep learning framework created
+its own arrays; PyTorch, Tensorflow, Apache MXNet and JAX arrays all have the
+capability to run on CPUs and GPUs, in a distributed fashion, and in a delayed
+execution mode to allow for performance optimizations.  SciPy and Sparse both
+provide sparse arrays---which typically contain few non-zero values and store
+only those in memory for efficiency.
+In addition there are projects that build on top of NumPy arrays as a data
+container and \textit{extend} its capabilities.  Distributed arrays are
+made possible that way by Dask, and labeled arrays---referring to dimensions of
+an array by name rather than by index for clarity, compare \code{x[:, 1]} vs.
+\code{x.loc[:, 'time']}---by Xarray.
 
-This includes popular tensor computation libraries such as
-CuPy, JAX, and Apache MXNet.
-PyTorch and Tensorflow provide tensor APIs with NumPy-inspired semantics.
-% \footnote{\url{https://cupy.chainer.org/}}
+Importantly, some projects chose to follow the NumPy API exactly---with Dask,
+CuPy, Sparse and JAX the most prominent examples---while others have
+NumPy-inspired semantics but chose to deviate in places.
+
+
+% \footnote{\url{https://cupy.chainer.org}}
 % \footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}
-% \footnote{\url{https://numpy.mxnet.io/}}
+% \footnote{\url{https://mxnet.incubator.apache.org}}
+% \footnote{\url{https://dask.org}}
+% JAX has a citation, see https://github.com/google/jax#citing-jax
+% Xarray has a citation, see http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray 
 % \footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
 % \footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
+
+
+% proliferation of arrays including distributed arrays---which are stored on
+% multiple computers, GPU arrays---which utilize graphics processing units for
+% fast computation, computation graphs---which postpone and combine calculations
+% before executing them efficiently, and sparse arrays---which typically contain
+% few non-zero values, and store only those in memory.
+
+%This includes popular tensor computation libraries such as
+%CuPy, JAX, and Apache MXNet.
+%PyTorch and Tensorflow provide tensor APIs with NumPy-inspired semantics.
 
 \section*{Interoperability and extensibility}
 
@@ -280,15 +302,18 @@ schisms like the divergence of Numeric and NumArray, by facilitating
 the development of specialized solutions and new tools that operate in
 concert.
 
+% Ralf: FIXME I don't think this is actually important - should work exactly the same
+% for users whether a NumPy-compatible API is a subclass or a duck array
 Primarily, there
 exist two types of Python array objects: (a) arrays that mimic NumPy arrays but are
 fundamentally different and (b) subclasses of NumPy arrays.
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
-Ideally, operating on these arrays using NumPy would simply work, so that end
-users could write code once, and would then benefit from switching between
-NumPy arrays, GPU arrays, distributed arrays, and so forth, as appropriate.
+Ideally, operating on these arrays using NumPy functions or semantics would
+simply work, so that end users could write code once, and would then benefit
+from switching between NumPy arrays, GPU arrays, distributed arrays, and so
+forth, as appropriate.
 
 \begin{figure}
   \centering
@@ -308,6 +333,7 @@ Versions of these protocols have been successfully deployed.
 % Ralf: Could you provide some proof of effectiveness, e.g., "This has made it
 % possible to create distributed GPU arrays, enabling .... [find a reference to
 % work by Peter Entschev]".
+% Best reference: https://ep2019.europython.eu/talks/fX8dJsD-distributed-multi-gpu-computing-with-dask-cupy-and-rapids/
 % Below an attempt to start on this:
 Thanks to these developments users of Dask and NumPy arrays are now capable
 of scaling their computation to the GPU using Dask's CuPy integration with
