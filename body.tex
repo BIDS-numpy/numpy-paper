@@ -200,22 +200,6 @@ is used throughout \code{eht-imaging}, primarily to handle standard
 astronomical file formats and time/coordinate transformations.
 Matplotlib is used for visualizing data throughout the analysis pipeline,
 including the generation of the final image of the black hole.
-% N.B. - most of this comes from introspecting the Image class defined in
-% ehtim/image.py and grepping the dependencies in requirements.txt
-
-%Tools for analyzing data from gravitational wave observatories are
-%provided by the \code{pycbc} package, which was used in the first
-%detection of gravitational waves \cite{abbott2016observation} and in 
-%on-going analysis of data from LIGO and Virgo.
-%\code{pycbc} also make extensive use of the scientific Python ecosystem.
-%The time-series data from the interferometers are stored in NumPy arrays,
-%while the \code{scipy.signal} subpackage is used to construct and apply filters to the
-%data.
-%Matplotlib is used to visualize data at all points along the analysis chain
-%including raw data from the instrumentation and the time-frequency 
-%visualization of the ``chirps'' that result from mergers of compact binaries
-%such as black holes\cite{abbott2016observation} and
-%neutron stars\cite{abbott2017multi}.
 
 Similar examples can be found in physics, earth science, biology,
 and more.
@@ -226,13 +210,12 @@ of scientists and programmers using those tools mean that NumPy has a
 responsibility to maintain considerable stability.
 At times, this conflicts with the need to innovate;
 resolving it requires balancing trade-offs.
-% our focus is ...
-% NumPy purpose engages with this problem by ...
-% [this also defines the scope of NumPy]
-This need creates interesting challenges for NumPy development as the
-computational environment scientists are analyzing their data in continues
-to evolve and change.
-% this leads to a proliferation of arrays
+
+% FIXME: this should be expanded
+Over the last few years there has been a massive increase in the use
+of scientific Python due in part to the rapid growth of data science,
+machine learning, and artificial intelligence.  
+As a result, NumPy and its API has become ubiquitous.
 
 \section*{Proliferation of arrays}
 
@@ -242,19 +225,25 @@ to evolve and change.
 % sparse arrays
 % foreign language arrays
 
-Recent years have seen a massive explosion in data science, machine learning,
-and artificial intelligence.  NumPy and its API, underlying almost every tool
-in the computational toolchain, has become ubiquitous.  Still, NumPy itself
-could never hope to satisfy every single specialized need of the community;
+% Ralf: we should describe our role at the foundation of the stack
+% i was thinking something along these lines ():
+NumPy provides in-memory, multidimensional, homogeneously typed
+(single pointer + strided) arrays on CPUs.
+It supports many types of CPUs (e.g., POWER and ARM) with similar
+performance as native C code.
+While NumPy suits most user's needs, it cannot support every specialized need of the community;
 due to its in-memory data model, it is limited in its ability to work with very
 large datasets, datasets split across multiple systems, and computations that
 require graphics processing units (GPUs), tensor processing units (TPUs) or
-other specialized hardware for performance reasons.  Pursuing solutions to
-these challenges is out of scope for NumPy development.
+other specialized hardware for performance reasons.
 
-The community's efforts to fill the resultant gaps therefore led to a
+% Ralf: should mention that there are typically utilities to convert to and from numpy arrays
+% and why (presumably to get access to ecosystem)
+The community's efforts to fill the resultant gaps led to a
 proliferation of array implementations. Each deep learning framework created
-its own arrays; PyTorch, Tensorflow, Apache MXNet and JAX arrays all have the
+its own arrays; PyTorch \cite{NEURIPS2019_9015},
+Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
+and JAX \cite{jax2018github} arrays all have the
 capability to run on CPUs and GPUs, in a distributed fashion, and in a delayed
 execution mode to allow for performance optimizations.  SciPy and Sparse both
 provide sparse arrays---which typically contain few non-zero values and store
@@ -262,33 +251,31 @@ only those in memory for efficiency.
 In addition there are projects that build on top of NumPy arrays as a data
 container and \textit{extend} its capabilities.  Distributed arrays are
 made possible that way by Dask, and labeled arrays---referring to dimensions of
-an array by name rather than by index for clarity, compare \code{x[:, 1]} vs.
-\code{x.loc[:, 'time']}---by Xarray.
+an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
+\code{x.loc[:,~'time']}---by Xarray \cite{hoyer2017xarray}.
 
 Importantly, some projects chose to follow the NumPy API exactly---with Dask,
 CuPy, Sparse and JAX the most prominent examples---while others have
 NumPy-inspired semantics but chose to deviate in places.
-
+% Ralf: may want to add something like:
+% when they deviate, they sometimes fix it, e.g.,
+% https://github.com/pytorch/pytorch/pull/1983
+% https://github.com/pytorch/pytorch/issues/2228
+% many have for numpy users
+% https://github.com/torch/torch7/wiki/Torch-for-Numpy-users
 
 % \footnote{\url{https://cupy.chainer.org}}
-% \footnote{\url{https://jax.readthedocs.io/en/latest/jax.numpy.html}}
-% \footnote{\url{https://mxnet.incubator.apache.org}}
-% \footnote{\url{https://dask.org}}
-% JAX has a citation, see https://github.com/google/jax#citing-jax
-% Xarray has a citation, see http://xarray.pydata.org/en/stable/faq.html#how-should-i-cite-xarray 
-% \footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutorial.html}}
-% \footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
 
+% computation graphs---which postpone and combine calculations
+% before executing them efficiently,
 
-% proliferation of arrays including distributed arrays---which are stored on
-% multiple computers, GPU arrays---which utilize graphics processing units for
-% fast computation, computation graphs---which postpone and combine calculations
-% before executing them efficiently, and sparse arrays---which typically contain
-% few non-zero values, and store only those in memory.
-
-%This includes popular tensor computation libraries such as
-%CuPy, JAX, and Apache MXNet.
-%PyTorch and Tensorflow provide tensor APIs with NumPy-inspired semantics.
+% Ralf: I am not sure where this goes, but it would be good to have something
+% about dtype limitation in this section and i also think there should
+% be some discussion of missing values somewhere
+% (it is mentioned below, but not discussed)
+While it supports a wide range of datatypes, it does not have good support
+for missing values. % may be worth saying a few sentences about missing values
+% if we want to discuss Pandas, perhaps we could do so here (i.e, missing values)
 
 \section*{Interoperability and extensibility}
 
@@ -301,12 +288,6 @@ stable array programming interface. This, in turn, prevents disruptive
 schisms like the divergence of Numeric and NumArray, by facilitating
 the development of specialized solutions and new tools that operate in
 concert.
-
-% Ralf: FIXME I don't think this is actually important - should work exactly the same
-% for users whether a NumPy-compatible API is a subclass or a duck array
-Primarily, there
-exist two types of Python array objects: (a) arrays that mimic NumPy arrays but are
-fundamentally different and (b) subclasses of NumPy arrays.
 
 There has been a steady increase in the number of external libraries that
 provide arrays and a NumPy-like API for manipulating them.
@@ -321,7 +302,9 @@ forth, as appropriate.
   \caption{\textbf{Interoperability.} \fixme{This figure needs work.}}\label{fig:duck-arrays}
 \end{figure}
 
-
+% should we hint at some of the community interaction part
+% they have helped us develop the neps and e.g.,
+% https://github.com/pytorch/pytorch/issues/22402
 To facilitate \emph{interoperability}, the NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
