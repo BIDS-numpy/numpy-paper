@@ -203,19 +203,12 @@ including the generation of the final image of the black hole.
 
 Similar examples can be found in physics, earth science, biology,
 and more.
-Researchers in these fields depend on NumPy being correct, reliable,
-and repeatable.
-The rich ecosystem of tools building on NumPy and the larger community
-of scientists and programmers using those tools mean that NumPy has a
-responsibility to maintain considerable stability.
-At times, this conflicts with the need to innovate;
-resolving it requires balancing trade-offs.
-
-% FIXME: this should be expanded
+% FIXME: this should be expanded 
 Over the last few years there has been a massive increase in the use
 of scientific Python due in part to the rapid growth of data science,
 machine learning, and artificial intelligence.  
 As a result, NumPy and its API has become ubiquitous.
+
 
 \section*{Proliferation of arrays}
 
@@ -228,14 +221,17 @@ As a result, NumPy and its API has become ubiquitous.
 % Ralf: we should describe our role at the foundation of the stack
 % i was thinking something along these lines ():
 NumPy provides in-memory, multidimensional, homogeneously typed
-(single pointer + strided) arrays on CPUs.
+(i.e., single pointer and strided) arrays on CPUs.
 It supports many types of CPUs (e.g., POWER and ARM) with similar
 performance as native C code.
-While NumPy suits most user's needs, it cannot support every specialized need of the community;
-due to its in-memory data model, it is limited in its ability to work with very
-large datasets, datasets split across multiple systems, and computations that
-require graphics processing units (GPUs), tensor processing units (TPUs) or
-other specialized hardware for performance reasons.
+% a brief word about accelerators perhaps?
+% end with how this fits the bill for a huge number of users
+
+While NumPy suits most user's needs, it cannot support every specialized need
+of the community; due to its in-memory data model, it is limited in its ability
+to work with very large datasets, datasets split across multiple systems, and
+computations that require graphics processing units (GPUs), tensor processing
+units (TPUs) or other specialized hardware for performance reasons.
 
 % Ralf: should mention that there are typically utilities to convert to and from numpy arrays
 % and why (presumably to get access to ecosystem)
@@ -274,8 +270,10 @@ NumPy-inspired semantics but chose to deviate in places.
 % be some discussion of missing values somewhere
 % (it is mentioned below, but not discussed)
 While it supports a wide range of datatypes, it does not have good support
-for missing values. % may be worth saying a few sentences about missing values
+for missing values or categorical data. % may be worth saying a few sentences about missing values
 % if we want to discuss Pandas, perhaps we could do so here (i.e, missing values)
+% maybe we need to rename the section, but this could anticipate
+% the dtypes discussion below
 
 \section*{Interoperability and extensibility}
 
@@ -305,7 +303,7 @@ forth, as appropriate.
 % should we hint at some of the community interaction part
 % they have helped us develop the neps and e.g.,
 % https://github.com/pytorch/pytorch/issues/22402
-To facilitate \emph{interoperability}, the NumPy provides
+To facilitate \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
 NumPy, in turn, dispatches operations to the originating library, as required.
@@ -340,7 +338,7 @@ scientific Python ecosystem up to and including domain libraries.
 
 Subclasses of NumPy often exist due to difficulty in constructing richer data
 types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
-geometrical objects \cite{pygeos}, and missing numbers. % pandas: categoricals, IP addresses?
+geometrical objects \cite{pygeos}, and missing values. % pandas: categoricals, IP addresses?
 To improve \emph{extensibility}, we are currently overhauling the data type
 system to make it easier to implement data types both in Python and C, and to
 support these and other applications.
@@ -452,8 +450,12 @@ Popular array-aware libraries increased the user community and that
 in turn led to more libraries adding new functionality
 to the scientific Python ecosystem.
 
-
-Over time the role of the NumPy has evolved. It is no longer just the
-foundational array library underlying the scientific Python ecosystem,
-but it is also a standard API for tensor computation and a
-central coordinating mechanism between array types and technologies.
+Over time the role of the NumPy has evolved.
+It began as an attempt to add an array object to Python
+and became the foundation of a rich ecosystem of tools.
+Now a large amount of scientific work depends on NumPy
+being correct, fast, and stable.
+Yet, it is no longer just the foundational array library underlying the
+scientific Python ecosystem; it is also a standard API for tensor
+computation and a central coordinating mechanism between array types and
+technologies.
