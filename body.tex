@@ -255,33 +255,18 @@ NumPy-inspired semantics but chose to deviate in places.
 % computation graphs---which postpone and combine calculations
 % before executing them efficiently,
 
-% not sure where this goes, but it would be good to have something
-% about dtype limitation in this section
-While it supports a wide range of datatypes, it does not have good support
-for missing values or categorical data.
-% may be worth saying a few sentences about missing values and categorical data
-% if we want to discuss Pandas, perhaps we could do so here (i.e, missing values)
-% maybe we need to rename the section, but this could anticipate
-% the dtypes discussion below
-
-\section*{Interoperability and extensibility}
-
-NumPy supports array operations between external array objects by
-acting as a central coordination mechanism with a well-specified API.
-With the proliferation of array implementations discussed above, a
-widespread adoption of the NumPy API is valuable: it lowers the
+Ideally, operating on these arrays using NumPy functions or semantics would
+simply work, so that end users could write code once, and would then benefit
+from switching between NumPy arrays, GPU arrays, distributed arrays, and so
+forth, as appropriate.
+To support array operations between external array objects, NumPy
+acts as a central coordination mechanism with a well-specified API.
+The widespread adoption of the NumPy API is valuable: it lowers the
 barrier to entry for newcomers and provides the wider community with a
 stable array programming interface. This, in turn, prevents disruptive
 schisms like the divergence of Numeric and NumArray, by facilitating
 the development of specialized solutions and new tools that operate in
 concert.
-
-There has been a steady increase in the number of external libraries that
-provide arrays and a NumPy-like API for manipulating them.
-Ideally, operating on these arrays using NumPy functions or semantics would
-simply work, so that end users could write code once, and would then benefit
-from switching between NumPy arrays, GPU arrays, distributed arrays, and so
-forth, as appropriate.
 
 \begin{figure}
   \centering
@@ -324,24 +309,6 @@ scientific Python ecosystem up to and including domain libraries.
 % https://numpy.org/neps/nep-0030-duck-array-protocol.html
 % https://github.com/numpy/numpy/blob/a111b551ae940d7d5f8523fef1cf3589c6ba00a0/doc/neps/nep-0033-extensible-dtypes.rst
 % https://numpy.org/neps/nep-0037-array-module.html
-
-Subclasses of NumPy often exist due to difficulty in constructing richer data
-types, such as quantities with physical units \cite{astropy,Goldbaum2018,pint},
-geometrical objects \cite{pygeos}, and missing values. % pandas: categoricals, IP addresses?
-To improve \emph{extensibility}, we are currently overhauling the data type
-system to make it easier to implement data types both in Python and C, and to
-support these and other applications.
-The widespread adoption of rich, user defined, data types can allow more
-concise, feature rich scientific computing.
-By making these user implemented data types a fundamental design of NumPy
-these tools will enabled and interact naturally with different libraries.
-% need to add a bit of clarity on what "enable and interact naturally with different libraries" means.
-%
-%  1. I expect multiple user dtypes can interact (naturally); 2. libraries such
-%  as sklearn (or dask) might "just work" with e.g. physical Units (and
-%  Categoricals, which they probably really would like to use e.g. for labels);
-%  3. Things being inside a dtype rather than subclass is a better user
-%  experience.
 
 \section*{Discussion}
 
