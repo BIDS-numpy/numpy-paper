@@ -212,14 +212,6 @@ As a result, NumPy and its API has become ubiquitous.
 
 \section*{Proliferation of arrays}
 
-% pandas, xarray, ... - leave out Pandas since it's not an array?
-% distributed arrays, delayed execution arrays
-% GPU arrays, tensor computation libraries
-% sparse arrays
-% foreign language arrays
-
-% Ralf: we should describe our role at the foundation of the stack
-% i was thinking something along these lines ():
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
 It supports many types of CPUs (e.g., POWER and ARM) with similar
@@ -233,7 +225,8 @@ to work with very large datasets, datasets split across multiple systems, and
 computations that require graphics processing units (GPUs), tensor processing
 units (TPUs) or other specialized hardware for performance reasons.
 
-% Ralf: should mention that there are typically utilities to convert to and from numpy arrays
+% maybe mention that there are typically utilities
+% to convert to and from numpy arrays
 % and why (presumably to get access to ecosystem)
 The community's efforts to fill the resultant gaps led to a
 proliferation of array implementations. Each deep learning framework created
@@ -253,24 +246,20 @@ an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
 Importantly, some projects chose to follow the NumPy API exactly---with Dask,
 CuPy, Sparse and JAX the most prominent examples---while others have
 NumPy-inspired semantics but chose to deviate in places.
-% Ralf: may want to add something like:
 % when they deviate, they sometimes fix it, e.g.,
 % https://github.com/pytorch/pytorch/pull/1983
 % https://github.com/pytorch/pytorch/issues/2228
 % many have for numpy users
 % https://github.com/torch/torch7/wiki/Torch-for-Numpy-users
 
-% \footnote{\url{https://cupy.chainer.org}}
-
 % computation graphs---which postpone and combine calculations
 % before executing them efficiently,
 
-% Ralf: I am not sure where this goes, but it would be good to have something
-% about dtype limitation in this section and i also think there should
-% be some discussion of missing values somewhere
-% (it is mentioned below, but not discussed)
+% not sure where this goes, but it would be good to have something
+% about dtype limitation in this section
 While it supports a wide range of datatypes, it does not have good support
-for missing values or categorical data. % may be worth saying a few sentences about missing values
+for missing values or categorical data.
+% may be worth saying a few sentences about missing values and categorical data
 % if we want to discuss Pandas, perhaps we could do so here (i.e, missing values)
 % maybe we need to rename the section, but this could anticipate
 % the dtypes discussion below
