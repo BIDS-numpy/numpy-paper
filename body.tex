@@ -120,20 +120,19 @@ results across one or more dimensions of the array.
 For example, summing a $n$-dimensional array over $d$ axes results in a
 $(n-d)$-dimensional array (Fig.~\ref{fig:array-concepts}e).
 
-Other array-aware functions include creating, reshaping, concatenating, and padding
-arrays; searching, sorting and counting data; and reading and writing files.
-NumPy provides extensive support for generating pseudorandom numbers and
-includes an assortment of probability distributions.
-It also performs accelerated linear algebra, utilizing one of several backends
-such as OpenBLAS \cite{wang2013augem,xianyi2012model} and Intel MKL optimized for the CPUs at hand.
+NumPy also includes array-aware functions for creating, reshaping, concatenating, and padding
+arrays; searching, sorting, and counting data; and reading and writing files.
+It provides extensive support for generating pseudorandom numbers,
+includes an assortment of probability distributions, and
+performs accelerated linear algebra, utilizing one of several backends
+such as OpenBLAS \cite{wang2013augem,xianyi2012model} or Intel MKL optimized
+for the CPUs at hand.
 
 
 \section*{Scientific Python ecosystem}
 
 SciPy and Matplotlib are tightly coupled with NumPy---in terms of
 history, development, and use.
-% to expand the suite of standard algorithms and
-% provide basic plotting capabilities.
 SciPy provides fundamental algorithms for scientific computing
 including mathematical, scientific, and engineering routines.
 Matplotlib generates publication-ready figures and visualizations.
@@ -161,10 +160,6 @@ narrative computational notebooks.  This rich and productive
 environment has made Python popular
 for scientific research.
 
-%As a result, important scientific software
-%packages build on the ecosystem, and further expand it for specific
-%research projects.
-
 \begin{figure}
   \centering
   \includegraphics[width=.45\textwidth]{static/ecosystem}
@@ -177,7 +172,7 @@ for scientific research.
 \end{figure}
 
 Many research groups have designed large,
-complex scientific libraries, that add specialized functionality for
+complex scientific libraries, which add specialized functionality for
 solving problems in specific domains.
 For example, the \code{eht-imaging} library developed by the Event Horizon Telescope 
 collaboration for radio interferometry imaging, analysis, and simulation
@@ -362,9 +357,6 @@ special syntax so that NumPy would have more succinct and
 easy to read array notation.
 Since we are not part of the standard library, we are able to
 dictate our own release policies and development patterns.
-%\fixme{we've gotten a number of features: slicing syntax, implicit tuples,
-%complex numbers, buffer protocol, matrix multiplication operator}
-%\fixme{but we benefit from separate governance}
 
 NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
@@ -414,6 +406,11 @@ and became the foundation of a rich ecosystem of tools.
 Now a large amount of scientific work depends on NumPy
 being correct, fast, and stable.
 Yet, it is no longer just the foundational array library underlying the
-scientific Python ecosystem; it is also a standard API for tensor
+scientific Python ecosystem; it is also the standard API for tensor
 computation and a central coordinating mechanism between array types and
-technologies.
+technologies in Python.
+NumPy continues to evolve.
+For instance, the NumPy data type system is currently being redesigned to make it
+easier to implement data types both in Python and C, and to better handle
+richer data types including physical units \cite{astropy,Goldbaum2018,pint},
+geometrical objects \cite{pygeos}, and missing values.
