@@ -211,22 +211,38 @@ NumPy and its API has become ubiquitous.
 
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
-It supports many types of CPUs (e.g., POWER and ARM) with similar
-performance as native C code.
+It runs on machines ranging from embedded devices up to the worlds
+largest supercomputers [citation needed] and provides a performance
+which often approaches compiled languages.
+When algorithms do not fit the array programming approach,
+or require a faster implementation,
+a number of tools (e.g. Cython, Numba, Pythran, ...)
+are available to transparently accelerate crucial parts.
+These tools allow for a high level array orientated code base without sacrificing
+the speed expected from a compiled language.
+In many cases fast algorithms are implemented by libraries in the scientific
+python ecosystem so that most user programs are sufficiently fast being
+written in Python and NumPy.
+% smooth experience/intengration from high level <-> low level?
+
 % a brief word about accelerators perhaps?
 % end with how this fits the bill for a huge number of users
 
-While NumPy suits most user's needs, it cannot support every specialized need
+NumPy suits most user's needs, but it cannot support every specialized need
 of the community; due to its in-memory data model, it is limited in its ability
 to work with very large datasets, datasets split across multiple systems, and
 computations that require graphics processing units (GPUs), tensor processing
 units (TPUs) or other specialized hardware for performance reasons.
+However, both distributed data and the parallel execution of GPUs and TPUs
+map well to the paradigm of array orientated programming.
+This leads to a gap between available modern hardware architecture and the
+necessary tools to leverage their computational power.
 
 % maybe mention that there are typically utilities
 % to convert to and from numpy arrays
 % and why (presumably to get access to ecosystem)
 The community's efforts to fill the resultant gaps led to a
-proliferation of array implementations. Each deep learning framework created
+proliferation of new array implementations. Each deep learning framework created
 its own arrays; PyTorch \cite{NEURIPS2019_9015},
 Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
 and JAX \cite{jax2018github} arrays all have the
@@ -414,3 +430,9 @@ For instance, the NumPy data type system is currently being redesigned to make i
 easier to implement data types both in Python and C, and to better handle
 richer data types including physical units \cite{astropy,Goldbaum2018,pint},
 geometrical objects \cite{pygeos}, and missing values.
+% Maybe add a sentence in the direction of:
+% We hope/expect, that this will allow the proliferation of rich datatypes
+% which in turn can propel the whole ecosystem forward? (too much :)?
+% As a part of other changes/developements...)
+% Discussed with Jarrod, if it fits to get back to protocols, it is fine
+% to call DTypes a (rich) protocol.
