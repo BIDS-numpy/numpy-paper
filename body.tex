@@ -21,7 +21,7 @@ that operate on it.
 Because of its inherent simplicity, the NumPy array is
 the {\it de facto} exchange format for array data in Python.
 The library has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become ubiquitous as
+{\it Application Programming Interface} (API) has become widespread as
 a language for array programming.
 
 \section*{NumPy arrays}
@@ -158,13 +158,8 @@ Users fluidly inspect, manipulate, and visualize their data, and
 rapidly iterate to refine programming statements. These statements are
 then stitched together into imperative or functional programs, or
 narrative computational notebooks.  This rich and productive
-environment has made the scientific Python ecosystem hugely popular
+environment has made Python popular
 for scientific research.
-
-Despite its tight integration, the ecosystem was conceived to have
-clear functional separation, with well defined interfaces.  This makes
-possible the design of large, complex scientific libraries, that
-add specialized functionality for solving specific problems.
 
 %As a result, important scientific software
 %packages build on the ecosystem, and further expand it for specific
@@ -174,26 +169,30 @@ add specialized functionality for solving specific problems.
   \centering
   \includegraphics[width=.45\textwidth]{static/ecosystem}
   \caption{\textbf{Scientific Python Ecosystem.}
-   This figure highlights some of the essential tools and libraries in the vast
-   scientific Python ecosystem.  Most of the ecosystem builds on NumPy to
+   This figure highlights just a few of the essential tools and libraries in the vast
+   scientific Python ecosystem.  Most of the ecosystem builds on NumPy arrays to
    provide a rich and powerful collection of array-aware functionality.
   }
   \label{fig:ecosystem}
 \end{figure}
 
+Many research groups have designed large,
+complex scientific libraries, that add specialized functionality for
+solving problems in specific domains.
 For example, the \code{eht-imaging} library developed by the Event Horizon Telescope 
-collaboration relies on many components of the scientific Python ecosystem.
+collaboration for radio interferometry imaging, analysis, and simulation
+relies on many components of the scientific Python ecosystem.
 NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image 
 reconstruction.
 SciPy is used to provide tools used in general image processing such as 
-filtering and image alignment, while scikit-image---a popular image processing
-library that extends SciPy---provides higher-level functionality such as
+filtering and image alignment, while scikit-image, a popular image processing
+library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
 Other components of SciPy are used throughout the library, such as the
 \code{scipy.optimize} module for handling general optimization tasks.
-NetworkX \cite{SciPyProceedings_11}---a popular package for complex
-network analysis---is used for analysis of consistency among image
+NetworkX \cite{SciPyProceedings_11}, a popular package for complex
+network analysis, is used for analysis of consistency among image
 comparisons.
 The community-developed astronomy library, Astropy \cite{astropy:2013, astropy:2018},
 is used throughout \code{eht-imaging}, primarily to handle standard
@@ -203,14 +202,17 @@ including the generation of the final image of the black hole.
 
 Similar examples can be found in physics, earth science, biology,
 and more.
-% FIXME: this should be expanded 
-Over the last few years there has been a massive increase in the use
-of scientific Python due in part to the rapid growth of data science,
-machine learning, and artificial intelligence.  
-As a result, NumPy and its API has become ubiquitous.
+In many fields, the scientific Python ecosystem is the primary
+software environment.
+The recent rapid growth of data science, machine learning, and
+artificial intelligence has dramatically increased scientific
+Python use.
+NumPy and its ecosystem is now taught in
+numerous university courses, bootcamps, and summer schools.
+There are multiple community conferences and workshops.
+NumPy and its API has become ubiquitous.
 
-
-\section*{Proliferation and interoperability of arrays}
+\section*{Array proliferation and interoperability}
 
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
