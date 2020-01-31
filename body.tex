@@ -115,9 +115,10 @@ copying any data in memory), so that the shapes of the operands match
 Broadcasting is also applied when an array is indexed using arrays of
 indices (Fig.~\ref{fig:array-concepts}c).
 
-Many of the array-aware functions, such as summation, support \emph{reductions}: aggregating
-results across one or more dimensions of the array.
-For example, summing a $n$-dimensional array over $d$ axes results in a
+Other array-aware functions, such as \code{maximum}, perform
+element-by-element \emph{reductions}, aggregating results across one,
+multiple, or all axes of a single array.
+For example, summing an $n$-dimensional array over $d$ axes results in a
 $(n-d)$-dimensional array (Fig.~\ref{fig:array-concepts}e).
 
 NumPy also includes array-aware functions for creating, reshaping, concatenating, and padding
@@ -128,6 +129,10 @@ performs accelerated linear algebra, utilizing one of several backends
 such as OpenBLAS \cite{wang2013augem,xianyi2012model} or Intel MKL optimized
 for the CPUs at hand.
 
+Altogether, the combination of a simple in-memory array
+representation, a syntax that closely mimics mathematics, and a
+variety of array-aware utility functions forms a productive and
+powerfully expressive array programming language.
 
 \section*{Scientific Python ecosystem}
 
