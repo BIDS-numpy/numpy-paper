@@ -33,7 +33,8 @@ a language for array programming.
     \textbf{a,} The NumPy array data structure and its associated metadata fields.
     \textbf{b,} Indexing an array with various types of arguments.
     \textbf{c,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
-    \textbf{d,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
+    \textbf{d,} Vectorization efficiently applies operations to groups of elements
+    \textbf{e,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
     \textbf{e,} Reduction operations act along one or more axes. In this
     example, a three-dimensional array is shown to be summed along various single
     axes to produce two-dimensional results, or along two axes consecutively to
@@ -215,18 +216,13 @@ NumPy and its API have become truly ubiquitous.
 
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
-It runs on machines ranging from embedded devices up to the worlds
-largest supercomputers [citation needed] and provides a performance
-which often approaches compiled languages.
-When algorithms do not fit the array programming approach,
-or require a faster implementation,
-a number of tools (e.g. Cython, Numba, Pythran, ...)
-are available to transparently accelerate crucial parts.
-These tools allow for a high level array orientated code base without sacrificing
-the speed expected from a compiled language.
-In many cases fast algorithms are implemented by libraries in the scientific
-python ecosystem so that most user programs are sufficiently fast being
-written in Python and NumPy.
+It runs on machines ranging from embedded devices to the world's
+largest supercomputers \fixme{citation needed} and yields performance
+approaching that of compiled languages.
+For algorithms that do not fit the array programming approach,
+or require even faster implementations, a variety of tools exist (Cython, Numba, or Pythran, ...) that transparently accelerates bottlenecks.
+These tools allow programmers to express concepts using high level array programming without sacrificing efficiency.
+In many cases, fast algorithms already are implemented by libraries in the scientific Python ecosystem; using these primitives, efficient codes can be written in pure Python.
 % smooth experience/intengration from high level <-> low level?
 
 % a brief word about accelerators perhaps?
