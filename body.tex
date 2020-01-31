@@ -262,6 +262,10 @@ an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
 Importantly, some projects follow the NumPy API exactly---with Dask,
 CuPy, Sparse and JAX the most prominent examples---while others have
 NumPy-inspired semantics but, often due to their development history, deviate in places.
+Wherever there are such deviations, we often observe users gently requesting,
+and developers evolving the software step by step towards the NumPy API,
+provided this is possible and reasonable.
+
 % when they deviate, they sometimes fix it, e.g.,
 % https://github.com/pytorch/pytorch/pull/1983
 % https://github.com/pytorch/pytorch/issues/2228
@@ -291,8 +295,8 @@ concert.
   \caption{\textbf{Interoperability.} Through its array protocol, the NumPy API
      can operate on various types of array objects, including those written outside
      of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and
-     a Dask array, respectively. The call succeeds by dispatching to the
-     appropriate library implementation, and results in different output array
+     a Dask array, respectively. The calls succeed by dispatching to the
+     appropriate library implementation, and result in different output array
      types.
   }\label{fig:duck-arrays}
 
