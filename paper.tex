@@ -38,16 +38,6 @@
 \newcommand{\inlinecite}[1]{\footnotesize\citen{#1}}
 \newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\@maketitle}
- {\noindent
-{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\color{color1}\large\sffamily\textbf{ABSTRACT}}}}
- {\noindent
-{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\color{color1}\large\sffamily\textbf{ABSTRACT}}}}
- {}{}
-\makeatother
-
 \usepackage[switch]{lineno}
 \linenumbers
 

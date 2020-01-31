@@ -10,23 +10,7 @@ This briefly caused the two communities to diverge, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
 and NumArray \cite{oliphant2006guide}.
 
-Today, NumPy underpins almost every Python library that does scientific or
-numerical computation including SciPy \cite{virtanen2019scipy},
-Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
-scikit-learn \cite{pedregosa2011scikit}, and
-scikit-image \cite{vanderwalt2014scikit}.
-It is a community developed, open source library, which provides a
-multidimensional Python array object along with array-aware functions
-that operate on it.
-Because of its inherent simplicity, the NumPy array is
-the {\it de facto} exchange format for array data in Python.
-The library has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become widespread as
-a language for array programming.
-
-\section*{NumPy arrays}
-
-\begin{figure*}
+\begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/array-concepts}   
   \caption{\textbf{Fundamental Array Concepts.}
@@ -43,6 +27,22 @@ a language for array programming.
    }
   \label{fig:array-concepts}
 \end{figure*}
+
+Today, NumPy underpins almost every Python library that does scientific or
+numerical computation including SciPy \cite{virtanen2019scipy},
+Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
+scikit-learn \cite{pedregosa2011scikit}, and
+scikit-image \cite{vanderwalt2014scikit}.
+It is a community developed, open source library, which provides a
+multidimensional Python array object along with array-aware functions
+that operate on it.
+Because of its inherent simplicity, the NumPy array is
+the {\it de facto} exchange format for array data in Python.
+The library has such widespread adoption that not only the array object but also its
+{\it Application Programming Interface} (API) has become widespread as
+a language for array programming.
+
+\section*{NumPy arrays}
 
 The NumPy array is a data structure that efficiently stores and accesses
 multidimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, that
@@ -218,7 +218,7 @@ NumPy and its API have become truly ubiquitous.
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
 It runs on machines ranging from embedded devices to the world's
-largest supercomputers \fixme{citation needed} and yields performance
+largest supercomputers and yields performance
 approaching that of compiled languages.
 For algorithms that do not fit the array programming approach,
 or require even faster implementations, a variety of tools exist (Cython, Numba, or Pythran, ...) that transparently accelerates bottlenecks.
