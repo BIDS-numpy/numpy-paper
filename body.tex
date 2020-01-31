@@ -35,10 +35,11 @@ a language for array programming.
     \textbf{c,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
     \textbf{d,} Vectorization efficiently applies operations to groups of elements
     \textbf{e,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
-    \textbf{e,} Reduction operations act along one or more axes. In this
+    \textbf{f,} Reduction operations act along one or more axes. In this
     example, a three-dimensional array is shown to be summed along various single
     axes to produce two-dimensional results, or along two axes consecutively to
     produce a one-dimensional result.
+    \textbf{g,} Example NumPy code, illustrating some of these concepts.
    }
   \label{fig:array-concepts}
 \end{figure*}
@@ -284,7 +285,7 @@ concert.
 \begin{figure*}
   \centering
   \includegraphics[width=.9\textwidth]{static/sketches/array_protocol.jpg}
-  \caption{\textbf{Interoperability.} \fixme{This figure needs work.}}\label{fig:duck-arrays}
+  \caption{\textbf{Interoperability.} Through its array protocol, the NumPy API can operate on various types of array objects, including those written outside of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and a dask array, respectively. The call gets succeeds by dispatching to the appropriate library implementation, and results in different output array types.}\label{fig:duck-arrays}
 \end{figure*}
 
 % should we hint at some of the community interaction part
