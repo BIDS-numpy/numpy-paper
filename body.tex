@@ -144,7 +144,7 @@ Matplotlib generates publication-ready figures and visualizations.
 The combination of NumPy, SciPy, and Matplotlib together with
 an advanced interactive environment like IPython \cite{perez2007ipython}
 or Jupyter \cite{Kluyver:2016aa}
-provides a complete foundation for array-based scientific computing.
+provides a solid foundation for array-based scientific computing.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
 this foundation to provide several, widely used \emph{technique-specific}
 libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
@@ -186,31 +186,30 @@ NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image 
 reconstruction.
 SciPy is used to provide tools used in general image processing such as 
-filtering and image alignment, while scikit-image, a popular image processing
+filtering and image alignment, while scikit-image, an image processing
 library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
 Other components of SciPy are used throughout the library, such as the
 \code{scipy.optimize} module for handling general optimization tasks.
-NetworkX \cite{SciPyProceedings_11}, a popular package for complex
+NetworkX \cite{SciPyProceedings_11}, a package for complex
 network analysis, is used for analysis of consistency among image
 comparisons.
 The community-developed astronomy library, Astropy \cite{astropy:2013, astropy:2018},
 is used throughout \code{eht-imaging}, primarily to handle standard
 astronomical file formats and time/coordinate transformations.
 Matplotlib is used for visualizing data throughout the analysis pipeline,
-including the generation of the final image of the black hole.
+including for the generation of the final image of the black hole.
 
-Similar examples can be found in physics, earth science, biology,
-and more.
-In many fields, the scientific Python ecosystem is the primary
-software environment.
-The recent rapid growth of data science, machine learning, and
-artificial intelligence has dramatically increased scientific
-Python use.
-NumPy and its ecosystem is now taught in
-numerous university courses, bootcamps, and summer schools.
-There are multiple community conferences and workshops.
-NumPy and its API has become ubiquitous.
+The rapid recent growth of data science, machine learning, and
+artificial intelligence has further and dramatically boosted usage of
+scientific Python.  Examples of its impactful application, such as the
+above, now exist in almost every discipline in the natural and social
+sciences, and in many fields these tools have become \emph{the
+primary} software environment.  NumPy and its ecosystem are commonly
+taught in university courses, bootcamps, and summer schools, and are
+at the focus of community conferences and workshops worldwide.
+
+NumPy and its API have become truly ubiquitous.
 
 \section*{Array proliferation and interoperability}
 
