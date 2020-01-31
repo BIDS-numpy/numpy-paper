@@ -186,9 +186,9 @@ For example, the \code{eht-imaging} library developed by the Event Horizon Teles
 collaboration for radio interferometry imaging, analysis, and simulation
 relies on many components of the scientific Python ecosystem.
 NumPy arrays are used to store and manipulate numerical data at every step
-in the processing chain: from raw data through calibration and image 
+in the processing chain: from raw data through calibration and image
 reconstruction.
-SciPy is used to provide tools used in general image processing such as 
+SciPy is used to provide tools used in general image processing such as
 filtering and image alignment, while scikit-image, an image processing
 library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
@@ -216,35 +216,39 @@ NumPy and its API have become truly ubiquitous.
 
 \section*{Array proliferation and interoperability}
 
-NumPy provides in-memory, multidimensional, homogeneously typed
-(i.e., single pointer and strided) arrays on CPUs.
-It runs on machines ranging from embedded devices to the world's
-largest supercomputers, with performance
-approaching that of compiled languages.
-For algorithms that do not fit the array programming approach,
-or require even faster implementations, a variety of tools exist (e.g., Cython, Numba, Pythran)
-that transparently accelerate bottlenecks.
-These tools allow programmers to express concepts using high level array programming without sacrificing efficiency.
-In many cases, fast algorithms already are implemented by libraries in the scientific Python ecosystem; using these primitives, efficient codes can be written in pure Python.
-% smooth experience/intengration from high level <-> low level?
+NumPy provides in-memory, multidimensional, homogeneously typed (i.e.,
+single pointer and strided) arrays on CPUs.  It runs on machines
+ranging from embedded devices to the world's largest supercomputers,
+with performance approaching that of compiled languages.  For the
+largest part of its existence, NumPy covered the vast majority of
+array computation use cases.
+
+%For algorithms that do not fit the array programming approach,
+%or require even faster implementations, a variety of tools exist (e.g., Cython, Numba, Pythran)
+%that transparently accelerate bottlenecks.
+%These tools allow programmers to express concepts using high level array programming without sacrificing efficiency.
+%In many cases, fast algorithms already are implemented by libraries in the scientific Python ecosystem; using these primitives, efficient codes can be written in pure %Python.
+
 
 % a brief word about accelerators perhaps?
 % end with how this fits the bill for a huge number of users
 
-NumPy suits most user's needs, but it cannot support every specialized need
-of the community; due to its in-memory data model, it is limited in its ability
-to work with very large datasets, datasets split across multiple systems, and
-computations that require graphics processing units (GPUs), tensor processing
-units (TPUs) or other specialized hardware for performance reasons.
-However, both distributed data and the parallel execution of GPUs and TPUs
-map well to the paradigm of array programming.
-This leads to a gap between available modern hardware architecture and the
-necessary tools to leverage their computational power.
+In recentl years, there has been a rapid growth in the development of
+specialized array processing hardware, including graphics processing
+units (GPUs), tensor processing units (TPUs), and field-programmable
+gate arrays (FPGAs).  Routinely, data sets are now larger than a
+single machine's memory, and may be stored on multiple machines or in
+the cloud.  Due to its in-memory data model, NumPy is unable to
+utilize such specialized hardware and storage.  However, both
+distributed data and the parallel execution of GPUs and TPUs map well
+to the \emph{paradigm} of array programming: a gap therefore existed between
+available modern hardware architectures and the tools necessary to
+leverage their computational power.
 
 % maybe mention that there are typically utilities
 % to convert to and from numpy arrays
 % and why (presumably to get access to ecosystem)
-The community's efforts to fill the resultant gaps led to a
+The community's efforts to fill this gap led to a
 proliferation of new array implementations. Each deep learning framework created
 its own arrays; PyTorch \cite{NEURIPS2019_9015},
 Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
@@ -259,11 +263,21 @@ made possible that way by Dask, and labeled arrays---referring to dimensions of
 an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
 \code{x.loc[:,~'time']}---by Xarray \cite{hoyer2017xarray}.
 
-Importantly, some projects follow the NumPy API exactly---with Dask,
-CuPy, Sparse and JAX the most prominent examples---while others have
-NumPy-inspired semantics but, often due to their development history, deviate in places.
-Wherever there are such deviations, we often observe users gently requesting,
-and developers evolving the software step by step toward the NumPy API.
+Such libraries often mimic the NumPy API, because it lowers the
+barrier to entry for newcomers and provides the wider community with a
+stable array programming interface. This, in turn, prevents disruptive
+schisms like the divergence of Numeric and NumArray.
+But exploring new ways of working with array is experimental by nature
+and, in fact, several promising libraries---such as Caffe, Theano, and
+biggus---have already ceased development. And each time that a user
+decides to try a new technology or backend library, they have to
+change import statements and ensure that the new library implements
+all the parts of the NumPy API they currently use.
+
+%CuPy, Sparse and JAX the most prominent examples---while others have
+%NumPy-inspired semantics but, often due to their development history, deviate in places.
+%Wherever there are such deviations, we often observe users gently requesting,
+%and developers evolving the software step by step toward the NumPy API.
 
 % when they deviate, they sometimes fix it, e.g.,
 % https://github.com/pytorch/pytorch/pull/1983
@@ -274,18 +288,13 @@ and developers evolving the software step by step toward the NumPy API.
 % computation graphs---which postpone and combine calculations
 % before executing them efficiently,
 
-Ideally, operating on these arrays using NumPy functions or semantics would
+Ideally, operating on specialized arrays using NumPy functions or semantics would
 simply work, so that end users could write code once, and would then benefit
 from switching between NumPy arrays, GPU arrays, distributed arrays, and so
 forth, as appropriate.
 To support array operations between external array objects, NumPy
-acts as a central coordination mechanism with a well-specified API.
-The widespread adoption of the NumPy API is valuable: it lowers the
-barrier to entry for newcomers and provides the wider community with a
-stable array programming interface. This, in turn, prevents disruptive
-schisms like the divergence of Numeric and NumArray, by facilitating
-the development of specialized solutions and new tools that operate in
-concert.
+therefore added the capability to act as a central coordination
+mechanism with a well-specified API.
 
 \begin{figure*}
   \centering
@@ -304,7 +313,7 @@ concert.
 % should we hint at some of the community interaction part
 % they have helped us develop the neps and e.g.,
 % https://github.com/pytorch/pytorch/issues/22402
-To facilitate \emph{interoperability}, NumPy provides
+To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
 NumPy, in turn, dispatches operations to the originating library, as required.
@@ -320,15 +329,17 @@ Versions of these protocols have been successfully deployed.
 Thanks to these developments users of Dask and NumPy arrays are now capable
 of scaling their computation to the GPU using Dask's CuPy integration with
 only minimal code changes.
+As an example, consider the arrays shown in ...
+\fixme{this part to be fleshed out to match the code in the figure}
 % spelled out on this page: https://docs.dask.org/en/latest/gpu.html
 % The video cited embedded there could be a citation:i
 % https://on-demand-gtc.gputechconf.com/gtcnew/sessionview.php?sessionName=s9198-dask+and+v100s+for+fast%2c+distributed+batch+scoring+of+computer+vision+workloads
-However, general adoption has not yet been achieved mainly for compatibility
-concerns.
+%However, general adoption has not yet been achieved mainly for compatibility
+%concerns.
 % explain a bit what "compatibility concerns" means ...
-Thus, we are actively addressing these concerns by revising and extending
-these protocols with the aim of wide interoperability that spans the whole
-scientific Python ecosystem up to and including domain libraries.
+%Thus, we are actively addressing these concerns by revising and extending
+%these protocols with the aim of wide interoperability that spans the whole
+%scientific Python ecosystem up to and including domain libraries.
 
 % https://numpy.org/neps/nep-0016-abstract-array.html
 % https://numpy.org/neps/nep-0018-array-function-protocol.html
