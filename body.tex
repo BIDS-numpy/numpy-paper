@@ -417,19 +417,13 @@ Popular array-aware libraries increased the user community and that
 in turn led to more libraries adding new functionality
 to the scientific Python ecosystem.
 
-Over time the role of the NumPy has evolved.
-It began as an attempt to add an array object to Python
-and became the foundation of a rich ecosystem of tools.
-Now a large amount of scientific work depends on NumPy
-being correct, fast, and stable.
-Yet, it is no longer just the foundational array library underlying the
-scientific Python ecosystem; it is also the standard API for tensor
-computation and a central coordinating mechanism between array types and
-technologies in Python.
-NumPy continues to evolve.
-For instance, the NumPy data type system is currently being redesigned to make it
+NumPy began as an attempt to add an array object to Python and became
+the foundation of a rich ecosystem of tools.
+Now, a large amount of scientific work depends on NumPy being correct,
+fast, and stable.
+Work on NumPy continues, so that it may meet the needs of its users.  For instance, the NumPy data type system is currently being redesigned to make it
 easier to implement data types both in Python and C, and to better handle
-richer data types including physical units \cite{astropy,Goldbaum2018,pint},
+rich data types such as physical units \cite{astropy,Goldbaum2018,pint},
 geometrical objects \cite{pygeos}, and missing values.
 % Maybe add a sentence in the direction of:
 % We hope/expect, that this will allow the proliferation of rich datatypes
@@ -437,3 +431,8 @@ geometrical objects \cite{pygeos}, and missing values.
 % As a part of other changes/developements...)
 % Discussed with Jarrod, if it fits to get back to protocols, it is fine
 % to call DTypes a (rich) protocol.
+
+NumPy's role in the ecosystem continues to evolve. It is no longer just the foundational array library underlying the
+scientific Python ecosystem, but has become the standard API for tensor
+computation and a central coordinating mechanism between array types and
+technologies in Python.
