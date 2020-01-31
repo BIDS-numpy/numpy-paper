@@ -10,6 +10,7 @@ This briefly caused the two communities to diverge, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
 and NumArray \cite{oliphant2006guide}.
 
+% KJM: I moved this here to get the placement right 
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/array-concepts}   
@@ -37,9 +38,9 @@ It is a community developed, open source library, which provides a
 multidimensional Python array object along with array-aware functions
 that operate on it.
 Because of its inherent simplicity, the NumPy array is
-the {\it de facto} exchange format for array data in Python.
+the \emph{de facto} exchange format for array data in Python.
 The library has such widespread adoption that not only the array object but also its
-{\it Application Programming Interface} (API) has become widespread as
+\emph{Application Programming Interface} (API) has become widespread as
 a language for array programming.
 
 \section*{NumPy arrays}
@@ -93,7 +94,7 @@ limiting memory usage.
 
 To complement the array syntax, NumPy includes functions that perform
 \emph{vectorized} calculations on arrays, including arithmetic, statistics, and
-trigonometry.
+trigonometry (Fig.~\ref{fig:array-concepts}d).
 Vectorization---operating on whole arrays rather than their individual
 elements---is essential to array programming.
 This means that operations that would take many tens of lines to express in
@@ -206,7 +207,7 @@ The rapid recent growth of data science, machine learning, and
 artificial intelligence has further and dramatically boosted usage of
 scientific Python.  Examples of its impactful application, such as the
 above, now exist in almost every discipline in the natural and social
-sciences, and in many fields these tools have become \emph{the
+sciences.  In many fields these tools have become \emph{the
 primary} software environment.  NumPy and its ecosystem are commonly
 taught in university courses, bootcamps, and summer schools, and are
 at the focus of community conferences and workshops worldwide.
@@ -221,7 +222,8 @@ It runs on machines ranging from embedded devices to the world's
 largest supercomputers and yields performance
 approaching that of compiled languages.
 For algorithms that do not fit the array programming approach,
-or require even faster implementations, a variety of tools exist (Cython, Numba, or Pythran, ...) that transparently accelerates bottlenecks.
+or require even faster implementations, a variety of tools exist (e.g., Cython, Numba, Pythran)
+that transparently accelerate bottlenecks.
 These tools allow programmers to express concepts using high level array programming without sacrificing efficiency.
 In many cases, fast algorithms already are implemented by libraries in the scientific Python ecosystem; using these primitives, efficient codes can be written in pure Python.
 % smooth experience/intengration from high level <-> low level?
@@ -284,8 +286,16 @@ concert.
 
 \begin{figure*}
   \centering
-  \includegraphics[width=.9\textwidth]{static/sketches/array_protocol.jpg}
-  \caption{\textbf{Interoperability.} Through its array protocol, the NumPy API can operate on various types of array objects, including those written outside of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and a dask array, respectively. The call gets succeeds by dispatching to the appropriate library implementation, and results in different output array types.}\label{fig:duck-arrays}
+  \includegraphics[width=\textwidth]{static/sketches/array_protocol.jpg}
+
+  \caption{\textbf{Interoperability.} Through its array protocol, the NumPy API
+     can operate on various types of array objects, including those written outside
+     of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and
+     a Dask array, respectively. The call succeeds by dispatching to the
+     appropriate library implementation, and results in different output array
+     types.
+  }\label{fig:duck-arrays}
+
 \end{figure*}
 
 % should we hint at some of the community interaction part
@@ -368,12 +378,12 @@ and The Structure and Interpretation of Computer Programs) has
 further popularized NumPy as a tool of choice for modern data science.
 
 Even though NumPy is not part of Python's standard library,
-we benefit from a good relationship with the Python developers.
+it benefits from a good relationship with the Python developers.
 Over the years, the Python language has added new features and
 special syntax so that NumPy would have more succinct and 
 easy to read array notation.
-Since we are not part of the standard library, we are able to
-dictate our own release policies and development patterns.
+Since it is not part of the standard library, NumPy is able to
+dictate its own release policies and development patterns.
 
 NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
@@ -413,9 +423,6 @@ syntax from APL through Yorick and others.
 It also made it easy for other libraries to develop fast and
 memory-efficient compiled code, usually in C or Fortran, that could manipulate
 these arrays and pass them back to Python.
-Popular array-aware libraries increased the user community and that
-in turn led to more libraries adding new functionality
-to the scientific Python ecosystem.
 
 NumPy began as an attempt to add an array object to Python and became
 the foundation of a rich ecosystem of tools.
