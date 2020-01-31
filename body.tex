@@ -219,7 +219,7 @@ NumPy and its API have become truly ubiquitous.
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.
 It runs on machines ranging from embedded devices to the world's
-largest supercomputers and yields performance
+largest supercomputers, with performance
 approaching that of compiled languages.
 For algorithms that do not fit the array programming approach,
 or require even faster implementations, a variety of tools exist (e.g., Cython, Numba, Pythran)
@@ -259,9 +259,9 @@ made possible that way by Dask, and labeled arrays---referring to dimensions of
 an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
 \code{x.loc[:,~'time']}---by Xarray \cite{hoyer2017xarray}.
 
-Importantly, some projects chose to follow the NumPy API exactly---with Dask,
+Importantly, some projects follow the NumPy API exactly---with Dask,
 CuPy, Sparse and JAX the most prominent examples---while others have
-NumPy-inspired semantics but chose to deviate in places.
+NumPy-inspired semantics but, often due to their development history, deviate in places.
 % when they deviate, they sometimes fix it, e.g.,
 % https://github.com/pytorch/pytorch/pull/1983
 % https://github.com/pytorch/pytorch/issues/2228
