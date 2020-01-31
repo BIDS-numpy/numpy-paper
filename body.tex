@@ -118,7 +118,7 @@ copying any data in memory), so that the shapes of the operands match
 Broadcasting is also applied when an array is indexed using arrays of
 indices (Fig.~\ref{fig:array-concepts}c).
 
-Other array-aware functions, such as \code{sum}, perform
+Other array-aware functions, such as \code{sum}, \code{mean}, and \code{maximum}, perform
 element-by-element \emph{reductions}, aggregating results across one,
 multiple, or all axes of a single array.
 For example, summing an $n$-dimensional array over $d$ axes results in a
@@ -373,12 +373,7 @@ Adding fast array operations and linear algebra allows scientist to do all
 their work within a single language---and one that has the advantage of
 being famously easy to learn and teach.
 In fact, Python's adoption as a primary learning language in universities
-(e.g., many lower division UC Berkeley courses use Python including
-Foundations of Data Science,
-The Beauty and Joy of Computing,
-Introduction to Computational Thinking with Data,
-and The Structure and Interpretation of Computer Programs) has
-further popularized NumPy as a tool of choice for modern data science.
+has further popularized NumPy as a tool of choice for modern data science.
 
 Even though NumPy is not part of Python's standard library,
 it benefits from a good relationship with the Python developers.
