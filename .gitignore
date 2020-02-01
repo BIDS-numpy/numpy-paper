@@ -1,5 +1,5 @@
 *~
-
+*.bak
 *.aux
 *.fdb_latexmk
 *.fls

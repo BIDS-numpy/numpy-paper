@@ -233,14 +233,14 @@ array computation use cases.
 % a brief word about accelerators perhaps?
 % end with how this fits the bill for a huge number of users
 
-In recentl years, there has been a rapid growth in the development of
-specialized array processing hardware, including graphics processing
+In recent years, there has been a rapid growth in the development of
+specialized hardware, including graphics processing
 units (GPUs), tensor processing units (TPUs), and field-programmable
 gate arrays (FPGAs).  Routinely, data sets are now larger than a
 single machine's memory, and may be stored on multiple machines or in
-the cloud.  Due to its in-memory data model, NumPy is unable to
-utilize such specialized hardware and storage.  However, both
-distributed data and the parallel execution of GPUs and TPUs map well
+the cloud.  Due to its in-memory data model, NumPy is currently unable to
+utilize such specialized hardware and storage directly.  However, both
+distributed data and the parallel execution of GPUs, TPUs, and FPGAs map well
 to the \emph{paradigm} of array programming: a gap therefore existed between
 available modern hardware architectures and the tools necessary to
 leverage their computational power.
@@ -267,7 +267,7 @@ Such libraries often mimic the NumPy API, because it lowers the
 barrier to entry for newcomers and provides the wider community with a
 stable array programming interface. This, in turn, prevents disruptive
 schisms like the divergence of Numeric and NumArray.
-But exploring new ways of working with array is experimental by nature
+But exploring new ways of working with arrays is experimental by nature
 and, in fact, several promising libraries---such as Caffe, Theano, and
 biggus---have already ceased development. And each time that a user
 decides to try a new technology or backend library, they have to
@@ -300,7 +300,7 @@ mechanism with a well-specified API.
   \centering
   \includegraphics[width=\textwidth]{static/sketches/array_protocol.jpg}
 
-  \caption{\textbf{Interoperability.} Through its array protocol, the NumPy API
+  \caption{\textbf{NumPy Array Protocol.} Through its array protocol, the NumPy API
      can operate on various types of array objects, including those written outside
      of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and
      a Dask array, respectively. The calls succeed by dispatching to the
@@ -310,27 +310,28 @@ mechanism with a well-specified API.
 
 \end{figure*}
 
-% should we hint at some of the community interaction part
-% they have helped us develop the neps and e.g.,
-% https://github.com/pytorch/pytorch/issues/22402
 To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
 NumPy, in turn, dispatches operations to the originating library, as required.
+Thanks to these developments users of Dask and NumPy arrays, for instance, are now capable
+of scaling their computation to the GPU using Dask's CuPy integration with
+only minimal code changes.
+
 % FIXME: expand to 3 or more sentences discussing current efforts and
 % issues with those, how did adoption go, what is being done next
 %\url{https://numpy.org/neps/nep-0037-array-module.html}
-Versions of these protocols have been successfully deployed.
+%Versions of these protocols have been successfully deployed.
 % Ralf: Could you provide some proof of effectiveness, e.g., "This has made it
 % possible to create distributed GPU arrays, enabling .... [find a reference to
 % work by Peter Entschev]".
 % Best reference: https://ep2019.europython.eu/talks/fX8dJsD-distributed-multi-gpu-computing-with-dask-cupy-and-rapids/
 % Below an attempt to start on this:
-Thanks to these developments users of Dask and NumPy arrays are now capable
-of scaling their computation to the GPU using Dask's CuPy integration with
-only minimal code changes.
-As an example, consider the arrays shown in ...
-\fixme{this part to be fleshed out to match the code in the figure}
+
+% should we hint at some of the community interaction part
+% they have helped us develop the neps and e.g.,
+% https://github.com/pytorch/pytorch/issues/22402
+
 % spelled out on this page: https://docs.dask.org/en/latest/gpu.html
 % The video cited embedded there could be a citation:i
 % https://on-demand-gtc.gputechconf.com/gtcnew/sessionview.php?sessionName=s9198-dask+and+v100s+for+fast%2c+distributed+batch+scoring+of+computer+vision+workloads
