@@ -11,6 +11,8 @@ This briefly caused the two communities to diverge, until
 and NumArray \cite{oliphant2006guide}.
 
 % KJM: I moved this here to get the placement right 
+% RG: minor comment on the example code: would be better to not copy IPython
+%     oddities but align output on brackets and In/Out on ":"
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/array-concepts}   
@@ -46,7 +48,7 @@ a language for array programming.
 \section*{NumPy arrays}
 
 The NumPy array is a data structure that efficiently stores and accesses
-multidimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, that
+multidimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, and
 enables a wide variety of scientific computation.
 It consists of a pointer to memory, along with metadata used to interpret the
 data stored there, notably {\em data type}, {\em shape}, and {\em strides}
@@ -168,6 +170,15 @@ narrative computational notebooks.  This rich and productive
 environment has made Python popular
 for scientific research.
 
+% RG: (to discuss) this figure plus associated text says that the layers about
+%     Foundation build on top of that whole foundation. In reality that's not
+%     true - everything builds on NumPy, almost everything on SciPy, and very
+%     little on Matplotlib/IPython/Jupyter. Perhaps "interactive environment"
+%     should get its own section instead.
+%     Also, I think Pandas can be added next to statsmodels as statistics. That
+%     avoids explaining dataframes; now it looks like a serious omission.
+%     I'd also be in favor of adding Spyder in the text; scientific computing
+%     beyond exploratory work is better done in an IDE.
 \begin{figure}
   \centering
   \includegraphics[width=.45\textwidth]{static/ecosystem}
@@ -193,7 +204,7 @@ filtering and image alignment, while scikit-image, an image processing
 library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
 Other components of SciPy are used throughout the library, such as the
-\code{scipy.optimize} module for handling general optimization tasks.
+\code{scipy.optimize} module for handling mathematical optimization tasks.
 NetworkX \cite{SciPyProceedings_11}, a package for complex
 network analysis, is used for analysis of consistency among image
 comparisons.
@@ -216,8 +227,8 @@ NumPy and its API have become truly ubiquitous.
 
 \section*{Array proliferation and interoperability}
 
-NumPy provides in-memory, multidimensional, homogeneously typed (i.e.,
-single pointer and strided) arrays on CPUs.  It runs on machines
+NumPy provides in-memory, multidimensional, homogeneously typed
+arrays on CPUs.  It runs on machines
 ranging from embedded devices to the world's largest supercomputers,
 with performance approaching that of compiled languages.  For the
 largest part of its existence, NumPy covered the vast majority of
@@ -268,9 +279,9 @@ barrier to entry for newcomers and provides the wider community with a
 stable array programming interface. This, in turn, prevents disruptive
 schisms like the divergence of Numeric and NumArray.
 But exploring new ways of working with arrays is experimental by nature
-and, in fact, several promising libraries---such as Caffe, Theano, and
-biggus---have already ceased development. And each time that a user
-decides to try a new technology or backend library, they have to
+and, in fact, several promising libraries---such as Theano and Caffe---have
+already ceased development. And each time that a user
+decides to try a new technology, they have to
 change import statements and ensure that the new library implements
 all the parts of the NumPy API they currently use.
 
@@ -314,9 +325,13 @@ To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
 passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
 NumPy, in turn, dispatches operations to the originating library, as required.
-Thanks to these developments users of Dask and NumPy arrays, for instance, are now capable
-of scaling their computation to the GPU using Dask's CuPy integration with
-only minimal code changes.
+
+Thanks to these developments users are now capable, for example, of scaling
+their computation to distributed systems with Dask. The protocols
+\textit{compose} well, so it is even possible to take NumPy code and scale it
+to multi-GPU systems with minimal code changes through Dask arrays containing
+multiple CuPy arrays \cite{entschev2019}.
+
 
 % FIXME: expand to 3 or more sentences discussing current efforts and
 % issues with those, how did adoption go, what is being done next
@@ -395,6 +410,8 @@ easy to read array notation.
 Since it is not part of the standard library, NumPy is able to
 dictate its own release policies and development patterns.
 
+% RG: this first sentence is duplicate with (b) three paragraphs up - on
+%     purpose or not?
 NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
 reduce error \cite{millman2014developing}.  This culture is not only
@@ -421,7 +438,7 @@ procedures. This is a vital skill set for modern researchers that is often
 missing from formal university education in physics or astronomy.}
 \end{quotation}
 Community members explicitly work to address this lack of formal education
-through formal courses and workshops
+through courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
 
 NumPy combines the expressive power of \emph{array programming}, 
