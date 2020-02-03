@@ -145,9 +145,9 @@ SciPy provides fundamental algorithms for scientific computing
 including mathematical, scientific, and engineering routines.
 Matplotlib generates publication-ready figures and visualizations.
 The combination of NumPy, SciPy, and Matplotlib together with
-an advanced interactive environment like IPython \cite{perez2007ipython}
-or Jupyter \cite{Kluyver:2016aa}
-provides a solid foundation for array-based scientific computing.
+an advanced interactive environment like IPython \cite{perez2007ipython},
+or Jupyter \cite{Kluyver:2016aa} provides a solid foundation for array
+programming in Python.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
 this foundation to provide several, widely used \emph{technique-specific}
 libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
@@ -164,8 +164,10 @@ IPython or Jupyter, is ideally suited to exploratory data analysis.
 Users fluidly inspect, manipulate, and visualize their data, and
 rapidly iterate to refine programming statements. These statements are
 then stitched together into imperative or functional programs, or
-narrative computational notebooks.  This rich and productive
-environment has made Python popular
+narrative computational notebooks.
+Scientific computing beyond exploratory work is often done in a text editor
+or an integrated development environment (IDEs) such as Spyder.
+This rich and productive environment has made Python popular
 for scientific research.
 
 % RG: (to discuss) this figure plus associated text says that the layers about
@@ -311,12 +313,12 @@ mechanism with a well-specified API.
   \centering
   \includegraphics[width=\textwidth]{static/sketches/array_protocol.jpg}
 
-  \caption{\textbf{NumPy Array Protocol.} Through its array protocol, the NumPy API
+  \caption{\textbf{NumPy API and Array Protocol.} Through its array protocol, the NumPy API
      can operate on various types of array objects, including those written outside
-     of NumPy. In this example, NumPy's \code{sum} function is called on a NumPy and
-     a Dask array, respectively. The calls succeed by dispatching to the
-     appropriate library implementation, and result in different output array
-     types.
+     of NumPy. In this example, NumPy's \code{mean} function is called on a a Dask
+     array.  The call succeeds by dispatching to the appropriate library implementation
+     (i.e., Dask in this case) and results in a new Dask array.  Compare this
+     code to the example code in Fig.~\ref{fig:array-concepts}g.
   }\label{fig:duck-arrays}
 
 \end{figure*}
@@ -410,11 +412,6 @@ easy to read array notation.
 Since it is not part of the standard library, NumPy is able to
 dictate its own release policies and development patterns.
 
-% RG: this first sentence is duplicate with (b) three paragraphs up - on
-%     purpose or not?
-% KJM: yes, sort of, (a) corresponds to the two para above
-% (b) corresponds to the next two para and
-% (c) corresponds to the last two (or three) para
 NumPy is a community of practice with a strong \emph{culture} of
 employing software engineering practice to improve collaboration and
 reduce error \cite{millman2014developing}.  This culture is not only
