@@ -1,15 +1,3 @@
-% author email -- from stefan -- respond to stefan and jarrod
-% agree to be on paper and read final version
-% they need to confirm their names and affiliations
-% no big structral changes, corrections, minor additions, word smithing
-
-% focus on the main text, not the methods
-% policy stefan / ralf approve, jarrod merges w/in 1 day
-%
-
-% separate to team, stephan, and travis
-
-
 Subject: NumPy paper author invitation
 
 Dear fellow NumPy developer,
@@ -34,9 +22,7 @@ later than **Wednesday the 12th**.
 
 At the last NumPy developer meeting, I raised the idea of a NumPy paper.
 The general sense was that there was interest in doing this, as long as someone
-took responsibility for leading the process all the way through.  It was also
-suggested that a small group of people complete most of the paper and then open
-it up for community feedback.
+took responsibility for leading the process all the way through. 
 
 Jarrod and I volunteered to take responsibility for composing the manuscript in
 consultation with Ralf.  Jarrod took the lead on the overall structure and
@@ -46,7 +32,7 @@ refine the outline and content.  The three of us decided on the author
 order.  Chuck is the first author given his long-term role as release manager
 and one of the project leaders.  We list Travis as the last author to reflect his
 role as the original author and his leadership of the scientific Python community.
-Jarrod and I next, since we did the bulk of the writing and took primary responsibilty
+Jarrod and I next, since we did the bulk of the writing and took primary responsibility
 for the paper structure.  Then Ralf, as he worked closely with us to refine the manuscript
 structure and content.
 We went back to ancient history (`git shortlog -sn v0.9.2..HEAD`), and tried to
@@ -55,7 +41,6 @@ release management, docs, mentoring, and so on to determine the order of the
 other authors.  Ralf, Jarrod, and I discussed this at length and believe we
 did a reasonable job of ordering authors.  While we are certain not everyone
 will be completely happy with the author order, we needed to make some decision.
-
 
 We've put a considerable amount of time into the draft and don't anticipate
 any big structural changes at this point.  Before submission, we plan to add
