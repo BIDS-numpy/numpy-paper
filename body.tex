@@ -67,7 +67,7 @@ $(T, M, N, 3)$.
 \emph{Strides} are necessary to interpret computer memory, which stores elements
 linearly, as multidimensional arrays.
 It describes the number of bytes to move forward in memory to jump from row to
-row or column to column.
+row, column to column, and so forth.
 Consider, for example, a 2-D array of floating-point numbers with shape
 $(4, 3)$, where each element occupies 8 bytes in memory.
 To move between consecutive columns, we need to jump forward 8 bytes in memory,
@@ -163,7 +163,7 @@ foundation---along with the surrounding ecosystem of tools---inside of
 IPython or Jupyter, is ideally suited to exploratory data analysis.
 Users fluidly inspect, manipulate, and visualize their data, and
 rapidly iterate to refine programming statements. These statements are
-then stitched together into imperative or functional programs or
+then stitched together into imperative or functional programs, or
 notebooks containing both computation and narrative.
 Scientific computing beyond exploratory work is often done in a text editor
 or an integrated development environment (IDEs) such as Spyder\cite{spyder2020}.
@@ -224,7 +224,7 @@ NumPy and its API have become truly ubiquitous.
 NumPy provides in-memory, multidimensional, homogeneously typed
 arrays on CPUs.  It runs on machines
 ranging from embedded devices to the world's largest supercomputers,
-with performance approaching that of compiled languages.  For the
+with performance approaching that of compiled languages.  For
 most its existence, NumPy addressed the vast majority of
 array computation use cases.
 
@@ -242,7 +242,7 @@ array computation use cases.
 In recent years, there has been a rapid growth in the development of
 specialized hardware, including graphics processing
 units (GPUs), tensor processing units (TPUs), and field-programmable
-gate arrays (FPGAs).  Data sets routinely exceed the memory capacity of a single machine and may be stored on multiple machines or in
+gate arrays (FPGAs).  Data sets now routinely exceed the memory capacity of a single machine and may be stored on multiple machines or in
 the cloud.  Due to its in-memory data model, NumPy is currently unable to
 utilize such specialized hardware and storage directly.  However, both
 distributed data and the parallel execution of GPUs, TPUs, and FPGAs map well
@@ -275,7 +275,7 @@ schisms like the divergence of Numeric and NumArray.
 But exploring new ways of working with arrays is experimental by nature
 and, in fact, several promising libraries---such as Theano and Caffe---have
 already ceased development. And each time that a user
-decides to try new technology, they must
+decides to try a new technology, they must
 change import statements and ensure that the new library implements
 all the parts of the NumPy API they currently use.
 
@@ -295,7 +295,8 @@ all the parts of the NumPy API they currently use.
 
 Ideally, operating on specialized arrays using NumPy functions or semantics would
 simply work, so that users could write code once, and would then benefit
-from switching between NumPy arrays, GPU arrays, or distributed arrays, as appropriate.
+from switching between NumPy arrays, GPU arrays, distributed arrays,
+and so forth, as appropriate.
 To support array operations between external array objects, NumPy,
 therefore, added the capability to act as a central coordination
 mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
@@ -379,7 +380,7 @@ NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
 It spurred the development of the broader scientific Python ecosystem and
 heralded the current era of widespread use of Python for scientific computing.
-The reasons for its popularity are varied and complex but include the fact that
+The reasons for its popularity are varied and complex but include the facts that
 NumPy (a) is built on top of Python,
 (b) has a culture of collaboration and good software development practices, and
 (c) provides a cutting-edge array programming environment for scientific data analysis.
