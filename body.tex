@@ -177,6 +177,8 @@ for scientific research.
    This figure highlights just a few of the essential tools and libraries in the vast
    scientific Python ecosystem.  Most of the ecosystem builds on NumPy arrays to
    provide a rich and powerful collection of array-aware functionality.
+   This means that other array implementations are easily accessible to
+   the ecosystem if they use the NumPy API and array protocol (Fig.~\ref{fig:array-protocol}).
   }
   \label{fig:ecosystem}
 \end{figure}
@@ -296,7 +298,7 @@ from switching between NumPy arrays, GPU arrays, distributed arrays, and so
 forth, as appropriate.
 To support array operations between external array objects, NumPy
 therefore added the capability to act as a central coordination
-mechanism with a well-specified API.
+mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
 
 \begin{figure*}
   \centering
@@ -308,13 +310,13 @@ mechanism with a well-specified API.
      array.  The call succeeds by dispatching to the appropriate library implementation
      (i.e., Dask in this case) and results in a new Dask array.  Compare this
      code to the example code in Fig.~\ref{fig:array-concepts}g.
-  }\label{fig:duck-arrays}
+  }\label{fig:array-protocol}
 
 \end{figure*}
 
 To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for these arrays to be
-passed to NumPy functions (Fig.~\ref{fig:duck-arrays}).
+passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
 NumPy, in turn, dispatches operations to the originating library, as required.
 
 Thanks to these developments users are now capable, for example, of scaling
