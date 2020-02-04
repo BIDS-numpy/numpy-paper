@@ -70,9 +70,9 @@ It describes the number of bytes to move forward in memory to jump from row to
 row or column to column.
 Consider, for example, a 2-D array of floating-point numbers with shape
 $(4, 3)$, where each element occupies 8 bytes in memory.
-To move between consecutive columns we need to jump forward 8 bytes in memory,
+To move between consecutive columns, we need to jump forward 8 bytes in memory,
 and to access the next row $3 \times 8 = 24$ bytes.
-The strides of that array are therefore $(24, 8)$.  NumPy is able to
+The strides of that array are therefore $(24, 8)$.  NumPy can
 store arrays in either C or Fortran memory order, iterating
 first over either rows or columns.  This allows external libraries
 written in those languages to access NumPy array data in memory directly.
@@ -102,7 +102,7 @@ languages such as C can often be implemented as a single, clear Python
 expression.
 This results in concise code and frees users to focus on the details of
 their analysis, while NumPy handles looping over array elements near-optimally,
-taking into consideration, for example, strides, in order to best utilize the
+taking into consideration, for example, strides, to best utilize the
 computer's fast cache memory.
 
 When performing a vectorized operation (such as addition) on two arrays with
@@ -258,8 +258,8 @@ proliferation of new array implementations. Each deep learning framework created
 its own arrays; PyTorch \cite{NEURIPS2019_9015},
 Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
 and JAX \cite{jax2018github} arrays all have the
-capability to run on CPUs and GPUs, in a distributed fashion, and in a delayed
-execution mode to allow for performance optimizations.  SciPy and Sparse both
+capability to run on CPUs and GPUs, in a distributed fashion, utilizing lazy evaluation
+to allow for additional performance optimizations.  SciPy and Sparse both
 provide sparse arrays---which typically contain few non-zero values and store
 only those in memory for efficiency.
 In addition, there are projects that build on top of NumPy arrays as a data
@@ -275,7 +275,7 @@ schisms like the divergence of Numeric and NumArray.
 But exploring new ways of working with arrays is experimental by nature
 and, in fact, several promising libraries---such as Theano and Caffe---have
 already ceased development. And each time that a user
-decides to try new technology, they have to
+decides to try new technology, they must
 change import statements and ensure that the new library implements
 all the parts of the NumPy API they currently use.
 
@@ -319,11 +319,9 @@ To facilitate this \emph{interoperability}, NumPy provides
 passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
 NumPy, in turn, dispatches operations to the originating library, as required.
 
-Thanks to these developments, users are now capable, for example, of scaling
-their computation to distributed systems with Dask. The protocols
-\textit{compose} well, so it is even possible to take NumPy code and scale it
-to multi-GPU systems with minimal code changes through Dask arrays containing
-multiple CuPy arrays \cite{entschev2019}.
+Thanks to these developments, users can now, for example, scale
+their computation from a single machine to distributed systems using Dask. The protocols
+\textit{compose} well, and so it is possible to redeploy NumPy code onto multi-GPU systems with minimal changes\cite{entschev2019}.
 
 
 % FIXME: expand to 3 or more sentences discussing current efforts and
@@ -375,7 +373,7 @@ were evident. The design of this new tool was informed by their
 experiences with powerful interactive programming languages for
 scientific computing such as APL \cite{iverson1962programming} and
 Yorick \cite{munro1995using}, as well as commercial languages and
-environments like IDL and Matlab.
+environments like IDL and {MATLAB}.
 
 NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
@@ -398,8 +396,8 @@ has further popularized NumPy as a tool of choice for modern data science.
 Even though NumPy is not part of Python's standard library,
 it benefits from a good relationship with the Python developers.
 Over the years, the Python language has added new features and
-special syntax so that NumPy would have more succinct and 
-easy to read array notation.
+special syntax so that NumPy would have a more succinct and 
+easier to read array notation\cite{smith2014pep465}.
 Since it is not part of the standard library, NumPy is able to
 dictate its own release policies and development patterns.
 
