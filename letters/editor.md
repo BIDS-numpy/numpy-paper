@@ -3,7 +3,7 @@
 - Major work over last few years including array protocol stuff
 - no official paper despite over two decades of development and widespread use
 - Python 2 EOL
-
+- scipy papers out
 
 Dear Editor,
 

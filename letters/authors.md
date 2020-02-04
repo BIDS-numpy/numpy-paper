@@ -10,10 +10,29 @@
 % separate to team, stephan, and travis
 
 
-We're delighted to tell you that we have a paper about NumPy 1.0 in
-preparation, and we're contacting you as a potential co-author.
+We're delighted to tell you that we have a full draft of a NumPy paper,
+and we're contacting you as a potential co-author.
 
-At the last NumPy developer meeting, Stefan raised the idea of a NumPy paper.
+Nature responded favorably to our presubmission inquiry and we
+will submit the manuscript on Monday, February 17th.
+The draft is currently here:
+  https://github.com/BIDS-numpy/numpy-paper/
+We plan to transfer this to the numpy/archive repo on GitHub closer to publication.
+I've also attached a PDF.
+
+Since we intend to submit the manuscript in two weeks, we will need all
+co-authors to confirm that their names, affiliations, and addresses are correct no
+later than Wednesday the 12th.
+
+We've put a considerable amount of time into the draft and don't anticipate
+any big structural changes at this point.  Before submission, we plan to add
+a few more sentences to the end of the "Array proliferation and interoperability"
+section.  We will also replace the hand-drawn figures with digital versions.
+However, we welcome PRs with corrections, minor additions, and wordsmithing.
+
+# Background
+
+At the last NumPy developer meeting, I raised the idea of a NumPy paper.
 The general sense was that there was interest in doing this, as long as someone
 took responsibility for leading the process all the way through.  It was also
 suggested that a small group of people complete most of the paper and then open
@@ -36,27 +55,6 @@ release management, docs, mentoring, and so on to determine the order of the
 other authors.  Ralf, Jarrod, and I discussed this at length and believe we
 did a reasonable job of ordering authors.  While we are certain not everyone
 will be completely happy with the author order, we needed to make some decision.
-% Co-authors Sebastian, Kevin, Warren, Matthew, and Tyler also
-% contributed text and provided feedback.
-
-Nature responded favorably to our presubmission inquiry.
-We have a nearly complete manuscript, which we will submit to Nature
-on Monday, February 17th.
-The draft is currently here:
-  https://github.com/BIDS-numpy/numpy-paper/
-We plan to transfer this to the NumPy org on GitHub before publication.
-I've also attached a PDF.
-
-Since we intend to submit the manuscript in two weeks, we will need all
-co-authors to confirm their names and affiliations are correct no later than
-Wednesday the 12th.
-
-We've put a considerable amount of time into the draft and don't anticipate
-any big structural changes at this point.  Before submission, we plan to add
-a few more sentences to the end of the "Array proliferation and interoperability"
-section.  We will also ... figures ...
-
-However, we welcome PRs with corrections, minor additions, and wordsmithing.
 
 Best regards,
-Jarrod
+Stefan
