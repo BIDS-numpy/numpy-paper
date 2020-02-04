@@ -10,27 +10,27 @@
 % separate to team, stephan, and travis
 
 
-We're delighted to tell you that we have a full draft of a NumPy paper,
+Subject: NumPy paper author invitation
+
+Dear fellow NumPy developer,
+
+We're delighted to share that we have a full draft of a NumPy paper,
 and we're contacting you as a potential co-author.
 
-Nature responded favorably to our presubmission inquiry and we
-will submit the manuscript on Monday, February 17th.
-The draft is currently here:
+Nature responded favorably to our presubmission inquiry and we will
+submit the manuscript on Monday, **February 17th**. The draft is currently
+here:
+
   https://github.com/BIDS-numpy/numpy-paper/
-We plan to transfer this to the numpy/archive repo on GitHub closer to publication.
-I've also attached a PDF.
+
+We plan to transfer this to the numpy/archive repo on GitHub closer to
+publication. I've also attached a PDF.
 
 Since we intend to submit the manuscript in two weeks, we will need all
 co-authors to confirm that their names, affiliations, and addresses are correct no
-later than Wednesday the 12th.
+later than **Wednesday the 12th**.
 
-We've put a considerable amount of time into the draft and don't anticipate
-any big structural changes at this point.  Before submission, we plan to add
-a few more sentences to the end of the "Array proliferation and interoperability"
-section.  We will also replace the hand-drawn figures with digital versions.
-However, we welcome PRs with corrections, minor additions, and wordsmithing.
-
-# Background
+## Background
 
 At the last NumPy developer meeting, I raised the idea of a NumPy paper.
 The general sense was that there was interest in doing this, as long as someone
@@ -46,8 +46,8 @@ refine the outline and content.  The three of us decided on the author
 order.  Chuck is the first author given his long-term role as release manager
 and one of the project leaders.  We list Travis as the last author to reflect his
 role as the original author and his leadership of the scientific Python community.
-Jarrod and I next since we did the bulk of the writing and took primary responsibilty
-for the paper structure.  Ralf is next as he worked closely with us to refine the manuscript
+Jarrod and I next, since we did the bulk of the writing and took primary responsibilty
+for the paper structure.  Then Ralf, as he worked closely with us to refine the manuscript
 structure and content.
 We went back to ancient history (`git shortlog -sn v0.9.2..HEAD`), and tried to
 weigh merge commits (indicative of review effort) and other contributions like
@@ -55,6 +55,16 @@ release management, docs, mentoring, and so on to determine the order of the
 other authors.  Ralf, Jarrod, and I discussed this at length and believe we
 did a reasonable job of ordering authors.  While we are certain not everyone
 will be completely happy with the author order, we needed to make some decision.
+
+
+We've put a considerable amount of time into the draft and don't anticipate
+any big structural changes at this point.  Before submission, we plan to add
+a few more sentences to the end of the "Array proliferation and interoperability"
+section.  We will also replace the hand-drawn figures with digital versions.
+However, we welcome PRs with corrections, minor additions, and
+wordsmithing.
+
+I look forward to hearing from you by February 12th.
 
 Best regards,
 Stefan
