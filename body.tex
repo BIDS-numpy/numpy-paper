@@ -1,12 +1,16 @@
 Two Python array packages existed before NumPy.
-The Numeric package began in the mid-90s and provided an array object in
-Python, written in C, and linking to standard fast implementations of linear
+The Numeric package began in the mid-1990s and provided an array object and array-aware functions
+in Python, written in C, and linking to standard fast implementations of linear
 algebra \cite{Numericmanual}.
-Around 2000, the Space Telescope Science Institute (STScI) software group wrote
-a reimplementation of Numeric, called NumArray, to support their work
-on large memory-mapped arrays and arrays of mixed data type
-records \cite{greenfield2003numarray}.
-This briefly caused the two communities to diverge, until
+To handle large astronomical images coming from the Hubble Space Telescope,
+a reimplementation of Numeric, called NumArray, added
+support for memory-mapped arrays and mixed data type records. 
+%Around 2000, the Space Telescope Science Institute (STScI) software group wrote
+%a reimplementation of Numeric, called NumArray, to support their work
+%on large memory-mapped arrays and arrays of mixed data type
+%records \cite{greenfield2003numarray}.
+While NumArray was highly compatible with Numeric, the two packages
+had enough differences that it divided the community, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
 and NumArray \cite{oliphant2006guide}.
 
@@ -42,6 +46,10 @@ the \emph{de facto} exchange format for array data in Python.
 The library has such widespread adoption that not only the array object but also its
 \emph{Application Programming Interface} (API) has become widespread as
 a language for array programming.
+To exploit new specialized hardware and storage, there has been
+a recent proliferation of Python array packages.
+Instead of leading back to some kind of Numarray and Numeric divide that
+NumPy was created to bridge, NumPy has become ...
 
 \section*{NumPy arrays}
 
