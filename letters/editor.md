@@ -5,6 +5,10 @@
 - Python 2 EOL
 - scipy papers out
 
+- why did we have so many astronomy examples?  we can provide many more from
+  a variety of fields, but these just seemed natural and there is a long
+  connection with astronomy
+
 Dear Editor,
 
 NumPy is the fundamental array computing library for the Python

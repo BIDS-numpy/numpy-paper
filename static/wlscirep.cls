@@ -30,7 +30,7 @@
 \RequirePackage{authblk}
 \setlength{\affilsep}{1.5em}
 \renewcommand\Authfont{\fontsize{12}{12}\usefont{OT1}{phv}{b}{n}}
-\renewcommand\Affilfont{\fontsize{10}{12}\usefont{OT1}{phv}{m}{n}}
+\renewcommand\Affilfont{\fontsize{8}{10}\usefont{OT1}{phv}{m}{n}}
 
 \RequirePackage[left=2cm,%
                 right=2cm,%
