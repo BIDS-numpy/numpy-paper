@@ -1,9 +1,14 @@
 % https://github.com/scipy/scipy-articles/blob/master/scipy-1.0/covlett.tex
 
+- 15 years since numpy began
+- 25 years since numeric (the precusor to numpy)
 - Major work over last few years including array protocol stuff
 - no official paper despite over two decades of development and widespread use
 - Python 2 EOL
-- scipy papers out
+- scipy paper out
+- sp paper is already in the top 5% of all research outputs ever tracked by Altmetric
+in terms of attention and in the top 1% of all Nature Methods papers.
+% https://www.altmetric.com/details/74956899#score
 
 - why did we have so many astronomy examples?  we can provide many more from
   a variety of fields, but these just seemed natural and there is a long
