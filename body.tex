@@ -33,7 +33,7 @@ and NumArray \cite{oliphant2006guide}.
   \label{fig:array-concepts}
 \end{figure*}
 
-Fifteen years later, NumPy now underpins almost every Python library that does scientific or
+Now, fifteen years later, NumPy underpins almost every Python library that does scientific or
 numerical computation including SciPy \cite{virtanen2020scipy},
 Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
 scikit-learn \cite{pedregosa2011scikit}, and
@@ -43,13 +43,17 @@ multidimensional Python array object along with array-aware functions
 that operate on it.
 Because of its inherent simplicity, the NumPy array is
 the \emph{de facto} exchange format for array data in Python.
-The library has such widespread adoption that not only the array object but also its
-\emph{Application Programming Interface} (API) has become widespread as
-a language for array programming.
-To exploit new specialized hardware and storage, there has been
-a recent proliferation of Python array packages.
-Instead of leading back to some kind of Numarray and Numeric divide that
-NumPy was created to bridge, NumPy has become ...
+
+NumPy operates on in-memory arrays using the CPU. To utilize modern,
+specialized storage and hardware, there has been a recent
+proliferation of Python array packages. Unlike with the Numarray and
+Numeric divide, it is now much harder for these new libraries to
+fracture the user community---given how much work already builds
+on-top of NumPy.  However, to provide the ecosystem with access to
+new and exploratory technologies, NumPy is transitioning into a
+central coordinating mechanism that specifies a well-defined array
+programming \emph{Application Programming Interface} (API) and
+dispatches it, as appropriate, to specialized array implementations.
 
 \section*{NumPy arrays}
 
