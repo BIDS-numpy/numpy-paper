@@ -14,4 +14,4 @@ paper: $(TEX)
 clean:
 	@rm -f *~
 	latexmk -CA
-	-rm summarycount.tex wordcount.tex
+	-rm wordcount.tex
