@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="protocol.svg"
+   inkscape:export-filename="protocol.png"
+   inkscape:export-xdpi="150.007"
+   inkscape:export-ydpi="150.007">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker3068"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path3066"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker2282"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         id="path2280" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker2192"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2190"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutL"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1748"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1633"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-1183.0123"
+     inkscape:cy="1482.9814"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2556"
+     inkscape:window-height="1384"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-462.52341"
+       y="-181.9995"
+       id="text1019"><tspan
+         sodipodi:role="line"
+         id="tspan1017"
+         x="-462.52341"
+         y="-181.9995"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">Input</tspan><tspan
+         sodipodi:role="line"
+         x="-462.52341"
+         y="-168.77032"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1383">Arrays</tspan></text>
+    <rect
+       style="opacity:1;fill:#cce0fb;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:2.99999996, 2.99999996;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1085"
+       width="241.61165"
+       height="196.97765"
+       x="-427.36395"
+       y="-193.97412" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-149.14848"
+       y="-181.91483"
+       id="text1033"><tspan
+         sodipodi:role="line"
+         id="tspan1031"
+         x="-149.14848"
+         y="-181.91483"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">Output</tspan><tspan
+         sodipodi:role="line"
+         x="-149.14848"
+         y="-168.68565"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1385">Arrays</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.50000013, 4.50000013;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -427.36395,-193.97412 V 3.0035195"
+       id="path1071"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1073"
+       d="M -185.75231,-193.97412 V 3.0035195"
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.50000013, 4.50000013;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1075"
+       d="M -306.55813,-191.83597 V -14.10173"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-378.51065"
+       y="-181.9995"
+       id="text1023"><tspan
+         sodipodi:role="line"
+         id="tspan1021"
+         x="-378.51065"
+         y="-181.9995"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">NumPy</tspan><tspan
+         sodipodi:role="line"
+         x="-378.51065"
+         y="-168.77032"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1381">API</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:0.89999998;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-392.90625"
+       y="-152.88705"
+       id="text1045"><tspan
+         sodipodi:role="line"
+         id="tspan1043"
+         x="-392.90625"
+         y="-152.88705"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332">np.stack</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-143.36206"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1047">np.reshape</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-133.83705"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1049">np.transpose</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-124.31205"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1051">np.argmin</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-114.78705"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332;font-weight:bold"
+         id="tspan1053">np.mean</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-105.26205"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1055">np.std</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-95.737053"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1057">np.max</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-86.212051"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1059">np.cos</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-76.68705"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1061">np.arctan</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-67.162048"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1063">np.log</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-57.637051"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1065">np.cumsum</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-48.112053"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1067">np.diff</tspan><tspan
+         sodipodi:role="line"
+         x="-392.90625"
+         y="-38.587051"
+         style="font-size:7.05555534px;line-height:0.89999998;stroke-width:0.26458332"
+         id="tspan1069" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="19.816093"
+       y="-374.24677"
+       id="text1079"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan1077"
+         x="19.816093"
+         y="-374.24677"
+         style="stroke-width:0.26458332">...</tspan></text>
+    <text
+       id="text1083"
+       y="-2.4393928"
+       x="-307.42343"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332;font-style:italic;font-weight:bold"
+         y="-2.4393928"
+         x="-307.42343"
+         id="tspan1081"
+         sodipodi:role="line">NumPy Array Protocol</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1122"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="scale(0.26458333)"><flowRegion
+         id="flowRegion1124"><rect
+           id="rect1126"
+           width="1046.5181"
+           height="833.37585"
+           x="-324.25897"
+           y="-717.97827" /></flowRegion><flowPara
+         id="flowPara1128"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1279">In [1]:</flowSpan> import numpy as np</flowPara><flowPara
+         id="flowPara1130"
+         style="font-size:40px" /><flowPara
+         id="flowPara1132"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1303">In [2]:</flowSpan> <flowSpan
+   style="font-weight:bold"
+   id="flowSpan1267">import dask.array as da</flowSpan></flowPara><flowPara
+         id="flowPara1134"
+         style="font-size:40px" /><flowPara
+         id="flowPara1136"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1297">In [3]:</flowSpan> <flowSpan
+   style="font-weight:bold"
+   id="flowSpan1269">x = da.arange(12)</flowSpan></flowPara><flowPara
+         id="flowPara1138"
+         style="font-size:40px" /><flowPara
+         id="flowPara1140"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1301">In [4]:</flowSpan> x = np.reshape(x, (4, 3))</flowPara><flowPara
+         id="flowPara1142"
+         style="font-size:40px" /><flowPara
+         id="flowPara1144"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1299">In [5]:</flowSpan> x</flowPara><flowPara
+         id="flowPara1146"
+         style="font-size:40px"><flowSpan
+   style="fill:#0e50a8;fill-opacity:1"
+   id="flowSpan1313">Out[5]:</flowSpan> <flowSpan
+   style="font-weight:bold"
+   id="flowSpan1271">dask.array&lt;..., shape=(4, 3), ...&gt;</flowSpan></flowPara><flowPara
+         id="flowPara1148"
+         style="font-size:40px" /><flowPara
+         id="flowPara1150"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1305">In [6]:</flowSpan> np.mean(x, axis=0)</flowPara><flowPara
+         id="flowPara1152"
+         style="font-size:40px"><flowSpan
+   style="fill:#0e50a8;fill-opacity:1"
+   id="flowSpan1327">Out[6]:</flowSpan> <flowSpan
+   style="font-weight:bold"
+   id="flowSpan1275">dask.array&lt;..., shape=(3,), ...&gt;</flowSpan></flowPara><flowPara
+         id="flowPara1154"
+         style="font-size:40px" /><flowPara
+         id="flowPara1156"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1307">In [7]:</flowSpan> x = x - np.mean(x, axis=0)</flowPara><flowPara
+         id="flowPara1162"
+         style="font-size:40px" /><flowPara
+         id="flowPara1164"
+         style="font-size:40px"><flowSpan
+   style="fill:#077a0a;fill-opacity:1"
+   id="flowSpan1311">In [8]:</flowSpan> x</flowPara><flowPara
+         id="flowPara1166"
+         style="font-size:40px"><flowSpan
+   style="fill:#0e50a8;fill-opacity:1"
+   id="flowSpan1331">Out[8]:</flowSpan> <flowSpan
+   style="font-weight:bold"
+   id="flowSpan1277">dask.array&lt;..., shape=(4, 3), ...&gt;</flowSpan></flowPara><flowPara
+         id="flowPara1168"
+         style="font-size:40px" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-245.74248"
+       y="-181.78783"
+       id="text1027"><tspan
+         sodipodi:role="line"
+         id="tspan1025"
+         x="-245.74248"
+         y="-181.78783"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">Array Programming</tspan><tspan
+         sodipodi:role="line"
+         x="-245.74248"
+         y="-168.55865"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1029">Implementation</tspan></text>
+    <rect
+       y="-150.71271"
+       x="-278.18869"
+       height="18.434685"
+       width="64.066956"
+       id="rect1181"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1185"
+       y="-139.40515"
+       x="-246.58296"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         y="-139.40515"
+         x="-246.58296"
+         id="tspan1183"
+         sodipodi:role="line">NumPy</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1233"
+       width="64.066956"
+       height="18.434685"
+       x="-278.18869"
+       y="-125.89229" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-246.35365"
+       y="-113.36765"
+       id="text1237"><tspan
+         sodipodi:role="line"
+         id="tspan1235"
+         x="-246.35365"
+         y="-113.36765"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">dask</tspan></text>
+    <rect
+       y="-101.07187"
+       x="-278.18869"
+       height="18.434685"
+       width="64.066956"
+       id="rect1241"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1245"
+       y="-89.720222"
+       x="-246.42421"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         y="-89.720222"
+         x="-246.42421"
+         id="tspan1243"
+         sodipodi:role="line">CuPy</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1249"
+       width="64.066956"
+       height="29.207014"
+       x="-278.18869"
+       y="-76.251457" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-246.22578"
+       y="-64.849411"
+       id="text1253"><tspan
+         sodipodi:role="line"
+         id="tspan1251"
+         x="-246.22578"
+         y="-64.849411"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">PyData</tspan><tspan
+         id="tspan1261"
+         sodipodi:role="line"
+         x="-246.22578"
+         y="-54.266079"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Sparse</tspan></text>
+    <text
+       transform="rotate(-90)"
+       id="text1259"
+       y="-246.31624"
+       x="19.816093"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="-246.31624"
+         x="19.816093"
+         id="tspan1257"
+         sodipodi:role="line">...</tspan></text>
+    <g
+       id="g1588">
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_cupy.png"
+         xlink:href="icon_cupy.png"
+         y="-93.791313"
+         x="-480.89014"
+         id="image1367"
+         preserveAspectRatio="none"
+         height="33.198799"
+         width="33.325512" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_numpy.png"
+         xlink:href="icon_numpy.png"
+         y="-160.73105"
+         x="-479.87643"
+         id="image1369"
+         preserveAspectRatio="none"
+         height="31.298103"
+         width="31.298103" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_dask.png"
+         xlink:href="icon_dask.png"
+         y="-129.7321"
+         x="-482.41071"
+         id="image1371"
+         preserveAspectRatio="none"
+         height="36.23991"
+         width="36.366623" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_sparse.png"
+         xlink:href="icon_sparse.png"
+         y="-60.891666"
+         x="-485.45181"
+         id="image1373"
+         preserveAspectRatio="none"
+         height="42.448841"
+         width="42.448841" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="-0.791484"
+         y="-463.43933"
+         id="text1377"
+         transform="rotate(-90)"><tspan
+           sodipodi:role="line"
+           id="tspan1375"
+           x="-0.791484"
+           y="-463.43933"
+           style="stroke-width:0.26458332">...</tspan></text>
+    </g>
+    <g
+       id="g1602"
+       transform="translate(315.2165)">
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_cupy.png"
+         xlink:href="icon_cupy.png"
+         width="33.325512"
+         height="33.198799"
+         preserveAspectRatio="none"
+         id="image1590"
+         x="-480.89014"
+         y="-93.791313" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_numpy.png"
+         xlink:href="icon_numpy.png"
+         width="31.298103"
+         height="31.298103"
+         preserveAspectRatio="none"
+         id="image1592"
+         x="-479.87643"
+         y="-160.73105" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_dask.png"
+         xlink:href="icon_dask.png"
+         width="36.366623"
+         height="36.23991"
+         preserveAspectRatio="none"
+         id="image1594"
+         x="-482.41071"
+         y="-129.7321" />
+      <image
+         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_sparse.png"
+         xlink:href="icon_sparse.png"
+         width="42.448841"
+         height="42.448841"
+         preserveAspectRatio="none"
+         id="image1596"
+         x="-485.45181"
+         y="-60.891666" />
+      <text
+         transform="rotate(-90)"
+         id="text1600"
+         y="-463.43933"
+         x="-0.791484"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="-463.43933"
+           x="-0.791484"
+           id="tspan1598"
+           sodipodi:role="line">...</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2192)"
+       d="m -448.46874,-116.12798 h 48.48773"
+       id="path1604"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path2278"
+       d="m -357.91658,-116.12798 h 72.21801"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2282)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3068)"
+       d="m -208.00317,-116.12798 h 38.29745"
+       id="path3064"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
