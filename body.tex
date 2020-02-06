@@ -5,29 +5,30 @@ algebra \cite{Numericmanual}.
 To handle large astronomical images coming from the Hubble Space Telescope,
 a reimplementation of Numeric, called NumArray, added
 support for memory-mapped arrays and mixed data type records. 
-%Around 2000, the Space Telescope Science Institute (STScI) software group wrote
-%a reimplementation of Numeric, called NumArray, to support their work
-%on large memory-mapped arrays and arrays of mixed data type
-%records \cite{greenfield2003numarray}.
 While NumArray was highly compatible with Numeric, the two packages
 had enough differences that it divided the community, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
 and NumArray \cite{oliphant2006guide}.
 
-% KJM: I moved this here to get the placement right 
+% KJM: I moved this here to get the placement right
+% FIXME SJW: let's review caption (d); I don't think it's crystal clear what
+% we're trying to show there; double check caption (g)
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/concepts}
   \caption{\textbf{Fundamental Array Concepts.}
     \textbf{a,} The NumPy array data structure and its associated metadata fields.
-    \textbf{b,} Indexing an array with various types of arguments.
-    \textbf{c,} Indexing with arrays, which broadcast the indexing arguments before performing the lookup.
-    \textbf{d,} Vectorization efficiently applies operations to groups of elements
-    \textbf{e,} Broadcasting in scalar addition, and in the division of two-dimensional arrays.
+    \textbf{b,} Indexing an array with slices and steps. These
+  operations return a \emph{view} of the original data.
+    \textbf{c,} Indexing an array with masks, scalar coordinates, or
+  other arrays, so that it returns a copy of the original data. In the
+  bottom example, an array is indexed with other arrays; this broadcasts the indexing arguments before performing the lookup.
+    \textbf{d,} Vectorization efficiently applies operations to groups
+  of elements.
+    \textbf{e,} Broadcasting in the multiplication of two-dimensional arrays.
     \textbf{f,} Reduction operations act along one or more axes. In this
-    example, a three-dimensional array is shown to be summed along various single
-    axes to produce two-dimensional results, or along two axes consecutively to
-    produce a one-dimensional result.
+    example, an array is be summed along various axes to produce a vector, or along two axes consecutively to
+    produce a scalar.
     \textbf{g,} Example NumPy code, illustrating some of these concepts.
    }
   \label{fig:array-concepts}
