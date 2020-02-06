@@ -15,7 +15,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:version="0.92.4 (unknown)"
    sodipodi:docname="protocol.svg"
    inkscape:export-filename="protocol.png"
    inkscape:export-xdpi="150.007"
@@ -102,16 +102,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="-1183.0123"
-     inkscape:cy="1482.9814"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-559.03543"
+     inkscape:cy="1643.4211"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2556"
-     inkscape:window-height="1384"
+     inkscape:window-width="1920"
+     inkscape:window-height="1061"
      inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:window-y="19"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -121,7 +121,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -425,7 +425,7 @@
          id="tspan1235"
          x="-246.35365"
          y="-113.36765"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">dask</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Dask</tspan></text>
     <rect
        y="-101.07187"
        x="-278.18869"
@@ -461,7 +461,7 @@
          id="tspan1251"
          x="-246.22578"
          y="-64.849411"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">PyData</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;stroke:#000000;stroke-width:0.00392048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">PyData/</tspan><tspan
          id="tspan1261"
          sodipodi:role="line"
          x="-246.22578"
@@ -482,41 +482,41 @@
     <g
        id="g1588">
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_cupy.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_cupy.png"
          xlink:href="icon_cupy.png"
-         y="-93.791313"
-         x="-480.89014"
-         id="image1367"
-         preserveAspectRatio="none"
+         width="33.325512"
          height="33.198799"
-         width="33.325512" />
+         preserveAspectRatio="none"
+         id="image1367"
+         x="-480.89014"
+         y="-93.791313" />
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_numpy.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_numpy.png"
          xlink:href="icon_numpy.png"
-         y="-160.73105"
-         x="-479.87643"
-         id="image1369"
-         preserveAspectRatio="none"
+         width="31.298103"
          height="31.298103"
-         width="31.298103" />
+         preserveAspectRatio="none"
+         id="image1369"
+         x="-479.87643"
+         y="-160.73105" />
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_dask.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_dask.png"
          xlink:href="icon_dask.png"
-         y="-129.7321"
-         x="-482.41071"
-         id="image1371"
-         preserveAspectRatio="none"
+         width="36.366623"
          height="36.23991"
-         width="36.366623" />
-      <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_sparse.png"
-         xlink:href="icon_sparse.png"
-         y="-60.891666"
-         x="-485.45181"
-         id="image1373"
          preserveAspectRatio="none"
+         id="image1371"
+         x="-482.41071"
+         y="-129.7321" />
+      <image
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_sparse.png"
+         xlink:href="icon_sparse.png"
+         width="42.448841"
          height="42.448841"
-         width="42.448841" />
+         preserveAspectRatio="none"
+         id="image1373"
+         x="-485.45181"
+         y="-60.891666" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -534,41 +534,41 @@
        id="g1602"
        transform="translate(315.2165)">
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_cupy.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_cupy.png"
          xlink:href="icon_cupy.png"
-         width="33.325512"
-         height="33.198799"
-         preserveAspectRatio="none"
-         id="image1590"
+         y="-93.791313"
          x="-480.89014"
-         y="-93.791313" />
+         id="image1590"
+         preserveAspectRatio="none"
+         height="33.198799"
+         width="33.325512" />
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_numpy.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_numpy.png"
          xlink:href="icon_numpy.png"
-         width="31.298103"
-         height="31.298103"
-         preserveAspectRatio="none"
-         id="image1592"
+         y="-160.73105"
          x="-479.87643"
-         y="-160.73105" />
+         id="image1592"
+         preserveAspectRatio="none"
+         height="31.298103"
+         width="31.298103" />
       <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_dask.png"
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_dask.png"
          xlink:href="icon_dask.png"
-         width="36.366623"
-         height="36.23991"
-         preserveAspectRatio="none"
-         id="image1594"
+         y="-129.7321"
          x="-482.41071"
-         y="-129.7321" />
-      <image
-         sodipodi:absref="/home/stefan/p/numpy/paper/static/sketches/icon_sparse.png"
-         xlink:href="icon_sparse.png"
-         width="42.448841"
-         height="42.448841"
+         id="image1594"
          preserveAspectRatio="none"
-         id="image1596"
+         height="36.23991"
+         width="36.366623" />
+      <image
+         sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_sparse.png"
+         xlink:href="icon_sparse.png"
+         y="-60.891666"
          x="-485.45181"
-         y="-60.891666" />
+         id="image1596"
+         preserveAspectRatio="none"
+         height="42.448841"
+         width="42.448841" />
       <text
          transform="rotate(-90)"
          id="text1600"
