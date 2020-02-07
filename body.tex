@@ -3,12 +3,15 @@ The Numeric package began in the mid-1990s and provided an array object and arra
 in Python, written in C, and linking to standard fast implementations of linear
 algebra \cite{Numericmanual}.
 To handle large astronomical images coming from the Hubble Space Telescope,
-a reimplementation of Numeric, called NumArray, added
-support for memory-mapped arrays and mixed data type records. 
-While NumArray was highly compatible with Numeric, the two packages
+a reimplementation of Numeric, called Numarray, added
+support for structured arrays, flexible indexing, memory mapping, byte-order variants,
+more efficient memory use, flexible IEEE error handling capabilities, and
+better type casting rules \cite{greenfield2003numarray}.
+While Numarray was highly compatible with Numeric, the two packages
 had enough differences that it divided the community, until
 2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
-and NumArray \cite{oliphant2006guide}.
+and Numarray \cite{oliphant2006guide}---combining Numarray's features with Numeric's
+performance on small arrays and its rich C \emph{Application Programming Interface} (API).
 
 % KJM: I moved this here to get the placement right
 % FIXME SJW: let's review caption (d); I don't think it's crystal clear what
@@ -47,13 +50,13 @@ the \emph{de facto} exchange format for array data in Python.
 
 NumPy operates on in-memory arrays using the CPU. To utilize modern,
 specialized storage and hardware, there has been a recent
-proliferation of Python array packages. Unlike with the NumArray and
+proliferation of Python array packages. Unlike with the Numarray and
 Numeric divide, it is now much harder for these new libraries to
 fracture the user community---given how much work already builds
 on-top of NumPy.  However, to provide the ecosystem with access to
 new and exploratory technologies, NumPy is transitioning into a
 central coordinating mechanism that specifies a well-defined array
-programming \emph{Application Programming Interface} (API) and
+programming API and
 dispatches it, as appropriate, to specialized array implementations.
 
 \section*{NumPy arrays}
@@ -236,7 +239,7 @@ NumPy and its API have become truly ubiquitous.
 \section*{Array proliferation and interoperability}
 
 NumPy provides in-memory, multidimensional, homogeneously typed
-arrays on CPUs.  It runs on machines
+(i.e., single pointer and strided) arrays on CPUs.  It runs on machines
 ranging from embedded devices to the world's largest supercomputers,
 with performance approaching that of compiled languages.  For
 most its existence, NumPy addressed the vast majority of
@@ -285,7 +288,7 @@ an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
 Such libraries often mimic the NumPy API, because it lowers the
 barrier to entry for newcomers and provides the wider community with a
 stable array programming interface. This, in turn, prevents disruptive
-schisms like the divergence of Numeric and NumArray.
+schisms like the divergence of Numeric and Numarray.
 But exploring new ways of working with arrays is experimental by nature
 and, in fact, several promising libraries---such as Theano and Caffe---have
 already ceased development. And each time that a user
