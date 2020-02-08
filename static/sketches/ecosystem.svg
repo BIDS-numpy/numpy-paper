@@ -22,6 +22,48 @@
    inkscape:export-ydpi="150.00705">
   <defs
      id="defs2">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker2965"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path2963" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker2087"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path2085" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker1026"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1024" />
+    </marker>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient2224">
@@ -41,7 +83,8 @@
        refX="0.0"
        id="Arrow1Mend"
        style="overflow:visible;"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path1352"
          d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
@@ -192,15 +235,17 @@
          x="111.37453"
          y="230.09778" />
     </clipPath>
-    <linearGradient
+    <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient2224"
-       id="linearGradient2226"
-       x1="15.119047"
-       y1="106.92608"
-       x2="305.78274"
-       y2="106.92608"
-       gradientUnits="userSpaceOnUse" />
+       id="radialGradient1014"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.370708,-0.5628642,0.49130296,2.0693019,-176.05321,-261.08094)"
+       cx="40.821426"
+       cy="244.44987"
+       fx="40.821426"
+       fy="244.44987"
+       r="131.53572" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -209,9 +254,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="245.29745"
-     inkscape:cy="704.47911"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="121.96002"
+     inkscape:cy="593.40034"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -565,87 +610,89 @@
       </g>
     </g>
     <g
-       id="g2152"
-       transform="translate(1.1339286,-21.922619)">
-      <g
-         transform="translate(13.229167,22.300595)"
-         id="g1027">
-        <rect
-           y="190.76677"
-           x="171.42178"
-           height="35.18787"
-           width="61.131454"
-           id="rect960"
-           style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
-        <rect
-           style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
-           id="rect905"
-           width="61.131454"
-           height="35.18787"
-           x="166.13019"
-           y="196.05836" />
-        <rect
-           y="201.34996"
-           x="160.83859"
-           height="35.18787"
-           width="61.131454"
-           id="rect958"
-           style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot839"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-           transform="matrix(0.26458333,0,0,0.26458333,157.32733,62.74253)"><flowRegion
-             style="text-align:center;text-anchor:middle"
-             id="flowRegion841"><rect
-               style="text-align:center;text-anchor:middle"
-               id="rect843"
-               width="340.42142"
-               height="118.18785"
-               x="-41.416256"
-               y="538.65149" /></flowRegion><flowPara
-             id="flowPara847">?</flowPara><flowPara
-             id="flowPara865"
-             style="fill:#999999">&quot;arrays&quot;</flowPara><flowPara
-             id="flowPara863" /></flowRoot>      </g>
-      <text
-         id="text877"
-         y="238.27208"
-         x="45.010536"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           y="238.27208"
-           x="45.010536"
-           id="tspan875"
-           sodipodi:role="line">NumPy</tspan><tspan
-           id="tspan879"
-           style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
-           y="251.50125"
-           x="45.010536"
-           sodipodi:role="line">arrays</tspan></text>
-      <path
-         inkscape:connector-curvature="0"
-         id="path1317"
-         d="M 159.50595,234.63393 H 80.508928"
-         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
-      <text
-         id="text1738"
-         y="250.50894"
-         x="82.776787"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
-           y="250.50894"
-           x="82.776787"
-           id="tspan1736"
-           sodipodi:role="line">API / protocols</tspan></text>
-    </g>
+       id="g3355"
+       transform="translate(0,0.37797619)">
+      <rect
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+         id="rect2622"
+         width="61.131454"
+         height="19.690842"
+         x="191.8325"
+         y="202.01552" />
+      <rect
+         y="207.30711"
+         x="186.54091"
+         height="19.690842"
+         width="61.131454"
+         id="rect2620"
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
+      <rect
+         style="fill:#e6e6e6;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+         id="rect958"
+         width="61.131454"
+         height="19.690842"
+         x="181.24931"
+         y="212.59871" />
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,177.52637,72.860376)"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot839"
+         xml:space="preserve"><flowRegion
+           id="flowRegion841"
+           style="text-align:center;text-anchor:middle"><rect
+             y="538.65149"
+             x="-41.416256"
+             height="118.18785"
+             width="340.42142"
+             id="rect843"
+             style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+           style="fill:#999999"
+           id="flowPara865">new arrays</flowPara><flowPara
+           id="flowPara863" /></flowRoot>    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="46.144466"
+       y="216.34946"
+       id="text877"><tspan
+         sodipodi:role="line"
+         id="tspan875"
+         x="46.144466"
+         y="216.34946"
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">NumPy</tspan><tspan
+         sodipodi:role="line"
+         x="46.144466"
+         y="229.57863"
+         style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan879">arrays</tspan></text>
     <path
-       style="fill:url(#linearGradient2226);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.3"
-       d="M 40.821428,221.78273 15.119047,32.038689 C 137.65515,-42.970908 231.59005,-8.34256 305.78274,101.96428 Z"
+       style="opacity:0.3;fill:url(#radialGradient1014);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 40.821428,221.78273 3.7797613,33.172618 C 143.32479,-18.780432 267.38161,-21.899459 279.96418,155.30917 Z"
        id="path2120"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="M 164.79762,212.71131 H 93.171132"
+       id="path1317"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="91.851723"
+       y="226.32979"
+       id="text1738"><tspan
+         sodipodi:role="line"
+         id="tspan1736"
+         x="91.851723"
+         y="226.32979"
+         style="stroke-width:0.26458332">API / protocols</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path2961"
+       d="m 91.20045,234.44494 h 71.62649"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker2965)" />
   </g>
 </svg>
