@@ -103,15 +103,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-559.03543"
+     inkscape:cx="-683.28419"
      inkscape:cy="1643.4211"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1061"
+     inkscape:window-height="1080"
      inkscape:window-x="0"
-     inkscape:window-y="19"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -187,16 +187,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-378.51065"
+       x="-367.7381"
        y="-181.9995"
        id="text1023"><tspan
          sodipodi:role="line"
          id="tspan1021"
-         x="-378.51065"
+         x="-367.7381"
          y="-181.9995"
          style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">NumPy</tspan><tspan
          sodipodi:role="line"
-         x="-378.51065"
+         x="-367.7381"
          y="-168.77032"
          style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan1381">API</tspan></text>
@@ -384,7 +384,7 @@
          id="tspan1025"
          x="-245.74248"
          y="-181.78783"
-         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">Array Programming</tspan><tspan
+         style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332">Array</tspan><tspan
          sodipodi:role="line"
          x="-245.74248"
          y="-168.55865"
@@ -484,39 +484,39 @@
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_cupy.png"
          xlink:href="icon_cupy.png"
-         width="33.325512"
-         height="33.198799"
-         preserveAspectRatio="none"
-         id="image1367"
+         y="-93.791313"
          x="-480.89014"
-         y="-93.791313" />
+         id="image1367"
+         preserveAspectRatio="none"
+         height="33.198799"
+         width="33.325512" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_numpy.png"
          xlink:href="icon_numpy.png"
-         width="31.298103"
-         height="31.298103"
-         preserveAspectRatio="none"
-         id="image1369"
+         y="-160.73105"
          x="-479.87643"
-         y="-160.73105" />
+         id="image1369"
+         preserveAspectRatio="none"
+         height="31.298103"
+         width="31.298103" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_dask.png"
          xlink:href="icon_dask.png"
-         width="36.366623"
-         height="36.23991"
-         preserveAspectRatio="none"
-         id="image1371"
+         y="-129.7321"
          x="-482.41071"
-         y="-129.7321" />
+         id="image1371"
+         preserveAspectRatio="none"
+         height="36.23991"
+         width="36.366623" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_sparse.png"
          xlink:href="icon_sparse.png"
-         width="42.448841"
-         height="42.448841"
-         preserveAspectRatio="none"
-         id="image1373"
+         y="-60.891666"
          x="-485.45181"
-         y="-60.891666" />
+         id="image1373"
+         preserveAspectRatio="none"
+         height="42.448841"
+         width="42.448841" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -536,39 +536,39 @@
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_cupy.png"
          xlink:href="icon_cupy.png"
-         y="-93.791313"
-         x="-480.89014"
-         id="image1590"
-         preserveAspectRatio="none"
+         width="33.325512"
          height="33.198799"
-         width="33.325512" />
+         preserveAspectRatio="none"
+         id="image1590"
+         x="-480.89014"
+         y="-93.791313" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_numpy.png"
          xlink:href="icon_numpy.png"
-         y="-160.73105"
-         x="-479.87643"
-         id="image1592"
-         preserveAspectRatio="none"
+         width="31.298103"
          height="31.298103"
-         width="31.298103" />
+         preserveAspectRatio="none"
+         id="image1592"
+         x="-479.87643"
+         y="-160.73105" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_dask.png"
          xlink:href="icon_dask.png"
-         y="-129.7321"
-         x="-482.41071"
-         id="image1594"
-         preserveAspectRatio="none"
+         width="36.366623"
          height="36.23991"
-         width="36.366623" />
+         preserveAspectRatio="none"
+         id="image1594"
+         x="-482.41071"
+         y="-129.7321" />
       <image
          sodipodi:absref="/home/jarrod/src/numpy-paper/static/sketches/icon_sparse.png"
          xlink:href="icon_sparse.png"
-         y="-60.891666"
-         x="-485.45181"
-         id="image1596"
-         preserveAspectRatio="none"
+         width="42.448841"
          height="42.448841"
-         width="42.448841" />
+         preserveAspectRatio="none"
+         id="image1596"
+         x="-485.45181"
+         y="-60.891666" />
       <text
          transform="rotate(-90)"
          id="text1600"
