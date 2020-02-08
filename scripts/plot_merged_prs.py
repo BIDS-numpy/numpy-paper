@@ -107,8 +107,8 @@ if True:
 
 prs = prs.set_index("merged_at")
 
-plt.figure(figsize=(6, 4))
-plt.ylabel("number of merged PR per quarter")
+plt.figure(figsize=(6*0.75, 4*0.75))
+plt.ylabel("PRs merged each quarter")
 
 
 def find_category(row):
@@ -136,12 +136,13 @@ groups = {}
 for g, comm in prs.groupby("category"):
     resampled = comm["category"].resample(
             # Resample starting at each quarter and shift by about 1/2 quarter
-            "QS", loffset=datetime.timedelta(days=30*3/2)).count()
+            "QS", loffset=0 * datetime.timedelta(days=30*3/2)).count()
     groups[g] = resampled
 
 categories = ["Maintainer", "Other"]
 stacked = []
-for color, cat in zip(["C0", "C1"], categories):
+# other color:  "#0e50a8", "#077a0a" OR   "#cce0fb", "#71f775"
+for color, cat in zip(["#0e50a8aa", "#077a0aaa"], categories):
     next_stack = groups[cat]
 
     if len(stacked) > 0:
@@ -153,20 +154,22 @@ for color, cat in zip(["C0", "C1"], categories):
     stacked.append(next_stack)
 
     plt.fill_between(
-        next_stack.index, next_stack.values, prev_vals,
+        next_stack.index.repeat(2) + np.array([0, datetime.timedelta(days=30*3)] * len(next_stack.index), dtype="m8[D]"),
+        next_stack.values.repeat(2), prev_vals.repeat(2),
         label=cat, lw=0, zorder=4 if cat == "Community" else 3,
-        color=color, alpha=0.8)
-    plt.plot(
-        next_stack.index, next_stack.values, "o",
-        zorder=4 if cat == "Community" else 3, color=color,
-        mec="k")
+        color=color)
+    if False:
+        plt.plot(
+            next_stack.index + datetime.timedelta(days=30*3/2), next_stack.values, "o",
+            zorder=4 if cat == "Community" else 3, color="none",
+            mec="k", ms=4)
 
     print(f"Total number for {cat}:", (next_stack.values - prev_vals).sum())
 
-plt.xlim(resampled.index.min(), resampled.index[-2])
+plt.xlim(resampled.index.min(), resampled.index[-1])
 plt.ylim(0, None)
 
-plt.legend()
+plt.legend(loc="upper left")
 
 plt.tight_layout()
 
