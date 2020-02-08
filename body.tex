@@ -1,18 +1,3 @@
-Two Python array packages existed before NumPy.
-The Numeric package began in the mid-1990s and provided an array object and array-aware functions
-in Python, written in C, and linking to standard fast implementations of linear
-algebra \cite{Numericmanual}.
-To handle large astronomical images coming from the Hubble Space Telescope,
-a reimplementation of Numeric, called Numarray, added
-support for structured arrays, flexible indexing, memory mapping, byte-order variants,
-more efficient memory use, flexible IEEE error handling capabilities, and
-better type casting rules \cite{greenfield2003numarray}.
-While Numarray was highly compatible with Numeric, the two packages
-had enough differences that it divided the community, until
-2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
-and Numarray \cite{oliphant2006guide}---combining Numarray's features with Numeric's
-performance on small arrays and its rich C \emph{Application Programming Interface} (API).
-
 % KJM: I moved this here to get the placement right
 % FIXME SJW: let's review caption (d); I don't think it's crystal clear what
 % we're trying to show there; double check caption (g)
@@ -36,6 +21,21 @@ performance on small arrays and its rich C \emph{Application Programming Interfa
    }
   \label{fig:array-concepts}
 \end{figure*}
+
+Two Python array packages existed before NumPy.
+The Numeric package began in the mid-1990s and provided an array object and array-aware functions
+in Python, written in C, and linking to standard fast implementations of linear
+algebra \cite{Numericmanual}.
+To handle large astronomical images coming from the Hubble Space Telescope,
+a reimplementation of Numeric, called Numarray, added
+support for structured arrays, flexible indexing, memory mapping, byte-order variants,
+more efficient memory use, flexible IEEE error handling capabilities, and
+better type casting rules \cite{greenfield2003numarray}.
+While Numarray was highly compatible with Numeric, the two packages
+had enough differences that it divided the community, until
+2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
+and Numarray \cite{oliphant2006guide}---combining Numarray's features with Numeric's
+performance on small arrays and its rich C \emph{Application Programming Interface} (API).
 
 Now, fifteen years later, NumPy underpins almost every Python library that does scientific or
 numerical computation including SciPy \cite{virtanen2020scipy},
