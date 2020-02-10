@@ -25,7 +25,7 @@
 Two Python array packages existed before NumPy.
 The Numeric package began in the mid-1990s and provided an array object and array-aware functions
 in Python, written in C, and linking to standard fast implementations of linear
-algebra \cite{Numericmanual}.
+algebra \cite{dubois1996numerical,Numericmanual}.
 To handle large astronomical images coming from the Hubble Space Telescope,
 a reimplementation of Numeric, called Numarray, added
 support for structured arrays, flexible indexing, memory mapping, byte-order variants,
@@ -153,6 +153,21 @@ representation, a syntax that closely mimics mathematics, and a
 variety of array-aware utility functions forms a productive and
 powerfully expressive array programming language.
 
+% FIXME SJW: Redraw the icons in vector format
+\begin{figure}
+  \centering
+  \includegraphics[width=.45\textwidth]{static/sketches/ecosystem}
+  \caption{\textbf{Scientific Python Ecosystem.}
+   This figure highlights (in blue) some of the essential tools, projects, and libraries that depend
+   on NumPy.  Since most of the ecosystem
+   builds on NumPy arrays and its rich and powerful collection of array-aware
+   functionality, the simplest way for new array implementations to become
+   available to the vast scientific Python ecosystem is by using the NumPy API and array
+   protocols (Fig.~\ref{fig:array-protocol}).
+  }
+  \label{fig:ecosystem}
+\end{figure}
+
 \section*{Scientific Python ecosystem}
 
 SciPy and Matplotlib are tightly coupled with NumPy---in terms of
@@ -165,48 +180,22 @@ an advanced interactive environment like IPython \cite{perez2007ipython},
 or Jupyter \cite{Kluyver:2016aa}, provides a solid foundation for array
 programming in Python.
 The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
-this foundation to provide several, widely used \emph{technique-specific}
+this foundation to provide several, widely used \emph{technique specific}
 libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
-that in turn underlay numerous \emph{domain-specific} projects
+that in turn underlay numerous \emph{domain specific} projects
 \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,sunpy2015,2018EGUGA..2012146H}.
 NumPy, as the focal point for the ecosystem of array-aware libraries,
 sets documentation standards, and provides array testing infrastructure
 and build support for integrating with Fortran code and using specialized
 compilers and computing platforms.
 
-The interactive environment created by this array programming
-foundation---along with the surrounding ecosystem of tools---inside of
-IPython or Jupyter, is ideally suited to exploratory data analysis.
-Users fluidly inspect, manipulate, and visualize their data, and
-rapidly iterate to refine programming statements. These statements are
-then stitched together into imperative or functional programs, or
-notebooks containing both computation and narrative.
-Scientific computing beyond exploratory work is often done in a text editor
-or an integrated development environment (IDEs) such as Spyder.
-This rich and productive environment has made Python popular
-for scientific research.
-
-% FIXME SJW: Redraw the icons in vector format
-\begin{figure}
-  \centering
-  \includegraphics[width=.45\textwidth]{static/sketches/ecosystem}
-  \caption{\textbf{Scientific Python Ecosystem.}
-   This figure highlights (in blue) some of the essential tools and libraries that depend
-   on NumPy.  Since most of the ecosystem
-   builds on NumPy arrays and its rich and powerful collection of array-aware
-   functionality, the simplest way for new array implementations to become
-   available to the vast scientific Python ecosystem is by using the NumPy API and array
-   protocols (Fig.~\ref{fig:array-protocol}).
-  }
-  \label{fig:ecosystem}
-\end{figure}
-
 Many research groups have designed large,
-complex scientific libraries, which add specialized functionality for
-solving problems in specific domains.
-For example, the \code{eht-imaging} library \cite{chael2019ehtim} developed by the Event Horizon Telescope 
-collaboration for radio interferometry imaging, analysis, and simulation
-relies on many components of the scientific Python ecosystem.
+complex scientific libraries, which add \emph{application specific} functionality
+to the ecosystem.
+For example, the \code{eht-imaging} library \cite{chael2019ehtim} developed by
+the Event Horizon Telescope collaboration for radio interferometry imaging,
+analysis, and simulation relies on many lower-level components of the scientific Python
+ecosystem.
 NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image
 reconstruction.
@@ -225,10 +214,22 @@ astronomical file formats and time/coordinate transformations.
 Matplotlib is used for visualizing data throughout the analysis pipeline,
 including for the generation of the final image of the black hole.
 
+The interactive environment created by this array programming
+foundation---along with the surrounding ecosystem of tools---inside of
+IPython or Jupyter, is ideally suited to exploratory data analysis.
+Users fluidly inspect, manipulate, and visualize their data, and
+rapidly iterate to refine programming statements. These statements are
+then stitched together into imperative or functional programs, or
+notebooks containing both computation and narrative.
+Scientific computing beyond exploratory work is often done in a text editor
+or an integrated development environment (IDEs) such as Spyder.
+This rich and productive environment has made Python popular
+for scientific research.
+
 The rapid recent growth of data science, machine learning, and
 artificial intelligence has further and dramatically boosted the usage of
 scientific Python.  Examples of its significant application, such as the
-above, now exist in almost every discipline in the natural and social
+\code{eht-imaging} library, now exist in almost every discipline in the natural and social
 sciences.  These tools have become \emph{the primary}
 software environment in many fields.  NumPy and its ecosystem are commonly
 taught in university courses, boot camps, and summer schools, and are
@@ -387,11 +388,11 @@ These user-developers frequently had to write code from scratch to solve
 their or their colleagues' problems---often in low-level languages
 that preceded Python, like Fortran \cite{dongarra2008netlib} and C.
 To them, the advantages of an interactive, high-level array library
-were evident. The design of this new tool was informed by their
-experiences with powerful interactive programming languages for
-scientific computing such as APL \cite{iverson1962programming} and
-Yorick \cite{munro1995using}, as well as commercial languages and
-environments like IDL and {MATLAB}.
+were evident. The design of this new tool was informed by other
+powerful interactive programming languages for scientific computing
+such as Basis \cite{dubois1989basis}, Yorick \cite{munro1995using}, R \cite{ihaka1996r},
+and APL \cite{iverson1962programming},
+as well as commercial languages and environments like IDL and {MATLAB}.
 
 NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
@@ -453,7 +454,7 @@ the performance of C, and
 the readability, usability, and versatility of Python in a mature,
 well-tested, well-documented, and community-developed library.
 It builds on decades of work refining the array programming
-syntax from APL through Yorick and others.
+syntax from APL through Basis, Yorick, and others.
 It also made it easy for other libraries to develop fast and
 memory-efficient compiled code, usually in C or Fortran, that could manipulate
 these arrays and pass them back to Python.
