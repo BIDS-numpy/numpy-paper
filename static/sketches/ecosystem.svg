@@ -15,7 +15,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 (unknown)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="ecosystem.svg"
    inkscape:export-filename="ecosystem.png"
    inkscape:export-xdpi="149.21001"
@@ -335,10 +335,10 @@
        id="radialGradient4562"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(4.3076358,-0.84218857,0.63067454,3.225782,-289.19074,-532.37994)"
-       cx="40.821426"
-       cy="244.44987"
-       fx="40.821426"
-       fy="244.44987"
+       cx="22.035275"
+       cy="258.29294"
+       fx="22.035275"
+       fy="258.29294"
        r="131.53572" />
   </defs>
   <sodipodi:namedview
@@ -348,16 +348,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="625.41173"
-     inkscape:cy="574.09854"
+     inkscape:zoom="0.7"
+     inkscape:cx="358.11774"
+     inkscape:cy="819.76346"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1061"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
      inkscape:window-x="0"
-     inkscape:window-y="19"
+     inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -367,7 +367,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -386,16 +386,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-10.046901"
+       x="-8.5857582"
        y="119.59424"
        id="text821"><tspan
          sodipodi:role="line"
          id="tspan819"
-         x="-10.046901"
+         x="-8.5857582"
          y="119.59424"
          style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332">Technique</tspan><tspan
          sodipodi:role="line"
-         x="-10.046899"
+         x="-8.5857563"
          y="137.23312"
          style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332"
          id="tspan829">Specific</tspan></text>
@@ -487,15 +487,15 @@
        ry="6.1471992" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-85.25898"
-       y="209.76337"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-7.908443"
+       y="203.08162"
        id="text825"><tspan
          sodipodi:role="line"
          id="tspan823"
-         x="-85.25898"
-         y="209.76337"
-         style="font-size:14.11111069px;stroke-width:0.26458332">Foundation</tspan></text>
+         x="-7.908442"
+         y="203.08162"
+         style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332">Foundation</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -528,65 +528,57 @@
          y="193.14615"
          style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.81944444px;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
          id="tspan891">plots</tspan></text>
-    <g
-       id="g2166"
-       transform="translate(0,-32.279234)">
-      <rect
-         style="fill:#ececec;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
-         id="rect930"
-         width="357.07211"
-         height="46.920326"
-         x="-90.337105"
-         y="274.1962"
-         ry="6.1471992" />
-      <g
-         transform="translate(0,0.2559279)"
-         id="g990">
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-           x="47.731461"
-           y="293.53751"
-           id="text895"><tspan
-             sodipodi:role="line"
-             x="47.731461"
-             y="293.53751"
-             style="text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
-             id="tspan897">Python</tspan><tspan
-             sodipodi:role="line"
-             x="47.731461"
-             y="306.76666"
-             style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.81944444px;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
-             id="tspan966">language</tspan></text>
-        <text
-           id="text974"
-           y="294.75458"
-           x="165.66003"
-           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-           xml:space="preserve"><tspan
-             id="tspan970"
-             style="text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
-             y="294.75458"
-             x="165.66003"
-             sodipodi:role="line">IPython / Jupyter</tspan><tspan
-             id="tspan972"
-             style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.81944444px;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
-             y="307.98373"
-             x="165.66003"
-             sodipodi:role="line">Interactive Environments</tspan></text>
-        <text
-           id="text978"
-           y="302.36752"
-           x="-49.914764"
-           style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-           xml:space="preserve"><tspan
-             style="font-size:14.11111069px;stroke-width:0.26458332"
-             y="302.36752"
-             x="-49.914764"
-             id="tspan976"
-             sodipodi:role="line">Base</tspan></text>
-      </g>
-    </g>
+    <rect
+       ry="6.1471992"
+       y="241.91696"
+       x="-90.337105"
+       height="46.920326"
+       width="357.07211"
+       id="rect930"
+       style="fill:#ececec;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="47.731461"
+       y="261.72586"
+       id="text895"><tspan
+         sodipodi:role="line"
+         x="47.731461"
+         y="261.72586"
+         style="text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
+         id="tspan897">Python</tspan><tspan
+         sodipodi:role="line"
+         x="47.731461"
+         y="274.95502"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan966">language</tspan></text>
+    <text
+       id="text974"
+       y="262.74008"
+       x="165.66003"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan970"
+         style="text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
+         y="262.74008"
+         x="165.66003"
+         sodipodi:role="line">IPython / Jupyter</tspan><tspan
+         id="tspan972"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         y="275.96924"
+         x="165.66003"
+         sodipodi:role="line">Interactive Environments</tspan></text>
+    <text
+       id="text978"
+       y="270.34421"
+       x="-40.138149"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:14.11111069px;stroke-width:0.26458332"
+         y="270.34421"
+         x="-40.138149"
+         id="tspan976"
+         sodipodi:role="line">Base</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -613,20 +605,20 @@
        style="fill:#f9f9f9;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-84.425835"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-8.5857582"
        y="-23.406597"
        id="text817-7-8"><tspan
          sodipodi:role="line"
-         id="tspan815-5-7"
-         x="-84.425835"
+         x="-8.5857573"
          y="-23.406597"
-         style="font-size:14.11111069px;stroke-width:0.26458332">Application</tspan><tspan
+         style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332"
+         id="tspan827-3-9">Application</tspan><tspan
          sodipodi:role="line"
-         x="-84.425835"
-         y="-5.7677121"
-         style="font-size:14.11111069px;stroke-width:0.26458332"
-         id="tspan827-3-9">     Specific</tspan></text>
+         x="-8.5857563"
+         y="-5.7677088"
+         style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332"
+         id="tspan4853">Specific</tspan></text>
     <rect
        ry="6.1471992"
        y="19.066553"
@@ -637,19 +629,19 @@
        style="fill:#f9f9f9;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-61.679401"
+       style="font-style:normal;font-weight:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-8.5857582"
        y="48.097858"
        id="text817"><tspan
          sodipodi:role="line"
          id="tspan815"
-         x="-61.679401"
+         x="-8.5857573"
          y="48.097858"
-         style="font-size:14.11111069px;stroke-width:0.26458332">Domain</tspan><tspan
+         style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332">Domain</tspan><tspan
          sodipodi:role="line"
-         x="-61.679401"
+         x="-8.5857563"
          y="65.736748"
-         style="font-size:14.11111069px;stroke-width:0.26458332"
+         style="font-size:14.11111069px;text-align:end;text-anchor:end;stroke-width:0.26458332"
          id="tspan827">Specific</tspan></text>
     <text
        xml:space="preserve"
@@ -741,7 +733,7 @@
          id="tspan4163"
          x="219.60416"
          y="-6.1711602"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -752,7 +744,7 @@
          id="tspan4281"
          x="149.3006"
          y="0.63241136"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -763,7 +755,7 @@
          id="tspan4689"
          x="209.77679"
          y="8.1919346"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <text
        id="text947-6"
        y="66.432236"
@@ -1098,10 +1090,10 @@
      inkscape:label="Layer 2">
     <path
        style="opacity:0.3;fill:url(#radialGradient4562);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 40.821428,221.78273 -0.40483878,-52.421742 C 339.68112,-52.721753 267.24865,-116.98908 266.84572,147.44765 Z"
+       d="M 63.877976,218.38094 19.208,218.44607 2.1302862,-52.119753 266.73502,-52.267559 V 159.08893 Z"
        id="path2120"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc"
+       sodipodi:nodetypes="cccccc"
        inkscape:export-filename="./path2120.png"
        inkscape:export-xdpi="150.00705"
        inkscape:export-ydpi="150.00705" />
@@ -1115,7 +1107,7 @@
            height="20"
            x="178.57143"
            y="-134.62317" /></flowRegion><flowPara
-         id="flowPara4322"></flowPara></flowRoot>    <path
+         id="flowPara4322" /></flowRoot>    <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow2Mstart);marker-end:url(#Arrow2Mend)"
        d="M 175.44122,219.06141 H 69.360566"
        id="path1317"
