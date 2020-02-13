@@ -178,9 +178,8 @@ well-suited to standard programming tasks such as cleaning data,
 interacting with web resources, and parsing text.
 Adding fast array operations and linear algebra allows scientists to do all
 their work within a single language---and one that has the advantage of
-being famously easy to learn and teach.
-In fact, Python's adoption as a primary learning language in universities
-has further popularized NumPy as a tool of choice for modern data science.
+being famously easy to learn and teach, as witnessed by its adoption
+as a primary learning language in many universities.
 
 Even though NumPy is not part of Python's standard library,
 it benefits from a good relationship with the Python developers.
@@ -205,40 +204,33 @@ libraries\cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
 that in turn underlay numerous \emph{domain specific} projects
 \cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,sunpy2015,2018EGUGA..2012146H}.
 NumPy, as the focal point for the ecosystem of array-aware libraries,
-sets documentation standards, and provides array testing infrastructure
-and build support for integrating with Fortran code and using specialized
-compilers and computing platforms.
-% FIXME: what are "specialized compilers and computing
-% platforms"? Does Fortran need to be mentioned here?
+sets documentation standards, provides array testing infrastructure,
+and adds build support for Fortran and other compilers.
 
 Many research groups have designed large,
 complex scientific libraries, which add \emph{application specific} functionality
 to the ecosystem.
 For example, the \code{eht-imaging} library \cite{chael2019ehtim} developed by
 the Event Horizon Telescope collaboration for radio interferometry imaging,
-analysis, and simulation relies on many lower-level components of the scientific Python
+analysis, and simulation, relies on many lower-level components of the scientific Python
 ecosystem.
 NumPy arrays are used to store and manipulate numerical data at every step
 in the processing chain: from raw data through calibration and image
 reconstruction.
-SciPy is used to provide tools used in general image processing such as
+SciPy supplies tools for general image processing tasks such as
 filtering and image alignment, while scikit-image, an image processing
 library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
-Other components of SciPy are used throughout the library, such as the
-\code{scipy.optimize} module for handling mathematical optimization tasks.
+The \code{scipy.optimize} module performs mathematical optimization.
 NetworkX \cite{SciPyProceedings_11}, a package for complex
-network analysis, is used for the analysis of consistency among image
-comparisons.
-The community-developed astronomy library, Astropy \cite{astropy:2013, astropy:2018},
-is used throughout \code{eht-imaging}, primarily to handle standard
-astronomical file formats and time/coordinate transformations.
-Matplotlib is used for visualizing data throughout the analysis pipeline,
-including for the generation of the final image of the black hole.
+network analysis, is used to verify image comparison consistency.
+Astropy \cite{astropy:2013, astropy:2018} handles standard
+astronomical file formats and computes time/coordinate transformations.
+Matplotlib is used to visualize data and to generate the final image of the black hole.
 
-The interactive environment created by this array programming
-foundation---along with the surrounding ecosystem of tools---inside of
-IPython or Jupyter, is ideally suited to exploratory data analysis.
+The interactive environment created by the array programming
+foundation along with the surrounding ecosystem of tools---inside of
+IPython or Jupyter---is ideally suited to exploratory data analysis.
 Users fluidly inspect, manipulate, and visualize their data, and
 rapidly iterate to refine programming statements. These statements are
 then stitched together into imperative or functional programs, or
@@ -250,14 +242,16 @@ for scientific research.
 
 % this is the software engineering side of things
 % as opposed to the interactive, exploration described above
-NumPy is a community of practice with a culture of
-employing software engineering practice to improve collaboration and
+
+To complement this facility for exploratory work and rapid
+prototyping, NumPy has developed a culture of
+employing time-tested software engineering practices to improve collaboration and
 reduce error \cite{millman2014developing}.  This culture is not only
 adopted by leaders in the project but also enthusiastically taught to
 newcomers. The NumPy team was early in adopting distributed revision
 control and code review to improve collaboration on code, and
 continuous testing that runs an extensive battery of automated tests for
-every proposed change to NumPy.  The project has comprehensive,
+every proposed change to NumPy.  The project also has comprehensive,
 high-quality documentation, integrated with the source
 code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
 
