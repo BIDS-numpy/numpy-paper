@@ -1,0 +1,77 @@
+auth:
+  - Charles R. Harris:
+      institute: [ind1]
+  - K. Jarrod Millman:
+      institute: [bids, ucb1, corr]
+  - St\'efan J. van der Walt:
+      institute: [bids, corr]
+  - Ralf Gommers:
+      institute: [quan, corr]
+  - Pauli Virtanen:
+      institute: [jyva]
+  - David Cournapeau:
+      institute: [merc]
+  - Eric Wieser:
+      institute: [camb]
+  - Julian Taylor:
+      institute: [ind2]
+  - Sebastian Berg:
+      institute: [bids]
+  - Nathaniel J. Smith:
+      institute: [ind3]
+  - Robert Kern:
+      institute: [enth]
+  - Matti Picus:
+      institute: [bids]
+  - Stephan Hoyer:
+      institute: [goo1]
+  - Marten H. van Kerkwijk:
+      institute: [toro]
+  - Matthew Brett:
+      institute: [birm]
+  - Allan Haldane:
+      institute: [temp]
+  - Jaime Fernandez del Rio:
+      institute: [goo2]
+  - Mark Wiebe:
+      institute: [amaz]
+  - Pearu Peterson:
+      institute: [quan, ind4, esto]
+  - Pierre G\'erard-Marchant:
+      institute: [fran]
+  - Kevin Sheppard:
+      institute: [oxfd]
+  - Tyler Reddy:
+      institute: [lanl]
+  - Warren Weckesser:
+      institute: [bids]
+  - Hameer Abbasi:
+      institute: [quan]
+  - Christoph Gohlke:
+      institute: [uci1]
+  - Travis E. Oliphant:
+      institute: [quan]
+inst:
+  - ind1: Independent Researcher, Logan, Utah, USA
+  - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
+  - ucb1: Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA
+  - quan: Quansight LLC, Austin, TX, USA
+  - jyva: Department of Physics and Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
+  - merc: Mercari JP, Tokyo, Japan
+  - camb: Department of Engineering, University of Cambridge, Cambridge, UK 
+  - ind2: Independent Researcher, Karlsruhe, Germany
+  - ind3: Independent Researcher, Berkeley, CA, USA
+  - enth: Enthought, Inc., Austin, TX, USA
+  - goo1: Google Research, Mountain View, CA, USA
+  - toro: Department of Astronomy \& Astrophysics, University of Toronto, Toronto, ON, Canada
+  - birm: School of Psychology, University of Birmingham, Edgbaston, Birmigham, UK
+  - temp: Department of Physics, Temple University, Philadelphia, PA, USA
+  - goo2: Google, Zurich, Switzerland
+  - amaz: Amazon, Seattle, Washington, USA
+  - ind4: Independent Researcher, Saue, Estonia
+  - esto: Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia
+  - fran: France-IX Services, Paris, France
+  - oxfd: Department of Economics, University of Oxford, Oxford, UK
+  - lanl: CCS-7, Los Alamos National Laboratory, Los Alamos, NM, USA
+  - uci1: Laboratory for Fluorescence Dynamics, Biomedical Engineering Department, University of California, Irvine, Irvine, CA, USA
+  - corr: numpy.articles@gmail.com
