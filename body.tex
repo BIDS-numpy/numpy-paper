@@ -359,8 +359,8 @@ Ideally, operating on specialized arrays using NumPy functions or semantics woul
 simply work, so that users could write code once, and would then benefit
 from switching between NumPy arrays, GPU arrays, distributed arrays,
 and so forth, as appropriate.
-To support array operations between external array objects, NumPy,
-therefore, added the capability to act as a central coordination
+To support array operations between external array objects, NumPy
+therefore added the capability to act as a central coordination
 mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
 
 \begin{figure*}
@@ -378,19 +378,19 @@ mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
 \end{figure*}
 
 To facilitate this \emph{interoperability}, NumPy provides
-``protocols'' (or contracts of operation), that allow for these arrays to be
+``protocols'' (or contracts of operation), that allow for specialized arrays to be
 passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
 NumPy, in turn, dispatches operations to the originating library, as required.
-Currently around 50 or so functions, which are the most commonly
-used functions, support these protocols.
-This list is being refined as we gain more experience with how it works in
-practice.
-
+Over three hundred of the most popular
+NumPy functions are supported.  The protocols are implemented by at
+least five libraries, including Dask, CuPy, xarray, and PyData/Sparse.
 Thanks to these developments, users can now, for example, scale
 their computation from a single machine to distributed systems using Dask.
 The protocols \textit{compose} well, and so it is possible to redeploy NumPy
 code onto multi-GPU systems with minimal changes\cite{entschev2019}.
-
+Working with the community, we have identified several issues that
+prevent further adoption, and are refining interfaces to reduce
+impedance mismatch.
 
 % FIXME: expand to 3 or more sentences discussing current efforts and
 % issues with those, how did adoption go, what is being done next
