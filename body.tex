@@ -375,7 +375,7 @@ To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for specialized arrays to be
 passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
 NumPy, in turn, dispatches operations to the originating library, as required.
-Over three hundred of the most popular
+Over four hundred of the most popular
 NumPy functions are supported.  The protocols are implemented by at
 least five libraries, including Dask, CuPy, xarray, and PyData/Sparse.
 Thanks to these developments, users can now, for example, scale
@@ -419,23 +419,21 @@ impedance mismatch.
 
 \section*{Discussion}
 
-NumPy combines the expressive power of \emph{array programming}, 
+NumPy combines the expressive power of \emph{array programming},
 the performance of C, and
 the readability, usability, and versatility of Python in a mature,
 well-tested, well-documented, and community-developed library.
-%It builds on decades of work refining the array programming
-%syntax from APL through Basis, Yorick, and others.
-It also makes it easy for other libraries to develop fast and
-memory-efficient compiled code, usually in C or Fortran, that could manipulate
-these arrays and pass them back to Python.
-For users that require faster implementations but do not want to write lower-level
-compiled code, a variety of tools exist
-(e.g., Cython, Numba, Pythran) that transparently accelerate bottlenecks.
-These tools allow programmers to express concepts using high-level array
-programming without sacrificing efficiency.
-In many cases, fast algorithms are already implemented by libraries in the
-scientific Python ecosystem; these primitives simplify writing code in pure
+Many fast algorithms are already implemented by libraries in the
+scientific Python ecosystem.
+Where extreme optimization is warranted, compiled languages such as Cython, Numba, Pythran, that
+extend Python and transparently accelerate bottlenecks, can be
+used.
+Because of NumPy's simple memory model, it is easy to write low-level, hand-optimized code, usually in C
+or Fortran, to manipulate NumPy arrays and pass them back to
 Python.
+Furthermore, using array protocols, it is possible to utilize the full
+spectrum of specialized hardware acceleration with minimal changes to
+existing code.
 
 NumPy was initially developed by students, faculty, and researchers to
 provide an advanced, open-source array programming library for Python,
@@ -447,7 +445,7 @@ individuals, held a powerful attraction for many early contributors.
 
 These user-developers frequently had to write code from scratch to solve
 their or their colleagues' problems---often in low-level languages
-that preceded Python, like Fortran \cite{dongarra2008netlib} and C.
+that precede Python, like Fortran \cite{dongarra2008netlib} and C.
 To them, the advantages of an interactive, high-level array library
 were evident. The design of this new tool was informed by other
 powerful interactive programming languages for scientific computing
@@ -458,28 +456,37 @@ as well as commercial languages and environments like IDL and {MATLAB}.
 NumPy has subsequently seen prolific adoption, with millions of users,
 first from research and later also industry.
 It spurred the development of the broader scientific Python ecosystem and
-heralded the current era of widespread use of Python for scientific computing.
-%The reasons for its popularity are varied and complex but include the facts that
-%NumPy (a) is built on top of Python,
-%(b) has a culture of collaboration and good software development practices, and
-%(c) provides a cutting-edge array programming environment for scientific data analysis.
+heralded the current era of widespread use of Python for scientific
+computing. % This and the "What began as" sentence below are more or less interchangeable.
 
-NumPy began as an attempt to add an array object to Python and became
-the foundation of a vibrant ecosystem of tools.
-Now, a large amount of scientific work depends on NumPy being correct,
-fast, and stable.
-Work on NumPy continues, so that it may meet the needs of its users.  For instance, the NumPy data type system is currently being redesigned to make it
-easier to implement data types both in Python and C, and to better handle
-rich data types such as physical units \cite{astropy,Goldbaum2018},
-geometrical objects, and missing values.
-% Maybe add a sentence in the direction of:
-% We hope/expect, that this will allow the proliferation of rich data types
-% which in turn can propel the whole ecosystem forward? (too much :)?
-% As a part of other changes/developments...)
-% Discussed with Jarrod, if it fits to get back to protocols, it is fine
-% to call DTypes a (rich) protocol.
+%What began as an attempt to add an array object to Python became
+%the foundation of a vibrant ecosystem of tools.
+%Now, a large amount of scientific work depends on NumPy being correct,
+%fast, and stable.
+%%
+%%
+%% v TO ADD v
+%%
+%% Over the next decade, the computational landscape will change
+%% drastically.
+%% - AI / data science mature
+%% - hardware / Moore's law, specialized devices
+%% - more users (diversity + numbers)
+%% - scale / type of data; scientific data, lightsheet microscopes, LSST
+%% - new ideas come from other languages like Julia, Rust, ...; JIT improvements
+%% NumPy is poised to tackle these challenges, and work continues.
+%% - Major refactoring of code
+%% - Governance
+%% - Process (NEP, roadmap, how we handle issues on GH, etc.)
+%% - Protocols: will be extending that work
+%% - Funding (some recent evidence that that is improving → grants, or
+%% Moore/Sloan/CZI) CZI EOSS
+%% - Redesigning website and documentation to be more friendly, easy to
+%% navigate
+%% - Next generation of developers (grad students) to sign on
+%%
 
-NumPy's role in the ecosystem continues to evolve. It is no longer just the foundational array library underlying the
-scientific Python ecosystem but has become the standard API for tensor
-computation and a central coordinating mechanism between array types and
-technologies in Python.
+NumPy's is no longer just the foundational array library underlying
+the scientific Python ecosystem, but has also become the standard API
+for tensor computation and a central coordinating mechanism between
+array types and technologies in Python.
