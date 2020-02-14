@@ -34,11 +34,11 @@ a reimplementation of Numeric, called Numarray, added
 support for structured arrays, flexible indexing, memory mapping, byte-order variants,
 more efficient memory use, flexible IEEE error handling capabilities, and
 better type casting rules \cite{greenfield2003numarray}.
-While Numarray was highly compatible with Numeric, the two packages
-had enough differences that it divided the community, until
-2005, when NumPy emerged as a ``best of both worlds'' unification of Numeric
-and Numarray \cite{oliphant2006guide}---combining Numarray's features with Numeric's
-performance on small arrays and its rich C \emph{Application Programming Interface} (API).
+While Numarray was highly compatible with Numeric, the two packages had enough
+differences that it divided the community, until 2005, when NumPy emerged as a
+``best of both worlds'' unification \cite{oliphant2006guide}---combining
+Numarray's features with Numeric's performance on small arrays and its rich C
+\emph{Application Programming Interface} (API).
 
 Now, fifteen years later, NumPy underpins almost every Python library that does scientific or
 numerical computation including SciPy \cite{virtanen2020scipy},
@@ -128,7 +128,7 @@ When performing a vectorized operation (such as addition) on two arrays with
 the same shape, it is clear what should happen.
 Through \emph{broadcasting}, NumPy allows the dimensions to differ, while
 still producing results that appeal to intuition.
-A trivial example is the addition of a scalar value to an array, but it also
+A trivial example is the addition of a scalar value to an array, but broadcasting also
 generalizes to more complex examples such as scaling each column of an array
 or generating a grid of coordinates.
 In broadcasting, one or both arrays are virtually duplicated (that is, without
@@ -310,7 +310,7 @@ leverage their computational power.
 % to convert to and from numpy arrays
 % and why (presumably to get access to the ecosystem)
 The community's efforts to fill this gap led to a
-proliferation of new array implementations. Each deep learning framework created
+proliferation of new array implementations. For example, each deep learning framework created
 its own arrays; PyTorch \cite{NEURIPS2019_9015},
 Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
 and JAX arrays all have the
@@ -425,7 +425,9 @@ the readability, usability, and versatility of Python in a mature,
 well-tested, well-documented, and community-developed library.
 Many fast algorithms are already implemented by libraries in the
 scientific Python ecosystem.
-Where extreme optimization is warranted, compiled languages such as Cython, Numba, Pythran, that
+Where extreme optimization is warranted, compiled languages such as
+Cython \cite{behnel2011cython}, Numba \cite{Lam:2015:NLP:2833157.2833162},
+and Pythran \cite{guelton2015pythran}, that
 extend Python and transparently accelerate bottlenecks, can be
 used.
 Because of NumPy's simple memory model, it is easy to write low-level, hand-optimized code, usually in C
