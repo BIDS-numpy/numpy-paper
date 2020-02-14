@@ -274,7 +274,7 @@ through courses and workshops
 \cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
 
 
-The rapid recent growth of data science, machine learning, and
+The recent rapid growth of data science, machine learning, and
 artificial intelligence has further and dramatically boosted the usage of
 scientific Python.  Examples of its significant application, such as the
 \code{eht-imaging} library, now exist in almost every discipline in the natural and social
@@ -294,21 +294,19 @@ with performance approaching that of compiled languages.
 For most its existence, NumPy addressed the vast majority of
 array computation use cases.
 
-
-In recent years, there has been a rapid growth in the development of
-specialized hardware, including graphics processing
-units (GPUs), tensor processing units (TPUs), and field-programmable
-gate arrays (FPGAs).  Data sets now routinely exceed the memory capacity of a single machine and may be stored on multiple machines or in
-the cloud.  Due to its in-memory data model, NumPy is currently unable to
-utilize such specialized hardware and storage directly.  However, both
+However, scientific data sets now routinely exceed the memory capacity of a single machine and may
+be stored on multiple machines or in the cloud.
+In addition, the recent need to accelerate deep learning and artificial intelligence applications
+has led to the emergence of specialized accelerator hardware,
+including graphics processing units (GPUs), tensor processing units (TPUs),
+and field-programmable gate arrays (FPGAs).
+Due to its in-memory data model, NumPy is currently unable to
+utilize such storage and specialized hardware directly.  However, both
 distributed data and the parallel execution of GPUs, TPUs, and FPGAs map well
 to the \emph{paradigm} of array programming: a gap, therefore, existed between
 available modern hardware architectures and the tools necessary to
 leverage their computational power.
 
-% maybe mention that there are typically utilities
-% to convert to and from numpy arrays
-% and why (presumably to get access to the ecosystem)
 The community's efforts to fill this gap led to a
 proliferation of new array implementations. For example, each deep learning framework created
 its own arrays; PyTorch \cite{NEURIPS2019_9015},
@@ -376,15 +374,21 @@ To facilitate this \emph{interoperability}, NumPy provides
 passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
 NumPy, in turn, dispatches operations to the originating library, as required.
 Over four hundred of the most popular
-NumPy functions are supported.  The protocols are implemented by at
-least five libraries, including Dask, CuPy, xarray, and PyData/Sparse.
+NumPy functions are supported.
+The protocols are implemented by widely used libraries such as Dask, CuPy,
+xarray, and PyData/Sparse.
 Thanks to these developments, users can now, for example, scale
 their computation from a single machine to distributed systems using Dask.
-The protocols \textit{compose} well, and so it is possible to redeploy NumPy
-code onto multi-GPU systems with minimal changes\cite{entschev2019}.
-Working with the community, we have identified several issues that
-prevent further adoption, and are refining interfaces to reduce
-impedance mismatch.
+The protocols also \textit{compose} well, allowing users to redeploy NumPy
+code at scale on distributed, multi-GPU systems via, for instance, CuPy arrays embedded in Dask
+arrays. Using NumPy's high-level API, users can leverage highly parallel code
+execution on multiple systems with millions of cores, all with minimal code
+changes \cite{entschev2019}.
+
+These array protocols are now a key feature of NumPy, and are expected to only
+increase in importance.  As with the rest of NumPy, we iteratively refine and
+add protocol designs to improve utility and simplify adoption. 
+
 
 % FIXME: expand to 3 or more sentences discussing current efforts and
 % issues with those, how did adoption go, what is being done next
@@ -455,40 +459,43 @@ such as Basis \cite{dubois1989basis}, Yorick \cite{munro1995using}, R \cite{ihak
 and APL \cite{iverson1962programming},
 as well as commercial languages and environments like IDL and {MATLAB}.
 
-NumPy has subsequently seen prolific adoption, with millions of users,
-first from research and later also industry.
-It spurred the development of the broader scientific Python ecosystem and
-heralded the current era of widespread use of Python for scientific
-computing. % This and the "What began as" sentence below are more or less interchangeable.
+%NumPy has subsequently seen prolific adoption, with millions of users,
+%first from research and later also industry.
+%It spurred the development of the broader scientific Python ecosystem and
+%heralded the current era of widespread use of Python for scientific
+%computing. % This and the "What began as" sentence below are more or less interchangeable.
 
-%What began as an attempt to add an array object to Python became
-%the foundation of a vibrant ecosystem of tools.
-%Now, a large amount of scientific work depends on NumPy being correct,
-%fast, and stable.
-%%
-%%
-%% v TO ADD v
-%%
-%% Over the next decade, the computational landscape will change
-%% drastically.
-%% - AI / data science mature
-%% - hardware / Moore's law, specialized devices
-%% - more users (diversity + numbers)
-%% - scale / type of data; scientific data, lightsheet microscopes, LSST
-%% - new ideas come from other languages like Julia, Rust, ...; JIT improvements
-%% NumPy is poised to tackle these challenges, and work continues.
-%% - Major refactoring of code
-%% - Governance
-%% - Process (NEP, roadmap, how we handle issues on GH, etc.)
-%% - Protocols: will be extending that work
-%% - Funding (some recent evidence that that is improving → grants, or
-%% Moore/Sloan/CZI) CZI EOSS
-%% - Redesigning website and documentation to be more friendly, easy to
-%% navigate
-%% - Next generation of developers (grad students) to sign on
-%%
+What began as an attempt to add an array object to Python became
+the foundation of a vibrant ecosystem of tools.
+Now, a large amount of scientific work depends on NumPy being correct,
+fast, and stable.
+It is no longer a small community project, but is core scientific
+infrastructure.
+The developer culture has changed as well.
+- Governance
+- Process (NEP, roadmap, how we handle issues on GH, etc.)
+- still primarily draw from graduate students and researchers
+- Funding (some recent evidence that that is improving  grants, or
+Moore/Sloan/CZI) CZI EOSS
+- Major refactoring of code
+- Redesigning website and documentation to be more friendly, easy to
+navigate
 
 NumPy's is no longer just the foundational array library underlying
 the scientific Python ecosystem, but has also become the standard API
 for tensor computation and a central coordinating mechanism between
 array types and technologies in Python.
+
+- Protocols: will be extending that work
+
+Over the next decade, we will face new challenges.
+- AI / data science mature
+- hardware / Moore's law, specialized devices
+- more users (diversity + numbers)
+- scale / type of data; scientific data, lightsheet microscopes, LSST
+- new ideas come from other languages like Julia, Rust, ...; JIT improvements
+
+NumPy is poised to tackle these challenges, and florish in the next decade.
+Need
+- Next generation of developers (grad students) to sign on
+- Funders and industry continue funding this project as well as increasing support for the ecosystem through new funding mechanisms.

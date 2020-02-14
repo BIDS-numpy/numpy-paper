@@ -1,3 +1,7 @@
+- we should refer to the presubmission response
+- remind them of what we were told i.e., long format
+- we focused on array and array protocol
+
 % https://github.com/scipy/scipy-articles/blob/master/scipy-1.0/covlett.tex
 
 - 15 years since numpy began
@@ -13,6 +17,13 @@ in terms of attention and in the top 1% of all Nature Methods papers.
 - why did we have so many astronomy examples?  we can provide many more from
   a variety of fields, but these just seemed natural and there is a long
   connection with astronomy
+- address difference between what we wrote and what we proposed
+  e.g., random number generators
+
+- Developed for over two decades, it has nearly 300,000 dependent repositories on
+  GitHub and millions of downloads per year.
+- It is one of the most commonly used machine learning tools among
+  enterprises \cite{451report2018}.
 
 Dear Editor,
 
