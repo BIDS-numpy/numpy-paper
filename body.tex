@@ -427,7 +427,7 @@ NumPy combines the expressive power of \emph{array programming},
 the performance of C, and
 the readability, usability, and versatility of Python in a mature,
 well-tested, well-documented, and community-developed library.
-Many fast algorithms are already implemented by libraries in the
+Many fast algorithms are implemented by libraries in the
 scientific Python ecosystem.
 Where extreme optimization is warranted, compiled languages such as
 Cython \cite{behnel2011cython}, Numba \cite{Lam:2015:NLP:2833157.2833162},
@@ -465,37 +465,50 @@ as well as commercial languages and environments like IDL and {MATLAB}.
 %heralded the current era of widespread use of Python for scientific
 %computing. % This and the "What began as" sentence below are more or less interchangeable.
 
-What began as an attempt to add an array object to Python became
-the foundation of a vibrant ecosystem of tools.
-Now, a large amount of scientific work depends on NumPy being correct,
-fast, and stable.
-It is no longer a small community project, but is core scientific
+What began as an attempt to add an array object to Python became the
+foundation of a vibrant ecosystem of tools.  Now, a large amount of
+scientific work depends on NumPy being correct, fast, and stable.  It
+is no longer a small community project, but is core scientific
 infrastructure.
-The developer culture has changed as well.
-- Governance
-- Process (NEP, roadmap, how we handle issues on GH, etc.)
-- still primarily draw from graduate students and researchers
-- Funding (some recent evidence that that is improving  grants, or
-Moore/Sloan/CZI) CZI EOSS
-- Major refactoring of code
-- Redesigning website and documentation to be more friendly, easy to
-navigate
 
-NumPy's is no longer just the foundational array library underlying
+The developer culture has matured: while initial development was
+highly informal, NumPy now has a roadmap and a process for proposing
+and discussing large changes.  The project has formal governance
+structures and is fiscally sponsored by NumFOCUS, a nonprofit that
+promotes open practices in research, data, and scientific computing.
+Over the past few years, the project attracted its first funded
+development, sponsored by the Moore and Sloan Foundations, and
+received an award as part of the Chan Zuckerberg Initiative's
+Essentials of Open Source Software program.  With this funding, the
+project was (and is) able to have sustained focus over multiple months
+to implement substantial new features and improvements.  That said, it
+still depends heavily on contributions made by graduate students and
+researchers.
+
+NumPy's is no longer \emph{just} the foundational array library underlying
 the scientific Python ecosystem, but has also become the standard API
 for tensor computation and a central coordinating mechanism between
-array types and technologies in Python.
+array types and technologies in Python. Work continues to expand on and
+improve these interoperability features.
 
-- Protocols: will be extending that work
+Over the next decade, we will face several new challenges.
+%Artificial
+%Intelligence and Data Science will mature ... [what do we say about
+%  this?].
+New devices will be developed, and existing specialized
+hardware will evolve, to meet diminishing returns on Moore's law.
+There will be more, and a wider variety of, data science
+practitioners, a significant proportion of whom will be using NumPy.
+The scale of scientific data gathering will continue to expand, with
+the adoption of devices and instruments such as light sheet
+microscopes and the LSST.  New generation languages, interpreters, and compilers,
+such as Rust, Julia, and LLVM, will invent and determine the viability
+of new concepts and data structures.
 
-Over the next decade, we will face new challenges.
-- AI / data science mature
-- hardware / Moore's law, specialized devices
-- more users (diversity + numbers)
-- scale / type of data; scientific data, lightsheet microscopes, LSST
-- new ideas come from other languages like Julia, Rust, ...; JIT improvements
-
-NumPy is poised to tackle these challenges, and florish in the next decade.
-Need
-- Next generation of developers (grad students) to sign on
-- Funders and industry continue funding this project as well as increasing support for the ecosystem through new funding mechanisms.
+Through various mechanisms described in this paper, NumPy is poised to
+embrace such a changing landscape, and to continue playing a leading
+role in interactive scientific computation.  To do so will require
+sustained funding from government, academia, and industry.  But,
+importantly, it will also need a new generation of graduate students
+and other developers to engage, to build a NumPy that meets the needs
+of the next decade of data science.
