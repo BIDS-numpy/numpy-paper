@@ -2,9 +2,9 @@ auth:
   - Charles R. Harris:
       institute: [ind1]
   - K. Jarrod Millman:
-      institute: [bids, ucb1, corr]
+      institute: [hwni, ucb1, bids, corr]
   - St\'efan J. van der Walt:
-      institute: [bids, corr]
+      institute: [hwni, bids, corr]
   - Ralf Gommers:
       institute: [quan, corr]
   - Pauli Virtanen:
@@ -28,7 +28,7 @@ auth:
   - Marten H. van Kerkwijk:
       institute: [toro]
   - Matthew Brett:
-      institute: [birm]
+      institute: [hwni, birm]
   - Allan Haldane:
       institute: [temp]
   - Jaime Fernandez del Rio:
@@ -53,8 +53,9 @@ auth:
       institute: [quan]
 inst:
   - ind1: Independent Researcher, Logan, Utah, USA
-  - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
+  - hwni: Helen Wills Neuroscience Institute, University of California, Berkeley, Berkeley, CA, USA
   - ucb1: Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA
+  - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
   - quan: Quansight LLC, Austin, TX, USA
   - jyva: Department of Physics and Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
   - merc: Mercari JP, Tokyo, Japan
