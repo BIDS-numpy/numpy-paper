@@ -142,7 +142,7 @@ for g, comm in prs.groupby("category"):
 categories = ["Maintainer", "Other"]
 stacked = []
 # other color:  "#0e50a8", "#077a0a" OR   "#cce0fb", "#71f775"
-for color, cat in zip(["#0e50a8aa", "#077a0aaa"], categories):
+for color, cat in zip(["#b0d0f5ff", "#077a0a77"], categories):
     next_stack = groups[cat]
 
     if len(stacked) > 0:
@@ -158,6 +158,7 @@ for color, cat in zip(["#0e50a8aa", "#077a0aaa"], categories):
         next_stack.values.repeat(2), prev_vals.repeat(2),
         label=cat, lw=0, zorder=4 if cat == "Community" else 3,
         color=color)
+    plt.xticks(rotation=30)
     if False:
         plt.plot(
             next_stack.index + datetime.timedelta(days=30*3/2), next_stack.values, "o",
