@@ -5,7 +5,8 @@ auth:
       institute: [hwni, ucb1, bids, corr]
       orcid: https://orcid.org/0000-0002-5263-5070
   - St\'efan J. van der Walt:
-      institute: [hwni, bids, corr]
+      institute: [stel, hwni, bids, corr]
+      orcid: https://orcid.org/0000-0001-9276-1891
   - Ralf Gommers:
       institute: [quan, corr]
   - Pauli Virtanen:
@@ -57,6 +58,7 @@ inst:
   - hwni: Helen Wills Neuroscience Institute, University of California, Berkeley, Berkeley, CA, USA
   - ucb1: Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA
   - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
+  - stel: Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa
   - quan: Quansight LLC, Austin, TX, USA
   - jyva: Department of Physics and Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
   - merc: Mercari JP, Tokyo, Japan
