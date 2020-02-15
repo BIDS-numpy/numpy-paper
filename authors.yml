@@ -3,6 +3,7 @@ auth:
       institute: [ind1]
   - K. Jarrod Millman:
       institute: [hwni, ucb1, bids, corr]
+      orcid: https://orcid.org/0000-0002-5263-5070
   - St\'efan J. van der Walt:
       institute: [hwni, bids, corr]
   - Ralf Gommers:
@@ -31,10 +32,10 @@ auth:
       institute: [hwni, birm]
   - Allan Haldane:
       institute: [temp]
-  - Jaime Fernandez del Rio:
+  - Jaime Fern\'andez del R\'io:
       institute: [goo2]
   - Mark Wiebe:
-      institute: [amaz]
+      institute: [ubc1, amaz]
   - Pearu Peterson:
       institute: [quan, ind4, esto]
   - Pierre G\'erard-Marchant:
@@ -68,6 +69,7 @@ inst:
   - birm: School of Psychology, University of Birmingham, Edgbaston, Birmigham, UK
   - temp: Department of Physics, Temple University, Philadelphia, PA, USA
   - goo2: Google, Zurich, Switzerland
+  - ubc1: Department of Physics and Astronomy, The University of British Columbia, Vancouver, BC, Canada
   - amaz: Amazon, Seattle, Washington, USA
   - ind4: Independent Researcher, Saue, Estonia
   - esto: Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia
