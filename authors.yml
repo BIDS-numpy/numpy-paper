@@ -40,7 +40,7 @@ auth:
   - Pearu Peterson:
       institute: [quan, ind4, esto]
   - Pierre G\'erard-Marchant:
-      institute: [fran]
+      institute: [ugeo, fran]
   - Kevin Sheppard:
       institute: [oxfd]
   - Tyler Reddy:
@@ -75,6 +75,7 @@ inst:
   - amaz: Amazon, Seattle, Washington, USA
   - ind4: Independent Researcher, Saue, Estonia
   - esto: Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia
+  - ugeo: Department of Biological and Agricultural Engineering, University of Georgia, Athens, GA
   - fran: France-IX Services, Paris, France
   - oxfd: Department of Economics, University of Oxford, Oxford, UK
   - lanl: CCS-7, Los Alamos National Laboratory, Los Alamos, NM, USA
