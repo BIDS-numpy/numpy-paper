@@ -287,6 +287,20 @@ NumPy and its API have become truly ubiquitous.
 
 \section*{Array proliferation and interoperability}
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{static/sketches/protocol}
+
+  \caption{\textbf{NumPy API and Array Protocols.} Through its array protocols, the NumPy API
+     can operate on various types of array objects, including those written outside
+     of NumPy. In this example, NumPy's \code{mean} function is called on a Dask
+     array.  The call succeeds by dispatching to the appropriate library implementation
+     (i.e., Dask in this case) and results in a new Dask array.  Compare this
+     code to the example code in Fig.~\ref{fig:array-concepts}g.
+  }\label{fig:array-protocol}
+
+\end{figure*}
+
 NumPy provides in-memory, multidimensional, homogeneously typed
 (i.e., single pointer and strided) arrays on CPUs.  It runs on machines
 ranging from embedded devices to the world's largest supercomputers,
@@ -354,20 +368,6 @@ and so forth, as appropriate.
 To support array operations between external array objects, NumPy
 therefore added the capability to act as a central coordination
 mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{static/sketches/protocol}
-
-  \caption{\textbf{NumPy API and Array Protocols.} Through its array protocols, the NumPy API
-     can operate on various types of array objects, including those written outside
-     of NumPy. In this example, NumPy's \code{mean} function is called on a Dask
-     array.  The call succeeds by dispatching to the appropriate library implementation
-     (i.e., Dask in this case) and results in a new Dask array.  Compare this
-     code to the example code in Fig.~\ref{fig:array-concepts}g.
-  }\label{fig:array-protocol}
-
-\end{figure*}
 
 To facilitate this \emph{interoperability}, NumPy provides
 ``protocols'' (or contracts of operation), that allow for specialized arrays to be
