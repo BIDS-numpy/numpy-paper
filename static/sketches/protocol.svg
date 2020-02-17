@@ -103,8 +103,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-1017.4238"
-     inkscape:cy="1533.0295"
+     inkscape:cx="-1320.7099"
+     inkscape:cy="1368.2678"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -172,7 +172,7 @@
          style="font-weight:bold;text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan1385">Arrays</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.50000013, 4.50000013;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#808080;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M -427.36395,-193.97412 V 3.0035195"
        id="path1071"
        inkscape:connector-curvature="0" />
@@ -180,12 +180,12 @@
        inkscape:connector-curvature="0"
        id="path1073"
        d="M -185.75231,-193.97412 V 3.0035195"
-       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.50000013, 4.50000013;stroke-dashoffset:0;stroke-opacity:1" />
+       style="fill:none;stroke:#808080;stroke-width:1.50000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <path
        inkscape:connector-curvature="0"
        id="path1075"
        d="M -306.55813,-191.83597 V -14.10173"
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#808080;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
