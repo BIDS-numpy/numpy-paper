@@ -25,35 +25,53 @@ in terms of attention and in the top 1% of all Nature Methods papers.
 - It is one of the most commonly used machine learning tools among
   enterprises \cite{451report2018}.
 
+
+
+
 Dear Editor,
 
-NumPy is the fundamental array computing library for the Python
-language. It underpins the entire numerical Python ecosystem,
-including popular libraries such as SciPy, Pandas, scikit-learn,
-AstroPy, and many others. It is estimated to have over 50M users, and
-its API is used extensively by neural network libraries such as
-PyTorch.
+Thank you for your positive response, dated 18 December 2019, to our
+pre-inquiry for a NumPy paper.
 
-We are concluding a 1.3M grant from the Moore and Sloan foundations
-to prepare NumPy for the next decade of data science. Over the past
-two years, the library has seen several notable additions and
-improvements (including extensible random number generators, foreign
-array interfaces, and—in progress—a redesign of the underlying
-data-type system). Community involvement has also increased
-drastically, and we feel that this is a good time to publish a paper
-describing the project. We have one previous paper, written by myself
-and two other authors from outside the project in 2011.
+As you know, NumPy is the fundamental array computing library for the
+Python language.  It underpins an entire ecosystem of numerical Python
+libraries, and is estimated to have over 50M users. Its API is used
+extensively by a wide variety of tensor processing libraries.
 
-This time, we would like to involve the community more directly so
-that credit can be distributed appropriately. The project is healthy
-and growing, with CZI having recently committed several millions to
-the scientific Python ecosystem, and specifically NumPy, through
-their Essential Open Source Software for Science program.
+Since NumPy performs no telemetry, it can be difficult to track its
+usage.  We could reasonably estimate that 30% or more of all
+scientific outputs use NumPy in some part of their processing
+pipelines. Even our colleagues in theoretical computer science, who
+perform no data analysis, rely on NumPy to provide intuition on
+theorems.
 
-The "old" paper has ~4500 citations
-(with over half in the last two years), and
-the new one will likely generate more.
-Thank you for your consideration.
+In our original letter, we indicated that we wanted to write a paper
+about NumPy's recent technical developments and merits.  While writing
+the manuscript, it became clear that the focus should be that:
+
+1. NumPy provides an array object ideally suited to scientific
+   computing.  It provides an expressive, high-level array programming
+   language, that allows powerful concepts to be represented using a
+   simple and intuitive syntax.
+
+2. Every field of science now has purpose-built scientific computing
+   tools that rely on NumPy.  Many important breakthroughs rely
+   heavily on NumPy in their analysis pipelines.
+
+3. With a myriad of modern computational devices, such as GPUs,
+   becoming available, NumPy's role has expanded. It is now also a
+   coordinating mechanism and unifying layer between new array
+   implementations that utilize sophisticated hardware and array
+   storage mechanisms.
+
+NumPy has now been developed for 15 years, and builds on a 25 year
+legacy. It is used extensively in scientific training and research,
+and is widely influential, even beyond the scientific community. We
+believe that it warrants publication in a very high-tier journal.
+
 
 Best regards,
-Stéfan
+
+Stéfan van der Walt
+Jarrod Millman
+Ralf Gommers
