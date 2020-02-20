@@ -13,7 +13,7 @@
   of elements.
     \textbf{e,} Broadcasting in the multiplication of two-dimensional arrays.
     \textbf{f,} Reduction operations act along one or more axes. In this
-    example, an array is be summed along various axes to produce a vector, or along two axes consecutively to
+    example, an array is summed along select axes to produce a vector, or along two axes consecutively to
     produce a scalar.
     \textbf{g,} Example NumPy code, illustrating some of these concepts.
    }
@@ -370,8 +370,7 @@ NumPy combines the expressive power of \emph{array programming},
 the performance of C, and
 the readability, usability, and versatility of Python in a mature,
 well-tested, well-documented, and community-developed library.
-Many fast algorithms are implemented by libraries in the
-scientific Python ecosystem.
+Libraries in the scientific Python ecosystem provide fast implementations of most important algorithms.
 Where extreme optimization is warranted, compiled languages such as
 Cython \cite{behnel2011cython}, Numba \cite{Lam:2015:NLP:2833157.2833162},
 and Pythran \cite{guelton2015pythran}, that
@@ -428,7 +427,7 @@ for tensor computation and a central coordinating mechanism between
 array types and technologies in Python. Work continues to expand on and
 improve these interoperability features.
 
-Over the next decade, we will face several new challenges.  New devices will be
+Over the next decade, we will face several challenges.  New devices will be
 developed, and existing specialized hardware will evolve, to meet diminishing
 returns on Moore's law.  There will be more, and a wider variety of, data
 science practitioners, a significant proportion of whom will be using NumPy.
