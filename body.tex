@@ -1,6 +1,4 @@
 % KJM: I moved this here to get the placement right
-% FIXME SJW: let's review caption (d); I don't think it's crystal clear what
-% we're trying to show there; double check caption (g)
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/concepts}
@@ -235,9 +233,6 @@ or an integrated development environment (IDEs) such as Spyder.
 This rich and productive environment has made Python popular
 for scientific research.
 
-% this is the software engineering side of things
-% as opposed to the interactive, exploration described above
-
 To complement this facility for exploratory work and rapid
 prototyping, NumPy has developed a culture of
 employing time-tested software engineering practices to improve collaboration and
@@ -341,20 +336,6 @@ decides to try a new technology, they must
 change import statements and ensure that the new library implements
 all the parts of the NumPy API they currently use.
 
-%CuPy, PyData/Sparse, and JAX the most prominent examples---while others have
-%NumPy-inspired semantics but, often due to their development history, deviate in places.
-%Wherever there are such deviations, we often observe users gently requesting,
-%and developers evolving the software step by step toward the NumPy API.
-
-% when they deviate, they sometimes fix it, e.g.,
-% https://github.com/pytorch/pytorch/pull/1983
-% https://github.com/pytorch/pytorch/issues/2228
-% many have for numpy users
-% https://github.com/torch/torch7/wiki/Torch-for-Numpy-users
-
-% computation graphs---which postpone and combine calculations
-% before executing them efficiently,
-
 Ideally, operating on specialized arrays using NumPy functions or semantics would
 simply work, so that users could write code once, and would then benefit
 from switching between NumPy arrays, GPU arrays, distributed arrays,
@@ -382,38 +363,6 @@ changes \cite{entschev2019}.
 These array protocols are now a key feature of NumPy, and are expected to only
 increase in importance.  As with the rest of NumPy, we iteratively refine and
 add protocol designs to improve utility and simplify adoption. 
-
-
-% FIXME: expand to 3 or more sentences discussing current efforts and
-% issues with those, how did adoption go, what is being done next
-%\url{https://numpy.org/neps/nep-0037-array-module.html}
-%Versions of these protocols have been successfully deployed.
-% Ralf: Could you provide some proof of effectiveness, e.g., "This has made it
-% possible to create distributed GPU arrays, enabling .... [find a reference to
-% work by Peter Entschev]".
-% Best reference: https://ep2019.europython.eu/talks/fX8dJsD-distributed-multi-gpu-computing-with-dask-cupy-and-rapids/
-% Below an attempt to start on this:
-
-% should we hint at some of the community interaction part
-% they have helped us develop the neps and, e.g.
-% https://github.com/pytorch/pytorch/issues/22402
-
-% spelled out on this page: https://docs.dask.org/en/latest/gpu.html
-% The video cited embedded there could be a citation:i
-% https://on-demand-gtc.gputechconf.com/gtcnew/sessionview.php?sessionName=s9198-dask+and+v100s+for+fast%2c+distributed+batch+scoring+of+computer+vision+workloads
-%However, general adoption has not yet been achieved mainly for compatibility
-%concerns.
-% explain a bit what "compatibility concerns" means ...
-%Thus, we are actively addressing these concerns by revising and extending
-%these protocols with the aim of wide interoperability that spans the whole
-%scientific Python ecosystem up to and including domain libraries.
-
-% https://numpy.org/neps/nep-0016-abstract-array.html
-% https://numpy.org/neps/nep-0018-array-function-protocol.html
-% https://numpy.org/neps/nep-0022-ndarray-duck-typing-overview.html
-% https://numpy.org/neps/nep-0030-duck-array-protocol.html
-% https://github.com/numpy/numpy/blob/a111b551ae940d7d5f8523fef1cf3589c6ba00a0/doc/neps/nep-0033-extensible-dtypes.rst
-% https://numpy.org/neps/nep-0037-array-module.html
 
 \section*{Discussion}
 
@@ -453,12 +402,6 @@ such as Basis \cite{dubois1989basis}, Yorick \cite{munro1995using}, R \cite{ihak
 and APL \cite{iverson1962programming},
 as well as commercial languages and environments like IDL and {MATLAB}.
 
-%NumPy has subsequently seen prolific adoption, with millions of users,
-%first from research and later also industry.
-%It spurred the development of the broader scientific Python ecosystem and
-%heralded the current era of widespread use of Python for scientific
-%computing. % This and the "What began as" sentence below are more or less interchangeable.
-
 What began as an attempt to add an array object to Python became the
 foundation of a vibrant ecosystem of tools.  Now, a large amount of
 scientific work depends on NumPy being correct, fast, and stable.  It
@@ -485,19 +428,17 @@ for tensor computation and a central coordinating mechanism between
 array types and technologies in Python. Work continues to expand on and
 improve these interoperability features.
 
-Over the next decade, we will face several new challenges.
-%Artificial
-%Intelligence and Data Science will mature ... [what do we say about
-%  this?].
-New devices will be developed, and existing specialized
-hardware will evolve, to meet diminishing returns on Moore's law.
-There will be more, and a wider variety of, data science
-practitioners, a significant proportion of whom will be using NumPy.
-The scale of scientific data gathering will continue to expand, with
-the adoption of devices and instruments such as light sheet
-microscopes and the Large Synoptic Survey Telescope (LSST) \cite{jenness2018lsst}.  New generation languages, interpreters, and compilers,
-such as Rust \cite{10.1145/2692956.2663188}, Julia \cite{Julia-2017}, and LLVM \cite{LLVM:CGO04}, will invent
-and determine the viability of new concepts and data structures.
+Over the next decade, we will face several new challenges.  New devices will be
+developed, and existing specialized hardware will evolve, to meet diminishing
+returns on Moore's law.  There will be more, and a wider variety of, data
+science practitioners, a significant proportion of whom will be using NumPy.
+The scale of scientific data gathering will continue to expand, with the
+adoption of devices and instruments such as light sheet microscopes and the
+Large Synoptic Survey Telescope (LSST) \cite{jenness2018lsst}.  New generation
+languages, interpreters, and compilers, such as Rust
+\cite{10.1145/2692956.2663188}, Julia \cite{Julia-2017}, and LLVM
+\cite{LLVM:CGO04}, will invent and determine the viability of new concepts and
+data structures.
 
 Through various mechanisms described in this paper, NumPy is poised to
 embrace such a changing landscape, and to continue playing a leading
