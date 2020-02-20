@@ -51,42 +51,28 @@
 Dear Federico,
 
 Thank you for your positive response, dated 18 December 2019, to our
-presubmission inquiry for a NumPy paper.  Per your request we have
-formatted our submission in line with your limitations for long
-articles.
+presubmission inquiry for a NumPy paper.  Per your request, we have
+formatted our submission according to long article limitations.
 
-As you know, NumPy is the fundamental array programming library for the
-Python language.  It underpins an entire ecosystem of numerical Python
-libraries, and is estimated to have over 50M users. Its API is used
-extensively by a wide variety of tensor processing libraries.
-
-Since NumPy performs no telemetry, it can be difficult to track its
-usage.  We could reasonably estimate that 30% or more of all
-scientific outputs use NumPy in some part of their processing
-pipelines. Even our colleagues in theoretical computer science, who
-perform no data analysis, rely on NumPy to provide intuition on
-theorems.
-
-In our original letter, we indicated that we wanted to write a paper
-about NumPy's recent technical developments and merits.  While writing
-the manuscript, our focus settled on NumPy
-as an array programming library, its traditional role at the base
-of the larger scientific Python ecossystem, and it new role 
-as a coordinating mechanism and unifying layer between new array
-implementations that utilize sophisticated hardware and array
-storage mechanisms.
-
-FIXME untold storyt
-
-NumPy has now been developed for 15 years, and builds on a 25 year
+NumPy is the fundamental array programming library for the Python
+language.  It has been developed for 15 years, and builds on a 25 year
 legacy. It is used extensively in scientific training and research,
-and is widely influential, even beyond the scientific community. We
-believe that it warrants publication 
+and is widely influential, even beyond the scientific community.  It
+underpins an ecosystem of numerical Python libraries that reach across
+all disciplines.
 
-FIXME
-in a very high-tier journal.
+Originally, we planned a paper around NumPy's recent technical
+developments and merits.  However, during writing our focus settled on
+how NumPy has evolved from an array programming library at the base of
+the larger scientific Python ecosystem into also being a mechanism for
+using new, specialized array implementations.
 
-We suggest the following three peer reviewers as suitable candidates,
+We believe that, because of these developments that make possible interaction
+between a much wider variety of array libraries, NumPy will remain central to
+scientific computing for the foreseeable future. This is an important
+part of the NumPy story, which has never been told.
+
+We suggest the following three peer reviewers,
 and we do not have any specific reviewer exclusion requests:
 
 - Alan Edelman <edelman@math.mit.edu>, co-creator of Julia
