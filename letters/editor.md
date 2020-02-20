@@ -1,37 +1,40 @@
-- we should refer to the presubmission response
-- remind them of what we were told i.e., long format
-- we focused on array and array protocol
+# Dear Dr van der Walt,
+# 
+# Thank you for your enquiry regarding the submission of a manuscript on NumPy to
+# Nature. The paper certainly sounds intriguing, and we would be happy to take a
+# closer look at it.
+# 
+# Of course, it is very difficult to make a definitive judgement about a paper
+# based only on the limited information available in a presubmission enquiry.
+# Therefore I am sure you will understand that we cannot promise to send the
+# paper out for peer-review until we have read it in its entirety.  To submit
+# your manuscript, please use the following link:
+# 
+# https://mts-nature.nature.com/cgi-bin/main.plex?el=A5K4DEz6A2HgKr6J6A9ftdWnj4PvVxoEinaFjPjcfFwZ
+# *This url links to your confidential home page and associated information about manuscripts you may have submitted or be reviewing for us.
+# 
+# Before doing so, however, please read your Guide to Authors at
+# www.nature.com/nature/authors/gta/. Although we would not need you to format
+# the paper in perfect Nature style as of yet, it would be ideal if you could
+# format it in line with our limitations for long articles - which is to say up
+# to 3,000-3,500 words and 6 display items (figures and tables).
+# 
+# Feel free to get in touch with me if you'd like to discuss the structure of the
+# article further, in case.
+# 
+# I look forward to reading your manuscript in full.
+# 
+# Best regards,
+# Federico
+# 
+# Dr Federico Levi
+# Senior Editor
+# Nature
 
-% https://github.com/scipy/scipy-articles/blob/master/scipy-1.0/covlett.tex
-
-- 15 years since numpy began
-- 25 years since numeric (the precusor to numpy)
-- Major work over last few years including array protocol stuff
-- no official paper despite over two decades of development and widespread use
-- Python 2 EOL
-- scipy paper out
-- sp paper is already in the top 5% of all research outputs ever tracked by Altmetric
-in terms of attention and in the top 1% of all Nature Methods papers.
-% https://www.altmetric.com/details/74956899#score
-
-- why did we have so many astronomy examples?  we can provide many more from
-  a variety of fields, but these just seemed natural and there is a long
-  connection with astronomy
-- address difference between what we wrote and what we proposed
-  e.g., random number generators
-
-- Developed for over two decades, it has nearly 300,000 dependent repositories on
-  GitHub and millions of downloads per year.
-- It is one of the most commonly used machine learning tools among
-  enterprises \cite{451report2018}.
-
-
-
-
-Dear Editor,
+Dear Federico,
 
 Thank you for your positive response, dated 18 December 2019, to our
-pre-inquiry for a NumPy paper.
+presubmission inquiry for a NumPy paper.
 
 As you know, NumPy is the fundamental array computing library for the
 Python language.  It underpins an entire ecosystem of numerical Python
@@ -68,6 +71,16 @@ NumPy has now been developed for 15 years, and builds on a 25 year
 legacy. It is used extensively in scientific training and research,
 and is widely influential, even beyond the scientific community. We
 believe that it warrants publication in a very high-tier journal.
+
+We suggest the following three peer reviewers as suitable candidates,
+and we do not have any specific reviewer exclusion requests:
+
+- Alan Edelman <edelman@math.mit.edu>, co-creator of Julia
+    programming language and Faculty at MIT.
+- William Stein <wstein@gmail.com>, originator and
+    lead developer of SageMath.
+- Kazunori Akiyama <kazu@haystack.mit.edu>, first author
+    of event horizon imaging paper that cites SciPy.
 
 
 Best regards,
