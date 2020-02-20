@@ -4,7 +4,7 @@
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth]{static/sketches/concepts}
-  \caption{\textbf{Fundamental Array Concepts.}
+  \caption{\textbf{The NumPy array incorporates several fundamental array concepts.}
     \textbf{a,} The NumPy array data structure and its associated metadata fields.
     \textbf{b,} Indexing an array with slices and steps. These
   operations return a \emph{view} of the original data.
@@ -286,9 +286,8 @@ NumPy and its API have become truly ubiquitous.
   \centering
   \includegraphics[width=\textwidth]{static/sketches/protocol}
 
-  \caption{\textbf{NumPy API and Array Protocols.} Through its array protocols, the NumPy API
-     can operate on various types of array objects, including those written outside
-     of NumPy. In this example, NumPy's \code{mean} function is called on a Dask
+  \caption{\textbf{NumPy's API and array protocols expose new arrays to the ecosystem.}
+     In this example, NumPy's \code{mean} function is called on a Dask
      array.  The call succeeds by dispatching to the appropriate library implementation
      (i.e., Dask in this case) and results in a new Dask array.  Compare this
      code to the example code in Fig.~\ref{fig:array-concepts}g.
