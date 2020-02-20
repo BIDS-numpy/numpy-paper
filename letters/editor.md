@@ -55,11 +55,10 @@ presubmission inquiry for a NumPy paper.  Per your request, we have
 formatted our submission according to long article limitations.
 
 NumPy is the fundamental array programming library for the Python
-language.  It has been developed for 15 years, and builds on a 25 year
-legacy. It is used extensively in scientific training and research,
-and is widely influential, even beyond the scientific community.  It
-underpins an ecosystem of numerical Python libraries that reach across
-all disciplines.
+language.  It has been developed for 15 years, and is used extensively
+in scientific training and research.  NumPy is widely influential, even
+beyond the scientific community.  It underpins an ecosystem of numerical
+Python libraries that reach across all disciplines.
 
 Originally, we planned a paper around NumPy's recent technical
 developments and merits.  However, during writing our focus settled on
