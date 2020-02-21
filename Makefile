@@ -10,6 +10,10 @@ paper: $(TEX)
 	-texcount -total -brief -sum=1 methods.tex >> wordcount.tex
 	TEXINPUTS=.//: latexmk -pdf -use-make paper.tex
 
+.PHONY: summary
+summary:
+	pandoc --strip-comments -t plain  summary.tex
+
 .PHONY: clean
 clean:
 	@rm -f *~
