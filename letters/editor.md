@@ -51,7 +51,7 @@
 Dear Federico,
 
 Thank you for your positive response, dated 18 December 2019, to our
-presubmission inquiry for a NumPy paper.  Per your request, we have
+presubmission inquiry for the NumPy paper.  Per your request, we have
 formatted our submission according to long article limitations.
 
 NumPy is the fundamental array programming library for the Python
@@ -60,16 +60,16 @@ in scientific training and research.  NumPy is widely influential, even
 beyond the scientific community.  It underpins an ecosystem of numerical
 Python libraries that reach across all disciplines.
 
-Originally, we planned a paper around NumPy's recent technical
+Originally, we proposed a paper around NumPy's recent technical
 developments and merits.  However, during writing our focus settled on
 how NumPy has evolved from an array programming library at the base of
 the larger scientific Python ecosystem into also being a mechanism for
 using new, specialized array implementations.
 
-We believe that, because of these developments that make possible interaction
-between a much wider variety of array libraries, NumPy will remain central to
-scientific computing for the foreseeable future. This is an important
-part of the NumPy story, which has never been told.
+We believe that, because of its new role as a coordinating mechanism
+for array implementations, NumPy will remain central to scientific computing
+for the foreseeable future. This is an important new part of the NumPy story,
+which has never been told before.
 
 We suggest the following three peer reviewers,
 and we do not have any specific reviewer exclusion requests:
@@ -79,7 +79,7 @@ and we do not have any specific reviewer exclusion requests:
 - Anima Anandkumar <anima@caltech.edu> director of ML research at NVIDIA
     and Professor at Caltech.
 - Andrew Chael <achael@cfa.harvard.edu>, main developer of eht-imaging
-    and a Fellow at Princeton.
+    library and a Fellow at Princeton.
 
 Best regards,
 

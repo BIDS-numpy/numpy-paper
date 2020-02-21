@@ -1,0 +1,17 @@
+Intended to be 20th author listed, but we haven't been able to
+contact him.  KJM removed him from the list of authors.
+If we hear from him before the paper is published, we will
+add him back.
+
+- Stefan emailed him at <david.m.cooke@gmail.com> on Feb. 3, 2020
+- Jarrod emailed him at <david.m.cooke@gmail.com> on Feb. 10, 2020
+- Stefan pinged him on GH using @dmcooke on Feb. 11, 2020
+  https://github.com/BIDS-numpy/numpy-paper/issues/68
+- Jarrod emailed him at <cookedm@physics.mcmaster.ca> on Feb. 14, 2020
+- Jarrod emailed An-Chang Shi <shi@physics.mcmaster.ca> on Feb. 14, 2020
+- Jarrod emailed Francesc Alted on Feb. 20, 2020
+
+https://www.researchgate.net/scientific-contributions/2000708893_David_M_Cooke
+https://www.physics.mcmaster.ca/component/comprofiler/userprofile/shi.html?Itemid=351
+https://ca.linkedin.com/in/davidmcooke
+https://twitter.com/dmcooke
