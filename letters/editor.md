@@ -66,10 +66,10 @@ how NumPy has evolved from an array programming library at the base of
 the larger scientific Python ecosystem into also being a mechanism for
 using new, specialized array implementations.
 
-We believe that, because of its new role as a coordinating mechanism
-for array implementations, NumPy will remain central to scientific computing
-for the foreseeable future. This is an important new part of the NumPy story,
-which has never been told before.
+We believe that, because of this role as a coordinating mechanism,
+NumPy will remain central to scientific computing for the foreseeable
+future. This is an important new part of the NumPy story, which has
+never been told before.
 
 We suggest the following three peer reviewers,
 and we do not have any specific reviewer exclusion requests:
