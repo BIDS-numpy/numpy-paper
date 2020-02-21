@@ -15,7 +15,7 @@
    viewBox="0 0 357.38495 341.36942"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 (unknown)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="ecosystem.svg"
    inkscape:export-filename="ecosystem.png"
    inkscape:export-xdpi="149.21001"
@@ -772,16 +772,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.67740643"
-     inkscape:cx="747.18311"
-     inkscape:cy="607.98178"
+     inkscape:zoom="1.3548129"
+     inkscape:cx="750.28399"
+     inkscape:cy="476.1639"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer3"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1061"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
      inkscape:window-x="0"
-     inkscape:window-y="19"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      showguides="false"
      inkscape:snap-global="false"
@@ -1450,21 +1450,6 @@
      style="display:inline" />
   <g
      inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="Ground"
-     style="display:inline">
-    <rect
-       transform="translate(90.51766,52.399851)"
-       style="display:inline;opacity:1;fill:url(#radialGradient1398);fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect1232"
-       width="344.33212"
-       height="40.115692"
-       x="-78.227478"
-       y="211.63809"
-       ry="0" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Tree"
      style="display:inline"
@@ -1623,7 +1608,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332"
          id="tspan827-3-9-7">Application</tspan><tspan
          sodipodi:role="line"
-         x="-10.8895"
+         x="-10.889499"
          y="-18.814367"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332"
          id="tspan4853-0">Specific</tspan></text>
@@ -1635,11 +1620,11 @@
        id="text817-7"><tspan
          sodipodi:role="line"
          id="tspan815-6"
-         x="-10.889501"
+         x="-10.889502"
          y="39.460918"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332">Domain</tspan><tspan
          sodipodi:role="line"
-         x="-10.8895"
+         x="-10.889499"
          y="52.690086"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332"
          id="tspan827-7">Specific</tspan></text>
@@ -1655,7 +1640,7 @@
          y="110.95735"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332">Technique</tspan><tspan
          sodipodi:role="line"
-         x="-10.8895"
+         x="-10.889499"
          y="124.18652"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#808080;stroke-width:0.26458332"
          id="tspan829-1">Specific</tspan></text>
@@ -1688,7 +1673,7 @@
          sodipodi:role="line"
          id="tspan13812"
          x="-93.22052"
-         y="23.97345"
+         y="24.079746"
          style="stroke-width:0.26458332" /></text>
     <path
        transform="translate(-1.6840308,0.52916667)"
@@ -1720,7 +1705,7 @@
        xml:space="preserve"
        id="flowRoot839-0-6-0-6"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#999999;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-39.878349,111.4974)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-39.968331,111.06193)"><flowRegion
          style="line-height:1;text-align:center;text-anchor:middle;fill:#999999;fill-opacity:1"
          id="flowRegion841-8-4-8-3"><rect
            style="line-height:1;text-align:center;text-anchor:middle;fill:#999999;fill-opacity:1"
@@ -1748,7 +1733,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.26458332"
          id="tspan897">Python</tspan><tspan
          sodipodi:role="line"
-         x="5.4440994"
+         x="5.4440989"
          y="238.27786"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
          id="tspan966">language</tspan></text>
@@ -1771,10 +1756,10 @@
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#818181;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
        id="rect1370"
-       width="90.054565"
-       height="23.632961"
-       x="169.87386"
-       y="247.53647"
+       width="91.021194"
+       height="23.080597"
+       x="168.90721"
+       y="248.08884"
        ry="6.5593786" />
     <path
        style="display:inline;fill:#6c5353;fill-opacity:1;stroke:#077a0a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.00000011, 4.00000011;stroke-dashoffset:0;stroke-opacity:1;marker-mid:url(#Arrow2Lstart-7-1)"
@@ -1804,24 +1789,6 @@
          y="256.095"
          x="207.57849"
          sodipodi:role="line">NumPy API</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="83.186165"
-       y="225.87456"
-       id="text877"
-       inkscape:export-xdpi="149.21001"
-       inkscape:export-ydpi="149.21001"><tspan
-         sodipodi:role="line"
-         id="tspan875"
-         x="83.186165"
-         y="225.87456"
-         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:0.26458332">NumPy</tspan><tspan
-         sodipodi:role="line"
-         x="83.186165"
-         y="239.10373"
-         style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
-         id="tspan879">arrays</tspan></text>
     <path
        transform="matrix(0.89356356,0,0,0.87584178,-31.964395,160.90941)"
        style="display:inline;fill:none;stroke:#077a0a;stroke-width:1.13037992;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.52151964, 4.52151964;stroke-dashoffset:0;stroke-opacity:1"
@@ -1843,12 +1810,45 @@
        id="path2346"
        d="M 253.82437,253.71249 H 233.74039"
        style="display:inline;fill:#6c5353;fill-opacity:1;stroke:#077a0a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-mid:url(#marker2350)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="83.186165"
+       y="225.87456"
+       id="text877"
+       inkscape:export-xdpi="149.21001"
+       inkscape:export-ydpi="149.21001"><tspan
+         sodipodi:role="line"
+         id="tspan875"
+         x="83.186165"
+         y="225.87456"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:0.26458332">NumPy</tspan><tspan
+         sodipodi:role="line"
+         x="83.186165"
+         y="239.10373"
+         style="text-align:center;text-anchor:middle;fill:#999999;stroke-width:0.26458332"
+         id="tspan879">arrays</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Ground"
+     style="display:inline">
+    <rect
+       transform="translate(90.51766,52.399851)"
+       style="display:inline;opacity:1;fill:url(#radialGradient1398);fill-opacity:1;stroke:none;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1232"
+       width="342.19171"
+       height="40.115692"
+       x="-78.227478"
+       y="211.63809"
+       ry="0" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer7"
-     inkscape:label="Tree 1"
-     style="display:inline">
+     inkscape:label="Extra Branches"
+     style="display:none">
     <g
        transform="translate(90.51766,52.399851)"
        style="display:inline"
