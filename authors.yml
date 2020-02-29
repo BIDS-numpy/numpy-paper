@@ -2,10 +2,10 @@ auth:
   - Charles R. Harris:
       institute: [ind1]
   - K. Jarrod Millman:
-      institute: [hwni, ucb1, bids, corr]
+      institute: [hbic, ucb1, bids, corr]
       orcid: https://orcid.org/0000-0002-5263-5070
   - St\'efan J. van der Walt:
-      institute: [stel, hwni, bids, corr]
+      institute: [stel, hbic, bids, corr]
       orcid: https://orcid.org/0000-0001-9276-1891
   - Ralf Gommers:
       institute: [quan, corr]
@@ -31,7 +31,7 @@ auth:
   - Marten H. van Kerkwijk:
       institute: [toro]
   - Matthew Brett:
-      institute: [hwni, birm]
+      institute: [hbic, birm]
   - Allan Haldane:
       institute: [temp]
   - Jaime Fern\'andez del R\'io:
@@ -56,7 +56,7 @@ auth:
       institute: [quan]
 inst:
   - ind1: Independent Researcher, Logan, Utah, USA
-  - hwni: Helen Wills Neuroscience Institute, University of California, Berkeley, Berkeley, CA, USA
+  - hbic: Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA
   - ucb1: Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA
   - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
   - stel: Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa
