@@ -1,5 +1,3 @@
-\section*{Methods}
-
 We use Git for version control and GitHub as the public hosting service for our
 official \emph{upstream} repository (\url{https://github.com/numpy/numpy}).
 We each work in our own copy (or fork) of the project and use the
@@ -14,7 +12,7 @@ We also use GitHub's issue tracking system to collect and triage problems and
 proposed improvements.
 
 
-\subsection*{Library organization}
+\section*{Library organization}
 
 Broadly, the NumPy library consists of the following parts:
 the NumPy array data structure \code{ndarray}; the so-called \emph{universal functions};
@@ -26,7 +24,9 @@ the core of the library.
 In the following, we give a brief summary of these components of the
 library.
 
-\paragraph{\emph{Core.}}  The \code{ndarray} data structure and the
+\subsection*{Core}
+
+The \code{ndarray} data structure and the
 universal functions make up the core of NumPy.
 
 The \code{ndarray} is the data structure at the heart of NumPy.
@@ -53,7 +53,8 @@ The elementary arithmetic operations of addition, multiplication, etc.,
 are implemented as ufuncs, so that broadcasting also applies to expressions
 such as \code{x + y * z}.
 
-\paragraph{\emph{Computing libraries.}}
+\subsection*{Computing libraries.}
+
 NumPy provides a large library of functions for array manipulation
 and scientific computing, including functions for: creating, reshaping,
 concatenating, and padding arrays; searching, sorting and counting data
@@ -77,8 +78,9 @@ probability distributions is provided. It includes the beta, gamma
 and Weibull distributions, the univariate and multivariate normal
 distributions, and more.
 
-\paragraph{\emph{Infrastructure libraries.}} NumPy provides utilities
-for writing tests and for building Python packages.
+\subsection*{Infrastructure libraries}
+
+NumPy provides utilities for writing tests and for building Python packages.
 
 The \code{testing} subpackage provides functions such as
 \code{assert\_allclose(actual, desired)} that may be used in
@@ -89,13 +91,13 @@ to facilitate configuration, installation, and packaging of libraries depending 
 % Remove the PyPI reference entirely?
 These can be used, for example, when publishing to the PyPI website.
 
-\paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
+\subsection*{F2PY}  The program \code{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
 
 
-\subsection*{Governance}
+\section*{Governance}
 
 % https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
 % https://github.com/numpy/numpy/pull/6352
@@ -119,7 +121,7 @@ In brief, we strive to:
 The Code of Conduct also specifies how breaches can be reported and outlines
 the process for responding to such reports.
 
-\subsection*{Funding}
+\section*{Funding}
 
 % BIDS -- UCB
 % https://www.moore.org/grant-detail?grantId=GBMF5447
@@ -152,7 +154,7 @@ Tidelift, which is used to fund things like documentation and website
 improvements.
 
 
-\subsection*{Developers}
+\section*{Developers}
 
 NumPy is currently maintained by a group of 23 contributors with commit rights
 to the NumPy code base. Out of these, 17 maintainers were active in
@@ -189,7 +191,7 @@ years.
 
 
 
-\subsection*{Community calls}
+\section*{Community calls}
 
 The massive number of scientific Python packages that
 built on NumPy meant that it had an unusually high need for stability.
@@ -205,7 +207,7 @@ groups to provide input.  For example, after Intel produced a forked
 version of NumPy, one of their developers joined a call to discuss
 community concerns.
 
-\subsection*{NumPy enhancement proposals}
+\section*{NumPy enhancement proposals}
 
 Given the complexity of the codebase and the massive number of projects depending
 on it, large changes require careful planning and substantial work.
@@ -220,7 +222,7 @@ consideration, 3 have been deferred or superseded, and 2 have been rejected
 or withdrawn.
 
 
-\subsection*{Central role}
+\section*{Central role}
 
 NumPy plays a central role in building and standardizing much of the scientific
 Python community infrastructure.
@@ -233,7 +235,7 @@ projects, that all projects across the Scientific Python ecosystem adopt a
 common ``time window-based'' policy for support of Python and NumPy versions.
 This standard will simplify downstream project and release planning.
 
-\subsection*{Wheels build system}
+\section*{Wheels build system}
 
 A Python \emph{wheel}\cite{PEP427} is a standard file format for
 distributing Python libraries.  In addition to Python code, a
@@ -261,7 +263,7 @@ other developers\cite{multibuild}.  Currently, scripts using
 platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 (for Windows).
 
-\subsection*{Recent technical improvements}
+\section*{Recent technical improvements}
 
 With the recent infusion of funding and a clear process for coordinating with
 the developer community, we have been able to tackle a number of important
@@ -269,7 +271,7 @@ large scale changes.
 We highlight two of those below, as well as changes made to our testing
 infrastructure to support hardware platforms used in large scale computing.
 
-\subsection*{Array function protocol}
+\section*{Array function protocol}
 
 A vast number of projects are built on NumPy;
 these projects are consumers of the NumPy API.
@@ -344,7 +346,7 @@ f(x_local)  # returns a NumPy array
 f(x_distr)  # works, returns a Dask array
 \end{lstlisting}
 
-\subsection*{Random number generation}
+\section*{Random number generation}
 
 The NumPy \code{random} module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
@@ -454,7 +456,7 @@ or Cython code.\footnote{As of 1.18.0, this scenario requires access to the
 NumPy source. Alternative approaches that avoid this extra step are being
 explored.}
 
-\subsection*{Testing on multiple architectures}
+\section*{Testing on multiple architectures}
 
 At the time of writing the two fastest supercomputers in the
 world, Summit and Sierra, both have IBM POWER9 architectures
