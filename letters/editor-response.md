@@ -25,7 +25,7 @@ and ended with a \textbf{summary sentence.}
 \item We made the methods section into a separate Supplementary Methods PDF
 and \textbf{referenced it from the main text.}
 
-\item Three significant references are \textbf{annotated}.
+\item Four significant references are annotated.
 
 \item All images are new and created specifically for this publication.
 
