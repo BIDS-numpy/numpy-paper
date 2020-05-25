@@ -1,14 +1,6 @@
 \documentclass[fleqn,10pt,twocolumn]{wlscirep}
 
 % Packages
-\usepackage{pifont}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{float}
-% \usepackage[multiple]{footmisc}
-\usepackage{booktabs}
-\usepackage{csquotes}
-\usepackage{moreverb} % for verbatim ouput (for wordcount)
 \usepackage{listings, textcomp}
 \lstset{language=Python}
 
@@ -28,18 +20,6 @@
    figurename=Fig.,
    tablename=Tab.
 }
-\usepackage{subcaption}
-
-% New Commands
-\newcommand{\cmark}{\ding{51}}%
-\newcommand{\xmark}{\ding{55}}%
-\newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\fixme}[1]{\textcolor{red}{{#1}}}
-\newcommand{\inlinecite}[1]{\footnotesize\citen{#1}}
-\newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-\usepackage[switch]{lineno}
-\linenumbers
 
 \title{Array Programming with NumPy}
 
@@ -56,9 +36,6 @@
 \flushbottom
 \maketitle
 \thispagestyle{empty}
-
-% Count of words
-%\verbatiminput{wordcount.tex}
 
 \input{body}
 

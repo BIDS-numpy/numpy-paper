@@ -17,19 +17,19 @@ proposed improvements.
 \subsection*{Library organization}
 
 Broadly, the NumPy library consists of the following parts:
-the NumPy array data structure \code{ndarray}; the so-called \emph{universal functions};
+the NumPy array data structure \texttt{ndarray}; the so-called \emph{universal functions};
 a set of library functions for manipulating arrays and doing scientific
 computation; infrastructure libraries for unit tests and Python package
-building; and the program \code{f2py} for wrapping Fortran code in Python \cite{peterson2009f2py}.
-The \code{ndarray} and the universal functions are generally considered
+building; and the program \texttt{f2py} for wrapping Fortran code in Python \cite{peterson2009f2py}.
+The \texttt{ndarray} and the universal functions are generally considered
 the core of the library.
 In the following, we give a brief summary of these components of the
 library.
 
-\paragraph{\emph{Core.}}  The \code{ndarray} data structure and the
+\paragraph{\emph{Core.}}  The \texttt{ndarray} data structure and the
 universal functions make up the core of NumPy.
 
-The \code{ndarray} is the data structure at the heart of NumPy.
+The \texttt{ndarray} is the data structure at the heart of NumPy.
 The data structure stores regularly strided homogeneous data types
 inside a contiguous block memory, allowing for the efficient representation
 of $n$-dimensional data.
@@ -40,18 +40,18 @@ The \emph{universal functions}, or more concisely, \emph{ufuncs},
 are functions written in C that implement efficient looping over
 NumPy arrays. An important feature of ufuncs is the built-in
 implementation of \emph{broadcasting}.  For example, the function
-\code{arctan2(x, y)} is a ufunc that accepts two values and computes
+\texttt{arctan2(x, y)} is a ufunc that accepts two values and computes
 $\tan^{-1}(y/x)$.  When arrays are passed in as the arguments,
 the ufunc will take care of looping over the dimensions of the inputs
-in such a way that if, say, \code{x} is a 1-D array with length 3, and
-\code{y} is a 2-D array with shape $2 \times 1$, the output will be
+in such a way that if, say, \texttt{x} is a 1-D array with length 3, and
+\texttt{y} is a 2-D array with shape $2 \times 1$, the output will be
 an array with shape $2 \times 3$ (Fig.~\ref{fig:array-concepts}c).
 The ufunc machinery takes care
 of calling the function with all the appropriate combinations of
 input array elements to complete the output array.
 The elementary arithmetic operations of addition, multiplication, etc.,
 are implemented as ufuncs, so that broadcasting also applies to expressions
-such as \code{x + y * z}.
+such as \texttt{x + y * z}.
 
 \paragraph{\emph{Computing libraries.}}
 NumPy provides a large library of functions for array manipulation
@@ -80,16 +80,16 @@ distributions, and more.
 \paragraph{\emph{Infrastructure libraries.}} NumPy provides utilities
 for writing tests and for building Python packages.
 
-The \code{testing} subpackage provides functions such as
-\code{assert\_allclose(actual, desired)} that may be used in
+The \texttt{testing} subpackage provides functions such as
+\texttt{assert\_allclose(actual, desired)} that may be used in
 test suites for code that uses NumPy arrays.
 
-NumPy provides the subpackage \code{distutils} which includes functions and classes
+NumPy provides the subpackage \texttt{distutils} which includes functions and classes
 to facilitate configuration, installation, and packaging of libraries depending on NumPy.
 % Remove the PyPI reference entirely?
 These can be used, for example, when publishing to the PyPI website.
 
-\paragraph{\emph{F2PY.}}  The program \code{f2py} is a tool for
+\paragraph{\emph{F2PY.}}  The program \texttt{f2py} is a tool for
 building NumPy-aware Python wrappers of Fortran functions.
 NumPy itself does not use any Fortran code;  F2PY is part of NumPy
 for historical reasons.
@@ -255,9 +255,9 @@ of NumPy on these platforms.
 
 The technology that is used to build the wheels evolves continually.
 At the time this paper is being written, a key component is the
-\code{multibuild} suite of tools developed by Matthew Brett and
+\texttt{multibuild} suite of tools developed by Matthew Brett and
 other developers\cite{multibuild}.  Currently, scripts using
-\code{multibuild} are written for the continuous integration
+\texttt{multibuild} are written for the continuous integration
 platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 (for Windows).
 
@@ -284,7 +284,7 @@ PyTorch\footnote{\url{https://pytorch.org/tutorials/beginner/blitz/tensor\_tutor
 and Tensorflow\footnote{\url{https://www.tensorflow.org/tutorials/customization/basics}}
 provide tensor APIs with NumPy-inspired semantics.
 It is also implemented in packages that support sparse arrays
-such as \code{scipy.sparse} and PyData/Sparse.
+such as \texttt{scipy.sparse} and PyData/Sparse.
 Another notable example is Dask, a library for parallel computing in
 Python.  Dask adopts the NumPy API and therefore presents a familiar
 interface to existing NumPy users, while adding powerful abilities to
@@ -303,15 +303,15 @@ to again fracture the scientific Python community.
 To address these issues NumPy has the goal of providing the fundamental
 API for \emph{interoperability} between the various NumPy-like APIs.
 An earlier step in this direction was the implementation of the
-\code{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
+\texttt{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
 for most mathematical functions.\cite{NEP13}
 In 2019 this was expanded more generally with the inclusion of the
-\code{\_\_array\_function\_\_} protocol into NumPy~1.17.
+\texttt{\_\_array\_function\_\_} protocol into NumPy~1.17.
 These two protocols allow providers of array objects to be interoperable
 with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
-\code{import numpy as np}, it can nevertheless work for them.
+\texttt{import numpy as np}, it can nevertheless work for them.
 For example, here is how a CuPy GPU array can be passed through NumPy for
 processing, with all operations being dispatched back to CuPy:
 
@@ -346,20 +346,20 @@ f(x_distr)  # works, returns a Dask array
 
 \subsection*{Random number generation}
 
-The NumPy \code{random} module provides pseudorandom numbers from a wide range of
+The NumPy \texttt{random} module provides pseudorandom numbers from a wide range of
 distributions. In legacy versions of NumPy, simulated random values are produced
-by a \code{RandomState} object that: handles seeding and state initialization;
+by a \texttt{RandomState} object that: handles seeding and state initialization;
 wraps the core pseudorandom number generator based on a Mersenne Twister
 implementation\footnote{to be precise, the standard 32-bit version of MT19937};
 interfaces with the underlying code that transforms random bits into
 variates from other distributions; and supplies a singleton instance exposed in
 the root of the random module.
 
-The \code{RandomState} object makes a compatibility guarantee so that a fixed
+The \texttt{RandomState} object makes a compatibility guarantee so that a fixed
 seed and sequence of function calls produce the same set of values. This
 guarantee has slowed progress since improving the underlying code requires
 extending the API with additional keyword arguments. This guarantee continues to
-apply to \code{RandomState}.
+apply to \texttt{RandomState}.
 
 NumPy 1.17 introduced a new API for generating random numbers that use a more
 flexible structure that can be extended by libraries or end-users. The new API
@@ -372,40 +372,40 @@ initial values.
 Bit generators are simple classes that manage the state of an underlying
 pseudorandom number generator. NumPy ships with four bit generators. The default
 bit generator is a 64-bit implementation of the Permuted Congruential Generator
-\cite{pcg64} (\code{PCG64}). The three other bit generators are a 64-bit version
-of the Philox generator\cite{random123} (\code{Philox}), Chris Doty-Humphrey's
-Small Fast Chaotic generator\cite{practrand} (\code{SFC64}), and the 32-bit
-Mersenne Twister\cite{mt19937} (\code{MT19937}) which has been used in older
+\cite{pcg64} (\texttt{PCG64}). The three other bit generators are a 64-bit version
+of the Philox generator\cite{random123} (\texttt{Philox}), Chris Doty-Humphrey's
+Small Fast Chaotic generator\cite{practrand} (\texttt{SFC64}), and the 32-bit
+Mersenne Twister\cite{mt19937} (\texttt{MT19937}) which has been used in older
 versions of NumPy.\footnote{The
 \href{https://github.com/bashtage/randomgen}{randomgen project} supplies a wide
 range of alternative bit generators such as a cryptographic counter-based
-generators (\code{AESCtr}) and generators that expose hardware random number
-generators (\code{RDRAND})\cite{randomgen}.} Bit generators provide
+generators (\texttt{AESCtr}) and generators that expose hardware random number
+generators (\texttt{RDRAND})\cite{randomgen}.} Bit generators provide
 functions, exposed both in Python and C, for generating random integer
 and floating point numbers.
 
-The \code{Generator} consumes one of the bit generators and produces variates
+The \texttt{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
 variates from common distributions were implemented, including the Ziggurat
 method for normal, exponential and gamma variates\cite{ziggurat}, and Lemire's
-method for bounded random integer generation\cite{lemire}. The \code{Generator}
-is more similar to the legacy \code{RandomState}, and its API is substantially
+method for bounded random integer generation\cite{lemire}. The \texttt{Generator}
+is more similar to the legacy \texttt{RandomState}, and its API is substantially
 the same. The key differences all relate to state management, which has been
-delegated to the bit generator. The \code{Generator} does not make the same
-stream guarantee as the \code{RandomState} object, and so variates may differ
+delegated to the bit generator. The \texttt{Generator} does not make the same
+stream guarantee as the \texttt{RandomState} object, and so variates may differ
 across versions as improved generation algorithms are
 introduced.\footnote{Despite the removal of the compatibility guarantee, simple
 reproducibility across versions is encouraged, and minor changes that do not
 produce meaningful performance gains or fix underlying bug are not generally
 adopted.}
 
-Finally, a \code{SeedSequence} is used to initialize a bit generator. The seed
+Finally, a \texttt{SeedSequence} is used to initialize a bit generator. The seed
 sequence can be initialized with no arguments, in which case it reads entropy
 from a system-dependent provider, or with a user-provided seed. The seed
 sequence then transforms the initial set of entropy into a sequence of
 high-quality pseudorandom integers, which can be used to initialize multiple bit
 generators deterministically. The key feature of a seed sequence is that
-it can be used to spawn child \code{SeedSequence}s to initialize
+it can be used to spawn child \texttt{SeedSequence}s to initialize
 multiple distinct bit generators.
 % Of course there is a diminishing chance of collisions...
 % Only found http://www.pcg-random.org/posts/developing-a-seed_seq-alternative.html
@@ -440,10 +440,10 @@ gen_1 = Generator(PCG64(children[1]))
 \end{lstlisting}
 
 While this approach retains complete flexibility, the method
-\code{np.random.default\_rng} can be used to instantiate a \code{Generator} when
+\texttt{np.random.default\_rng} can be used to instantiate a \texttt{Generator} when
 reproducibility is not needed.
 
-The final goal of the new API is to improve extensibility. \code{RandomState} is
+The final goal of the new API is to improve extensibility. \texttt{RandomState} is
 a monolithic object that obscures all of the underlying state and functions. The
 component architecture is one part of the extensibility improvements. The
 underlying functions (written in C) which transform the output of a bit
