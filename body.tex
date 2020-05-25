@@ -136,7 +136,7 @@ copying any data in memory), so that the shapes of the operands match
 Broadcasting is also applied when an array is indexed using arrays of
 indices (Fig.~\ref{fig:array-concepts}c).
 
-Other array-aware functions, such as \code{sum}, \code{mean}, and \code{maximum}, perform
+Other array-aware functions, such as \texttt{sum}, \texttt{mean}, and \texttt{maximum}, perform
 element-by-element \emph{reductions}, aggregating results across one,
 multiple, or all axes of a single array.
 For example, summing an $n$-dimensional array over $d$ axes results in a
@@ -204,7 +204,7 @@ and adds build support for Fortran and other compilers.
 Many research groups have designed large,
 complex scientific libraries, which add \emph{application specific} functionality
 to the ecosystem.
-For example, the \code{eht-imaging} library \cite{chael2019ehtim} developed by
+For example, the \texttt{eht-imaging} library \cite{chael2019ehtim} developed by
 the Event Horizon Telescope collaboration for radio interferometry imaging,
 analysis, and simulation, relies on many lower-level components of the scientific Python
 ecosystem.
@@ -215,7 +215,7 @@ SciPy supplies tools for general image processing tasks such as
 filtering and image alignment, while scikit-image, an image processing
 library that extends SciPy, provides higher-level functionality such as
 edge filters and Hough transforms.
-The \code{scipy.optimize} module performs mathematical optimization.
+The \texttt{scipy.optimize} module performs mathematical optimization.
 NetworkX \cite{SciPyProceedings_11}, a package for complex
 network analysis, is used to verify image comparison consistency.
 Astropy \cite{astropy:2013, astropy:2018} handles standard
@@ -268,7 +268,7 @@ through courses and workshops
 The recent rapid growth of data science, machine learning, and
 artificial intelligence has further and dramatically boosted the usage of
 scientific Python.  Examples of its significant application, such as the
-\code{eht-imaging} library, now exist in almost every discipline in the natural and social
+\texttt{eht-imaging} library, now exist in almost every discipline in the natural and social
 sciences.  These tools have become \emph{the primary}
 software environment in many fields.  NumPy and its ecosystem are commonly
 taught in university courses, boot camps, and summer schools, and are
@@ -283,7 +283,7 @@ NumPy and its API have become truly ubiquitous.
   \includegraphics[width=\textwidth]{static/sketches/protocol}
 
   \caption{\textbf{NumPy's API and array protocols expose new arrays to the ecosystem.}
-     In this example, NumPy's \code{mean} function is called on a Dask
+     In this example, NumPy's \texttt{mean} function is called on a Dask
      array.  The call succeeds by dispatching to the appropriate library implementation
      (i.e., Dask in this case) and results in a new Dask array.  Compare this
      code to the example code in Fig.~\ref{fig:array-concepts}g.
@@ -323,8 +323,8 @@ only those in memory for efficiency.
 In addition, there are projects that build on top of NumPy arrays as a data
 container and \textit{extend} its capabilities.  Distributed arrays are
 made possible that way by Dask, and labeled arrays---referring to dimensions of
-an array by name rather than by index for clarity, compare \code{x[:,~1]} vs.
-\code{x.loc[:,~'time']}---by xarray \cite{hoyer2017xarray}.
+an array by name rather than by index for clarity, compare \texttt{x[:,~1]} vs.
+\texttt{x.loc[:,~'time']}---by xarray \cite{hoyer2017xarray}.
 
 Such libraries often mimic the NumPy API, because it lowers the
 barrier to entry for newcomers and provides the wider community with a
