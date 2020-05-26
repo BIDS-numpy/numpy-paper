@@ -10,9 +10,9 @@ paper: $(TEX)
 	-texcount -total -brief -sum=1 methods.tex >> wordcount.tex
 	TEXINPUTS=.//: latexmk -pdf -use-make paper.tex
 
-.PHONY: supplementary
-supplementary:
-	TEXINPUTS=.//: latexmk -pdf -use-make supplementary.tex
+#.PHONY: supplementary
+#supplementary:
+#	TEXINPUTS=.//: latexmk -pdf -use-make supplementary.tex
 
 .PHONY: summary
 summary:

@@ -2,6 +2,19 @@
 
 % Packages
 \usepackage{moreverb} % for verbatim ouput (for wordcount)
+\usepackage{listings, textcomp}
+\lstset{language=Python}
+
+\lstset{ %
+  basicstyle=\ttfamily\footnotesize,  % size of fonts used for the code
+  xleftmargin=\parindent,
+  breaklines=true,   % automatic line breaking only at whitespace
+  captionpos=b,   % sets the caption-position to bottom
+  commentstyle=\color{gray},  % comment style
+  keywordstyle=\color{blue},  % keyword style
+  stringstyle=\color{red},  % string literal style
+  upquote=true  %straight single quotes (requires textcomp)
+}
 
 \usepackage[switch]{lineno}
 \linenumbers
@@ -27,7 +40,12 @@
 
 \input{body}
 
-\bibliography{references}
+\bibliography{reference}
+
+\newpage
+
+\input{methods}
+
 
 \section*{Acknowledgments}
 

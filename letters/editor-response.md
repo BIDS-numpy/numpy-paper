@@ -8,15 +8,9 @@ Specifically:
 
 % Keep it below 3700 words.
 
-\item The main text is \textbf{xxx} words.
+\item We kept the main text well below 3700 words.
 
-\item The title is now ``Array Programming with NumPy.''
-
-% Reviews start with a 200-word maximum abstract, which should set the stage and
-% end with a summary sentence.
-% This abstract cannot include references, and it's important that it makes
-% it clear that this article is a Review article.
-% I'd thus kindly ask you to revise your abstract to accommodate these requests.
+\item We changed the title to ``Array Programming with NumPy.''
 
 \item In the abstract, we removed all references,
 made clear it is a review article,
@@ -26,9 +20,11 @@ and stayed under the 200 word limit.
 \item We made the methods section into a separate Supplementary Methods PDF
 and \textbf{referenced it from the main text.}
 
-\item Four significant references are annotated.
+\item We annotated the four most significant references and moved URLs from
+the references to the text.
 
-\item All images are new and created specifically for this publication.
+\item We created all images specifically for this publication and no
+display items in our manuscript are from third parties.
 
 % Please can you complete and sign a copy of the copyright assignment form
 % (https://www.nature.com/nature/for-authors/forms-and-declarations).
