@@ -102,7 +102,7 @@ for historical reasons.
 % https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
 % https://github.com/numpy/numpy/pull/6352
 NumPy adopted an official Governance Document on October~5,
-2015\cite{NumPyProjectGovernance}.
+2015 (\url{https://numpy.org/devdocs/dev/governance/governance.html}).
 Project decisions are usually made by consensus of interested contributors.
 This means that, for most decisions, everyone is entrusted with veto power.
 A Steering Council, currently composed of 12~members, facilitates this
@@ -111,7 +111,8 @@ and reviewing contributions from the community.
 
 % https://mail.python.org/pipermail/numpy-discussion/2018-July/078476.html
 % https://github.com/numpy/numpy/pull/11865
-NumPy's official Code of Conduct was approved on September~1, 2018\cite{NumPyCodeofConduct}.
+NumPy's official Code of Conduct was approved on September~1, 2018
+(\url{https://numpy.org/devdocs/dev/conduct/code_of_conduct.html}).
 In brief, we strive to:
 \emph{be open};
 \emph{be empathetic, welcoming, friendly, and patient};
@@ -237,9 +238,10 @@ This standard will simplify downstream project and release planning.
 
 \section*{Wheels build system}
 
-A Python \emph{wheel}\cite{PEP427} is a standard file format for
-distributing Python libraries.  In addition to Python code, a
-wheel may include compiled C extensions and other binary data.
+A Python \emph{wheel} ({https://www.python.org/dev/peps/pep-0427/})
+is a standard file format for distributing Python libraries.
+In addition to Python code, a wheel may include compiled
+C extensions and other binary data.
 This is important, because many libraries, including NumPy,
 require a C compiler and other build tools to build the software
 from the source code, making it difficult for many users to install
@@ -258,10 +260,10 @@ of NumPy on these platforms.
 The technology that is used to build the wheels evolves continually.
 At the time this paper is being written, a key component is the
 \texttt{multibuild} suite of tools developed by Matthew Brett and
-other developers\cite{multibuild}.  Currently, scripts using
-\texttt{multibuild} are written for the continuous integration
-platforms Travis-CI (for Linux and Mac OSX) and Appveyor
-(for Windows).
+other developers (\url{https://github.com/matthew-brett/multibuild}).
+Currently, scripts using \texttt{multibuild} are written for
+the continuous integration platforms Travis-CI (for Linux and Mac OSX)
+and Appveyor (for Windows).
 
 \section*{Recent technical improvements}
 
@@ -306,11 +308,12 @@ To address these issues NumPy has the goal of providing the fundamental
 API for \emph{interoperability} between the various NumPy-like APIs.
 An earlier step in this direction was the implementation of the
 \texttt{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
-for most mathematical functions.\cite{NEP13}
+for most mathematical functions (\url{https://numpy.org/neps/nep-0013-ufunc-overrides.html}).
 In 2019 this was expanded more generally with the inclusion of the
 \texttt{\_\_array\_function\_\_} protocol into NumPy~1.17.
 These two protocols allow providers of array objects to be interoperable
-with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
+with the NumPy API: their arrays work correctly with almost all NumPy
+functions (\url{https://numpy.org/neps/nep-0018-array-function-protocol.html}).
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
 \texttt{import numpy as np}, it can nevertheless work for them.
@@ -460,11 +463,14 @@ explored.}
 
 At the time of writing the two fastest supercomputers in the
 world, Summit and Sierra, both have IBM POWER9 architectures
-\cite{top500nov2019}. In late 2018, Astra, the first ARM-based
-supercomputer to enter the TOP500 list, went into production\cite{
-astra-wiki}. Furthermore, over 100 billion ARM processors have been
-produced as of 2017\cite{arm-architecture}, making it the most 
-widely used instruction set architecture in the world.
+(\url{https://www.top500.org/lists/2019/11/}).
+In late 2018, Astra, the first ARM-based supercomputer
+to enter the TOP500 list, went into production
+(\url{https://en.wikichip.org/wiki/supercomputers/astra}).
+Furthermore, over 100 billion ARM processors have been produced as
+of 2017 (\url{https://en.wikipedia.org/wiki/ARM_architecture}),
+making it the most widely used instruction set architecture
+in the world.
 
 Clearly there are motivations for a large scientific computing
 software library to support POWER and ARM architectures. We've extended
@@ -473,11 +479,12 @@ our continuous integration (CI) testing to include \texttt{ppc64le}
 with the s390x architecture (IBM Z CPUs on Travis CI) so that we
 can probe the behavior of our library on a big-endian machine.
 This satisfies one of the major components of
-improved CI testing laid out in a version of our roadmap
-\cite{numpy-roadmap}---specifically, ``CI for more exotic
+improved CI testing laid out in a version of our
+roadmap---specifically, ``CI for more exotic
 platforms."
 
-PEP 599\cite{PEP599} lays out a plan for new Python binary wheel
+PEP 599 (\url{https://www.python.org/dev/peps/pep-0599/})
+lays out a plan for new Python binary wheel
 distribution support, \texttt{manylinux2014}, that adds
 support for a number of architectures supported by the CentOS
 Alternative Architecture Special Interest Group, including

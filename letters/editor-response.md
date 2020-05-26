@@ -19,8 +19,9 @@ Specifically:
 % I'd thus kindly ask you to revise your abstract to accommodate these requests.
 
 \item In the abstract, we removed all references,
-made it clear this is a review article,
-and ended with a \textbf{summary sentence.}
+made clear it is a review article,
+ended with a summary sentence,
+and stayed under the 200 word limit.
 
 \item We made the methods section into a separate Supplementary Methods PDF
 and \textbf{referenced it from the main text.}
