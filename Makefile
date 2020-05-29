@@ -16,7 +16,8 @@ paper: $(TEX)
 .PHONY: submit
 submit: paper
 	# Main
-	latexpand _main.tex > main.tex
+	latexpand --keep-comments _main.tex > main.tex
+	python move_figures.py main.tex
 	latexmk -pdf -use-make main.tex
 	sed -e $(REFERENCES) -e 'r main.bbl' -e 'd' -e '}' -i main.tex
 	# Supplement
@@ -27,11 +28,6 @@ submit: paper
 	perl -pi -e $(PATTERN1) supplementary.tex
 	latexmk -pdf -use-make supplementary.tex
 	sed -e $(PATTERN2) -e 'r supplementary.bbl' -e 'd' -e '}' -i supplementary.tex
-	@echo 
-	@echo "******************************************"
-	@echo "Final steps"
-	@echo "******************************************"
-	@echo "Deal with figures."
 
 .PHONY: summary
 summary:
