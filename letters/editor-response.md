@@ -48,39 +48,30 @@ display items in our manuscript are from third parties.
 
 ### Referee 1
 
-After considering the comments of referee 1, we decided not to make any changes.
-The review's aim is not to argue that NumPy is the best array programming library.
-We believe it is, but respect people who prefer languages like Matlab and R.
-While not a focus of our review, we do briefly mention that there are other
-powerful scientific computing environments:
-\begin{quote}
-The design of this new tool was informed by other
-powerful interactive programming languages for scientific computing
-such as Basis, Yorick, R, and APL,
-as well as commercial languages and environments like IDL and {MATLAB}.
-\end{quote}
-We also briefly mention new technology:
-\begin{quote}
-New generation languages, interpreters, and compilers, such as Rust, Julia,
-and LLVM, will invent and determine the viability of new concepts and
-data structures.
-\end{quote}
+Given how widely our philosophical outlook differs from that of referee 1, we cannot incorporate their feedback without substantially altering the gist of our paper.
+The aim of our review is not to argue that NumPy is the best array programming library.
+We believe it is, but respect the choice of those who prefer languages like Matlab and R.
+We could not find support for their statement that "vectorization is known to be hard for new programmers".
+While not a focus of our review, we did briefly mention that there are other powerful scientific computing environments:
+
+> The design of this new tool was informed by other powerful interactive programming languages for scientific computing such as Basis, Yorick, R, and APL, as well as   commercial languages and environments like IDL and MATLAB.
+
+We also mentioned new technologies on the horizon:
+
+> New generation languages, interpreters, and compilers, such as Rust, Julia, and LLVM, will invent and determine the viability of new concepts and data structures.
+
+They suggest that code should not have to be rewritten for new hardware; we would be delighted if modern compilers eventually allowed us to do so.
 
 ### Referee 2
 
-We made two changes based on the feedback from referee 2.
+We addressed the two recommendations made by referee 2: we added more background on linear algebra libraries and random number generation in the supplemental material.
 
-\begin{enumerate}
-
-\item Add more background on linear algebra libraries in supplementary methods. \textbf{sebastian}
-
-\item Add more background on PRGs in supplementary methods. \textbf{kevin}
-
-\end{enumerate}
+TODO: see what Sebastian changed
 
 ### Referee 3
 
 Referee 3 made some good points that we agree with, but they requested no changes.
+
 
 Best regards,
 
