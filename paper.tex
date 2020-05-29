@@ -1,7 +1,11 @@
-\documentclass[fleqn,10pt,twocolumn]{wlscirep}
+\documentclass[twocolumn]{article}
 
 % Packages
 \usepackage{listings, textcomp}
+\usepackage{graphicx,xcolor}
+\bibliographystyle{ieeetr}
+\RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
+
 \lstset{language=Python}
 
 \lstset{ %
@@ -21,21 +25,32 @@
    tablename=Tab.
 }
 
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
 \title{Array Programming with NumPy}
 
+% Settings for the author block
+\RequirePackage{authblk}
+\setlength{\affilsep}{1.5em}
+\renewcommand\Authfont{\fontsize{12}{12}\usefont{OT1}{phv}{b}{n}}
+\renewcommand\Affilfont{\fontsize{8}{10}\usefont{OT1}{phv}{m}{n}}
+
 \input{authors}
-
-\keywords{Scientific computing, Python, Mathematics, Array Programming}
-
-\begin{abstract}
-\input{summary} 
-\end{abstract}
 
 \begin{document}
 
 \flushbottom
 \maketitle
 \thispagestyle{empty}
+
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \begin{abstract}
+    \input{summary}
+    \end{abstract}
+    \vspace{1cm}
+  \end{@twocolumnfalse}
+]
 
 \input{body}
 
