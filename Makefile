@@ -1,4 +1,7 @@
 TEX = $(wildcard *.tex)
+REFERENCES = '/bibliography{references}/ {'
+PATTERN1 = "s/\{references\}/\{supplementary\}/"
+PATTERN2 = '/bibliography{supplementary}/ {'
 
 .PHONY: paper
 paper: $(TEX)
@@ -10,9 +13,25 @@ paper: $(TEX)
 	-texcount -total -brief -sum=1 methods.tex >> wordcount.tex
 	TEXINPUTS=.//: latexmk -pdf -use-make paper.tex
 
-#.PHONY: supplementary
-#supplementary:
-#	TEXINPUTS=.//: latexmk -pdf -use-make supplementary.tex
+.PHONY: submit
+submit: paper
+	# Main
+	latexpand _main.tex > main.tex
+	latexmk -pdf -use-make main.tex
+	sed -e $(REFERENCES) -e 'r main.bbl' -e 'd' -e '}' -i main.tex
+	# Supplement
+	latexpand _supplementary.tex > supplementary.tex
+	latexmk -pdf -use-make supplementary.tex
+	bibexport -o supplementary.bib supplementary.aux
+	sed -ie '/textbf/,+2d' supplementary.bib
+	perl -pi -e $(PATTERN1) supplementary.tex
+	latexmk -pdf -use-make supplementary.tex
+	sed -e $(PATTERN2) -e 'r supplementary.bbl' -e 'd' -e '}' -i supplementary.tex
+	@echo 
+	@echo "******************************************"
+	@echo "Final steps"
+	@echo "******************************************"
+	@echo "Deal with figures."
 
 .PHONY: summary
 summary:
