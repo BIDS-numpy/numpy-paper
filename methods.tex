@@ -34,7 +34,7 @@ The data structure stores regularly strided homogeneous data types
 inside a contiguous block memory, allowing for the efficient representation
 of $n$-dimensional data.
 More details about the data structure are given in ``The NumPy array:
-a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
+a structure for efficient numerical computation'' \cite{vanderwalt2011numpy}.
 
 The \emph{universal functions}, or more concisely, \emph{ufuncs},
 are functions written in C that implement efficient looping over
@@ -100,7 +100,7 @@ for historical reasons.
 % https://mail.python.org/pipermail/numpy-discussion/2015-October/073849.html
 % https://github.com/numpy/numpy/pull/6352
 NumPy adopted an official Governance Document on October~5,
-2015\cite{NumPyProjectGovernance}.
+2015 \cite{NumPyProjectGovernance}.
 Project decisions are usually made by consensus of interested contributors.
 This means that, for most decisions, everyone is entrusted with veto power.
 A Steering Council, currently composed of 12~members, facilitates this
@@ -109,7 +109,7 @@ and reviewing contributions from the community.
 
 % https://mail.python.org/pipermail/numpy-discussion/2018-July/078476.html
 % https://github.com/numpy/numpy/pull/11865
-NumPy's official Code of Conduct was approved on September~1, 2018\cite{NumPyCodeofConduct}.
+NumPy's official Code of Conduct was approved on September~1, 2018 \cite{NumPyCodeofConduct}.
 In brief, we strive to:
 \emph{be open};
 \emph{be empathetic, welcoming, friendly, and patient};
@@ -235,7 +235,7 @@ This standard will simplify downstream project and release planning.
 
 \subsection*{Wheels build system}
 
-A Python \emph{wheel}\cite{PEP427} is a standard file format for
+A Python \emph{wheel} \cite{PEP427} is a standard file format for
 distributing Python libraries.  In addition to Python code, a
 wheel may include compiled C extensions and other binary data.
 This is important, because many libraries, including NumPy,
@@ -256,7 +256,7 @@ of NumPy on these platforms.
 The technology that is used to build the wheels evolves continually.
 At the time this paper is being written, a key component is the
 \texttt{multibuild} suite of tools developed by Matthew Brett and
-other developers\cite{multibuild}.  Currently, scripts using
+other developers \cite{multibuild}.  Currently, scripts using
 \texttt{multibuild} are written for the continuous integration
 platforms Travis-CI (for Linux and Mac OSX) and Appveyor
 (for Windows).
@@ -304,11 +304,11 @@ To address these issues NumPy has the goal of providing the fundamental
 API for \emph{interoperability} between the various NumPy-like APIs.
 An earlier step in this direction was the implementation of the
 \texttt{\_\_array\_ufunc\_\_} protocol in NumPy 1.13, which enabled interoperability
-for most mathematical functions.\cite{NEP13}
+for most mathematical functions \cite{NEP13}.
 In 2019 this was expanded more generally with the inclusion of the
 \texttt{\_\_array\_function\_\_} protocol into NumPy~1.17.
 These two protocols allow providers of array objects to be interoperable
-with the NumPy API: their arrays work correctly with almost all NumPy functions.\cite{NEP18}
+with the NumPy API: their arrays work correctly with almost all NumPy functions \cite{NEP18}.
 For the users relying on specialized array projects it means that even though
 much code is written specifically for NumPy arrays and uses the NumPy API as
 \texttt{import numpy as np}, it can nevertheless work for them.
@@ -373,22 +373,22 @@ Bit generators are simple classes that manage the state of an underlying
 pseudorandom number generator. NumPy ships with four bit generators. The default
 bit generator is a 64-bit implementation of the Permuted Congruential Generator
 \cite{pcg64} (\texttt{PCG64}). The three other bit generators are a 64-bit version
-of the Philox generator\cite{random123} (\texttt{Philox}), Chris Doty-Humphrey's
-Small Fast Chaotic generator\cite{practrand} (\texttt{SFC64}), and the 32-bit
-Mersenne Twister\cite{mt19937} (\texttt{MT19937}) which has been used in older
+of the Philox generator \cite{random123} (\texttt{Philox}), Chris Doty-Humphrey's
+Small Fast Chaotic generator \cite{practrand} (\texttt{SFC64}), and the 32-bit
+Mersenne Twister \cite{mt19937} (\texttt{MT19937}) which has been used in older
 versions of NumPy.\footnote{The
 \href{https://github.com/bashtage/randomgen}{randomgen project} supplies a wide
 range of alternative bit generators such as a cryptographic counter-based
 generators (\texttt{AESCtr}) and generators that expose hardware random number
-generators (\texttt{RDRAND})\cite{randomgen}.} Bit generators provide
+generators (\texttt{RDRAND}) \cite{randomgen}.} Bit generators provide
 functions, exposed both in Python and C, for generating random integer
 and floating point numbers.
 
 The \texttt{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
 variates from common distributions were implemented, including the Ziggurat
-method for normal, exponential and gamma variates\cite{ziggurat}, and Lemire's
-method for bounded random integer generation\cite{lemire}. The \texttt{Generator}
+method for normal, exponential and gamma variates \cite{ziggurat}, and Lemire's
+method for bounded random integer generation \cite{lemire}. The \texttt{Generator}
 is more similar to the legacy \texttt{RandomState}, and its API is substantially
 the same. The key differences all relate to state management, which has been
 delegated to the bit generator. The \texttt{Generator} does not make the same
@@ -459,9 +459,9 @@ explored.}
 At the time of writing the two fastest supercomputers in the
 world, Summit and Sierra, both have IBM POWER9 architectures
 \cite{top500nov2019}. In late 2018, Astra, the first ARM-based
-supercomputer to enter the TOP500 list, went into production\cite{
-astra-wiki}. Furthermore, over 100 billion ARM processors have been
-produced as of 2017\cite{arm-architecture}, making it the most 
+supercomputer to enter the TOP500 list, went into production
+\cite{astra-wiki}. Furthermore, over 100 billion ARM processors have been
+produced as of 2017 \cite{arm-architecture}, making it the most 
 widely used instruction set architecture in the world.
 
 Clearly there are motivations for a large scientific computing
@@ -475,7 +475,7 @@ improved CI testing laid out in a version of our roadmap
 \cite{numpy-roadmap}---specifically, ``CI for more exotic
 platforms."
 
-PEP 599\cite{PEP599} lays out a plan for new Python binary wheel
+PEP 599 \cite{PEP599} lays out a plan for new Python binary wheel
 distribution support, \texttt{manylinux2014}, that adds
 support for a number of architectures supported by the CentOS
 Alternative Architecture Special Interest Group, including
