@@ -394,7 +394,14 @@ range of alternative bit generators such as a cryptographic counter-based
 generators (\texttt{AESCtr}) and generators that expose hardware random number
 generators (\texttt{RDRAND}) \cite{randomgen}.} Bit generators provide
 functions, exposed both in Python and C, for generating random integer
-and floating point numbers.
+and floating point numbers. The three new bit generators were chosen for their
+combination of statistical soundness and performance. The PCG family of generators
+have been widely tested using state-of-the-art statistical tests and found to
+perform well (\cite{lemire_blog}). All three of the new generators were tested
+using the PractRand test suite (\cite{practrand}) with four TB of random values.
+Each was tested using a single generator and using a composite generator assembled
+from multiple copies of the same bit generator, each seeded from a shared
+\texttt{SeedSequence}.
 
 The \texttt{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
