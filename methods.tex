@@ -34,7 +34,7 @@ The data structure stores regularly strided homogeneous data types
 inside a contiguous block memory, allowing for the efficient representation
 of $n$-dimensional data.
 More details about the data structure are given in ``The NumPy array:
-a structure for efficient numerical computation.''\cite{vanderwalt2011numpy}.
+a structure for efficient numerical computation'' \cite{vanderwalt2011numpy}.
 
 The \emph{universal functions}, or more concisely, \emph{ufuncs},
 are functions written in C that implement efficient looping over
@@ -61,9 +61,6 @@ concatenating, and padding arrays; searching, sorting and counting data
 in arrays; computing elementary statistics, such as the mean, median,
 variance, and standard deviation; file I/O; and more.
 
-A suite of functions for computing the \emph{fast Fourier transform (FFT)}
-and its inverse is provided.
-
 NumPy's linear algebra library provides an interface to established
 linear algebra methods. These include solving linear systems of equations
 and computing various matrix properties, such as the determinant,
@@ -75,7 +72,7 @@ an external implemention of the LAPACK interface \cite{LAPACK}.
 LAPACK itself was first released in 1992 and is based on the EISPACK and LINPACK
 open-source libraries. It is part of Netlib, a repository of
 mathematical software, papers and databases and has a long history of open,
-community-wide development. \cite{dongarra1990lapack,dongarra2008netlib}
+community-wide development \cite{dongarra1990lapack,dongarra2008netlib}.
 
 The random number generator library in NumPy provides alternative
 \emph{bit stream generators} that provide the core function of generating
@@ -84,6 +81,9 @@ A higher-level generator class that implements an assortment of
 probability distributions is provided. It includes the beta, gamma
 and Weibull distributions, the univariate and multivariate normal
 distributions, and more.
+
+A suite of functions for computing the \emph{fast Fourier transform (FFT)}
+and its inverse is provided.
 
 \subsection*{Infrastructure libraries}
 
@@ -385,22 +385,22 @@ Bit generators are simple classes that manage the state of an underlying
 pseudorandom number generator. NumPy ships with four bit generators. The default
 bit generator is a 64-bit implementation of the Permuted Congruential Generator
 \cite{pcg64} (\texttt{PCG64}). The three other bit generators are a 64-bit version
-of the Philox generator\cite{random123} (\texttt{Philox}), Chris Doty-Humphrey's
-Small Fast Chaotic generator\cite{practrand} (\texttt{SFC64}), and the 32-bit
-Mersenne Twister\cite{mt19937} (\texttt{MT19937}) which has been used in older
+of the Philox generator \cite{random123} (\texttt{Philox}), Chris Doty-Humphrey's
+Small Fast Chaotic generator \cite{practrand} (\texttt{SFC64}), and the 32-bit
+Mersenne Twister \cite{mt19937} (\texttt{MT19937}) which has been used in older
 versions of NumPy.\footnote{The
 \href{https://github.com/bashtage/randomgen}{randomgen project} supplies a wide
 range of alternative bit generators such as a cryptographic counter-based
 generators (\texttt{AESCtr}) and generators that expose hardware random number
-generators (\texttt{RDRAND})\cite{randomgen}.} Bit generators provide
+generators (\texttt{RDRAND}) \cite{randomgen}.} Bit generators provide
 functions, exposed both in Python and C, for generating random integer
 and floating point numbers.
 
 The \texttt{Generator} consumes one of the bit generators and produces variates
 from complicated distributions. Many improved methods for generating random
 variates from common distributions were implemented, including the Ziggurat
-method for normal, exponential and gamma variates\cite{ziggurat}, and Lemire's
-method for bounded random integer generation\cite{lemire}. The \texttt{Generator}
+method for normal, exponential and gamma variates \cite{ziggurat}, and Lemire's
+method for bounded random integer generation \cite{lemire}. The \texttt{Generator}
 is more similar to the legacy \texttt{RandomState}, and its API is substantially
 the same. The key differences all relate to state management, which has been
 delegated to the bit generator. The \texttt{Generator} does not make the same
