@@ -36,7 +36,7 @@ display items in our manuscript are from third parties.
 % Our art department will redraw your figures in full colour, but it is important
 % that you provide us with detailed and accurate versions of what you require.
 
-\item \textbf{We need to check if they can handle SVG.}
+\item We uploaded SVG versions of our main figures.  There is one figure in the supplement in PNG format.
 
 % When resubmitting your revised manuscript, please can you ensure that the file
 % is uploaded as a Word or .tex document and it is ordered as main text, tables
@@ -51,6 +51,7 @@ display items in our manuscript are from third parties.
 Given how widely our philosophical outlook differs from that of referee 1, we cannot incorporate their feedback without substantially altering the gist of our paper.
 The aim of our review is not to argue that NumPy is the best array programming library.
 We believe it is, but respect the choice of those who prefer languages like Matlab and R.
+
 We could not find support for their statement that "vectorization is known to be hard for new programmers".
 While not a focus of our review, we did briefly mention that there are other powerful scientific computing environments:
 
@@ -64,9 +65,17 @@ They suggest that code should not have to be rewritten for new hardware; we woul
 
 ### Referee 2
 
-We addressed the two recommendations made by referee 2: we added more background on linear algebra libraries and random number generation in the supplemental material.
+We addressed the two recommendations made by referee 2: we added more background on linear algebra libraries and random number generation in the supplemental material.  We didn't mention masked arrays as that is a feature we are potentially changing in the near future and wanted to avoid having this articel quickly becoming out-of-date.
 
-TODO: see what Sebastian changed
+\textbf{Linear Algebra.}
+We expanded the list of linear algebra functionality provided by NumPy,
+referenced LAPACK, and added a sentence about open source software
+that preceeded LAPACK.
+
+\textbf{Random Numbers.}
+Added text mentioning the three new bit generators we recently added support for
+including a link to empirical results testing their statistical soundness and performance.
+
 
 ### Referee 3
 
