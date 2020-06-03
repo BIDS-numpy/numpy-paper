@@ -61,18 +61,22 @@ concatenating, and padding arrays; searching, sorting and counting data
 in arrays; computing elementary statistics, such as the mean, median,
 variance, and standard deviation; file I/O; and more.
 
-NumPy's linear algebra library provides an interface to established
-linear algebra methods. These include solving linear systems of equations
-and computing various matrix properties, such as the determinant,
-the norm, the inverse, and the pseudo-inverse.
-As well as computing the Cholesky, eigenvalue, and singular value decompositions
-of a matrix and further functions.
-For best performance and reliability the algorithms are provided by leveraging
-an external implementation of the LAPACK interface \cite{LAPACK}.
-LAPACK itself was first released in 1992 and is based on the EISPACK and LINPACK
-open-source libraries. It is part of Netlib, a repository of
-mathematical software, papers and databases and has a long history of open,
-community-wide development \cite{dongarra1990lapack,dongarra2008netlib}.
+NumPy's linear algebra library includes functionality for: solving
+linear systems of equations; calculating various matrix properties
+such as the determinant, the norm, the inverse, the pseudo-inverse;
+and computing the Cholesky, eigenvalue, and singular value
+decompositions of a matrix.
+
+The NumPy module mainly provides interfaces to established
+implementations of the LAPACK (Linear Algebra PACKage) \cite{LAPACK}
+interface.  LAPACK itself, which was first released in 1992, is, in
+turn, based on the EISPACK and LINPACK open-source libraries. It is
+part of Netlib, a repository of mathematical software, papers, and
+databases, that has a long history of open, community-wide
+development \cite{dongarra1990lapack,dongarra2008netlib}. For improved
+performance, NumPy links to an accelerated BLAS (Basic Linear Algebra
+Subprograms) implementation, most commonly OpenBLAS
+(http://www.openblas.net/).
 
 The random number generator library in NumPy provides alternative
 \emph{bit stream generators} that provide the core function of generating
