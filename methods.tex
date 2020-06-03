@@ -68,7 +68,7 @@ the norm, the inverse, and the pseudo-inverse.
 As well as computing the Cholesky, eigenvalue, and singular value decompositions
 of a matrix and further functions.
 For best performance and reliability the algorithms are provided by leveraging
-an external implemention of the LAPACK interface \cite{LAPACK}.
+an external implementation of the LAPACK interface \cite{LAPACK}.
 LAPACK itself was first released in 1992 and is based on the EISPACK and LINPACK
 open-source libraries. It is part of Netlib, a repository of
 mathematical software, papers and databases and has a long history of open,
@@ -397,8 +397,8 @@ functions, exposed both in Python and C, for generating random integer
 and floating point numbers. The three new bit generators were chosen for their
 combination of statistical soundness and performance. The PCG family of generators
 have been widely tested using state-of-the-art statistical tests and found to
-perform well (\cite{lemire_blog}). All three of the new generators were tested
-using the PractRand test suite (\cite{practrand}) with four TB of random values.
+perform well \cite{lemire_blog}. All three of the new generators were tested
+using the PractRand test suite \cite{practrand} with four TB of random values.
 Each was tested using a single generator and using a composite generator assembled
 from multiple copies of the same bit generator, each seeded from a shared
 \texttt{SeedSequence}.
