@@ -18,7 +18,7 @@ ended with a summary sentence,
 and stayed under the 200 word limit.
 
 \item We made the methods section into a separate Supplementary Methods PDF
-and \textbf{referenced it from the main text.}
+and referenced it from the main text.
 
 \item We annotated the four most significant references and moved URLs from
 the references to the text.
@@ -65,12 +65,12 @@ They suggest that code should not have to be rewritten for new hardware; we woul
 
 ### Referee 2
 
-We addressed the two recommendations made by referee 2: we added more background on linear algebra libraries and random number generation in the supplemental material.  We didn't mention masked arrays as that is a feature we are potentially changing in the near future and wanted to avoid having this articel quickly becoming out-of-date.
+We addressed the two recommendations made by referee 2: we added more background on linear algebra libraries and random number generation in the supplemental material.  We didn't mention masked arrays as that is a feature we are potentially changing in the near future and wanted to avoid having this article quickly becoming out-of-date.
 
 \textbf{Linear Algebra.}
 We expanded the list of linear algebra functionality provided by NumPy,
 referenced LAPACK, and added a sentence about open source software
-that preceeded LAPACK.
+that preceded LAPACK.
 
 \textbf{Random Numbers.}
 Added text mentioning the three new bit generators we recently added support for
