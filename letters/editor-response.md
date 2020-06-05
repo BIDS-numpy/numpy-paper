@@ -42,10 +42,15 @@ the gist of our paper. The aim of our review is not to argue that NumPy
 is the best array programming library. We believe it is, but respect the
 choice of those who prefer languages like Matlab and R.
 
-We could not find support for their statement that "vectorization is
-known to be hard for new programmers". Further, while not a focus of our
-review, we did briefly mention that there are other powerful
-scientific computing environments:
+We agree that an abuse of vector syntax can produce dense,
+hard-to-read code.  However, we did not find evidence to support the
+statement that "vectorization is known to be hard for new
+programmers".  Furthermore, we have taught statistical & scientific
+computing extensively, and in our experience vector syntax is no
+harder to teach than many other programming concepts.
+
+While not a focus of our review, we did briefly mention that there are
+other powerful scientific computing environments:
 
 > The design of this new tool was informed by other powerful interactive
 > programming languages for scientific computing such as Basis, Yorick,
@@ -58,10 +63,9 @@ We also mentioned new technologies on the horizon:
 > Julia, and LLVM, will invent and determine the viability of new
 > concepts and data structures.
 
-They suggest that code should not have to be rewritten for new hardware;
-we would be delighted if modern compilers eventually allowed us to do
-so.
-
+They suggest that code should not have to be rewritten for new
+hardware; that would be ideal, and we would be delighted if modern
+compilers eventually allowed us to do so.
 
 ### Referee 2
 
@@ -83,7 +87,8 @@ results testing their statistical soundness and performance.
 ### Referee 3
 
 Referee 3 made some good points that we agree with, but they requested
-no changes.
+no changes.  They mentioned that a unified API would benefit the
+community; we agree, and are actively pursuing that goal.
 
 
 Thank you for considering our resubmission.  We appreciate how clear,
