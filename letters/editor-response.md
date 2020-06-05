@@ -1,15 +1,15 @@
 Dear Federico,
 
-Thanks again for the careful review and helpful suggestions from you
+Thank you again for the careful review and helpful suggestions from you
 and the referees.  We are delighted that you offered to publish our
-review article under a CC-BY 4.0 license and at no charge.
+review article, if accepted, under a CC-BY 4.0 license at no charge.
 
 Per your request, we revised our review to address the referees and to
 ensure that it is in Nature style throughout. Specifically:
 
 1. We kept the main text below 3700 words.
 
-2. We changed the title to ``Array Programming with NumPy.''
+2. We changed the title to "Array Programming with NumPy".
 
 3. In the abstract, we removed all references, made clear it is a
 review article, ended with a summary sentence, and stayed under the
@@ -34,7 +34,7 @@ in the supplement in PDF format.
 9. We uploaded a .tex document ordered as main text followed by figure legends.
 
 
-### Referee 1
+\subsubsection*{Referee 1}
 
 Given how widely our philosophical outlook differs from that of referee
 1, we cannot incorporate their feedback without substantially altering
@@ -67,7 +67,7 @@ They suggest that code should not have to be rewritten for new
 hardware; that would be ideal, and we would be delighted if modern
 compilers eventually allowed us to do so.
 
-### Referee 2
+\subsubsection*{Referee 2}
 
 We addressed the two recommendations made by referee 2: we added more
 background on linear algebra libraries and random number generation in
@@ -80,19 +80,16 @@ functionality provided by NumPy, referenced LAPACK, and added a sentence
 about open source software that preceded LAPACK.
 
 *Random Numbers.* Added text mentioning the three new bit
-generators we recently added support for including a link to empirical
+generators we recently added support for, including a link to empirical
 results testing their statistical soundness and performance.
 
-
-### Referee 3
+\subsubsection*{Referee 3}
 
 Referee 3 made some good points that we agree with, but they requested
 no changes.  They mentioned that a unified API would benefit the
 community; we agree, and are actively pursuing that goal.
 
-
-Thank you for considering our resubmission.  We appreciate how clear,
-responsive, and helpful you have been.
+Thank you for considering our resubmission; it's been a pleasure working with you.
 
 
 Best regards,
