@@ -1,0 +1,955 @@
+\documentclass[twocolumn]{article}
+
+\usepackage{textcomp}
+\usepackage{graphicx,xcolor}
+\bibliographystyle{ieeetr}
+\usepackage{caption}
+\RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+
+\title{Array Programming with NumPy}
+
+\RequirePackage{authblk}
+\setlength{\affilsep}{1.5em}
+\renewcommand\Authfont{\fontsize{12}{12}\usefont{OT1}{phv}{b}{n}}
+\renewcommand\Affilfont{\fontsize{8}{10}\usefont{OT1}{phv}{m}{n}}
+
+\author[1]{Charles R. Harris}
+\author[2,3,4,*]{K. Jarrod Millman}
+\author[5,2,4,*]{St\'efan J. van der Walt}
+\author[6,*]{Ralf Gommers}
+\author[7]{Pauli Virtanen}
+\author[8]{David Cournapeau}
+\author[9]{Eric Wieser}
+\author[10]{Julian Taylor}
+\author[4]{Sebastian Berg}
+\author[11]{Nathaniel J. Smith}
+\author[12]{Robert Kern}
+\author[4]{Matti Picus}
+\author[13]{Stephan Hoyer}
+\author[14]{Marten H. van Kerkwijk}
+\author[2,15]{Matthew Brett}
+\author[16]{Allan Haldane}
+\author[17]{Jaime Fern\'andez del R\'io}
+\author[18,19]{Mark Wiebe}
+\author[6,20,21]{Pearu Peterson}
+\author[22,23]{Pierre G\'erard-Marchant}
+\author[24]{Kevin Sheppard}
+\author[25]{Tyler Reddy}
+\author[4]{Warren Weckesser}
+\author[6]{Hameer Abbasi}
+\author[26]{Christoph Gohlke}
+\author[6]{Travis E. Oliphant}
+\affil[1]{Independent Researcher, Logan, Utah, USA}
+\affil[2]{Brain Imaging Center, University of California, Berkeley, Berkeley, CA, USA}
+\affil[3]{Division of Biostatistics, University of California, Berkeley, Berkeley, CA, USA}
+\affil[4]{Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA}
+\affil[5]{Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa}
+\affil[6]{Quansight LLC, Austin, TX, USA}
+\affil[7]{Department of Physics and Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland}
+\affil[8]{Mercari JP, Tokyo, Japan}
+\affil[9]{Department of Engineering, University of Cambridge, Cambridge, UK}
+\affil[10]{Independent Researcher, Karlsruhe, Germany}
+\affil[11]{Independent Researcher, Berkeley, CA, USA}
+\affil[12]{Enthought, Inc., Austin, TX, USA}
+\affil[13]{Google Research, Mountain View, CA, USA}
+\affil[14]{Department of Astronomy \& Astrophysics, University of Toronto, Toronto, ON, Canada}
+\affil[15]{School of Psychology, University of Birmingham, Edgbaston, Birmigham, UK}
+\affil[16]{Department of Physics, Temple University, Philadelphia, PA, USA}
+\affil[17]{Google, Zurich, Switzerland}
+\affil[18]{Department of Physics and Astronomy, The University of British Columbia, Vancouver, BC, Canada}
+\affil[19]{Amazon, Seattle, Washington, USA}
+\affil[20]{Independent Researcher, Saue, Estonia}
+\affil[21]{Department of Mechanics and Applied Mathematics, Institute of Cybernetics at Tallinn Technical University, Tallinn, Estonia}
+\affil[22]{Department of Biological and Agricultural Engineering, University of Georgia, Athens, GA}
+\affil[23]{France-IX Services, Paris, France}
+\affil[24]{Department of Economics, University of Oxford, Oxford, UK}
+\affil[25]{CCS-7, Los Alamos National Laboratory, Los Alamos, NM, USA}
+\affil[26]{Laboratory for Fluorescence Dynamics, Biomedical Engineering Department, University of California, Irvine, Irvine, CA, USA}
+\affil[*]{millman@berkeley.edu, stefanv@berkeley.edu, ralf.gommers@gmail.com}
+ 
+
+\begin{document}
+
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \begin{abstract}
+
+
+Array programming provides a powerful, compact, expressive syntax for accessing,
+manipulating, and operating on data in vectors, matrices, and
+higher-dimensional arrays. NumPy is the primary array programming library for the Python language.
+It plays an essential role in research analysis pipelines in fields as
+diverse as physics, chemistry, astronomy, geoscience, biology, psychology,
+material science, engineering, finance, and economics.
+For example, in astronomy, NumPy was an important part of the software stack used
+in the discovery of gravitational waves and the first imaging of a black hole. Here we review how a few fundamental array concepts lead to a simple and
+powerful programming paradigm for organizing, exploring, and analyzing
+scientific data.
+NumPy is the foundation upon which the entire scientific Python
+universe is constructed. It is so pervasive that several projects,
+targeting audiences with specialized needs, have developed their own
+NumPy-like interfaces and array objects. Because of its central position in the
+ecosystem, NumPy increasingly plays the role of an interoperability layer
+between these new array computation libraries.
+NumPy's API and its role as interoperability layer provides a flexible
+framework for the next decade of scientific and industrial analysis.
+     \end{abstract}
+    \vspace{1cm}
+  \end{@twocolumnfalse}
+]
+
+
+
+
+
+
+Two Python array packages existed before NumPy.
+The Numeric package began in the mid-1990s and provided an array object and array-aware functions
+in Python, written in C, and linking to standard fast implementations of linear
+algebra \cite{dubois1996numerical,Numericmanual}.
+One of its earliest uses was to steer C++ applications for
+inertial confinement fusion research at
+Lawrence Livermore National Laboratory \cite{yang1997steering}.
+To handle large astronomical images coming from the Hubble Space Telescope,
+a reimplementation of Numeric, called Numarray, added
+support for structured arrays, flexible indexing, memory mapping, byte-order variants,
+more efficient memory use, flexible IEEE error handling capabilities, and
+better type casting rules \cite{greenfield2003numarray}.
+While Numarray was highly compatible with Numeric, the two packages had enough
+differences that it divided the community, until 2005, when NumPy emerged as a
+``best of both worlds'' unification \cite{oliphant2006guide}---combining
+Numarray's features with Numeric's performance on small arrays and its rich C
+\emph{Application Programming Interface} (API).
+
+Now, fifteen years later, NumPy underpins almost every Python library that does scientific or
+numerical computation \cite{dubois2007guest,oliphant2007python,millman2011python,perez2011python}
+including SciPy \cite{virtanen2020scipy},
+Matplotlib \cite{hunter2007matplotlib}, pandas \cite{mckinney-proc-scipy-2010},
+scikit-learn \cite{pedregosa2011scikit}, and
+scikit-image \cite{vanderwalt2014scikit}.
+It is a community-developed, open-source library, which provides a
+multidimensional Python array object along with array-aware functions
+that operate on it.
+Because of its inherent simplicity, the NumPy array is
+the \emph{de facto} exchange format for array data in Python.
+
+NumPy operates on in-memory arrays using the CPU. To utilize modern,
+specialized storage and hardware, there has been a recent
+proliferation of Python array packages. Unlike with the Numarray and
+Numeric divide, it is now much harder for these new libraries to
+fracture the user community---given how much work already builds
+on top of NumPy.  However, to provide the ecosystem with access to
+new and exploratory technologies, NumPy is transitioning into a
+central coordinating mechanism that specifies a well-defined array
+programming API and
+dispatches it, as appropriate, to specialized array implementations.
+
+\section*{NumPy arrays}
+
+The NumPy array is a data structure that efficiently stores and accesses
+multidimensional arrays \cite{vanderwalt2011numpy}, also known as tensors, and
+enables a wide variety of scientific computation.
+It consists of a pointer to memory, along with metadata used to interpret the
+data stored there, notably {\em data type}, {\em shape}, and {\em strides}
+(Fig.~\ref{fig:array-concepts}a).
+
+The \emph{data type} describes the nature of elements stored in an array.
+An array has a single data type, and each array element occupies the same
+number of bytes in memory.
+Examples of data types include real and complex numbers (of lower and higher
+precision), strings, timestamps, and pointers to Python objects.
+
+The \emph{shape} of an array determines the number of elements along each axis,
+and the number of axes is the array's dimensionality.
+For example, a vector of numbers can be stored as a one-dimensional array of
+shape $N$, while color videos are four-dimensional arrays of shape
+$(T, M, N, 3)$.
+
+\emph{Strides} are necessary to interpret computer memory, which stores elements
+linearly, as multidimensional arrays.
+It describes the number of bytes to move forward in memory to jump from row to
+row, column to column, and so forth.
+Consider, for example, a 2-D array of floating-point numbers with shape
+$(4, 3)$, where each element occupies 8 bytes in memory.
+To move between consecutive columns, we need to jump forward 8 bytes in memory,
+and to access the next row $3 \times 8 = 24$ bytes.
+The strides of that array are therefore $(24, 8)$.  NumPy can
+store arrays in either C or Fortran memory order, iterating
+first over either rows or columns.  This allows external libraries
+written in those languages to access NumPy array data in memory directly.
+
+Users interact with NumPy arrays using {\em indexing} (to access
+subarrays or individual elements), {\em operators} (e.g., $+$, $-$, $\times$
+for vectorized operations and $@$ for matrix multiplication), as well as {\em array-aware functions};
+together, these provide an easily readable, expressive, high-level API for
+array programming, while NumPy
+deals with the underlying mechanics of making operations fast.
+
+\emph{Indexing} an array returns single elements, subarrays, or elements that satisfy
+a specific condition (Fig.~\ref{fig:array-concepts}b).
+Arrays can even be indexed using other arrays (Fig.~\ref{fig:array-concepts}c).
+Wherever possible, indexing that retrieves a subarray returns a {\em view} on
+the original array, such that data is shared between the two arrays.
+This provides a powerful way to operate on subsets of array data while
+limiting memory usage.
+
+To complement the array syntax, NumPy includes functions that perform
+\emph{vectorized} calculations on arrays, including arithmetic, statistics, and
+trigonometry (Fig.~\ref{fig:array-concepts}d).
+Vectorization---operating on whole arrays rather than their individual
+elements---is essential to array programming.
+This means that operations that would take many tens of lines to express in
+languages such as C can often be implemented as a single, clear Python
+expression.
+This results in concise code and frees users to focus on the details of
+their analysis, while NumPy handles looping over array elements near-optimally,
+taking into consideration, for example, strides, to best utilize the
+computer's fast cache memory.
+
+When performing a vectorized operation (such as addition) on two arrays with
+the same shape, it is clear what should happen.
+Through \emph{broadcasting}, NumPy allows the dimensions to differ, while
+still producing results that appeal to intuition.
+A trivial example is the addition of a scalar value to an array, but broadcasting also
+generalizes to more complex examples such as scaling each column of an array
+or generating a grid of coordinates.
+In broadcasting, one or both arrays are virtually duplicated (that is, without
+copying any data in memory), so that the shapes of the operands match
+(Fig.~\ref{fig:array-concepts}d).
+Broadcasting is also applied when an array is indexed using arrays of
+indices (Fig.~\ref{fig:array-concepts}c).
+
+Other array-aware functions, such as \texttt{sum}, \texttt{mean}, and \texttt{maximum}, perform
+element-by-element \emph{reductions}, aggregating results across one,
+multiple, or all axes of a single array.
+For example, summing an $n$-dimensional array over $d$ axes results in a
+$(n-d)$-dimensional array (Fig.~\ref{fig:array-concepts}f).
+
+NumPy also includes array-aware functions for creating, reshaping, concatenating, and padding
+arrays; searching, sorting, and counting data; and reading and writing files.
+It provides extensive support for generating pseudorandom numbers,
+includes an assortment of probability distributions, and
+performs accelerated linear algebra, utilizing one of several backends
+such as OpenBLAS \cite{wang2013augem,xianyi2012model} or Intel MKL optimized
+for the CPUs at hand (see Supplementary Methods for more details).
+
+Altogether, the combination of a simple in-memory array
+representation, a syntax that closely mimics mathematics, and a
+variety of array-aware utility functions forms a productive and
+powerfully expressive array programming language.
+
+
+
+\section*{Scientific Python ecosystem}
+
+Python is an open-source, general-purpose, interpreted programming language
+well-suited to standard programming tasks such as cleaning data,
+interacting with web resources, and parsing text.
+Adding fast array operations and linear algebra allows scientists to do all
+their work within a single language---and one that has the advantage of
+being famously easy to learn and teach, as witnessed by its adoption
+as a primary learning language in many universities.
+
+Even though NumPy is not part of Python's standard library,
+it benefits from a good relationship with the Python developers.
+Over the years, the Python language has added new features and
+special syntax so that NumPy would have a more succinct and 
+easier to read array notation.
+Since it is not part of the standard library, NumPy is able to
+dictate its own release policies and development patterns.
+
+SciPy and Matplotlib are tightly coupled with NumPy---in terms of
+history, development, and use.
+SciPy provides fundamental algorithms for scientific computing,
+including mathematical, scientific, and engineering routines.
+Matplotlib generates publication-ready figures and visualizations.
+The combination of NumPy, SciPy, and Matplotlib, together with
+an advanced interactive environment like IPython \cite{perez2007ipython},
+or Jupyter \cite{Kluyver:2016aa}, provides a solid foundation for array
+programming in Python.
+The scientific Python ecosystem (Fig.~\ref{fig:ecosystem}) builds on top of
+this foundation to provide several, widely used \emph{technique specific}
+libraries \cite{pedregosa2011scikit,vanderwalt2014scikit,SciPyProceedings_11},
+that in turn underlay numerous \emph{domain specific} projects
+\cite{astropy:2013,astropy:2018,cock2009biopython,millman2007analysis,sunpy2015,2018EGUGA..2012146H}.
+NumPy, at the base of the ecosystem of array-aware libraries,
+sets documentation standards, provides array testing infrastructure,
+and adds build support for Fortran and other compilers.
+
+Many research groups have designed large,
+complex scientific libraries, which add \emph{application specific} functionality
+to the ecosystem.
+For example, the \texttt{eht-imaging} library \cite{chael2019ehtim} developed by
+the Event Horizon Telescope collaboration for radio interferometry imaging,
+analysis, and simulation, relies on many lower-level components of the scientific Python
+ecosystem.
+NumPy arrays are used to store and manipulate numerical data at every step
+in the processing chain: from raw data through calibration and image
+reconstruction.
+SciPy supplies tools for general image processing tasks such as
+filtering and image alignment, while scikit-image, an image processing
+library that extends SciPy, provides higher-level functionality such as
+edge filters and Hough transforms.
+The \texttt{scipy.optimize} module performs mathematical optimization.
+NetworkX \cite{SciPyProceedings_11}, a package for complex
+network analysis, is used to verify image comparison consistency.
+Astropy \cite{astropy:2013, astropy:2018} handles standard
+astronomical file formats and computes time/coordinate transformations.
+Matplotlib is used to visualize data and to generate the final image of the black hole.
+
+The interactive environment created by the array programming
+foundation along with the surrounding ecosystem of tools---inside of
+IPython or Jupyter---is ideally suited to exploratory data analysis.
+Users fluidly inspect, manipulate, and visualize their data, and
+rapidly iterate to refine programming statements. These statements are
+then stitched together into imperative or functional programs, or
+notebooks containing both computation and narrative.
+Scientific computing beyond exploratory work is often done in a text editor
+or an integrated development environment (IDEs) such as Spyder.
+This rich and productive environment has made Python popular
+for scientific research.
+
+To complement this facility for exploratory work and rapid
+prototyping, NumPy has developed a culture of
+employing time-tested software engineering practices to improve collaboration and
+reduce error \cite{millman2014developing}.  This culture is not only
+adopted by leaders in the project but also enthusiastically taught to
+newcomers. The NumPy team was early in adopting distributed revision
+control and code review to improve collaboration on code, and
+continuous testing that runs an extensive battery of automated tests for
+every proposed change to NumPy.  The project also has comprehensive,
+high-quality documentation, integrated with the source
+code \cite{vanderwalt2008scipy,harrington2008scipy,harrington2009scipy}.
+
+
+
+This culture of using best practices for producing reliable scientific software
+has been adopted by the ecosystem of libraries that build on NumPy.
+For example, in a recent award given by the Royal Astronomical Society to
+Astropy, they state:
+\begin{quotation}
+\noindent\emph{The Astropy Project has provided hundreds of junior scientists
+with experience in professional-standard software development practices
+including use of version control, unit testing, code review and issue tracking
+procedures. This is a vital skill set for modern researchers that is often
+missing from formal university education in physics or astronomy.}
+\end{quotation}
+Community members explicitly work to address this lack of formal education
+through courses and workshops
+\cite{wilson-software-carpentry,hannay-scientific-software-survey,millman2018teaching}.
+
+
+The recent rapid growth of data science, machine learning, and
+artificial intelligence has further and dramatically boosted the usage of
+scientific Python.  Examples of its significant application, such as the
+\texttt{eht-imaging} library, now exist in almost every discipline in the natural and social
+sciences.  These tools have become \emph{the primary}
+software environment in many fields.  NumPy and its ecosystem are commonly
+taught in university courses, boot camps, and summer schools, and are
+at the focus of community conferences and workshops worldwide.
+
+NumPy and its API have become truly ubiquitous.
+
+\section*{Array proliferation and interoperability}
+
+
+
+NumPy provides in-memory, multidimensional, homogeneously typed
+(i.e., single pointer and strided) arrays on CPUs.  It runs on machines
+ranging from embedded devices to the world's largest supercomputers,
+with performance approaching that of compiled languages.
+For most its existence, NumPy addressed the vast majority of
+array computation use cases.
+
+However, scientific data sets now routinely exceed the memory capacity of a single machine and may
+be stored on multiple machines or in the cloud.
+In addition, the recent need to accelerate deep learning and artificial intelligence applications
+has led to the emergence of specialized accelerator hardware,
+including graphics processing units (GPUs), tensor processing units (TPUs),
+and field-programmable gate arrays (FPGAs).
+Due to its in-memory data model, NumPy is currently unable to
+utilize such storage and specialized hardware directly.  However, both
+distributed data and the parallel execution of GPUs, TPUs, and FPGAs map well
+to the \emph{paradigm} of array programming: a gap, therefore, existed between
+available modern hardware architectures and the tools necessary to
+leverage their computational power.
+
+The community's efforts to fill this gap led to a
+proliferation of new array implementations. For example, each deep learning framework created
+its own arrays; PyTorch \cite{NEURIPS2019_9015},
+Tensorflow \cite{abadi2016tensorflow}, Apache MXNet \cite{chen2015mxnet},
+and JAX arrays all have the
+capability to run on CPUs and GPUs, in a distributed fashion, utilizing lazy evaluation
+to allow for additional performance optimizations.  SciPy and PyData/Sparse both
+provide sparse arrays---which typically contain few non-zero values and store
+only those in memory for efficiency.
+In addition, there are projects that build on top of NumPy arrays as a data
+container and \textit{extend} its capabilities.  Distributed arrays are
+made possible that way by Dask, and labeled arrays---referring to dimensions of
+an array by name rather than by index for clarity, compare \texttt{x[:,~1]} vs.
+\texttt{x.loc[:,~'time']}---by xarray \cite{hoyer2017xarray}.
+
+Such libraries often mimic the NumPy API, because it lowers the
+barrier to entry for newcomers and provides the wider community with a
+stable array programming interface. This, in turn, prevents disruptive
+schisms like the divergence of Numeric and Numarray.
+But exploring new ways of working with arrays is experimental by nature
+and, in fact, several promising libraries---such as Theano and Caffe---have
+already ceased development. And each time that a user
+decides to try a new technology, they must
+change import statements and ensure that the new library implements
+all the parts of the NumPy API they currently use.
+
+Ideally, operating on specialized arrays using NumPy functions or semantics would
+simply work, so that users could write code once, and would then benefit
+from switching between NumPy arrays, GPU arrays, distributed arrays,
+and so forth, as appropriate.
+To support array operations between external array objects, NumPy
+therefore added the capability to act as a central coordination
+mechanism with a well-specified API (Fig.~\ref{fig:ecosystem}).
+
+To facilitate this \emph{interoperability}, NumPy provides
+``protocols'' (or contracts of operation), that allow for specialized arrays to be
+passed to NumPy functions (Fig.~\ref{fig:array-protocol}).
+NumPy, in turn, dispatches operations to the originating library, as required.
+Over four hundred of the most popular
+NumPy functions are supported.
+The protocols are implemented by widely used libraries such as Dask, CuPy,
+xarray, and PyData/Sparse.
+Thanks to these developments, users can now, for example, scale
+their computation from a single machine to distributed systems using Dask.
+The protocols also \textit{compose} well, allowing users to redeploy NumPy
+code at scale on distributed, multi-GPU systems via, for instance, CuPy arrays embedded in Dask
+arrays. Using NumPy's high-level API, users can leverage highly parallel code
+execution on multiple systems with millions of cores, all with minimal code
+changes \cite{entschev2019}.
+
+These array protocols are now a key feature of NumPy, and are expected to only
+increase in importance.  As with the rest of NumPy, we iteratively refine and
+add protocol designs to improve utility and simplify adoption. 
+
+\section*{Discussion}
+
+NumPy combines the expressive power of \emph{array programming},
+the performance of C, and
+the readability, usability, and versatility of Python in a mature,
+well-tested, well-documented, and community-developed library.
+Libraries in the scientific Python ecosystem provide fast implementations of most important algorithms.
+Where extreme optimization is warranted, compiled languages such as
+Cython \cite{behnel2011cython}, Numba \cite{Lam:2015:NLP:2833157.2833162},
+and Pythran \cite{guelton2015pythran}, that
+extend Python and transparently accelerate bottlenecks, can be
+used.
+Because of NumPy's simple memory model, it is easy to write low-level, hand-optimized code, usually in C
+or Fortran, to manipulate NumPy arrays and pass them back to
+Python.
+Furthermore, using array protocols, it is possible to utilize the full
+spectrum of specialized hardware acceleration with minimal changes to
+existing code.
+
+NumPy was initially developed by students, faculty, and researchers to
+provide an advanced, open-source array programming library for Python,
+which was free to use and unencumbered by license servers, dongles, and the like.
+There was a sense of building something consequential together,
+for the benefit of many others.  Participating in
+such an endeavor, within a welcoming community of like-minded
+individuals, held a powerful attraction for many early contributors.
+
+These user-developers frequently had to write code from scratch to solve
+their own or their colleagues' problems---often in low-level languages
+that precede Python, like Fortran \cite{dongarra2008netlib} and C.
+To them, the advantages of an interactive, high-level array library
+were evident. The design of this new tool was informed by other
+powerful interactive programming languages for scientific computing
+such as Basis \cite{dubois1989basis}, Yorick \cite{munro1995using}, R \cite{ihaka1996r},
+and APL \cite{iverson1962programming},
+as well as commercial languages and environments like IDL and {MATLAB}.
+
+What began as an attempt to add an array object to Python became the
+foundation of a vibrant ecosystem of tools.  Now, a large amount of
+scientific work depends on NumPy being correct, fast, and stable.  It
+is no longer a small community project, but is core scientific
+infrastructure.
+
+The developer culture has matured: while initial development was
+highly informal, NumPy now has a roadmap and a process for proposing
+and discussing large changes.  The project has formal governance
+structures and is fiscally sponsored by NumFOCUS, a nonprofit that
+promotes open practices in research, data, and scientific computing.
+Over the past few years, the project attracted its first funded
+development, sponsored by the Moore and Sloan Foundations, and
+received an award as part of the Chan Zuckerberg Initiative's
+Essentials of Open Source Software program.  With this funding, the
+project was (and is) able to have sustained focus over multiple months
+to implement substantial new features and improvements.  That said, it
+still depends heavily on contributions made by graduate students and
+researchers in their free time (see Supplementary Methods for more details).
+
+NumPy is no longer \emph{just} the foundational array library underlying
+the scientific Python ecosystem, but has also become the standard API
+for tensor computation and a central coordinating mechanism between
+array types and technologies in Python. Work continues to expand on and
+improve these interoperability features.
+
+Over the next decade, we will face several challenges.  New devices will be
+developed, and existing specialized hardware will evolve, to meet diminishing
+returns on Moore's law.  There will be more, and a wider variety of, data
+science practitioners, a significant proportion of whom will be using NumPy.
+The scale of scientific data gathering will continue to expand, with the
+adoption of devices and instruments such as light sheet microscopes and the
+Large Synoptic Survey Telescope (LSST) \cite{jenness2018lsst}.  New generation
+languages, interpreters, and compilers, such as Rust
+\cite{10.1145/2692956.2663188}, Julia \cite{Julia-2017}, and LLVM
+\cite{LLVM:CGO04}, will invent and determine the viability of new concepts and
+data structures.
+
+Through various mechanisms described in this paper, NumPy is poised to
+embrace such a changing landscape, and to continue playing a leading
+role in interactive scientific computation.  To do so will require
+sustained funding from government, academia, and industry.  But,
+importantly, it will also need a new generation of graduate students
+and other developers to engage, to build a NumPy that meets the needs
+of the next decade of data science.
+ 
+\begin{thebibliography}{10}
+
+\bibitem{dubois1996numerical}
+P.~F. Dubois, K.~Hinsen, and J.~Hugunin, ``Numerical {P}ython,'' {\em Computers
+  in Physics}, vol.~10, no.~3, pp.~262--267, 1996.
+
+\bibitem{Numericmanual}
+D.~Ascher, P.~F. Dubois, K.~Hinsen, J.~Hugunin, and T.~E. Oliphant, ``An open
+  source project: Numerical {P}ython,'' 2001.
+
+\bibitem{yang1997steering}
+T.-Y. Yang, G.~Furnish, and P.~F. Dubois, ``Steering object-oriented scientific
+  computations,'' in {\em Proceedings of TOOLS USA 97. International Conference
+  on Technology of Object Oriented Systems and Languages}, pp.~112--119, IEEE,
+  1997.
+
+\bibitem{greenfield2003numarray}
+P.~Greenfield, J.~T. Miller, J.~Hsu, and R.~L. White, ``numarray: A new
+  scientific array package for {Python},'' {\em PyCon DC}, 2003.
+
+\bibitem{oliphant2006guide}
+T.~E. Oliphant, {\em Guide to {NumPy}}.
+\newblock Trelgol Publishing USA, 1st~ed., 2006.
+
+\bibitem{dubois2007guest}
+P.~F. Dubois, ``{P}ython: Batteries included,'' {\em Computing in Science \&
+  Engineering}, vol.~9, no.~3, pp.~7--9, 2007.
+
+\bibitem{oliphant2007python}
+T.~E. Oliphant, ``{P}ython for scientific computing,'' {\em Computing in
+  Science \& Engineering}, vol.~9, pp.~10--20, May-June 2007.
+
+\bibitem{millman2011python}
+K.~J. Millman and M.~Aivazis, ``{P}ython for scientists and engineers,'' {\em
+  Computing in Science \& Engineering}, vol.~13, no.~2, pp.~9--12, 2011.
+
+\bibitem{perez2011python}
+F.~P\'{e}rez, B.~E. Granger, and J.~D. Hunter, ``{P}ython: an ecosystem for
+  scientific computing,'' {\em Computing in Science \& Engineering}, vol.~13,
+  no.~2, pp.~13--21, 2011.
+\newblock \newline \textbf{Explains why the scientific Python ecosystem is a
+  highly productive environment for research.}
+
+\bibitem{virtanen2020scipy}
+P.~Virtanen, R.~Gommers, T.~E. Oliphant, M.~Haberland, T.~Reddy, D.~Cournapeau,
+  E.~Burovski, P.~Peterson, W.~Weckesser, J.~Bright, S.~J. van~der Walt,
+  M.~Brett, J.~Wilson, K.~J. Millman, N.~Mayorov, A.~R.~J. Nelson, E.~Jones,
+  R.~Kern, E.~Larson, C.~J. Carey, I.~Polat, Y.~Feng, E.~W. Moore,
+  J.~VanderPlas, D.~Laxalde, J.~Perktold, R.~Cimrman, I.~Henriksen, E.~A.
+  Quintero, C.~R. Harris, A.~M. Archibald, A.~H. Ribeiro, F.~Pedregosa, P.~van
+  Mulbregt, and {SciPy 1.0 Contributors}, ``{SciPy} 1.0---fundamental
+  algorithms for scientific computing in {Python},'' {\em Nature Methods},
+  vol.~17, pp.~261--272, 2020.
+\newblock \newline \textbf{Introduces the SciPy library and includes a more
+  detailed history of NumPy and SciPy.}
+
+\bibitem{hunter2007matplotlib}
+J.~D. Hunter, ``Matplotlib: A {2D} graphics environment,'' {\em Computing in
+  Science \& Engineering}, vol.~9, no.~3, pp.~90--95, 2007.
+
+\bibitem{mckinney-proc-scipy-2010}
+W.~McKinney, ``Data structures for statistical computing in {Python},'' in {\em
+  Proceedings of the 9th Python in Science Conference} (S.~van~der Walt and
+  J.~Millman, eds.), pp.~51--56, 2010.
+
+\bibitem{pedregosa2011scikit}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, R.~Weiss, V.~Dubourg,
+  J.~Vanderplas, A.~Passos, D.~Cournapeau, M.~Brucher, M.~Perrot, and
+  {\'E}.~Duchesnay, ``Scikit-learn: Machine learning in {P}ython,'' {\em
+  Journal of Machine Learning Research}, vol.~12, no.~Oct, pp.~2825--2830,
+  2011.
+
+\bibitem{vanderwalt2014scikit}
+S.~van~der Walt, J.~L. Sch{\"o}nberger, J.~Nunez-Iglesias, F.~Boulogne, J.~D.
+  Warner, N.~Yager, E.~Gouillart, T.~Yu, and {the scikit-image contributors},
+  ``{scikit-image}: image processing in {P}ython,'' {\em PeerJ}, vol.~2,
+  p.~e453, 2014.
+
+\bibitem{vanderwalt2011numpy}
+S.~van~der Walt, S.~C. Colbert, and G.~Varoquaux, ``The {NumPy} array: a
+  structure for efficient numerical computation,'' {\em Computing in Science \&
+  Engineering}, vol.~13, no.~2, pp.~22--30, 2011.
+\newblock \newline \textbf{Discusses the NumPy array data structure with a
+  focus on how it enables efficient computation.}
+
+\bibitem{wang2013augem}
+Q.~Wang, X.~Zhang, Y.~Zhang, and Q.~Yi, ``Augem: automatically generate high
+  performance dense linear algebra kernels on x86 cpus,'' in {\em SC'13:
+  Proceedings of the International Conference on High Performance Computing,
+  Networking, Storage and Analysis}, pp.~1--12, IEEE, 2013.
+
+\bibitem{xianyi2012model}
+Z.~Xianyi, W.~Qian, and Z.~Yunquan, ``Model-driven level 3 blas performance
+  optimization on loongson 3a processor,'' in {\em 2012 IEEE 18th International
+  Conference on Parallel and Distributed Systems}, pp.~684--691, IEEE, 2012.
+
+\bibitem{perez2007ipython}
+F.~P{\'e}rez and B.~E. Granger, ``{IP}ython: a system for interactive
+  scientific computing,'' {\em Computing in Science \& Engineering}, vol.~9,
+  no.~3, pp.~21--29, 2007.
+
+\bibitem{Kluyver:2016aa}
+T.~Kluyver, B.~Ragan-Kelley, F.~P{\'e}rez, B.~Granger, M.~Bussonnier,
+  J.~Frederic, K.~Kelley, J.~Hamrick, J.~Grout, S.~Corlay, P.~Ivanov, D.~Avila,
+  S.~Abdalla, and C.~Willing, ``{Jupyter Notebooks}---a publishing format for
+  reproducible computational workflows,'' in {\em Positioning and Power in
+  Academic Publishing: Players, Agents and Agendas} (F.~Loizides and
+  B.~Schmidt, eds.), pp.~87--90, IOS Press, 2016.
+
+\bibitem{SciPyProceedings_11}
+A.~A. Hagberg, D.~A. Schult, and P.~J. Swart, ``Exploring network structure,
+  dynamics, and function using {NetworkX},'' in {\em Proceedings of the 7th
+  Python in Science Conference} (G.~Varoquaux, T.~Vaught, and K.~J. Millman,
+  eds.), (Pasadena, CA USA), pp.~11--15, 2008.
+
+\bibitem{astropy:2013}
+{Astropy Collaboration}, T.~P. {Robitaille}, E.~J. {Tollerud}, P.~{Greenfield},
+  M.~{Droettboom}, E.~{Bray}, T.~{Aldcroft}, M.~{Davis}, A.~{Ginsburg}, A.~M.
+  {Price-Whelan}, W.~E. {Kerzendorf}, A.~{Conley}, N.~{Crighton}, K.~{Barbary},
+  D.~{Muna}, H.~{Ferguson}, F.~{Grollier}, M.~M. {Parikh}, P.~H. {Nair}, H.~M.
+  {Unther}, C.~{Deil}, J.~{Woillez}, S.~{Conseil}, R.~{Kramer}, J.~E.~H.
+  {Turner}, L.~{Singer}, R.~{Fox}, B.~A. {Weaver}, V.~{Zabalza}, Z.~I.
+  {Edwards}, K.~{Azalee Bostroem}, D.~J. {Burke}, A.~R. {Casey}, S.~M.
+  {Crawford}, N.~{Dencheva}, J.~{Ely}, T.~{Jenness}, K.~{Labrie}, P.~L. {Lim},
+  F.~{Pierfederici}, A.~{Pontzen}, A.~{Ptak}, B.~{Refsdal}, M.~{Servillat}, and
+  O.~{Streicher}, ``{Astropy: A community Python package for astronomy},'' {\em
+  Astronomy \& Astrophysics}, vol.~558, p.~A33, Oct. 2013.
+
+\bibitem{astropy:2018}
+A.~M. {Price-Whelan}, B.~M. {Sip{\H{o}}cz}, H.~M. {G{\"u}nther}, P.~L. {Lim},
+  S.~M. {Crawford}, S.~{Conseil}, D.~L. {Shupe}, M.~W. {Craig}, N.~{Dencheva},
+  A.~{Ginsburg}, J.~T. {VanderPlas}, L.~D. {Bradley},
+  D.~{P{\'e}rez-Su{\'a}rez}, M.~{de Val-Borro}, P.~{Paper Contributors}, T.~L.
+  {Aldcroft}, K.~L. {Cruz}, T.~P. {Robitaille}, E.~J. {Tollerud},
+  A.~{Coordination Committee}, C.~{Ardelean}, T.~{Babej}, Y.~P. {Bach},
+  M.~{Bachetti}, A.~V. {Bakanov}, S.~P. {Bamford}, G.~{Barentsen}, P.~{Barmby},
+  A.~{Baumbach}, K.~L. {Berry}, F.~{Biscani}, M.~{Boquien}, K.~A. {Bostroem},
+  L.~G. {Bouma}, G.~B. {Brammer}, E.~M. {Bray}, H.~{Breytenbach},
+  H.~{Buddelmeijer}, D.~J. {Burke}, G.~{Calderone}, J.~L. {Cano
+  Rodr{\'\i}guez}, M.~{Cara}, J.~V.~M. {Cardoso}, S.~{Cheedella}, Y.~{Copin},
+  L.~{Corrales}, D.~{Crichton}, D.~{D{\textquoteright}Avella}, C.~{Deil},
+  {\'E}.~{Depagne}, J.~P. {Dietrich}, A.~{Donath}, M.~{Droettboom}, N.~{Earl},
+  T.~{Erben}, S.~{Fabbro}, L.~A. {Ferreira}, T.~{Finethy}, R.~T. {Fox}, L.~H.
+  {Garrison}, S.~L.~J. {Gibbons}, D.~A. {Goldstein}, R.~{Gommers}, J.~P.
+  {Greco}, P.~{Greenfield}, A.~M. {Groener}, F.~{Grollier}, A.~{Hagen},
+  P.~{Hirst}, D.~{Homeier}, A.~J. {Horton}, G.~{Hosseinzadeh}, L.~{Hu}, J.~S.
+  {Hunkeler}, {\v{Z}}.~{Ivezi{\'c}}, A.~{Jain}, T.~{Jenness}, G.~{Kanarek},
+  S.~{Kendrew}, N.~S. {Kern}, W.~E. {Kerzendorf}, A.~{Khvalko}, J.~{King},
+  D.~{Kirkby}, A.~M. {Kulkarni}, A.~{Kumar}, A.~{Lee}, D.~{Lenz}, S.~P.
+  {Littlefair}, Z.~{Ma}, D.~M. {Macleod}, M.~{Mastropietro}, C.~{McCully},
+  S.~{Montagnac}, B.~M. {Morris}, M.~{Mueller}, S.~J. {Mumford}, D.~{Muna},
+  N.~A. {Murphy}, S.~{Nelson}, G.~H. {Nguyen}, J.~P. {Ninan}, M.~{N{\"o}the},
+  S.~{Ogaz}, S.~{Oh}, J.~K. {Parejko}, N.~{Parley}, S.~{Pascual}, R.~{Patil},
+  A.~A. {Patil}, A.~L. {Plunkett}, J.~X. {Prochaska}, T.~{Rastogi}, V.~{Reddy
+  Janga}, J.~{Sabater}, P.~{Sakurikar}, M.~{Seifert}, L.~E. {Sherbert},
+  H.~{Sherwood-Taylor}, A.~Y. {Shih}, J.~{Sick}, M.~T. {Silbiger},
+  S.~{Singanamalla}, L.~P. {Singer}, P.~H. {Sladen}, K.~A. {Sooley},
+  S.~{Sornarajah}, O.~{Streicher}, P.~{Teuben}, S.~W. {Thomas}, G.~R.
+  {Tremblay}, J.~E.~H. {Turner}, V.~{Terr{\'o}n}, M.~H. {van Kerkwijk}, A.~{de
+  la Vega}, L.~L. {Watkins}, B.~A. {Weaver}, J.~B. {Whitmore}, J.~{Woillez},
+  V.~{Zabalza}, and A.~{Contributors}, ``{The Astropy Project: Building an
+  Open-science Project and Status of the v2.0 Core Package},'' {\em The
+  Astronomical Journal}, vol.~156, p.~123, Sept. 2018.
+
+\bibitem{cock2009biopython}
+P.~J. Cock, T.~Antao, J.~T. Chang, B.~A. Chapman, C.~J. Cox, A.~Dalke,
+  I.~Friedberg, T.~Hamelryck, F.~Kauff, B.~Wilczynski, F.~Kauff, B.~Wilczynski,
+  and M.~J.~L. de~Hoon, ``Biopython: freely available {Python} tools for
+  computational molecular biology and bioinformatics,'' {\em Bioinformatics},
+  vol.~25, no.~11, pp.~1422--1423, 2009.
+
+\bibitem{millman2007analysis}
+K.~J. Millman and M.~Brett, ``Analysis of functional {Magnetic Resonance
+  Imaging} in {P}ython,'' {\em Computing in Science \& Engineering}, vol.~9,
+  no.~3, pp.~52--55, 2007.
+
+\bibitem{sunpy2015}
+T.~{SunPy Community}, S.~J. {Mumford}, S.~{Christe}, D.~{P{\'e}rez-Su{\'a}rez},
+  J.~{Ireland}, A.~Y. {Shih}, A.~R. {Inglis}, S.~{Liedtke}, R.~J. {Hewett},
+  F.~{Mayer}, K.~{Hughitt}, N.~{Freij}, T.~{Meszaros}, S.~M. {Bennett},
+  M.~{Malocha}, J.~{Evans}, A.~{Agrawal}, A.~J. {Leonard}, T.~P. {Robitaille},
+  B.~{Mampaey}, J.~{Iv{\'a}n Campos-Rozo}, and M.~S. {Kirk}, ``{SunPy---Python
+  for solar physics},'' {\em Computational Science and Discovery}, vol.~8,
+  p.~014009, Jan. 2015.
+
+\bibitem{2018EGUGA..2012146H}
+J.~{Hamman}, M.~{Rocklin}, and R.~{Abernathy}, ``{Pangeo: A Big-data Ecosystem
+  for Scalable Earth System Science},'' in {\em EGU General Assembly Conference
+  Abstracts}, EGU General Assembly Conference Abstracts, p.~12146, Apr 2018.
+
+\bibitem{chael2019ehtim}
+A.~A. Chael, K.~L. Bouman, M.~D. Johnson, R.~Narayan, S.~S. Doeleman, J.~F.
+  Wardle, L.~L. Blackburn, K.~Akiyama, M.~Wielgus, C.-k. Chan, {\em et~al.},
+  ``ehtim: Imaging, analysis, and simulation software for radio
+  interferometry,'' {\em Astrophysics Source Code Library}, 2019.
+
+\bibitem{millman2014developing}
+K.~J. Millman and F.~P{\'e}rez, ``Developing open-source scientific practice,''
+  {\em Implementing Reproducible Research. CRC Press, Boca Raton, FL},
+  pp.~149--183, 2014.
+\newblock \newline \textbf{Describes the software engineering practices
+  embraced by the NumPy and SciPy communities with a focus on how these
+  practices improve research.}
+
+\bibitem{vanderwalt2008scipy}
+S.~van~der Walt, ``The {SciPy} documentation project (technical overview),'' in
+  {\em Proceedings of the 7th {P}ython in Science Conference (SciPy 2008)}
+  (G.~Varoquaux, T.~Vaught, and K.~J. Millman, eds.), pp.~27--28, 2008.
+
+\bibitem{harrington2008scipy}
+J.~Harrington, ``The {SciPy} documentation project,'' in {\em Proceedings of
+  the 7th {P}ython in Science Conference (SciPy 2008)} (G.~Varoquaux,
+  T.~Vaught, and K.~J. Millman, eds.), pp.~33--35, 2008.
+
+\bibitem{harrington2009scipy}
+J.~Harrington and D.~Goldsmith, ``Progress report: {NumPy} and {SciPy}
+  documentation in 2009,'' in {\em Proceedings of the 8th {P}ython in Science
+  Conference (SciPy 2009)} (G.~Varoquaux, S.~van~der Walt, and K.~J. Millman,
+  eds.), pp.~84--87, 2009.
+
+\bibitem{wilson-software-carpentry}
+G.~Wilson, ``Software carpentry: Getting scientists to write better code by
+  making them more productive,'' {\em Computing in Science \& Engineering},
+  November--December 2006.
+
+\bibitem{hannay-scientific-software-survey}
+J.~E. Hannay, H.~P. Langtangen, C.~MacLeod, D.~Pfahl, J.~Singer, and G.~Wilson,
+  ``How do scientists develop and use scientific software?,'' in {\em Proc.
+  2009 ICSE Workshop on Software Engineering for Computational Science and
+  Engineering}, 2009.
+
+\bibitem{millman2018teaching}
+K.~J. Millman, M.~Brett, R.~Barnowski, and J.-B. Poline, ``Teaching
+  computational reproducibility for neuroimaging,'' {\em Frontiers in
+  Neuroscience}, vol.~12, p.~727, 2018.
+
+\bibitem{NEURIPS2019_9015}
+A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
+  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Kopf, E.~Yang, Z.~DeVito,
+  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and
+  S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning
+  library,'' in {\em Advances in Neural Information Processing Systems 32}
+  (H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d\textquotesingle
+  Alch\'{e}-Buc, E.~Fox, and R.~Garnett, eds.), pp.~8024--8035, Curran
+  Associates, Inc., 2019.
+
+\bibitem{abadi2016tensorflow}
+M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro, G.~S. Corrado,
+  A.~Davis, J.~Dean, M.~Devin, {\em et~al.}, ``Tensorflow: Large-scale machine
+  learning on heterogeneous distributed systems,'' {\em arXiv preprint
+  arXiv:1603.04467}, 2016.
+
+\bibitem{chen2015mxnet}
+T.~Chen, M.~Li, Y.~Li, M.~Lin, N.~Wang, M.~Wang, T.~Xiao, B.~Xu, C.~Zhang, and
+  Z.~Zhang, ``Mxnet: A flexible and efficient machine learning library for
+  heterogeneous distributed systems,'' {\em arXiv preprint arXiv:1512.01274},
+  2015.
+
+\bibitem{hoyer2017xarray}
+S.~Hoyer and J.~Hamman, ``xarray: {N-D} labeled arrays and datasets in
+  {Python},'' {\em Journal of Open Research Software}, vol.~5, no.~1, 2017.
+
+\bibitem{entschev2019}
+P.~Entschev, ``{D}istributed multi-{GPU} computing with {D}ask, {C}u{P}y and
+  {RAPIDS}.'' EuroPython 2019, 2019.
+
+\bibitem{behnel2011cython}
+S.~Behnel, R.~Bradshaw, C.~Citro, L.~Dalcin, D.~S. Seljebotn, and K.~Smith,
+  ``Cython: The best of both worlds,'' {\em Computing in Science \&
+  Engineering}, vol.~13, no.~2, pp.~31--39, 2011.
+
+\bibitem{Lam:2015:NLP:2833157.2833162}
+S.~K. Lam, A.~Pitrou, and S.~Seibert, ``Numba: A {LLVM}-based {P}ython {JIT}
+  compiler,'' in {\em Proceedings of the Second Workshop on the LLVM Compiler
+  Infrastructure in HPC}, LLVM '15, (New York, NY, USA), pp.~7:1--7:6, ACM,
+  2015.
+
+\bibitem{guelton2015pythran}
+S.~Guelton, P.~Brunet, M.~Amini, A.~Merlini, X.~Corbillon, and A.~Raynaud,
+  ``Pythran: Enabling static optimization of scientific python programs,'' {\em
+  Computational Science \& Discovery}, vol.~8, no.~1, p.~014001, 2015.
+
+\bibitem{dongarra2008netlib}
+J.~Dongarra, G.~H. Golub, E.~Grosse, C.~Moler, and K.~Moore, ``Netlib and
+  na-net: Building a scientific computing community,'' {\em IEEE Annals of the
+  History of Computing}, vol.~30, no.~2, pp.~30--41, 2008.
+
+\bibitem{dubois1989basis}
+P.~F. Dubois, ``The basis system,'' tech. rep., Lawrence Livermore National
+  Laboratory, CA (USA), 1989.
+\newblock UCRL-MA-118543, Parts I-VI.
+
+\bibitem{munro1995using}
+D.~H. Munro and P.~F. Dubois, ``Using the yorick interpreted language,'' {\em
+  Computers in Physics}, vol.~9, no.~6, pp.~609--615, 1995.
+
+\bibitem{ihaka1996r}
+R.~Ihaka and R.~Gentleman, ``R: a language for data analysis and graphics,''
+  {\em Journal of Computational and Graphical Statistics}, vol.~5, no.~3,
+  pp.~299--314, 1996.
+
+\bibitem{iverson1962programming}
+K.~E. Iverson, ``A programming language,'' in {\em Proceedings of the May 1-3,
+  1962, Spring Joint Computer Conference}, pp.~345--351, 1962.
+
+\bibitem{jenness2018lsst}
+T.~Jenness, F.~Economou, K.~Findeisen, F.~Hernandez, J.~Hoblitt, K.~S.
+  Krughoff, K.~Lim, R.~H. Lupton, F.~Mueller, W.~O'Mullane, {\em et~al.},
+  ``Lsst data management software development practices and tools,'' in {\em
+  Software and Cyberinfrastructure for Astronomy V}, vol.~10707, p.~1070709,
+  International Society for Optics and Photonics, 2018.
+
+\bibitem{10.1145/2692956.2663188}
+N.~D. Matsakis and F.~S. Klock, ``The rust language,'' {\em Ada Letters},
+  vol.~34, pp.~103--104, Oct. 2014.
+
+\bibitem{Julia-2017}
+J.~Bezanson, A.~Edelman, S.~Karpinski, and V.~B. Shah, ``Julia: A fresh
+  approach to numerical computing,'' {\em SIAM {R}eview}, vol.~59, no.~1,
+  pp.~65--98, 2017.
+
+\bibitem{LLVM:CGO04}
+C.~Lattner and V.~Adve, ``{LLVM}: A compilation framework for lifelong program
+  analysis and transformation,'' (San Jose, CA, USA), pp.~75--88, Mar 2004.
+
+\end{thebibliography}
+
+
+\section*{Acknowledgments}
+
+We thank Ross Barnowski, Paul Dubois, Michael Eickenberg, and Perry Greenfield, who
+suggested text and provided helpful feedback on the manuscript.
+
+We also thank the many members of the community who provided
+feedback, submitted bug reports, made improvements to the documentation,
+code, or website, promoted NumPy's use in their scientific fields, and built
+the vast ecosystem of tools and libraries around NumPy.
+We also gratefully acknowledge the Numeric and Numarray developers
+on whose work we built.  
+
+Jim Hugunin wrote Numeric in 1995, while a graduate student at MIT.
+Hugunin based his package on previous work by Jim Fulton, then working at the
+US Geological Survey, with input from many others.
+After he graduated, Paul Dubois at the Lawrence Livermore National Laboratory
+became the maintainer.
+Many people contributed to the project including T.E.O. (a co-author
+of this paper), David Ascher, Tim Peters, and Konrad Hinsen.
+
+In 1998 the Space Telescope Science Institute started using Python
+and in 2000 began developing a new array package called Numarray, written
+almost entirely by Jay Todd Miller, starting from a prototype developed by
+Perry Greenfield.  Other contributors included Richard L. White, J. C. Hsu,
+Jochen Krupper, and Phil Hodge.
+The Numeric/Numarray split divided the community, yet ultimately pushed
+progress much further and faster than would otherwise have been possible. 
+
+Shortly after Numarray development started, T.E.O. took over maintenance of
+Numeric. In 2005, he led the effort and did most of the work to unify Numeric
+and Numarray, and produce the first version of NumPy.
+
+Eric Jones co-founded (along with T.E.O. and P.P.) the SciPy community, gave early feedback on array
+implementations, and provided funding and travel support to several
+community members.
+Numerous people contributed to the creation and
+growth of the larger SciPy ecosystem, which gives NumPy much of its
+value. Others injected new energy and ideas by creating experimental
+array packages.
+
+K.J.M. and S.J.v.d.W. were funded in part by the Gordon and Betty Moore
+Foundation through Grant GBMF3834 and by the Alfred P. Sloan Foundation through
+Grant 2013-10-27 to the University of California, Berkeley.
+S.J.v.d.W., S.B., M.P., and W.W. were funded in part by the Gordon
+and Betty Moore Foundation through Grant GBMF5447 and by the Alfred
+P. Sloan Foundation through Grant G-2017-9960 to the University of
+California, Berkeley.
+
+\section*{Author Contributions Statement}
+
+K.J.M. and S.J.v.d.W. composed the manuscript with input from others.
+S.B., R.G., K.S., W.W., M.B., and T.J.R. contributed text.
+All authors have contributed significant code, documentation, and/or expertise
+to the NumPy project.
+All authors reviewed the manuscript.
+
+\section*{Competing Interests}
+
+The authors declare no competing interests.
+
+\section*{Figures}
+
+\begin{figure*}[h]
+  \centering
+
+  \caption{\textbf{The NumPy array incorporates several fundamental array concepts.}
+    \textbf{a,} The NumPy array data structure and its associated metadata fields.
+    \textbf{b,} Indexing an array with slices and steps. These
+  operations return a \emph{view} of the original data.
+    \textbf{c,} Indexing an array with masks, scalar coordinates, or
+  other arrays, so that it returns a copy of the original data. In the
+  bottom example, an array is indexed with other arrays; this broadcasts the indexing arguments before performing the lookup.
+    \textbf{d,} Vectorization efficiently applies operations to groups
+  of elements.
+    \textbf{e,} Broadcasting in the multiplication of two-dimensional arrays.
+    \textbf{f,} Reduction operations act along one or more axes. In this
+    example, an array is summed along select axes to produce a vector, or along two axes consecutively to
+    produce a scalar.
+    \textbf{g,} Example NumPy code, illustrating some of these concepts.
+   }
+  \label{fig:array-concepts}
+\end{figure*}
+
+\begin{figure}
+  \centering
+
+  \caption{\textbf{NumPy is the base of the scientific Python ecosystem.}
+   Essential libraries and projects that depend on NumPy's API gain access to new array
+   implementations that support NumPy's array protocols (Fig.~\ref{fig:array-protocol}).
+  }
+  \label{fig:ecosystem}
+\end{figure}
+
+\begin{figure*}
+  \centering
+
+  \caption{\textbf{NumPy's API and array protocols expose new arrays to the ecosystem.}
+     In this example, NumPy's \texttt{mean} function is called on a Dask
+     array.  The call succeeds by dispatching to the appropriate library implementation
+     (i.e., Dask in this case) and results in a new Dask array.  Compare this
+     code to the example code in Fig.~\ref{fig:array-concepts}g.
+  }\label{fig:array-protocol}
+
+\end{figure*}
+
+\end{document}

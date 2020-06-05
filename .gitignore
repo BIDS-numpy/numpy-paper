@@ -7,6 +7,5 @@
 *.bbl
 *.out
 *.blg
-paper.pdf
 wordcount.tex
 summarycount.tex
