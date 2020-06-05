@@ -1,8 +1,8 @@
 Dear Federico,
 
-Thanks again for the careful review and helpful suggestions from you and the referees.
-We are very happy that you offered to publish our review article open access
-under a CC-BY 4.0 license, at no charge.
+Thanks again for the careful review and helpful suggestions from you
+and the referees.  We are delighted that you offered to publish our
+review article under a CC-BY 4.0 license and at no charge.
 
 Per your request, we revised our review to address the referees and to
 ensure that it is in Nature style throughout. Specifically:
@@ -11,10 +11,9 @@ ensure that it is in Nature style throughout. Specifically:
 
 2. We changed the title to ``Array Programming with NumPy.''
 
-3. In the abstract, we removed all references,
-made clear it is a review article,
-ended with a summary sentence,
-and stayed under the 200 word limit.
+3. In the abstract, we removed all references, made clear it is a
+review article, ended with a summary sentence, and stayed under the
+200 word limit.
 
 4. We made the methods section into a separate Supplementary Methods PDF
 and referenced it from the main text.
@@ -26,13 +25,13 @@ the references to the text.
 display items in our manuscript are from third parties.
 
 7. Per your email, we uploaded the final version of our review without
-signing the license to publish form.  We are waiting for you to send
-another one that includes the right license.
+signing the original copyright assignment form.  We will wait for you
+to send another one with the right license.
 
-8. We uploaded SVG versions of our main figures.
-There is one figure in the supplement in PDF format.
+8. We uploaded SVG versions of our main figures.  There is one figure
+in the supplement in PDF format.
 
-9. We uploaded a .tex document ordered as main text and then figure legends.
+9. We uploaded a .tex document ordered as main text followed by figure legends.
 
 
 ### Referee 1
@@ -44,9 +43,9 @@ is the best array programming library. We believe it is, but respect the
 choice of those who prefer languages like Matlab and R.
 
 We could not find support for their statement that "vectorization is
-known to be hard for new programmers". While not a focus of our review,
-we did briefly mention that there are other powerful scientific
-computing environments:
+known to be hard for new programmers". Further, while not a focus of our
+review, we did briefly mention that there are other powerful
+scientific computing environments:
 
 > The design of this new tool was informed by other powerful interactive
 > programming languages for scientific computing such as Basis, Yorick,
@@ -63,13 +62,14 @@ They suggest that code should not have to be rewritten for new hardware;
 we would be delighted if modern compilers eventually allowed us to do
 so.
 
+
 ### Referee 2
 
 We addressed the two recommendations made by referee 2: we added more
 background on linear algebra libraries and random number generation in
-the supplemental material. We didn't mention masked arrays as that is a
-feature we are potentially changing in the near future and wanted to
-avoid having this article quickly becoming out-of-date.
+the supplemental material. We didn't mention masked arrays as that is
+a feature that will likely change (and perhaps even move out of NumPy)
+in the near future.
 
 *Linear Algebra.* We expanded the list of linear algebra
 functionality provided by NumPy, referenced LAPACK, and added a sentence
@@ -79,12 +79,19 @@ about open source software that preceded LAPACK.
 generators we recently added support for including a link to empirical
 results testing their statistical soundness and performance.
 
+
 ### Referee 3
 
 Referee 3 made some good points that we agree with, but they requested
 no changes.
 
+
+Thank you for considering our resubmission.  We appreciate how clear,
+responsive, and helpful you have been.
+
+
 Best regards,
+
 
 Stéfan van der Walt
 
