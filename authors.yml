@@ -10,7 +10,7 @@ auth:
   - Ralf Gommers:
       institute: [quan, corr]
   - Pauli Virtanen:
-      institute: [jyva]
+      institute: [jyv1, jyv2]
   - David Cournapeau:
       institute: [merc]
   - Eric Wieser:
@@ -61,7 +61,8 @@ inst:
   - bids: Berkeley Institute for Data Science, University of California, Berkeley, Berkeley, CA, USA
   - stel: Applied Mathematics, Stellenbosch University, Stellenbosch, South Africa
   - quan: Quansight LLC, Austin, TX, USA
-  - jyva: Department of Physics and Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
+  - jyv1: Department of Physics, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
+  - jyv2: Nanoscience Center, University of Jyv\"askyl\"a, Jyv\"askyl\"a, Finland
   - merc: Mercari JP, Tokyo, Japan
   - camb: Department of Engineering, University of Cambridge, Cambridge, UK 
   - ind2: Independent Researcher, Karlsruhe, Germany
