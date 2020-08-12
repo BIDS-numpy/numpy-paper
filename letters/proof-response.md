@@ -1,3 +1,9 @@
+# General comments
+
+They replaced `array programming` with `array-programming` in a few places.
+I am not sure why they decided to use both `array programming` and `array-programming`.
+We should only use `array programming`.
+
 # Q1.
 
 Display items are correct.  We have uploaded a new version of the
